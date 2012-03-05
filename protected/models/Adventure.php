@@ -7,6 +7,9 @@
  * @property integer $id
  * @property string $name
  * @property string $description
+ *
+ * The followings are the available model relations:
+ * @property AdventureStep[] $adventureSteps
  */
 class Adventure extends CActiveRecord
 {
@@ -52,6 +55,7 @@ class Adventure extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'adventureSteps' => array(self::HAS_MANY, 'AdventureStep', 'adventure'),
 		);
 	}
 

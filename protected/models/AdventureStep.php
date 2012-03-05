@@ -5,8 +5,12 @@
  *
  * The followings are the available columns in table 'AdventureStep':
  * @property integer $id
+ * @property integer $adventure
  * @property string $name
  * @property string $description
+ *
+ * The followings are the available model relations:
+ * @property Adventure $adventure0
  */
 class AdventureStep extends CActiveRecord
 {
@@ -36,11 +40,12 @@ class AdventureStep extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description', 'required'),
+			array('adventure, name, description', 'required'),
+			array('adventure', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>256),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, description', 'safe', 'on'=>'search'),
+			array('id, adventure, name, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,6 +57,7 @@ class AdventureStep extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'adventure0' => array(self::BELONGS_TO, 'Adventure', 'adventure'),
 		);
 	}
 
@@ -62,6 +68,7 @@ class AdventureStep extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'adventure' => 'Adventure',
 			'name' => 'Name',
 			'description' => 'Description',
 		);
@@ -79,6 +86,7 @@ class AdventureStep extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('adventure',$this->adventure);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
 
