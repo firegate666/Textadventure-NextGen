@@ -1,0 +1,10 @@
+.buildpath
+.project
+.settings
+nbproject
+
+assets/*
+protected/runtime/application.log
+
+*.tmp
+*.bak
