@@ -4,7 +4,9 @@
 nbproject
 
 assets/*
-protected/runtime/application.log
+protected/runtime/*
+
+protected/config/*_local.php
 
 *.tmp
 *.bak
