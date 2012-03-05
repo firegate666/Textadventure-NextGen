@@ -2,11 +2,11 @@
 
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/protected/vendors/yii/framework/yii.php';
-$config=dirname(__FILE__).'/protected/config/main.php';
+$config=include dirname(__FILE__).'/protected/config/main.php';
 
 if (file_exists(dirname(__FILE__).'/protected/config/main_local.php'))
 {
-	$config_local = dirname(__FILE__).'/protected/config/main_local.php';
+	$config_local = include dirname(__FILE__).'/protected/config/main_local.php';
 	$config = array_merge_recursive($config, $config_local);
 }
 
