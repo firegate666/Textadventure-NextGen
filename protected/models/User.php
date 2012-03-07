@@ -12,10 +12,14 @@
  *
  * The followings are the available model relations:
  * @property User $group
- * @property User[] $users
  */
 class User extends CActiveRecord
 {
+
+	public $newPassword = '';
+
+	public $newPasswordConfirm = '';
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -44,7 +48,7 @@ class User extends CActiveRecord
 		return array(
 			array('username, password, salt, email, groupId', 'required'),
 			array('groupId', 'numerical', 'integerOnly'=>true),
-			array('username, password, salt, email', 'length', 'max'=>128),
+			array('username, password, newPassword, newPasswordConfirm, salt, email', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, username, password, email, groupId', 'safe', 'on'=>'search'),
@@ -72,6 +76,8 @@ class User extends CActiveRecord
 			'id' => 'ID',
 			'username' => 'Username',
 			'password' => 'Password',
+			'newPassword' => 'New Password',
+			'newPasswordConfirm' => 'New Password Confirmation',
 			'salt' => 'Salt',
 			'email' => 'Email',
 			'groupId' => 'Group',
@@ -143,6 +149,17 @@ class User extends CActiveRecord
 			$this->salt = $this->generateSalt();
 		}
 
+		if (!empty($this->newPassword))
+		{
+			if ($this->newPassword == $this->newPasswordConfirm)
+			{
+				$this->password = $this->hashPassword($this->newPassword, $this->salt);
+			}
+			else
+			{
+				$this->addError('newPasswordConfirm', 'Passwords do not match');
+			}
+		}
 		
 		return $isValid;
 	}
