@@ -130,4 +130,18 @@ class User extends CActiveRecord
 	{
 		return uniqid('',true);
 	}
+	
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see CModel::beforeValidate()
+	 */
+	protected function beforeValidate()
+	{
+		parent::beforeValidate();
+		if (empty($this->salt))
+		{
+			$this->salt = $this->generateSalt();
+		}
+	}
 }
