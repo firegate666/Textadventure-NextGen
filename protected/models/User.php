@@ -137,10 +137,13 @@ class User extends CActiveRecord
 	 */
 	protected function beforeValidate()
 	{
-		parent::beforeValidate();
+		$isValid = parent::beforeValidate();
 		if (empty($this->salt))
 		{
 			$this->salt = $this->generateSalt();
 		}
+
+		
+		return $isValid;
 	}
 }
