@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'UserGroup':
  * @property integer $id
- * @property integer $name
+ * @property string $name
  */
 class UserGroup extends CActiveRecord
 {
@@ -36,7 +36,7 @@ class UserGroup extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
-			array('name', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>256),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name', 'safe', 'on'=>'search'),

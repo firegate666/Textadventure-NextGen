@@ -42,9 +42,9 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email, groupId', 'required'),
+			array('username, password, salt, email, groupId', 'required'),
 			array('groupId', 'numerical', 'integerOnly'=>true),
-			array('username, password, email', 'length', 'max'=>128),
+			array('username, password, salt, email', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, username, password, email, groupId', 'safe', 'on'=>'search'),
@@ -73,6 +73,7 @@ class User extends CActiveRecord
 			'id' => 'ID',
 			'username' => 'Username',
 			'password' => 'Password',
+			'salt' => 'Salt',
 			'email' => 'Email',
 			'groupId' => 'Group',
 		);
@@ -98,5 +99,35 @@ class User extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	
+	/**
+	 * Checks if the given password is correct.
+	 * @param string the password to be validated
+	 * @return boolean whether the password is valid
+	 */
+	public function validatePassword($password)
+	{
+		return $this->hashPassword($password,$this->salt)===$this->password;
+	}
+	
+	/**
+	 * Generates the password hash.
+	 * @param string password
+	 * @param string salt
+	 * @return string hash
+	 */
+	public function hashPassword($password,$salt)
+	{
+		return md5($salt.$password);
+	}
+	
+	/**
+	 * Generates a salt that can be used to generate a password hash.
+	 * @return string the salt
+	 */
+	protected function generateSalt()
+	{
+		return uniqid('',true);
 	}
 }
