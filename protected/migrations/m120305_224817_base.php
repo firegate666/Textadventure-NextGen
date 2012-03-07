@@ -68,3 +68,4 @@ class m120305_224817_base extends CDbMigration {
 	 * safeUp() { } public function safeDown() { }
 	 */
 }
+

@@ -24,4 +24,5 @@ $this->menu=array(
 		'email',
 		'groupId',
 	),
-)); ?>
+));
+?>
