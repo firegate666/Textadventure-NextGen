@@ -60,7 +60,6 @@ class User extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'group' => array(self::BELONGS_TO, 'User', 'groupid'),
-			'users' => array(self::HAS_MANY, 'User', 'groupid'),
 		);
 	}
 
@@ -119,7 +118,7 @@ class User extends CActiveRecord
 	 */
 	public function hashPassword($password,$salt)
 	{
-		return md5($salt.$password);
+		return md5($password.$salt);
 	}
 	
 	/**
