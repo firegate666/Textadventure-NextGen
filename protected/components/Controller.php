@@ -23,4 +23,16 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
+	/**
+	 * test if logged in user is admin
+	 * 
+	 * @return boolean
+	 */
+	protected function userIsAdmin()
+	{
+		$id = Yii::app()->user->id;
+		$user = User::model()->findByPk($id);
+		return $user->isAdmin();
+	}
+
 }

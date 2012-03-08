@@ -14,6 +14,12 @@
 		<?php echo $form->textField($model,'name'); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'isAdmin'); ?>
+		<?php echo $form->checkBox($model,'isAdmin'); ?>
+		<?php echo $form->error($model,'isAdmin'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

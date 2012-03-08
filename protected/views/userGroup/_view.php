@@ -8,5 +8,8 @@
 	<?php echo CHtml::encode($data->name); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('isAdmin')); ?>:</b>
+	<?php echo CHtml::encode($data->isAdmin); ?>
+	<br />
 
 </div>

@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'UserGroup':
  * @property integer $id
  * @property string $name
+ * @property boolean $isAdmin
  */
 class UserGroup extends CActiveRecord
 {
@@ -53,9 +54,10 @@ class UserGroup extends CActiveRecord
 		return array(
 			array('name', 'required'),
 			array('name', 'length', 'max'=>256),
+			array('isAdmin', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name', 'safe', 'on'=>'search'),
+			array('id, name, isAdmin', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -78,6 +80,7 @@ class UserGroup extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'isAdmin' => 'Is admin?',
 		);
 	}
 
@@ -94,6 +97,7 @@ class UserGroup extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name);
+		$criteria->compare('isAdmin',$this->isAdmin);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

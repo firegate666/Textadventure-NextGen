@@ -39,6 +39,17 @@ class User extends CActiveRecord
 	}
 
 	/**
+	 * test if user is admin
+	 * 
+	 * @return boolean
+	 */
+	public function isAdmin()
+	{
+		$group = UserGroup::model()->findByPk($this->groupId);
+		return (bool)$group->isAdmin;
+	}
+
+	/**
 	 * @return array validation rules for model attributes.
 	 */
 	public function rules()

@@ -9,6 +9,8 @@ class UserIdentity extends CUserIdentity
 {
 	private $_id;
 
+	public $isAdmin = false;
+	
 	/**
 	 * Authenticates a user.
 	 * @return boolean whether authentication succeeds.
@@ -25,6 +27,7 @@ class UserIdentity extends CUserIdentity
 			$this->_id=$user->id;
 			$this->username=$user->username;
 			$this->errorCode=self::ERROR_NONE;
+			$this->isAdmin = $user->isAdmin();
 		}
 		return $this->errorCode==self::ERROR_NONE;
 	}

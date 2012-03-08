@@ -14,6 +14,11 @@
 		<?php echo $form->label($model,'name'); ?>
 		<?php echo $form->textField($model,'name'); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'isAdmin'); ?>
+		<?php echo $form->checkBox($model,'isAdmin'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
