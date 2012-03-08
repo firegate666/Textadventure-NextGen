@@ -9,6 +9,15 @@ class UserGroupController extends Controller
 	public $layout='//layouts/column2';
 
 	/**
+	 * (non-PHPdoc)
+	 * @see CController::init()
+	 */
+	public function init()
+	{
+		$this->defaultAction = 'admin';
+	}
+
+	/**
 	 * @return array action filters
 	 */
 	public function filters()
