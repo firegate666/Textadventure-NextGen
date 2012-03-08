@@ -10,4 +10,11 @@
 		<browser name="Firefox" browser="*firefox" />
 	</selenium>
 
+	<filter>
+		<blacklist>
+			<directory suffix=".php">/var/lib/jenkins/public_html/TextAdventure-NextGen/protected/vendors</directory>
+			<directory suffix=".php">/var/lib/jenkins/public_html/TextAdventure-NextGen/protected/tests</directory>
+		</blacklist>
+	</filter>
+
 </phpunit>
