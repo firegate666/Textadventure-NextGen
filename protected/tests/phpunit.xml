@@ -12,8 +12,10 @@
 
 	<filter>
 		<blacklist>
-			<directory suffix=".php">/var/lib/jenkins/public_html/TextAdventure-NextGen/protected/vendors</directory>
-			<directory suffix=".php">/var/lib/jenkins/public_html/TextAdventure-NextGen/protected/tests</directory>
+			<directory suffix=".php">./../vendors</directory>
+			<directory suffix=".php">./../tests</directory>
+			<directory suffix=".php">./../runtime</directory>
+			<directory suffix=".php">./../../assets</directory>
 		</blacklist>
 	</filter>
 
