@@ -46,15 +46,15 @@ class m120305_224817_base extends CDbMigration {
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;' );
 		
 		$this->execute ( 'ALTER TABLE `AdventureStep`
-		ADD CONSTRAINT `adventurestep_ibfk_1` FOREIGN KEY (`adventure`) REFERENCES `adventure` (`id`);' );
+		ADD CONSTRAINT `adventurestep_ibfk_1` FOREIGN KEY (`adventure`) REFERENCES `Adventure` (`id`);' );
 		
 		$this->execute ( 'ALTER TABLE `AdventureStepOption`
-		ADD CONSTRAINT `adventurestepoption_ibfk_2` FOREIGN KEY (`target`) REFERENCES `adventurestep` (`id`),
-		ADD CONSTRAINT `adventurestepoption_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `adventurestep` (`id`);' );
+		ADD CONSTRAINT `adventurestepoption_ibfk_2` FOREIGN KEY (`target`) REFERENCES `AdventureStep` (`id`),
+		ADD CONSTRAINT `adventurestepoption_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `AdventureStep` (`id`);' );
 		
 		$this->execute ( 'ALTER TABLE `User`
-		ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`groupId`) REFERENCES `usergroup` (`id`),
-		ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`groupid`) REFERENCES `user` (`id`);' );
+		ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`groupId`) REFERENCES `UserGroup` (`id`),
+		ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`groupid`) REFERENCES `User` (`id`);' );
 	
 	}
 	

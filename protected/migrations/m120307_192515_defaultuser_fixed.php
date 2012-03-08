@@ -4,7 +4,7 @@ class m120307_192515_defaultuser_fixed extends CDbMigration
 {
 	public function up()
 	{
-		$this->execute('ALTER TABLE User DROP CONSTRAINT `user_ibfk_1`;');
+		$this->execute('ALTER TABLE User DROP FOREIGN KEY `user_ibfk_1`;');
 		$this->execute('DELETE FROM User;');
 		$this->execute("INSERT INTO  User (username, password, email, groupId, salt)
 				VALUES ('admin', MD5('admineasysalt'), 'yourmail@example.org', (SELECT id FROM UserGroup WHERE name = 'Admin'), 'easysalt');");
