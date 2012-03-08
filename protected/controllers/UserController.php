@@ -84,6 +84,7 @@ class UserController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+			'groupList'=>UserGroup::items(),
 		));
 	}
 
@@ -108,6 +109,7 @@ class UserController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
+			'groupList'=>UserGroup::items(),
 		));
 	}
 

@@ -35,7 +35,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'groupId'); ?>
-		<?php echo $form->textField($model,'groupId'); ?>
+		<?php echo $form->dropDownList($model, 'groupId', $groupList); ?>
 		<?php echo $form->error($model,'groupId'); ?>
 	</div>
 

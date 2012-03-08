@@ -20,6 +20,22 @@ class UserGroup extends CActiveRecord
 	}
 
 	/**
+	 * get a list of usergroups
+	 *
+	 * @static
+	 * @return array
+	 */
+	public static function items()
+	{
+		$result = array();
+		foreach (self::model()->findAll() as $group)
+		{
+			$result[$group->id] = $group->name;
+		}
+		return $result;
+	}
+
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
