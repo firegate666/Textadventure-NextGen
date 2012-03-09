@@ -8,5 +8,7 @@ protected/runtime/*
 
 protected/config/*_local.php
 
+protected/tests/build/
+
 *.tmp
 *.bak
