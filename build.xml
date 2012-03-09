@@ -139,10 +139,7 @@
  </target>
 
  <target name="phpunit" description="Run unit tests with PHPUnit">
-  <exec executable="phpunit" failonerror="true">
-	<arg value="-c" />
-	<arg value="${basedir}/protected/tests/phpunit.xml" />
-  </exec>
+  <exec executable="phpunit" failonerror="true" />
  </target>
 
  <target name="phpcb"
