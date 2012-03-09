@@ -66,6 +66,8 @@
 
  <target name="phploc" description="Measure project size using PHPLOC">
   <exec executable="phploc">
+   <arg value="--exclude" />
+   <arg value="${basedir}/protected/vendors" />
    <arg value="--log-csv" />
    <arg value="${basedir}/build/logs/phploc.csv" />
    <arg path="${basedir}/protected" />
