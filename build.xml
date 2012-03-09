@@ -45,13 +45,13 @@
 
    <fileset dir="${basedir}/protected">
     <include name="**/*.php" />
-    <exclude name="${basedir}/protected/vendors/*"/>
+    <exclude name="**/protected/vendors/**"/>
     <modified />
    </fileset>
 
    <fileset dir="${basedir}/protected/tests">
     <include name="**/*.php" />
-    <exclude name="${basedir}/protected/vendors/*"/>
+    <exclude name="**/protected/vendors/**"/>
     <modified />
    </fileset>
   </apply>
