@@ -2,7 +2,14 @@
 
 <project name="Textadventure-NextGEN" default="build">
  <target name="build"
-   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpunit,phpcb"/>
+   depends="prepare,lint,phploc,pdepend,phpcpd,phpunit"/>
+
+	<!-- disabled tasks
+		phpmd-ci
+		phpcs-ci
+		phpdox
+		phpcb
+	-->
 
  <target name="build-parallel"
    depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
@@ -45,13 +52,13 @@
 
    <fileset dir="${basedir}/protected">
     <include name="**/*.php" />
-    <exclude name="**/protected/vendors/**"/>
+    <exclude name="**/yii/**"/>
     <modified />
    </fileset>
 
    <fileset dir="${basedir}/protected/tests">
     <include name="**/*.php" />
-    <exclude name="**/protected/vendors/**"/>
+    <exclude name="**/yii/**"/>
     <modified />
    </fileset>
   </apply>
