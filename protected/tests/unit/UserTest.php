@@ -17,6 +17,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 				'groupId'=>1,
 		);
 		$this->assertFalse($user->validate());
+		$this->assertTrue($user->hasErrors('username'));
 		
 		$user = new User();
 		$user->attributes = array(
@@ -26,6 +27,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 				'groupId'=>1,
 		);
 		$this->assertFalse($user->validate());
+		$this->assertTrue($user->hasErrors('password'));
 		
 		$user = new User();
 		$user->attributes = array(
@@ -35,6 +37,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 				'groupId'=>1,
 		);
 		$this->assertFalse($user->validate());
+		$this->assertTrue($user->hasErrors('email'));
 		
 		$user = new User();
 		$user->attributes = array(
@@ -44,6 +47,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 				//'groupId'=>1,
 		);
 		$this->assertFalse($user->validate());
+		$this->assertTrue($user->hasErrors('groupId'));
 		
 		$user = new User();
 		$user->attributes = array(
