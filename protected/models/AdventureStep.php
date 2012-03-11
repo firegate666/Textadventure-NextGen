@@ -3,19 +3,55 @@
 /**
  * This is the model class for table "AdventureStep".
  *
- * The followings are the available columns in table 'AdventureStep':
- * @property integer $id
- * @property integer $adventure
- * @property string $name
- * @property string $description
- * @property string $stepId
- * @property boolean $startingPoint
- *
- * The followings are the available model relations:
- * @property Adventure $adventureParent
  */
 class AdventureStep extends CActiveRecord
 {
+	// The followings are the available columns in table 'AdventureStep':
+
+	/**
+	 * 
+	 * @var integer
+	 */
+	public $id;
+
+	/**
+	 * 
+	 * @var integer
+	 */
+	public $adventure;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $name;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $description;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $stepId;
+
+	/**
+	 * 
+	 * @var boolean
+	 */
+	public $startingPoint;
+
+	// The followings are the available model relations:
+
+	/**
+	 * 
+	 * @var Adventure
+	 */
+	public $adventureParent;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -42,7 +78,7 @@ class AdventureStep extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('adventure, name, description, stepId, startingPoint', 'required'),
+			array('adventure, name, description, stepId', 'required'),
 			array('adventure', 'numerical', 'integerOnly'=>true),
 			array('startingPoint', 'boolean'),
 			array('startingPoint', 'default', 'setOnEmpty'=>true, 'value'=>false),

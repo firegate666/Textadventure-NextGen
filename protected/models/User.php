@@ -3,18 +3,50 @@
 /**
  * This is the model class for table "User".
  *
- * The followings are the available columns in table 'User':
- * @property integer $id
- * @property string $username
- * @property string $password
- * @property string $email
- * @property integer $groupId
- *
- * The followings are the available model relations:
- * @property User $group
  */
 class User extends CActiveRecord
 {
+	// The followings are the available columns in table 'User':
+
+	/**
+	 * 
+	 * @var integer
+	 */
+	public $id;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $username;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $password;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $email;
+
+	/**
+	 * 
+	 * @var integer
+	 */
+	public $groupId;
+
+	// The followings are the available model relations:
+
+	/**
+	 * 
+	 * @var User
+	 */
+	public $group;
+
+	// The following are non-persisted properties
 
 	public $newPassword = '';
 

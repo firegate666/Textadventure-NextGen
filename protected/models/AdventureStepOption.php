@@ -3,18 +3,49 @@
 /**
  * This is the model class for table "AdventureStepOption".
  *
- * The followings are the available columns in table 'AdventureStepOption':
- * @property integer $id
- * @property integer $parent
- * @property integer $target
- * @property string $name
- *
- * The followings are the available model relations:
- * @property Adventurestep $target0
- * @property Adventurestep $parent0
  */
 class AdventureStepOption extends CActiveRecord
 {
+	// The followings are the available columns in table 'AdventureStepOption':
+
+	/**
+	 * 
+	 * @var integer
+	 */
+	public $id;
+
+	/**
+	 * 
+	 * @var integer
+	 */
+	public $parent;
+
+	/**
+	 * 
+	 * @var integer
+	 */
+	public $target;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $name;
+
+	// The followings are the available model relations:
+
+	/**
+	 * 
+	 * @var AdventureStep
+	 */
+	public $target0;
+
+	/**
+	 * 
+	 * @var AdventureStep
+	 */
+	public $parent0;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

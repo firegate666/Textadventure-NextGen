@@ -8,7 +8,7 @@ class AdventureStepTest extends PHPUnit_Framework_TestCase
 		$post = array(
 			'adventure' => 1,
 			'name' => 'This is my test name',
-			'description' => 'This is my test description'
+			'description' => 'This is my test description',
 		);
 
 		$model = new AdventureStep();
@@ -24,7 +24,7 @@ class AdventureStepTest extends PHPUnit_Framework_TestCase
 		$this->assertFalse($model->hasErrors('startingPoint'));
 		$this->assertTrue(isset($model->startingPoint));
 		$this->assertEquals(0, $model->startingPoint);
-		
+
 		// a second validation should auto accept the auto created value
 		$model->validate();
 		$this->assertFalse($model->hasErrors('stepId'));
