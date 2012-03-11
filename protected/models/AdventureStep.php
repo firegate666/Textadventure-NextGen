@@ -10,7 +10,7 @@
  * @property string $description
  *
  * The followings are the available model relations:
- * @property Adventure $adventure0
+ * @property Adventure $adventureParent
  */
 class AdventureStep extends CActiveRecord
 {
@@ -57,7 +57,7 @@ class AdventureStep extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'adventure0' => array(self::BELONGS_TO, 'Adventure', 'adventure'),
+			'adventureParent' => array(self::BELONGS_TO, 'Adventure', 'adventure'),
 		);
 	}
 
