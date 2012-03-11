@@ -21,5 +21,6 @@ $this->menu=array(
 		'id',
 		'name',
 		'description',
+		'adventureId',
 	),
 )); ?>

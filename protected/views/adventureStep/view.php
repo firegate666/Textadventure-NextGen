@@ -22,6 +22,8 @@ $this->menu=array(
 		'adventure',
 		'name',
 		'description',
+		'stepId',
+		'startingPoint',
 	),
 ));
 ?>

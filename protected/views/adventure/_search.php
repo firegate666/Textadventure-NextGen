@@ -19,6 +19,11 @@
 		<?php echo $form->label($model,'description'); ?>
 		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'adventureId'); ?>
+		<?php echo $form->textField($model,'adventureId',array('size'=>32,'maxlength'=>32)); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>

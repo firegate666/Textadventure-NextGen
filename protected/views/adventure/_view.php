@@ -11,6 +11,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('adventureId')); ?>:</b>
+	<?php echo CHtml::encode($data->adventureId); ?>
+	<br />
 
 
 </div>

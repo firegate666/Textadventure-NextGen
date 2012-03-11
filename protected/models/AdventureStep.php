@@ -8,6 +8,8 @@
  * @property integer $adventure
  * @property string $name
  * @property string $description
+ * @property string $stepId
+ * @property boolean $startingPoint
  *
  * The followings are the available model relations:
  * @property Adventure $adventureParent
@@ -40,13 +42,35 @@ class AdventureStep extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('adventure, name, description', 'required'),
+			array('adventure, name, description, stepId, startingPoint', 'required'),
 			array('adventure', 'numerical', 'integerOnly'=>true),
+			array('startingPoint', 'boolean'),
+			array('startingPoint', 'default', 'setOnEmpty'=>true, 'value'=>false),
 			array('name', 'length', 'max'=>256),
+			array('stepId', 'length', 'max'=>32),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, adventure, name, description', 'safe', 'on'=>'search'),
+			array('id, adventure, name, description, stepId, startingPoint', 'safe', 'on'=>'search'),
 		);
+	}
+
+	/**
+	 * Set an artificial adventureId if none was submitted
+	 *
+	 * (non-PHPdoc)
+	 * @see CModel::beforeValidate()
+	 */
+	public function beforeValidate()
+	{
+		$ret = parent::beforeValidate();
+		if ($this->isNewRecord && empty($this->stepId) && !empty($this->name))
+		{
+			$key = substr($this->name, 0, 10);
+			$id = substr(uniqid(), 0, 5);
+			$this->stepId = str_replace(' ', '-', mb_strtoupper($key) . '_' . $id);
+			$this->addError('stepId', 'An empty stepId was submitted, please validate auto-created id');
+		}
+		return $ret;
 	}
 
 	/**
@@ -71,6 +95,8 @@ class AdventureStep extends CActiveRecord
 			'adventure' => 'Adventure',
 			'name' => 'Name',
 			'description' => 'Description',
+			'stepId' => 'Adventure Step Id',
+			'startingPoint' => 'Is starting point',
 		);
 	}
 
@@ -89,6 +115,8 @@ class AdventureStep extends CActiveRecord
 		$criteria->compare('adventure',$this->adventure);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('stepId',$this->stepId,true);
+		$criteria->compare('startingPoint',$this->startingPoint,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

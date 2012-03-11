@@ -15,6 +15,14 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('stepId')); ?>:</b>
+	<?php echo CHtml::encode($data->stepId); ?>
+	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('startingPoint')); ?>:</b>
+	<?php echo CHtml::encode($data->startingPoint); ?>
+	<br />
 
 
 </div>

@@ -24,6 +24,16 @@
 		<?php echo $form->label($model,'description'); ?>
 		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'stepId'); ?>
+		<?php echo $form->textField($model,'stepId',array('size'=>32,'maxlength'=>32)); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'startingPoint'); ?>
+		<?php echo $form->checkBox($model,'startingPoint'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
