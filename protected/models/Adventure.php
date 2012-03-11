@@ -62,7 +62,7 @@ class Adventure extends CActiveRecord
 		{
 			$key = substr($this->name, 0, 10);
 			$id = substr(uniqid(), 0, 5);
-			$this->adventureId = str_replace(' ', '-', mb_strtoupper($key) . '_' . $id);
+			$this->setAttribute('adventureId', str_replace(' ', '-', mb_strtoupper($key) . '_' . $id));
 			$this->addError('adventureId', 'An empty adventureId was submitted, please validate auto-created id');
 		}
 		return $ret;

@@ -67,7 +67,7 @@ class AdventureStep extends CActiveRecord
 		{
 			$key = substr($this->name, 0, 10);
 			$id = substr(uniqid(), 0, 5);
-			$this->stepId = str_replace(' ', '-', mb_strtoupper($key) . '_' . $id);
+			$this->setAttribute('stepId', str_replace(' ', '-', mb_strtoupper($key) . '_' . $id));
 			$this->addError('stepId', 'An empty stepId was submitted, please validate auto-created id');
 		}
 		return $ret;
