@@ -54,7 +54,7 @@ class UserGroup extends CActiveRecord
 		return array(
 			array('name', 'required'),
 			array('name', 'length', 'max'=>256),
-			array('isAdmin', 'numerical', 'integerOnly'=>true),
+			array('isAdmin', 'boolean'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, isAdmin', 'safe', 'on'=>'search'),
