@@ -3,6 +3,8 @@
 require_once 'PHPUnit/Framework/TestSuite.php';
 
 require_once __DIR__ . '/unit/UserTest.php';
+require_once __DIR__ . '/unit/AdventureTest.php';
+require_once __DIR__ . '/unit/AdventureStepTest.php';
 
 /**
  * Static test suite.
@@ -16,6 +18,8 @@ class ModelTestCase extends PHPUnit_Framework_TestSuite {
 		$this->setName ( 'ModelTestCase' );
 		
 		$this->addTestSuite ( 'UserTest' );
+		$this->addTestSuite ( 'AdventureTest' );
+		$this->addTestSuite ( 'AdventureStepTest' );
 	
 	}
 	
