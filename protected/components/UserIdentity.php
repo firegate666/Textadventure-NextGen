@@ -9,10 +9,16 @@ class UserIdentity extends CUserIdentity
 {
 	private $_id;
 
+	/**
+	 * logged in user is admin
+	 *
+	 * @var type
+	 */
 	public $isAdmin = false;
 	
 	/**
 	 * Authenticates a user.
+	 * 
 	 * @return boolean whether authentication succeeds.
 	 */
 	public function authenticate()

@@ -3,7 +3,9 @@
 class AuthController extends Controller
 {
 	/**
-	 * Displays the login page
+	 * Displays the login page; redirects to returnUrl after login
+	 *
+	 * @return void
 	 */
 	public function actionLogin()
 	{
@@ -30,6 +32,8 @@ class AuthController extends Controller
 
 	/**
 	 * Logs out the current user and redirect to homepage.
+	 *
+	 * @return void
 	 */
 	public function actionLogout()
 	{

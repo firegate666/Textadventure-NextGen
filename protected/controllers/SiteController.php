@@ -1,9 +1,13 @@
 <?php
-
+/**
+ * display static pages
+ */
 class SiteController extends Controller
 {
 	/**
 	 * Declares class-based actions.
+	 *
+	 * @return void
 	 */
 	public function actions()
 	{
@@ -24,6 +28,8 @@ class SiteController extends Controller
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
+	 *
+	 * @return void
 	 */
 	public function actionIndex()
 	{
@@ -34,6 +40,8 @@ class SiteController extends Controller
 
 	/**
 	 * This is the action to handle external exceptions.
+	 *
+	 * @return void
 	 */
 	public function actionError()
 	{
@@ -48,6 +56,8 @@ class SiteController extends Controller
 
 	/**
 	 * Displays the contact page
+	 *
+	 * @return void
 	 */
 	public function actionContact()
 	{

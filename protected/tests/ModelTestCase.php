@@ -1,5 +1,4 @@
 <?php
-
 require_once 'PHPUnit/Framework/TestSuite.php';
 
 require_once __DIR__ . '/unit/UserTest.php';
@@ -13,6 +12,8 @@ class ModelTestCase extends PHPUnit_Framework_TestSuite {
 	
 	/**
 	 * Constructs the test suite handler.
+	 *
+	 * @return void
 	 */
 	public function __construct() {
 		$this->setName ( 'ModelTestCase' );
@@ -25,6 +26,8 @@ class ModelTestCase extends PHPUnit_Framework_TestSuite {
 	
 	/**
 	 * Creates the suite.
+	 *
+	 * @return ModelTestCase
 	 */
 	public static function suite() {
 		return new self ();

@@ -17,6 +17,8 @@ class LoginForm extends CFormModel
 	 * Declares the validation rules.
 	 * The rules state that username and password are required,
 	 * and password needs to be authenticated.
+	 *
+	 * @return array
 	 */
 	public function rules()
 	{
@@ -32,6 +34,8 @@ class LoginForm extends CFormModel
 
 	/**
 	 * Declares attribute labels.
+	 *
+	 * @return array
 	 */
 	public function attributeLabels()
 	{
@@ -43,6 +47,8 @@ class LoginForm extends CFormModel
 	/**
 	 * Authenticates the password.
 	 * This is the 'authenticate' validator as declared in rules().
+	 *
+	 * @return void
 	 */
 	public function authenticate($attribute,$params)
 	{
@@ -56,6 +62,7 @@ class LoginForm extends CFormModel
 
 	/**
 	 * Logs in the user using the given username and password in the model.
+	 *
 	 * @return boolean whether login is successful
 	 */
 	public function login()

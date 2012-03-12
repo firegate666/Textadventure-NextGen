@@ -48,6 +48,7 @@ class AdventureStepOption extends CActiveRecord
 
 	/**
 	 * Returns the static model of the specified AR class.
+	 *
 	 * @param string $className active record class name.
 	 * @return AdventureStepOption the static model class
 	 */
@@ -109,6 +110,7 @@ class AdventureStepOption extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
+	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()

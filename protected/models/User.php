@@ -48,12 +48,23 @@ class User extends CActiveRecord
 
 	// The following are non-persisted properties
 
+	/**
+	 * new password to be set; is copied to User::password property before save if validates
+	 *
+	 * @var type
+	 */
 	public $newPassword = '';
 
+	/**
+	 * duplicate of new password to ensure that there are no typos
+	 *
+	 * @var type
+	 */
 	public $newPasswordConfirm = '';
 
 	/**
 	 * Returns the static model of the specified AR class.
+	 *
 	 * @param string $className active record class name.
 	 * @return User the static model class
 	 */
@@ -129,6 +140,7 @@ class User extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
+	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
@@ -151,6 +163,7 @@ class User extends CActiveRecord
 	
 	/**
 	 * Checks if the given password is correct.
+	 *
 	 * @param string the password to be validated
 	 * @return boolean whether the password is valid
 	 */
@@ -161,6 +174,7 @@ class User extends CActiveRecord
 	
 	/**
 	 * Generates the password hash.
+	 *
 	 * @param string password
 	 * @param string salt
 	 * @return string hash
@@ -172,6 +186,7 @@ class User extends CActiveRecord
 	
 	/**
 	 * Generates a salt that can be used to generate a password hash.
+	 *
 	 * @return string the salt
 	 */
 	protected function generateSalt()

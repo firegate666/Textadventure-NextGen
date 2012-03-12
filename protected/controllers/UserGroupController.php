@@ -30,6 +30,7 @@ class UserGroupController extends Controller
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
+	 *
 	 * @return array access control rules
 	 */
 	public function accessRules()
@@ -55,7 +56,9 @@ class UserGroupController extends Controller
 
 	/**
 	 * Displays a particular model.
+	 *
 	 * @param integer $id the ID of the model to be displayed
+	 * @return void
 	 */
 	public function actionView($id)
 	{
@@ -67,6 +70,8 @@ class UserGroupController extends Controller
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 *
+	 * @return void
 	 */
 	public function actionCreate()
 	{
@@ -90,7 +95,9 @@ class UserGroupController extends Controller
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
+	 *
 	 * @param integer $id the ID of the model to be updated
+	 * @return void
 	 */
 	public function actionUpdate($id)
 	{
@@ -114,7 +121,9 @@ class UserGroupController extends Controller
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
+	 *
 	 * @param integer $id the ID of the model to be deleted
+	 * @return void
 	 */
 	public function actionDelete($id)
 	{
@@ -133,6 +142,8 @@ class UserGroupController extends Controller
 
 	/**
 	 * Lists all models.
+	 *
+	 * @return void
 	 */
 	public function actionIndex()
 	{
@@ -144,6 +155,8 @@ class UserGroupController extends Controller
 
 	/**
 	 * Manages all models.
+	 *
+	 * @return void
 	 */
 	public function actionAdmin()
 	{
@@ -160,7 +173,9 @@ class UserGroupController extends Controller
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
+	 *
 	 * @param integer the ID of the model to be loaded
+	 * @return void
 	 */
 	public function loadModel($id)
 	{
@@ -172,7 +187,9 @@ class UserGroupController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
+	 *
 	 * @param CModel the model to be validated
+	 * @return void
 	 */
 	protected function performAjaxValidation($model)
 	{

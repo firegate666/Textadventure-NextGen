@@ -15,6 +15,8 @@ class ContactForm extends CFormModel
 
 	/**
 	 * Declares the validation rules.
+	 *
+	 * @return array
 	 */
 	public function rules()
 	{
@@ -32,6 +34,8 @@ class ContactForm extends CFormModel
 	 * Declares customized attribute labels.
 	 * If not declared here, an attribute would have a label that is
 	 * the same as its name with the first letter in upper case.
+	 *
+	 * @return array
 	 */
 	public function attributeLabels()
 	{
