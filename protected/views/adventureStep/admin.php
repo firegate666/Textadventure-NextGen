@@ -37,7 +37,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php
+$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'adventure-step-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -53,4 +54,3 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 	),
 ));
-?>

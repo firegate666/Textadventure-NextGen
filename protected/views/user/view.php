@@ -15,7 +15,8 @@ $this->menu=array(
 
 <h1>View User #<?php echo $model->id; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php
+$this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -25,4 +26,3 @@ $this->menu=array(
 		'groupId',
 	),
 ));
-?>
