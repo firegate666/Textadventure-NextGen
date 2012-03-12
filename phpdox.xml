@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <phpdox xmlns="http://phpdox.de/config">
  <project name="name-of-project" source="protected" workdir="build/phpdox">
   <collector publiconly="false">
