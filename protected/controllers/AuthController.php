@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * responsible for everything concerning authorization
+ */
 class AuthController extends Controller
 {
 	/**
@@ -9,7 +11,7 @@ class AuthController extends Controller
 	 */
 	public function actionLogin()
 	{
-		$model=new LoginForm;
+		$model=new Auth();
 
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
@@ -19,9 +21,9 @@ class AuthController extends Controller
 		}
 
 		// collect user input data
-		if(isset($_POST['LoginForm']))
+		if(isset($_POST['Auth']))
 		{
-			$model->attributes=$_POST['LoginForm'];
+			$model->attributes=$_POST['Auth'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 				$this->redirect(Yii::app()->user->returnUrl);

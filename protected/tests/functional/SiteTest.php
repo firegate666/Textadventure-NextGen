@@ -30,11 +30,11 @@ class SiteTest extends WebTestCase
 
 		// test login process, including validation
 		$this->clickAndWait('link=Login');
-		$this->assertElementPresent('name=LoginForm[username]');
-		$this->type('name=LoginForm[username]','demo');
+		$this->assertElementPresent('name=Auth[username]');
+		$this->type('name=Auth[username]','demo');
 		$this->click("//input[@value='Login']");
 		$this->waitForTextPresent('Password cannot be blank.');
-		$this->type('name=LoginForm[password]','demo');
+		$this->type('name=Auth[password]','demo');
 		$this->clickAndWait("//input[@value='Login']");
 		$this->assertTextNotPresent('Password cannot be blank.');
 		$this->assertTextPresent('Logout');
