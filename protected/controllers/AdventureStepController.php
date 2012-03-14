@@ -66,7 +66,7 @@ class AdventureStepController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new AdventureStep;
+		$model=new AdventureStep();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

@@ -68,7 +68,7 @@ class AdventureController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Adventure;
+		$model=new Adventure();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

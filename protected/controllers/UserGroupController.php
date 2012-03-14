@@ -75,7 +75,7 @@ class UserGroupController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new UserGroup;
+		$model=new UserGroup();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
