@@ -9,31 +9,31 @@ class User extends CActiveRecord
 	// The followings are the available columns in table 'User':
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $id;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $username;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $password;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $email;
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $groupId;
@@ -41,7 +41,7 @@ class User extends CActiveRecord
 	// The followings are the available model relations:
 
 	/**
-	 * 
+	 *
 	 * @var User
 	 */
 	public $group;
@@ -83,7 +83,7 @@ class User extends CActiveRecord
 
 	/**
 	 * test if user is admin
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function isAdmin()
@@ -101,11 +101,11 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('username, password, salt, email, groupId', 'required'),
-			array('groupId', 'numerical', 'integerOnly'=>true),
-			array('username, password, newPassword, newPasswordConfirm, salt, email', 'length', 'max'=>128),
+			array('groupId', 'numerical', 'integerOnly' => true),
+			array('username, password, newPassword, newPasswordConfirm, salt, email', 'length', 'max' => 128),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, username, password, email, groupId', 'safe', 'on'=>'search'),
+			array('id, username, password, email, groupId', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -148,19 +148,19 @@ class User extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-		$criteria=new CDbCriteria();
+		$criteria = new CDbCriteria();
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('groupId',$this->groupId);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('username', $this->username, true);
+		$criteria->compare('password', $this->password, true);
+		$criteria->compare('email', $this->email, true);
+		$criteria->compare('groupId', $this->groupId);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria' => $criteria,
 		));
 	}
-	
+
 	/**
 	 * Checks if the given password is correct.
 	 *
@@ -169,9 +169,9 @@ class User extends CActiveRecord
 	 */
 	public function validatePassword($password)
 	{
-		return $this->hashPassword($password,$this->salt)===$this->password;
+		return $this->hashPassword($password, $this->salt) === $this->password;
 	}
-	
+
 	/**
 	 * Generates the password hash.
 	 *
@@ -183,7 +183,7 @@ class User extends CActiveRecord
 	{
 		return md5($password.$salt);
 	}
-	
+
 	/**
 	 * Generates a salt that can be used to generate a password hash.
 	 *
@@ -191,10 +191,10 @@ class User extends CActiveRecord
 	 */
 	protected function generateSalt()
 	{
-		return uniqid('',true);
+		return uniqid('', true);
 	}
-	
-	
+
+
 	/**
 	 * (non-PHPdoc)
 	 * @see CModel::beforeValidate()
@@ -218,7 +218,7 @@ class User extends CActiveRecord
 				$this->addError('newPasswordConfirm', 'Passwords do not match');
 			}
 		}
-		
+
 		return $isValid;
 	}
 }

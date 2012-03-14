@@ -9,25 +9,25 @@ class Adventure extends CActiveRecord
 	// The followings are the available columns in table 'Adventure':
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $id;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $name;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $description;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $adventureId;
@@ -35,7 +35,7 @@ class Adventure extends CActiveRecord
 	// The followings are the available model relations:
 
 	/**
-	 * 
+	 *
 	 * @var AdventureStep[]
 	 */
 	public $adventureSteps;
@@ -68,17 +68,17 @@ class Adventure extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, description, adventureId', 'required'),
-			array('name', 'length', 'max'=>256),
-			array('adventureId', 'length', 'max'=>32),
+			array('name', 'length', 'max' => 256),
+			array('adventureId', 'length', 'max' => 32),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, description, adventureId', 'safe', 'on'=>'search'),
+			array('id, name, description, adventureId', 'safe', 'on' => 'search'),
 		);
 	}
 
 	/**
 	 * Set an artificial adventureId if none was submitted
-	 * 
+	 *
 	 * (non-PHPdoc)
 	 * @see CModel::beforeValidate()
 	 */
@@ -94,7 +94,7 @@ class Adventure extends CActiveRecord
 		}
 		return $ret;
 	}
-	
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -130,15 +130,15 @@ class Adventure extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-		$criteria=new CDbCriteria();
+		$criteria = new CDbCriteria();
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('adventureId',$this->adventureId,true);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('name', $this->name, true);
+		$criteria->compare('description', $this->description, true);
+		$criteria->compare('adventureId', $this->adventureId, true);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria' => $criteria,
 		));
 	}
 }

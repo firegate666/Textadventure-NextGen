@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="protected/tests/bootstrap.php"
-		 backupGlobals="false"
-		 backupStaticAttributes="false"
-		 strict="true"
-		 verbose="true"
-		 timeoutForSmallTests="5">
+	backupGlobals="false" backupStaticAttributes="false" strict="true"
+	verbose="true" timeoutForSmallTests="5">
 
 	<testsuites>
 		<testsuite name="AllTests">
@@ -14,8 +11,8 @@
 
 	<logging>
 		<log type="coverage-html" target="build/coverage" title="BankAccount"
-		 charset="UTF-8" yui="true" highlight="true"
-		 lowUpperBound="35" highLowerBound="70"/>
+			charset="UTF-8" yui="true" highlight="true" lowUpperBound="35"
+			highLowerBound="70" />
 	</logging>
 
 	<filter>

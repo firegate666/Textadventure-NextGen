@@ -40,7 +40,7 @@ class Auth extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'rememberMe'=>'Remember me next time',
+			'rememberMe' => 'Remember me next time',
 		);
 	}
 
@@ -52,11 +52,13 @@ class Auth extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-		if(!$this->hasErrors())
+		if (!$this->hasErrors())
 		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
-			if(!$this->_identity->authenticate())
-				$this->addError('password','Incorrect username or password.');
+			$this->_identity = new UserIdentity($this->username, $this->password);
+			if (!$this->_identity->authenticate())
+			{
+				$this->addError('password', 'Incorrect username or password.');
+			}
 		}
 	}
 
@@ -67,19 +69,22 @@ class Auth extends CFormModel
 	 */
 	public function login()
 	{
-		if($this->_identity===null)
+		if ($this->_identity === null)
 		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
+			$this->_identity = new UserIdentity($this->username, $this->password);
 			$this->_identity->authenticate();
 		}
-		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
+
+		if ($this->_identity->errorCode === UserIdentity::ERROR_NONE)
 		{
-			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
-			Yii::app()->user->login($this->_identity,$duration);
+			$duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
+			Yii::app()->user->login($this->_identity, $duration);
 			Yii::app()->user->setState('isAdmin', $this->_identity->isAdmin);
 			return true;
 		}
 		else
+		{
 			return false;
+		}
 	}
 }

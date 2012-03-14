@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The base class for functional test cases.
  * In this class, we set the base URL for the test application.
@@ -6,6 +7,7 @@
  */
 class WebTestCase extends CWebTestCase
 {
+
 	/**
 	 * Sets up before each test method runs.
 	 * This mainly sets the base URL for the test application.

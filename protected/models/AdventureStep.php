@@ -9,37 +9,37 @@ class AdventureStep extends CActiveRecord
 	// The followings are the available columns in table 'AdventureStep':
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $id;
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $adventure;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $name;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $description;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $stepId;
 
 	/**
-	 * 
+	 *
 	 * @var boolean
 	 */
 	public $startingPoint;
@@ -47,7 +47,7 @@ class AdventureStep extends CActiveRecord
 	// The followings are the available model relations:
 
 	/**
-	 * 
+	 *
 	 * @var Adventure
 	 */
 	public $adventureParent;
@@ -80,14 +80,14 @@ class AdventureStep extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('adventure, name, description, stepId', 'required'),
-			array('adventure', 'numerical', 'integerOnly'=>true),
+			array('adventure', 'numerical', 'integerOnly' => true),
 			array('startingPoint', 'boolean'),
-			array('startingPoint', 'default', 'setOnEmpty'=>true, 'value'=>false),
-			array('name', 'length', 'max'=>256),
-			array('stepId', 'length', 'max'=>32),
+			array('startingPoint', 'default', 'setOnEmpty' => true, 'value' => false),
+			array('name', 'length', 'max' => 256),
+			array('stepId', 'length', 'max' => 32),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, adventure, name, description, stepId, startingPoint', 'safe', 'on'=>'search'),
+			array('id, adventure, name, description, stepId, startingPoint', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -147,17 +147,17 @@ class AdventureStep extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-		$criteria=new CDbCriteria();
+		$criteria = new CDbCriteria();
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('adventure',$this->adventure);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('stepId',$this->stepId,true);
-		$criteria->compare('startingPoint',$this->startingPoint,true);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('adventure', $this->adventure);
+		$criteria->compare('name', $this->name, true);
+		$criteria->compare('description', $this->description, true);
+		$criteria->compare('stepId', $this->stepId, true);
+		$criteria->compare('startingPoint', $this->startingPoint, true);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria' => $criteria,
 		));
 	}
 }

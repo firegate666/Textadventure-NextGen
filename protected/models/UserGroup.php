@@ -9,19 +9,19 @@ class UserGroup extends CActiveRecord
 	// The followings are the available columns in table 'UserGroup':
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $id;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $name;
 
 	/**
-	 * 
+	 *
 	 * @var boolean
 	 */
 	public $isAdmin;
@@ -70,11 +70,11 @@ class UserGroup extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
-			array('name', 'length', 'max'=>256),
+			array('name', 'length', 'max' => 256),
 			array('isAdmin', 'boolean'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, isAdmin', 'safe', 'on'=>'search'),
+			array('id, name, isAdmin', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -103,7 +103,7 @@ class UserGroup extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 * 
+	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
@@ -111,14 +111,14 @@ class UserGroup extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-		$criteria=new CDbCriteria();
+		$criteria = new CDbCriteria();
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name);
-		$criteria->compare('isAdmin',$this->isAdmin);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('name', $this->name);
+		$criteria->compare('isAdmin', $this->isAdmin);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria' => $criteria,
 		));
 	}
 }

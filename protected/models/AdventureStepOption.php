@@ -9,25 +9,25 @@ class AdventureStepOption extends CActiveRecord
 	// The followings are the available columns in table 'AdventureStepOption':
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $id;
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $parent;
 
 	/**
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $target;
 
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	public $name;
@@ -35,13 +35,13 @@ class AdventureStepOption extends CActiveRecord
 	// The followings are the available model relations:
 
 	/**
-	 * 
+	 *
 	 * @var AdventureStep
 	 */
 	public $target0;
 
 	/**
-	 * 
+	 *
 	 * @var AdventureStep
 	 */
 	public $parent0;
@@ -74,11 +74,11 @@ class AdventureStepOption extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('parent, target, name', 'required'),
-			array('parent, target', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>256),
+			array('parent, target', 'numerical', 'integerOnly' => true),
+			array('name', 'length', 'max' => 256),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, parent, target, name', 'safe', 'on'=>'search'),
+			array('id, parent, target, name', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -118,15 +118,15 @@ class AdventureStepOption extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-		$criteria=new CDbCriteria();
+		$criteria = new CDbCriteria();
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('parent',$this->parent);
-		$criteria->compare('target',$this->target);
-		$criteria->compare('name',$this->name,true);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('parent', $this->parent);
+		$criteria->compare('target', $this->target);
+		$criteria->compare('name', $this->name, true);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria' => $criteria,
 		));
 	}
 }
