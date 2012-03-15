@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="Textadventure-NextGen" default="build">
-	<target name="build" depends="prepare,lint,phploc,pdepend,phpcpd,phpunit" />
+	<target name="build" depends="prepare,lint,phploc,pdepend,phpcpd,phpunit,phpmd-ci,phpcb" />
 
 	<!-- disabled tasks
 		phpcs-ci
