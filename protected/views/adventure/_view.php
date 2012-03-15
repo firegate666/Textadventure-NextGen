@@ -5,7 +5,7 @@
 		<blockquote><?=CHtml::encode($data->description)?></blockquote>
 	</div>
 
-	<?php if (count($data->getRelated('adventureSteps'))): ?>
+	<?php if ($data->hasSteps()): ?>
 		<div class="button button-play">
 			<?=CHtml::link('PLAY', array('view', 'id'=>$data->id))?>
 		</div>

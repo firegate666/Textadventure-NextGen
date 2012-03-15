@@ -22,7 +22,7 @@ $this->menu=array(
 <p><?=$stepModel->description?></p>
 
 
-<?php if (count($stepModel->getRelated('stepOptions'))): ?>
+<?php if ($stepModel->hasOptions()): ?>
 
 	<p>What do you want to do now?</p>
 

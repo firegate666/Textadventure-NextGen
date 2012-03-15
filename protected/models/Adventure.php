@@ -41,6 +41,16 @@ class Adventure extends CActiveRecord
 	public $adventureSteps;
 
 	/**
+	 * this adventure has steps?
+	 *
+	 * @return boolean
+	 */
+	public function hasSteps()
+	{
+		return count($this->getRelated('adventureSteps')) != 0;
+	}
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 *
 	 * @param string $className active record class name.
@@ -100,8 +110,6 @@ class Adventure extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
 			'adventureSteps' => array(self::HAS_MANY, 'AdventureStep', 'adventure'),
 		);
