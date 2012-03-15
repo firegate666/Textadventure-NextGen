@@ -13,15 +13,27 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Adventure #<?php echo $model->id; ?></h1>
+<h1><?=$model->name?></h1>
 
-<?php
-$this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'name',
-		'description',
-		'adventureId',
-	),
-));
+<blockquote><?=$model->description?></blockquote>
+
+<h2><?=$stepModel->name?></h2>
+
+<p><?=$stepModel->description?></p>
+
+
+<?php if (count($stepModel->getRelated('stepOptions'))): ?>
+
+	<p>What do you want to do now?</p>
+
+	<ul>
+		<?php foreach ($stepModel->getRelated('stepOptions') as $stepOption): ?>
+			<?php $this->renderPartial('_stepoption', array('id' => $model->id, 'model' => $stepOption)); ?>
+		<?php endforeach; ?>
+	</ul>
+
+<?php else: ?>
+
+	<p>There are no options for you.</p>
+
+<?php endif;?>

@@ -30,7 +30,7 @@ class AdventureController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions' => array('index', 'view'),
+				'actions' => array('index', 'view', 'start'),
 				'users' => array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -53,10 +53,21 @@ class AdventureController extends Controller
 	 * @param integer $id the ID of the model to be displayed
 	 * @return void
 	 */
-	public function actionView($id)
+	public function actionView($id, $step = null)
 	{
+		$stepModel = null;
+		if (empty($step))
+		{
+			$stepModel = AdventureStep::model()->findBySql('SELECT * FROM AdventureStep WHERE startingPoint = 1 AND adventure = :adventure', array(':adventure' => $id));
+		}
+		else
+		{
+			$stepModel = AdventureStep::model()->findByPk($step);
+		}
+
 		$this->render('view', array(
 			'model' => $this->loadModel($id),
+			'stepModel' => $stepModel,
 		));
 	}
 
