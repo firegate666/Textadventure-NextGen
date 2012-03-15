@@ -31,17 +31,17 @@
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
-					
-				array('label'=>'Start adventuring', 'url'=>array('/Adventure/list'), 'visible'=>!Yii::app()->user->isGuest),
-					
+
+				array('label'=>'Start adventuring', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
+
 				array('label'=>'Login', 'url'=>array('/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-					
+
 				array('label'=>'User', 'url'=>array('/User'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'UserGroup', 'url'=>array('/UserGroup'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Adventure', 'url'=>array('/Adventure'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'AdventureStep', 'url'=>array('/AdventureStep'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'AdventureStepOption', 'url'=>array('/AdventureStepOption'), 'visible'=>!Yii::app()->user->isGuest),
-					
+
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>
