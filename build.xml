@@ -109,7 +109,7 @@
 			<arg value="--report=checkstyle" />
 			<arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
 			<arg value="--standard=${basedir}/build/phpcs.xml" />
-			<arg path="${basedir}/protected" />
+			<arg path="${basedir}" />
 		</exec>
 	</target>
 
@@ -119,7 +119,7 @@
 			<arg value="${basedir}/protected/vendors" />
 			<arg value="--log-pmd" />
 			<arg value="${basedir}/build/logs/pmd-cpd.xml" />
-			<arg path="${basedir}/protected" />
+			<arg path="${basedir}" />
 		</exec>
 	</target>
 
