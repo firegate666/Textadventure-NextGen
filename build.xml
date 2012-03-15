@@ -4,10 +4,8 @@
 	<target name="build" depends="prepare,lint,phploc,pdepend,phpcpd,phpunit" />
 
 	<!-- disabled tasks
-		phpmd-ci
 		phpcs-ci
 		phpdox
-		phpcb
 	-->
 
 	<target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb" />
@@ -90,6 +88,7 @@
 
 	<target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
 		<exec executable="phpmd">
+			<arg value="--exclude=${basedir}/protected/vendors" />
 			<arg path="${basedir}/protected" />
 			<arg value="xml" />
 			<arg value="${basedir}/build/phpmd.xml" />
@@ -134,10 +133,11 @@
 
 	<target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
 		<exec executable="phpcb">
+			<arg value="--exclude=${basedir}/protected/vendors" />
 			<arg value="--log" />
 			<arg path="${basedir}/build/logs" />
 			<arg value="--source" />
-			<arg path="${basedir}/protected" />
+			<arg path="${basedir}" />
 			<arg value="--output" />
 			<arg path="${basedir}/build/code-browser" />
 		</exec>
