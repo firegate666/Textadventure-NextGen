@@ -2,7 +2,7 @@
 
 class m120307_170523_defaultuser extends CDbMigration
 {
-	public function up()
+	public function safeUp()
 	{
 		$this->execute('DELETE FROM User;');
 		$this->execute('DELETE FROM UserGroup;');
@@ -23,14 +23,4 @@ class m120307_170523_defaultuser extends CDbMigration
 		return false;
 	}
 
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
-
-	public function safeDown()
-	{
-	}
-	*/
 }

@@ -2,7 +2,7 @@
 
 class m120305_224817_base extends CDbMigration {
 
-	public function up()
+	public function safeUp()
 	{
 		$this->execute ( 'CREATE TABLE `Adventure` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -65,9 +65,5 @@ class m120305_224817_base extends CDbMigration {
 		return false;
 	}
 
-	/*
-	 * // Use safeUp/safeDown to do migration with transaction public function
-	 * safeUp() { } public function safeDown() { }
-	 */
 }
 

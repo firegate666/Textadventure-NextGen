@@ -2,7 +2,7 @@
 
 class m120307_192515_defaultuser_fixed extends CDbMigration
 {
-	public function up()
+	public function safeUp()
 	{
 		$this->execute('ALTER TABLE User DROP FOREIGN KEY `user_ibfk_1`;');
 		$this->execute('DELETE FROM User;');
@@ -19,14 +19,4 @@ class m120307_192515_defaultuser_fixed extends CDbMigration
 		return false;
 	}
 
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
-
-	public function safeDown()
-	{
-	}
-	*/
 }

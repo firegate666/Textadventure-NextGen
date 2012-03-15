@@ -2,7 +2,7 @@
 
 class m120311_193921_adventuring extends CDbMigration
 {
-	public function up()
+	public function safeUp()
 	{
 		$this->execute('ALTER TABLE Adventure ADD COLUMN adventureId VARCHAR(32) NOT NULL;');
 		$this->execute('ALTER TABLE AdventureStep ADD COLUMN stepId VARCHAR(32) NOT NULL;');
@@ -15,14 +15,4 @@ class m120311_193921_adventuring extends CDbMigration
 		return false;
 	}
 
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
-
-	public function safeDown()
-	{
-	}
-	*/
 }

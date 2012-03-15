@@ -2,7 +2,7 @@
 
 class m120308_214616_group_admin extends CDbMigration
 {
-	public function up()
+	public function safeUp()
 	{
 		$this->execute('ALTER TABLE UserGroup ADD COLUMN isAdmin TINYINT NOT NULL DEFAULT 0');
 		$this->execute('UPDATE UserGroup SET isAdmin = 1 WHERE name = :name', array(':name'=>'Admin'));
@@ -14,14 +14,4 @@ class m120308_214616_group_admin extends CDbMigration
 		return false;
 	}
 
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
-
-	public function safeDown()
-	{
-	}
-	*/
 }
