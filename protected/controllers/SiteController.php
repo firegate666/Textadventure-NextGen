@@ -79,4 +79,16 @@ class SiteController extends Controller
 		}
 		$this->render('contact', array('model' => $model));
 	}
+
+	public function filters()
+	{
+		return array(
+			array(
+				'COutputCache + page, index',
+				'duration' => 100,
+				'varyByParam' => array('view'),
+			),
+		);
+	}
+
 }
