@@ -80,6 +80,7 @@ class AdventureStepController extends Controller
 
 		$this->render('create', array(
 			'model' => $model,
+			'adventureList' => Adventure::items(),
 		));
 	}
 
@@ -108,6 +109,7 @@ class AdventureStepController extends Controller
 
 		$this->render('update', array(
 			'model' => $model,
+			'adventureList' => Adventure::items(),
 		));
 	}
 

@@ -11,13 +11,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'parent'); ?>
-		<?php echo $form->textField($model,'parent'); ?>
+		<?php echo $form->dropDownList($model, 'parent', $adventureStepList); ?>
 		<?php echo $form->error($model,'parent'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'target'); ?>
-		<?php echo $form->textField($model,'target'); ?>
+		<?php echo $form->dropDownList($model, 'target', $adventureStepList); ?>
 		<?php echo $form->error($model,'target'); ?>
 	</div>
 

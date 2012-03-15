@@ -175,4 +175,20 @@ class AdventureStep extends CActiveRecord
 			'criteria' => $criteria,
 		));
 	}
+
+	/**
+	 * get a list of adventure steps
+	 *
+	 * @static
+	 * @return array
+	 */
+	public static function items()
+	{
+		$result = array();
+		foreach (self::model()->findAll() as $adventureStep)
+		{
+			$result[$adventureStep->id] = $adventureStep->name;
+		}
+		return $result;
+	}
 }

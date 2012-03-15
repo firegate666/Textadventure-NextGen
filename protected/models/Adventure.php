@@ -149,4 +149,20 @@ class Adventure extends CActiveRecord
 			'criteria' => $criteria,
 		));
 	}
+
+	/**
+	 * get a list of adventures
+	 *
+	 * @static
+	 * @return array
+	 */
+	public static function items()
+	{
+		$result = array();
+		foreach (self::model()->findAll() as $adventure)
+		{
+			$result[$adventure->id] = $adventure->name;
+		}
+		return $result;
+	}
 }
