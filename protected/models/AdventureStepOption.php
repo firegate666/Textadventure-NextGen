@@ -38,13 +38,13 @@ class AdventureStepOption extends CActiveRecord
 	 *
 	 * @var AdventureStep
 	 */
-	public $target0;
+	public $targetStep;
 
 	/**
 	 *
 	 * @var AdventureStep
 	 */
-	public $parent0;
+	public $sourceStep;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -90,8 +90,8 @@ class AdventureStepOption extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'target0' => array(self::BELONGS_TO, 'Adventurestep', 'target'),
-			'parent0' => array(self::BELONGS_TO, 'Adventurestep', 'parent'),
+			'targetStep' => array(self::BELONGS_TO, 'Adventurestep', 'target'),
+			'sourceStep' => array(self::BELONGS_TO, 'Adventurestep', 'parent'),
 		);
 	}
 
