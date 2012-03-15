@@ -25,8 +25,8 @@
 	</filter>
 
 	<selenium>
-		<browser name="Firefox on localhost" browser="*chrome" host="localhost"
-			port="4444" timeout="30000" />
+		<browser name="Internet Explorer" browser="*iexplore" />
+		<browser name="Firefox" browser="*firefox" />
 	</selenium>
 
 </phpunit>
