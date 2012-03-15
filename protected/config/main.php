@@ -19,10 +19,12 @@ return array(
 	),
 
 	'modules' => array(
+		// no modules
 	),
 
 	// application components
 	'components' => array(
+
 		'user' => array(
 			// enable cookie-based authentication
 			'allowAutoLogin' => true,
@@ -32,6 +34,7 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction' => 'site/error',
 		),
+
 		'log' => array(
 			'class' => 'CLogRouter',
 			'routes' => array(
@@ -56,4 +59,3 @@ return array(
 		'adminEmail' => 'webmaster@example.com',
 	),
 );
-

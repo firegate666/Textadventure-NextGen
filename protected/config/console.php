@@ -5,8 +5,9 @@
 return array(
 	'basePath' => dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name' => 'Textadventure NextGEN',
+
 	// application components
 	'components' => array(
-
+		// no components
 	),
 );
