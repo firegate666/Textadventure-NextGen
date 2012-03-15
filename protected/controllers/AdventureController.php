@@ -136,13 +136,16 @@ class AdventureController extends Controller
 	}
 
 	/**
-	 * Lists all models.
+	 * Show all adventures to select one to start with
 	 *
 	 * @return void
 	 */
 	public function actionIndex()
 	{
 		$dataProvider = new CActiveDataProvider('Adventure');
+		$sort = new CSort('Adventure');
+		$sort->defaultOrder = array('id' => CSort::SORT_DESC);
+		$dataProvider->setSort($sort);
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));

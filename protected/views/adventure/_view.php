@@ -1,20 +1,14 @@
-<div class="view">
+<div class="adventure view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+	<div class="description">
+		<h2><?=CHtml::encode($data->name);?></h2>
+		<blockquote><?=CHtml::encode($data->description)?></blockquote>
+	</div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
-	<br />
+	<div class="button-play">
+		<?=CHtml::link('PLAY', array('start', 'id'=>$data->id))?>
+	</div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
-	<?php echo CHtml::encode($data->description); ?>
-	<br />
-	
-	<b><?php echo CHtml::encode($data->getAttributeLabel('adventureId')); ?>:</b>
-	<?php echo CHtml::encode($data->adventureId); ?>
-	<br />
-
+	<div style="clear: both;"></div>
 
 </div>
