@@ -7,7 +7,7 @@
 
 	<?php if ($data->hasSteps()): ?>
 		<div class="button button-play">
-			<?=CHtml::link('PLAY', array('view', 'id'=>$data->id))?>
+			<?=CHtml::link('PLAY', array('view', 'id' => $data->id))?>
 		</div>
 	<?php else: ?>
 		<div class="button button-noplay">
