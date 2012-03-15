@@ -5,9 +5,15 @@
 		<blockquote><?=CHtml::encode($data->description)?></blockquote>
 	</div>
 
-	<div class="button-play">
-		<?=CHtml::link('PLAY', array('start', 'id'=>$data->id))?>
-	</div>
+	<?php if (count($data->getRelated('adventureSteps'))): ?>
+		<div class="button button-play">
+			<?=CHtml::link('PLAY', array('view', 'id'=>$data->id))?>
+		</div>
+	<?php else: ?>
+		<div class="button button-noplay">
+			<?=CHtml::link('Not open yet', '#')?>
+		</div>
+	<?php endif;?>
 
 	<div style="clear: both;"></div>
 
