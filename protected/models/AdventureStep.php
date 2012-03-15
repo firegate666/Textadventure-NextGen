@@ -53,6 +53,12 @@ class AdventureStep extends CActiveRecord
 	public $adventureParent;
 
 	/**
+	 *
+	 * @var AdventureStepOption[]
+	 */
+	public $stepOptions;
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 *
 	 * @param string $className active record class name.
@@ -119,6 +125,7 @@ class AdventureStep extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'adventureParent' => array(self::BELONGS_TO, 'Adventure', 'adventure'),
+			'stepOptions' => array(self::HAS_MANY, 'AdventureStepOption', 'parent'),
 		);
 	}
 
