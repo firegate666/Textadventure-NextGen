@@ -75,7 +75,7 @@ class AdventureStepController extends Controller
 		{
 			$model->attributes = $_POST['AdventureStep'];
 			if($model->save())
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create', array(
@@ -102,7 +102,7 @@ class AdventureStepController extends Controller
 			$model->attributes = $_POST['AdventureStep'];
 			if ($model->save())
 			{
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('admin'));
 			}
 		}
 
