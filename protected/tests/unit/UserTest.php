@@ -1,6 +1,6 @@
 <?php
 
-class UserTest extends PHPUnit_Framework_TestCase
+class UserTest extends CDbTestCase
 {
 
 	public function testRequiredFields()
@@ -8,7 +8,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 		$user = new User();
 		$user->attributes = array();
 		$this->assertFalse($user->validate());
-		
+
 		$user = new User();
 		$user->attributes = array(
 				//'username'=>'username',
@@ -18,7 +18,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 		);
 		$this->assertFalse($user->validate());
 		$this->assertTrue($user->hasErrors('username'));
-		
+
 		$user = new User();
 		$user->attributes = array(
 				'username'=>'username',
@@ -28,7 +28,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 		);
 		$this->assertFalse($user->validate());
 		$this->assertTrue($user->hasErrors('password'));
-		
+
 		$user = new User();
 		$user->attributes = array(
 				'username'=>'username',
@@ -38,7 +38,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 		);
 		$this->assertFalse($user->validate());
 		$this->assertTrue($user->hasErrors('email'));
-		
+
 		$user = new User();
 		$user->attributes = array(
 				'username'=>'username',
@@ -48,7 +48,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 		);
 		$this->assertFalse($user->validate());
 		$this->assertTrue($user->hasErrors('groupId'));
-		
+
 		$user = new User();
 		$user->attributes = array(
 			'username'=>'username',
@@ -58,7 +58,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 		);
 		$this->assertTrue($user->validate());
 	}
-	
+
 	public function testNewPassword()
 	{
 		$post = array(
@@ -78,7 +78,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 		$user->attributes = $post;
 		$this->assertTrue($user->validate());
 	}
-	
+
 	public function testPasswordHashing()
 	{
 		$user = new User();
@@ -87,7 +87,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 
 		$user->salt = $salt;
 		$user->password = $user->hashPassword($password, $salt);
-	
+
 		$this->assertTrue($user->validatePassword($password), 'Password hashing failed');
 	}
 }

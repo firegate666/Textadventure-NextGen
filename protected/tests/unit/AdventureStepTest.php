@@ -1,6 +1,6 @@
 <?php
 
-class AdventureStepTest extends PHPUnit_Framework_TestCase
+class AdventureStepTest extends CDbTestCase
 {
 
 	public function testRequirements()
@@ -14,13 +14,13 @@ class AdventureStepTest extends PHPUnit_Framework_TestCase
 		$model = new AdventureStep();
 		$model->attributes = $post;
 		$model->validate();
-		
+
 		// step id is required
 		$this->assertTrue($model->hasErrors('stepId'));
 		// bit gets an auto created value
 		$this->assertFalse(empty($model->stepId));
 		$this->assertFalse(stripos($model->stepId, ' '));
-		
+
 		$this->assertFalse($model->hasErrors('startingPoint'));
 		$this->assertTrue(isset($model->startingPoint));
 		$this->assertEquals(0, $model->startingPoint);
@@ -28,6 +28,6 @@ class AdventureStepTest extends PHPUnit_Framework_TestCase
 		// a second validation should auto accept the auto created value
 		$model->validate();
 		$this->assertFalse($model->hasErrors('stepId'));
-		
+
 	}
 }
