@@ -30,6 +30,10 @@ return array(
 			'allowAutoLogin' => true,
 		),
 
+		'cache' => array( // override in local conf if a different caching class is desired
+			'class' => 'system.caching.CFileCache',
+		),
+
 		'errorHandler' => array(
 			// use 'site/error' action to display errors
 			'errorAction' => 'site/error',
