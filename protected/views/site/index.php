@@ -4,6 +4,8 @@
 
 <p>Congratulations! You have successfully created your Yii application.</p>
 
+<p>Today is <?php $this->renderDynamic('nowDate');?></p>
+
 <p>You may change the content of this page by modifying the following two files:</p>
 <ul>
 	<li>View file: <code><?php echo __FILE__; ?></code></li>
