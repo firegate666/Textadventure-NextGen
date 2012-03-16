@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="Textadventure-NextGen" default="build">
-	<target name="build" depends="prepare,lint,phploc,pdepend,phpcpd,phpunit" />
+	<target name="build" depends="prepare,yiimigrate,lint,phploc,pdepend,phpcpd,phpunit" />
 
 	<!-- disabled tasks
 		phpcs-ci
@@ -122,6 +122,19 @@
 			<arg value="--log-pmd" />
 			<arg value="${basedir}/build/logs/pmd-cpd.xml" />
 			<arg path="${basedir}" />
+		</exec>
+	</target>
+
+	<target name="yiimigrate" description="Install Yii migrations">
+		<!-- production database -->
+		<exec executable="${basedir}/protected/yiic">
+			<arg value="migrate" />
+		</exec>
+
+		<!-- test database -->
+		<exec executable="${basedir}/protected/yiic">
+			<arg value="migrate" />
+			<arg value="--connectionID=testdb" />
 		</exec>
 	</target>
 
