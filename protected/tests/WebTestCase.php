@@ -8,15 +8,6 @@
 class WebTestCase extends CWebTestCase
 {
 
-	 public static $browsers = array(
-		array(
-			'name' => 'Firefox',
-			'browser' => '*firefox',
-			'host' => '127.0.0.1',
-			'port' => 4444,
-		)
-	);
-
 	/**
 	 * Sets up before each test method runs.
 	 * This mainly sets the base URL for the test application.
