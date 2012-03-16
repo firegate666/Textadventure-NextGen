@@ -2,6 +2,10 @@
 
 class AdventureTest extends CDbTestCase
 {
+	public function testFail()
+	{
+		$this->fail('fail example');
+	}
 
 	public function testRequirements()
 	{
