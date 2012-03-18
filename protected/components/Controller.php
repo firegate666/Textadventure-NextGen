@@ -35,4 +35,14 @@ class Controller extends CController
 		return $user->isAdmin();
 	}
 
+	/**
+	 * get actual date, used as dynamic callback for site page view
+	 *
+	 * @return string
+	 */
+	public function nowDate($format = 'd.m.Y, H:i:s')
+	{
+		return date($format);
+	}
+
 }
