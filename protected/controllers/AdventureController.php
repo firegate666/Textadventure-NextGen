@@ -56,7 +56,16 @@ class AdventureController extends Controller
 	public function actionView($id, $step = null)
 	{
 		$stepModel = null;
-		if (empty($step))
+		$lastStep = static::getSessionValue('adventureStep', null);
+
+		if (empty($step) && !empty($lastStep))
+		{
+			// restore last step in this adventure from session
+			$step = static::getSessionValue('adventureStep', null);
+		}
+
+		// always access the startingPoint if last step is empty
+		if (empty($step) || empty($lastStep))
 		{
 			$stepModel = AdventureStep::model()->findBySql('SELECT * FROM AdventureStep WHERE startingPoint = 1 AND adventure = :adventure', array(':adventure' => $id));
 		}
@@ -65,6 +74,21 @@ class AdventureController extends Controller
 			$stepModel = AdventureStep::model()->findByPk($step);
 		}
 
+		if ($stepModel === null)
+		{
+			throw new CHttpException(404, 'Adventure Step Not Found');
+		}
+
+		if (!empty($lastStep) && !empty($step) && $step != $lastStep)
+		{
+			if (!$stepModel->isParent($lastStep))
+			{
+				throw new CHttpException(403, 'Adventure Step is not allowed');
+			}
+		}
+
+		// save step to session
+		static::addSessionValue('adventureStep', $stepModel->id);
 		$this->render('view', array(
 			'model' => $this->loadModel($id),
 			'stepModel' => $stepModel,

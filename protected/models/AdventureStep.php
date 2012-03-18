@@ -142,6 +142,21 @@ class AdventureStep extends CActiveRecord
 	}
 
 	/**
+	 * test if given id is a valid parent of this step by checking the options
+	 *
+	 * @param integer $step_id
+	 * @return boolean
+	 */
+	public function isParent($step_id)
+	{
+		$options = AdventureStepOption::model()->findByAttributes(array(
+			'parent' => $step_id,
+			'target' => $this->id,
+		));
+		return $options !== null;
+	}
+
+	/**
 	 * @return array relational rules.
 	 */
 	public function relations()
