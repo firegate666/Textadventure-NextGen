@@ -124,6 +124,7 @@ class UserGroup extends CActiveRecord
 		$criteria->compare('id', $this->id);
 		$criteria->compare('name', $this->name);
 		$criteria->compare('isAdmin', $this->isAdmin);
+		$criteria->compare('defaultRegisterGroup', $this->defaultRegisterGroup);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
