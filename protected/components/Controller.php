@@ -61,4 +61,43 @@ class Controller extends CController
 		);
 	}
 
+	/**
+	 * get value from session
+	 *
+	 * @see CHttpSession::get(mixed, mixed)
+	 * @param mixed $key
+	 * @param mixed $defaultValue
+	 * @param boolean $allowGetEmpty
+	 * @throws SessionKeyNotExistsException
+	 * @return void
+	 */
+	public static function getSessionValue($key, $defaultValue, $allowGetEmpty = true)
+	{
+		$prefix = get_called_class();
+		if (!$allowGetEmpty && !Yii::app()->session->contains($prefix.'_'.$key))
+		{
+			throw new SessionKeyNotExistsException();
+		}
+		return Yii::app()->session->get($prefix.'_'.$key, $defaultValue);
+	}
+
+	/**
+	 * add value to session
+	 *
+	 * @see CHttpSession::add(mixed, mixed)
+	 * @param mixed $key
+	 * @param mixed $value
+	 * @param boolean $allowOverride override if value exists
+	 * @throws SessionKeyExistsException
+	 * @return void
+	 */
+	public static function addSessionValue($key, $value, $allowOverride = true)
+	{
+		$prefix = get_called_class();
+		if (!$allowOverride && Yii::app()->session->contains($prefix.'_'.$key))
+		{
+			throw new SessionKeyExistsException();
+		}
+		Yii::app()->session->add($prefix.'_'.$key, $value);
+	}
 }
