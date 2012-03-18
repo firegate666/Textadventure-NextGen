@@ -110,6 +110,24 @@ class AdventureStepOption extends CActiveRecord
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see CModel::beforeValidate()
+	 */
+	public function beforeValidate()
+	{
+		$ret = parent::beforeValidate();
+		if (!empty($this->parent))
+		{
+			$adventureStep = AdventureStep::model()->findByPk($this->parent);
+			if ($adventureStep->endingPoint)
+			{
+				$this->addError('parent', 'adventure step ending point can not be chosen as parent');
+			}
+		}
+		return $ret;
+	}
+
+	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
