@@ -63,6 +63,13 @@ class User extends CActiveRecord
 	public $newPasswordConfirm = '';
 
 	/**
+	 * used for captcha validation
+	 *
+	 * @var string
+	 */
+	public $verifyCode;
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 *
 	 * @param string $className active record class name.
@@ -103,6 +110,7 @@ class User extends CActiveRecord
 			array('username, password, salt, email, groupId', 'required'),
 			array('groupId', 'numerical', 'integerOnly' => true),
 			array('username, password, newPassword, newPasswordConfirm, salt, email', 'length', 'max' => 128),
+			array('verifyCode', 'captcha', 'allowEmpty' => !CCaptcha::checkRequirements(), 'on' => 'register'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, username, password, email, groupId', 'safe', 'on' => 'search'),
@@ -216,6 +224,19 @@ class User extends CActiveRecord
 			else
 			{
 				$this->addError('newPasswordConfirm', 'Passwords do not match');
+			}
+		}
+
+		if ($this->isNewRecord && $this->getScenario() == 'register')
+		{
+			$userGroup = UserGroup::model()->findByAttributes(array('defaultRegisterGroup'=>1));
+			if ($userGroup === null)
+			{
+				$this->addError('groupId', 'There is no public usergroup to register to');
+			}
+			else
+			{
+				$this->groupId = $userGroup->id;
 			}
 		}
 

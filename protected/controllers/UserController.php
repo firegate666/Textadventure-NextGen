@@ -36,6 +36,10 @@ class UserController extends Controller
 	public function accessRules()
 	{
 		return array(
+			array('allow',
+				'actions' => array('register', 'captcha'),
+				'users' => array('*'),
+			),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions' => array('index', 'view'),
 				'users' => array('@'),
@@ -92,6 +96,32 @@ class UserController extends Controller
 		$this->render('create', array(
 			'model' => $model,
 			'groupList' => UserGroup::items(),
+		));
+	}
+
+	/**
+	 * basically the same as create but with different scenario for the model
+	 *
+	 * @return void
+	 */
+	public function actionRegister()
+	{
+		$model = new User('register');
+		$view = 'register';
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if (isset($_POST['User']))
+		{
+			$model->attributes = $_POST['User'];
+			if($model->save())
+			{
+				$view = 'registerconfirm';
+			}
+		}
+
+		$this->render($view, array(
+				'model' => $model,
 		));
 	}
 

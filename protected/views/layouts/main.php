@@ -35,6 +35,7 @@
 				array('label'=>'Start adventuring', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
 
 				array('label'=>'Login', 'url'=>array('/auth/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Register', 'url'=>array('/User/register'), 'visible'=>Yii::app()->user->isGuest),
 
 				array('label'=>'User', 'url'=>array('/User'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'UserGroup', 'url'=>array('/UserGroup'), 'visible'=>!Yii::app()->user->isGuest),
