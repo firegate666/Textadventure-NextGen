@@ -46,6 +46,12 @@ class AdventureStep extends CActiveRecord
 	 */
 	public $startingPoint;
 
+	/**
+	 *
+	 * @var boolean
+	 */
+	public $endingPoint;
+
 	// The following are the available model relations:
 
 	/**
@@ -90,8 +96,8 @@ class AdventureStep extends CActiveRecord
 		return array(
 			array('adventure, name, description, stepId', 'required'),
 			array('adventure', 'numerical', 'integerOnly' => true),
-			array('startingPoint', 'boolean'),
-			array('startingPoint', 'default', 'setOnEmpty' => true, 'value' => false),
+			array('startingPoint, endingPoint', 'boolean'),
+			array('startingPoint, endingPoint', 'default', 'setOnEmpty' => true, 'value' => false),
 			array('name', 'length', 'max' => 256),
 			array('stepId', 'length', 'max' => 32),
 			// The following rule is used by search().
@@ -151,7 +157,8 @@ class AdventureStep extends CActiveRecord
 			'name' => 'Name',
 			'description' => 'Description',
 			'stepId' => 'Adventure Step Id',
-			'startingPoint' => 'Is starting point',
+			'startingPoint' => 'Is starting point?',
+			'endingPoint' => 'Is ending point?',
 		);
 	}
 
@@ -173,6 +180,7 @@ class AdventureStep extends CActiveRecord
 		$criteria->compare('description', $this->description, true);
 		$criteria->compare('stepId', $this->stepId, true);
 		$criteria->compare('startingPoint', $this->startingPoint, true);
+		$criteria->compare('endingPoint', $this->endingPoint, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

@@ -39,6 +39,12 @@
 		<?php echo $form->error($model,'startingPoint'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'endingPoint'); ?>
+		<?php echo $form->checkBox($model,'endingPoint'); ?>
+		<?php echo $form->error($model,'endingPoint'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

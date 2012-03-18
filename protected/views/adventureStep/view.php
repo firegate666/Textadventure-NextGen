@@ -25,5 +25,6 @@ $this->widget('zii.widgets.CDetailView', array(
 		'description',
 		'stepId',
 		'startingPoint',
+		'endingPoint',
 	),
 ));

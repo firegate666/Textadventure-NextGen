@@ -49,6 +49,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'description',
 		'stepId',
 		'startingPoint',
+		'endingPoint',
 		array(
 			'class'=>'CButtonColumn',
 		),
