@@ -22,7 +22,11 @@ $this->menu = array(
 <p><?=$stepModel->description?></p>
 
 
-<?php if ($stepModel->hasOptions()): ?>
+<?php if ($stepModel->endingPoint): ?>
+
+	<p>You have reached the end of this adventure. There are no more options to chose.</p>
+
+<?php elseif ($stepModel->hasOptions()): ?>
 
 	<p>What do you want to do now?</p>
 
