@@ -27,6 +27,7 @@ class AuthController extends Controller
 			// validate user input and redirect to the previous page if valid
 			if ($model->validate() && $model->login())
 			{
+				Yii::app()->session->regenerateID(true);
 				$this->redirect(Yii::app()->user->returnUrl);
 			}
 		}
@@ -42,6 +43,7 @@ class AuthController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
+		Yii::app()->session->regenerateID(true);
 		$this->redirect(Yii::app()->homeUrl);
 	}
 }
