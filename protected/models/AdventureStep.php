@@ -122,6 +122,12 @@ class AdventureStep extends CActiveRecord
 			$this->setAttribute('stepId', str_replace(' ', '-', mb_strtoupper($key) . '_' . $id));
 			$this->addError('stepId', 'An empty stepId was submitted, please validate auto-created id');
 		}
+
+		if ($this->startingPoint && $this->endingPoint)
+		{
+			$this->addError('startingPoint', 'can not be starting point if is ending point');
+			$this->addError('endingPoint', 'can not be ending point if is starting point');
+		}
 		return $ret;
 	}
 
