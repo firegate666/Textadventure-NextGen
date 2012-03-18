@@ -22,5 +22,6 @@ $this->widget('zii.widgets.CDetailView', array(
 		'id',
 		'name',
 		'isAdmin',
+		'defaultRegisterGroup',
 	),
 ));

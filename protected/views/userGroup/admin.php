@@ -46,6 +46,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'id',
 		'name',
 		'isAdmin',
+		'defaultRegisterGroup',
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -27,6 +27,12 @@ class UserGroup extends CActiveRecord
 	public $isAdmin;
 
 	/**
+	 *
+	 * @var boolean
+	 */
+	public $defaultRegisterGroup;
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 *
 	 * @param string $className active record class name.
@@ -71,7 +77,7 @@ class UserGroup extends CActiveRecord
 		return array(
 			array('name', 'required'),
 			array('name', 'length', 'max' => 256),
-			array('isAdmin', 'boolean'),
+			array('isAdmin, defaultRegisterGroup', 'boolean'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, isAdmin', 'safe', 'on' => 'search'),
@@ -98,6 +104,7 @@ class UserGroup extends CActiveRecord
 			'id' => 'ID',
 			'name' => 'Name',
 			'isAdmin' => 'Is admin?',
+			'defaultRegisterGroup' => 'Is default register group?',
 		);
 	}
 

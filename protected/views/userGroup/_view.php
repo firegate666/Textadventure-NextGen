@@ -12,4 +12,8 @@
 	<?php echo CHtml::encode($data->isAdmin); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('defaultRegisterGroup')); ?>:</b>
+	<?php echo CHtml::encode($data->defaultRegisterGroup); ?>
+	<br />
+
 </div>
