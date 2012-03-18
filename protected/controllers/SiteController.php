@@ -87,6 +87,7 @@ class SiteController extends Controller
 				'COutputCache + page, index',
 				'duration' => 100,
 				'varyByParam' => array('view'),
+				'varyBySession' => true,
 			),
 		);
 	}
