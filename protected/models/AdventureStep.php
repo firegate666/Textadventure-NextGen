@@ -2,11 +2,13 @@
 
 /**
  * This is the model class for table "AdventureStep".
+ * It holds the name and description of the single steps
+ * and relations to the step options
  *
  */
 class AdventureStep extends CActiveRecord
 {
-	// The followings are the available columns in table 'AdventureStep':
+	// The following are the available columns in table 'AdventureStep':
 
 	/**
 	 *
@@ -44,7 +46,7 @@ class AdventureStep extends CActiveRecord
 	 */
 	public $startingPoint;
 
-	// The followings are the available model relations:
+	// The following are the available model relations:
 
 	/**
 	 *
@@ -61,6 +63,7 @@ class AdventureStep extends CActiveRecord
 	/**
 	 * Returns the static model of the specified AR class.
 	 *
+	 * @static
 	 * @param string $className active record class name.
 	 * @return AdventureStep the static model class
 	 */
@@ -177,7 +180,7 @@ class AdventureStep extends CActiveRecord
 	}
 
 	/**
-	 * get a list of adventure steps
+	 * get a list of adventure steps as associative array (id => name)
 	 *
 	 * @static
 	 * @return array

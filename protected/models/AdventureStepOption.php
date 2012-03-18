@@ -2,11 +2,13 @@
 
 /**
  * This is the model class for table "AdventureStepOption".
+ * It holds the name for the single step options
+ * and the target step of this option
  *
  */
 class AdventureStepOption extends CActiveRecord
 {
-	// The followings are the available columns in table 'AdventureStepOption':
+	// The following are the available columns in table 'AdventureStepOption':
 
 	/**
 	 *
@@ -32,7 +34,7 @@ class AdventureStepOption extends CActiveRecord
 	 */
 	public $name;
 
-	// The followings are the available model relations:
+	// The following are the available model relations:
 
 	/**
 	 *
@@ -49,6 +51,7 @@ class AdventureStepOption extends CActiveRecord
 	/**
 	 * Returns the static model of the specified AR class.
 	 *
+	 * @static
 	 * @param string $className active record class name.
 	 * @return AdventureStepOption the static model class
 	 */

@@ -6,7 +6,7 @@
  */
 class UserGroup extends CActiveRecord
 {
-	// The followings are the available columns in table 'UserGroup':
+	// The following are the available columns in table 'UserGroup':
 
 	/**
 	 *
@@ -35,6 +35,7 @@ class UserGroup extends CActiveRecord
 	/**
 	 * Returns the static model of the specified AR class.
 	 *
+	 * @static
 	 * @param string $className active record class name.
 	 * @return UserGroup the static model class
 	 */

@@ -51,14 +51,14 @@ class User extends CActiveRecord
 	/**
 	 * new password to be set; is copied to User::password property before save if validates
 	 *
-	 * @var type
+	 * @var string
 	 */
 	public $newPassword = '';
 
 	/**
 	 * duplicate of new password to ensure that there are no typos
 	 *
-	 * @var type
+	 * @var string
 	 */
 	public $newPasswordConfirm = '';
 
@@ -72,6 +72,7 @@ class User extends CActiveRecord
 	/**
 	 * Returns the static model of the specified AR class.
 	 *
+	 * @static
 	 * @param string $className active record class name.
 	 * @return User the static model class
 	 */

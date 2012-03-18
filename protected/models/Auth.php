@@ -2,15 +2,34 @@
 
 /**
  * Auth class.
- * Auth is the data structure for keeping
- * user login form data. It is used by the 'login' action of 'SiteController'.
+ * Auth is the data structure for holding
+ * user login form data.
  */
 class Auth extends CFormModel
 {
+
+	/**
+	 *
+	 * @var string
+	 */
 	public $username;
+
+	/**
+	 *
+	 * @var string
+	 */
 	public $password;
+
+	/**
+	 *
+	 * @var boolean
+	 */
 	public $rememberMe;
 
+	/**
+	 *
+	 * @var CUserIdentity
+	 */
 	private $_identity;
 
 	/**

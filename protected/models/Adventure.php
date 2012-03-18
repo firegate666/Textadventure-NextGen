@@ -3,6 +3,9 @@
 /**
  * This is the model class for table "Adventure".
  *
+ * It represents the adventure as is, its name and description, and
+ * holds relations to the single adventure steps
+ *
  */
 class Adventure extends CActiveRecord
 {
@@ -32,7 +35,7 @@ class Adventure extends CActiveRecord
 	 */
 	public $adventureId;
 
-	// The followings are the available model relations:
+	// The following are the available model relations:
 
 	/**
 	 *
@@ -53,6 +56,7 @@ class Adventure extends CActiveRecord
 	/**
 	 * Returns the static model of the specified AR class.
 	 *
+	 * @static
 	 * @param string $className active record class name.
 	 * @return Adventure the static model class
 	 */
@@ -151,7 +155,7 @@ class Adventure extends CActiveRecord
 	}
 
 	/**
-	 * get a list of adventures
+	 * get a list of adventures as associative array (id => name)
 	 *
 	 * @static
 	 * @return array
