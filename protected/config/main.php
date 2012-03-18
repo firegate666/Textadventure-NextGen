@@ -25,6 +25,11 @@ return array(
 	// application components
 	'components' => array(
 
+		'session' => array(
+			'class' => 'CHttpSession',
+			'timeout' => 3600,
+			'autoStart' => true,
+		),
 		'user' => array(
 			// enable cookie-based authentication
 			'allowAutoLogin' => true,
