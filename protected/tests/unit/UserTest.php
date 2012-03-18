@@ -86,7 +86,7 @@ class UserTest extends CDbTestCase
 		$salt = 'salt';
 
 		$user->salt = $salt;
-		$user->password = $user->hashPassword($password, $salt);
+		$user->password = User::hashPassword($password, $salt);
 
 		$this->assertTrue($user->validatePassword($password), 'Password hashing failed');
 	}

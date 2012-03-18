@@ -178,17 +178,18 @@ class User extends CActiveRecord
 	 */
 	public function validatePassword($password)
 	{
-		return $this->hashPassword($password, $this->salt) === $this->password;
+		return self::hashPassword($password, $this->salt) === $this->password;
 	}
 
 	/**
 	 * Generates the password hash.
 	 *
+	 * @static
 	 * @param string password
 	 * @param string salt
 	 * @return string hash
 	 */
-	public function hashPassword($password,$salt)
+	public static function hashPassword($password, $salt)
 	{
 		return md5($password.$salt);
 	}
@@ -196,9 +197,10 @@ class User extends CActiveRecord
 	/**
 	 * Generates a salt that can be used to generate a password hash.
 	 *
+	 * @static
 	 * @return string the salt
 	 */
-	protected function generateSalt()
+	protected static function generateSalt()
 	{
 		return uniqid('', true);
 	}
@@ -213,14 +215,14 @@ class User extends CActiveRecord
 		$isValid = parent::beforeValidate();
 		if (empty($this->salt))
 		{
-			$this->salt = $this->generateSalt();
+			$this->salt = self::generateSalt();
 		}
 
 		if (!empty($this->newPassword))
 		{
 			if ($this->newPassword == $this->newPasswordConfirm)
 			{
-				$this->password = $this->hashPassword($this->newPassword, $this->salt);
+				$this->password = self::hashPassword($this->newPassword, $this->salt);
 			}
 			else
 			{
