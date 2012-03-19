@@ -55,6 +55,10 @@ class AdventureController extends Controller
 	 */
 	public function actionReset($id)
 	{
+		if (empty($id))
+		{
+			throw new CHttpException(404, 'Adventure not found');
+		}
 		$lastStep = static::getSessionValue('adventureStep', null);
 		if ($lastStep !== null)
 		{
@@ -75,6 +79,10 @@ class AdventureController extends Controller
 	 */
 	public function actionView($id, $step = null)
 	{
+		if (empty($id))
+		{
+			throw new CHttpException(404, 'Adventure not found');
+		}
 		$stepModel = null;
 		$lastStep = static::getSessionValue('adventureStep', null);
 
