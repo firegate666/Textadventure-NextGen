@@ -46,6 +46,22 @@ class Controller extends CController
 	}
 
 	/**
+	 * read version date from VERSION file in runtime path
+	 * 
+	 * @return string
+	 */
+	public function getVersionInfo()
+	{
+		$version_info_file = Yii::app()->getRuntimePath().'/VERSION';
+		$version_string = 'no version found';
+		if (file_exists($version_info_file))
+		{
+			$version_string = file_get_contents($version_info_file);
+		}
+		return $version_string;
+	}
+
+	/**
 	 * Declares class-based actions.
 	 *
 	 * @return void
