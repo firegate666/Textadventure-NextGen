@@ -30,7 +30,7 @@ class AdventureController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions' => array('index', 'view', 'start'),
+				'actions' => array('index', 'view', 'start', 'restart'),
 				'users' => array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -45,6 +45,26 @@ class AdventureController extends Controller
 				'users' => array('*'),
 			),
 		);
+	}
+
+	/**
+	 * remove played info about this adventure and restart it
+	 * 
+	 * @param type $id
+	 * @return void
+	 */
+	public function actionReset($id)
+	{
+		$lastStep = static::getSessionValue('adventureStep', null);
+		if ($lastStep !== null)
+		{
+			$stepModel = AdventureStep::model()->findByPk($step);
+			if ($stepModel->endingPoint)
+			{
+				static::addSessionValue('adventureStep', null);
+			}
+		}
+		$this->redirect(array('view', array('id' => $id)));
 	}
 
 	/**

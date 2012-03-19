@@ -25,6 +25,7 @@ $this->menu = array(
 <?php if ($stepModel->endingPoint): ?>
 
 	<p>You have reached the end of this adventure. There are no more options to chose.</p>
+	<p>You can reset this adventure and start it over? <?=CHtml::link('Yes, please restart.', array('reset', 'id' => $model->id))?></p>
 
 <?php elseif ($stepModel->hasOptions()): ?>
 
