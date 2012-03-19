@@ -64,7 +64,7 @@ class AdventureController extends Controller
 				static::addSessionValue('adventureStep', null);
 			}
 		}
-		$this->redirect(array('view', array('id' => $id)));
+		$this->redirect(array('view', 'id' => $id));
 	}
 
 	/**
