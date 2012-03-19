@@ -58,7 +58,7 @@ class AdventureController extends Controller
 		$lastStep = static::getSessionValue('adventureStep', null);
 		if ($lastStep !== null)
 		{
-			$stepModel = AdventureStep::model()->findByPk($step);
+			$stepModel = AdventureStep::model()->findByPk($lastStep);
 			if ($stepModel->endingPoint)
 			{
 				static::addSessionValue('adventureStep', null);
