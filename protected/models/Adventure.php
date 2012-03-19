@@ -9,6 +9,11 @@
  */
 class Adventure extends CActiveRecord
 {
+
+	const STATE_DRAFT = 1;
+
+	const STATE_PUBLISHED = 2;
+
 	// The followings are the available columns in table 'Adventure':
 
 	/**
@@ -34,6 +39,24 @@ class Adventure extends CActiveRecord
 	 * @var string
 	 */
 	public $adventureId;
+
+	/**
+	 *
+	 * @var integer
+	 */
+	public $startDate;
+
+	/**
+	 *
+	 * @var Date
+	 */
+	public $stopDate;
+
+	/**
+	 *
+	 * @var Date
+	 */
+	public $state;
 
 	// The following are the available model relations:
 
@@ -81,13 +104,69 @@ class Adventure extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description, adventureId', 'required'),
+			array('name, description, adventureId, state', 'required'),
 			array('name', 'length', 'max' => 256),
 			array('adventureId', 'length', 'max' => 32),
+			array('startDate, stopDate', 'date', 'format' => 'yyyy-MM-dd', 'allowEmpty' => true),
+			array('state', 'isAdventureState', 'default' => self::STATE_DRAFT),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, description, adventureId', 'safe', 'on' => 'search'),
+			array('id, name, description, adventureId, state, startDate, stopDate', 'safe', 'on' => 'search'),
 		);
+	}
+
+	/**
+	 * get list of valid states
+	 *
+	 * @static
+	 * @return array
+	 */
+	public static function validStates()
+	{
+		return array(
+			self::STATE_DRAFT => 'Draft',
+			self::STATE_PUBLISHED => 'Published',
+		);
+	}
+
+	/**
+	 * tests if state is public and start stop matches
+	 *
+	 * @return boolean
+	 */
+	public function isRunning()
+	{
+		if ((int)$this->state === self::STATE_DRAFT)
+		{
+			return false;
+		}
+
+		// use DateTime to honor timezones
+		$startDate = new DateTime($this->startDate);
+		$stopDate = new DateTime($this->stopDate);
+		$nowDate = new DateTime();
+
+		return
+			(empty($this->startDate) || $startDate->getTimestamp() <=
+					$nowDate->getTimestamp())
+			&&
+			(empty($this->stopDate) || $stopDate->getTimestamp() >=
+					$nowDate->getTimestamp())
+		;
+	}
+
+	/**
+	 * state validator
+	 *
+	 * @param string $attribute
+	 * @param array $params
+	 */
+	public function isAdventureState($attribute, $params)
+	{
+		if (!array_key_exists($this->$attribute, self::validStates()))
+		{
+			$this->addError($attribute, 'invalid state selected');
+		}
 	}
 
 	/**
@@ -106,6 +185,19 @@ class Adventure extends CActiveRecord
 			$this->setAttribute('adventureId', str_replace(' ', '-', mb_strtoupper($key) . '_' . $id));
 			$this->addError('adventureId', 'An empty adventureId was submitted, please validate auto-created id');
 		}
+
+		// empty string results to invalid date, so make sure this is null if it's empty
+		if (empty($this->startDate))
+		{
+			$this->startDate = null;
+		}
+
+		// empty string results to invalid date, so make sure this is null if it's empty
+		if (empty($this->stopDate))
+		{
+			$this->stopDate = null;
+		}
+
 		return $ret;
 	}
 

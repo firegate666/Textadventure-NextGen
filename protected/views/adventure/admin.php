@@ -47,6 +47,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'name',
 		'description',
 		'adventureId',
+		'state',
+		'startDate',
+		'stopDate',
 		array(
 			'class' => 'CButtonColumn',
 		),

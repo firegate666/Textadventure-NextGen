@@ -27,6 +27,24 @@
 		<?php echo $form->error($model, 'adventureId'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model, 'state'); ?>
+		<?php echo $form->dropDownList($model, 'state', Adventure::validStates()); ?>
+		<?php echo $form->error($model, 'state'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model, 'startDate'); ?>
+		<?php echo $form->textField($model, 'startDate',array('size' => 12,'maxlength' => 10)); ?>
+		<?php echo $form->error($model, 'startDate'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model, 'stopDate'); ?>
+		<?php echo $form->textField($model, 'stopDate',array('size' => 12,'maxlength' => 10)); ?>
+		<?php echo $form->error($model, 'stopDate'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

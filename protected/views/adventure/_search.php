@@ -25,6 +25,22 @@
 		<?php echo $form->textField($model, 'adventureId',array('size' => 32, 'maxlength' => 32)); ?>
 	</div>
 
+
+	<div class="row">
+		<?php echo $form->labelEx($model, 'state'); ?>
+		<?php echo $form->dropDownList($model, 'state', Adventure::validStates()); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model, 'startDate'); ?>
+		<?php echo $form->textField($model, 'startDate',array('size' => 12,'maxlength' => 10)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model, 'stopDate'); ?>
+		<?php echo $form->textField($model, 'stopDate',array('size' => 12,'maxlength' => 10)); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
