@@ -49,7 +49,7 @@ class AdventureController extends Controller
 
 	/**
 	 * remove played info about this adventure and restart it
-	 * 
+	 *
 	 * @param type $id
 	 * @throws CHttpException if $id is invalid
 	 * @return void
