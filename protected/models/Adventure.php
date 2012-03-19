@@ -165,8 +165,9 @@ class Adventure extends CActiveRecord
 		$result = array();
 		foreach (self::model()->findAll() as $adventure)
 		{
-			$result[$adventure->id] = $adventure->name;
+			$result[$adventure->id] = sprintf('[%s] %s', $adventure->adventureId, $adventure->name);
 		}
+		natcasesort($result);
 		return $result;
 	}
 }
