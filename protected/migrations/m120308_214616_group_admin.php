@@ -10,8 +10,7 @@ class m120308_214616_group_admin extends CDbMigration
 
 	public function down()
 	{
-		echo "m120308_214616_group_admin does not support migration down.\n";
-		return false;
+		$this->execute('ALTER TABLE UserGroup DROP COLUMN isAdmin');
 	}
 
 }

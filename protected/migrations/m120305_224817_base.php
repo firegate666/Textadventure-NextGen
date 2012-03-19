@@ -61,9 +61,19 @@ class m120305_224817_base extends CDbMigration {
 
 	public function down()
 	{
-		echo "m120305_224817_base does not support migration down.\n";
-		return false;
+		$this->execute('ALTER TABLE User DROP FOREIGN KEY user_ibfk_1');
+		$this->execute('ALTER TABLE User DROP FOREIGN KEY user_ibfk_2');
+
+		$this->execute('ALTER TABLE AdventureStepOption DROP FOREIGN KEY adventurestepoption_ibfk_2');
+		$this->execute('ALTER TABLE AdventureStepOption DROP FOREIGN KEY adventurestepoption_ibfk_1');
+
+		$this->execute('ALTER TABLE AdventureStep DROP FOREIGN KEY adventurestep_ibfk_1');
+
+		$this->execute('DROP TABLE UserGroup');
+		$this->execute('DROP TABLE User');
+		$this->execute('DROP TABLE AdventureStepOption');
+		$this->execute('DROP TABLE AdventureStep');
+		$this->execute('DROP TABLE Adventure');
 	}
 
 }
-

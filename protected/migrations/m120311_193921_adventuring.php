@@ -11,8 +11,9 @@ class m120311_193921_adventuring extends CDbMigration
 
 	public function down()
 	{
-		echo "m120311_193921_adventuring does not support migration down.\n";
-		return false;
+		$this->execute('ALTER TABLE Adventure DROP COLUMN adventureId');
+		$this->execute('ALTER TABLE AdventureStep DROP COLUMN stepId');
+		$this->execute('ALTER TABLE AdventureStep DROP COLUMN startingPoint');
 	}
 
 }

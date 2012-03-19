@@ -9,18 +9,6 @@ class m120318_213711_adventureendpoint extends CDbMigration
 
 	public function down()
 	{
-		echo "m120318_213711_adventureendpoint does not support migration down.\n";
-		return false;
+		$this->execute('ALTER TABLE AdventureStep DROP COLUMN endingPoint');
 	}
-
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
-
-	public function safeDown()
-	{
-	}
-	*/
 }

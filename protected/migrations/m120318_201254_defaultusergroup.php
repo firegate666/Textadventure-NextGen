@@ -10,18 +10,7 @@ class m120318_201254_defaultusergroup extends CDbMigration
 
 	public function down()
 	{
-		echo "m120318_201254_defaultusergroup does not support migration down.\n";
-		return false;
+		$this->execute('ALTER TABLE UserGroup DROP COLUMN defaultRegisterGroup');
 	}
 
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
-
-	public function safeDown()
-	{
-	}
-	*/
 }

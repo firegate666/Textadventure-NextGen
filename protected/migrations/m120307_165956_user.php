@@ -9,8 +9,7 @@ class m120307_165956_user extends CDbMigration
 
 	public function down()
 	{
-		echo "m120307_165956_user does not support migration down.\n";
-		return false;
+		$this->execute('ALTER TABLE DROP COLUMN salt');
 	}
 
 }
