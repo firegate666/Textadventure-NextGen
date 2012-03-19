@@ -150,7 +150,7 @@ class Adventure extends CActiveRecord
 			(empty($this->startDate) || $startDate->getTimestamp() <=
 					$nowDate->getTimestamp())
 			&&
-			(empty($this->stopDate) || $stopDate->getTimestamp() >=
+			(empty($this->stopDate) || $stopDate->getTimestamp() >
 					$nowDate->getTimestamp())
 		;
 	}
