@@ -9,7 +9,7 @@ class m120305_224817_base extends CDbMigration {
 				`name` varchar(256) NOT NULL,
 				`description` text NOT NULL,
 				PRIMARY KEY (`id`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;' );
+		) ENGINE=InnoDB  DEFAULT CHARSET=utf8;' );
 
 		$this->execute ( 'CREATE TABLE `AdventureStep` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -18,7 +18,7 @@ class m120305_224817_base extends CDbMigration {
 				`description` text NOT NULL,
 				PRIMARY KEY (`id`),
 				KEY `adventure` (`adventure`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;' );
+		) ENGINE=InnoDB  DEFAULT CHARSET=utf8;' );
 
 		$this->execute ( 'CREATE TABLE `AdventureStepOption` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -28,7 +28,7 @@ class m120305_224817_base extends CDbMigration {
 				PRIMARY KEY (`id`),
 				KEY `parent` (`parent`),
 				KEY `target` (`target`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;' );
+		) ENGINE=InnoDB  DEFAULT CHARSET=utf8;' );
 
 		$this->execute ( 'CREATE TABLE `User` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -38,13 +38,13 @@ class m120305_224817_base extends CDbMigration {
 				`groupId` int(11) NOT NULL,
 				PRIMARY KEY (`id`),
 				KEY `groupid` (`groupId`)
-		) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;' );
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;' );
 
 		$this->execute ( 'CREATE TABLE `UserGroup` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
 				`name` int(11) NOT NULL,
 				PRIMARY KEY (`id`)
-		) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;' );
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;' );
 
 		$this->execute ( 'ALTER TABLE `AdventureStep`
 		ADD CONSTRAINT `adventurestep_ibfk_1` FOREIGN KEY (`adventure`) REFERENCES `Adventure` (`id`);' );
