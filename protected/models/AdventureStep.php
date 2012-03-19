@@ -209,18 +209,35 @@ class AdventureStep extends CActiveRecord
 	}
 
 	/**
-	 * get a list of adventure steps as associative array (id => name)
+	 * get a list of adventure steps as associative array (id => name) grouped by adventure
 	 *
+	 * @param Adventure $adventure=null limit items to one adventure
 	 * @static
 	 * @return array
 	 */
-	public static function items()
+	public static function items(Adventure $adventure = null)
 	{
 		$result = array();
-		foreach (self::model()->findAll() as $adventureStep)
+		$list = array();
+		if ($adventure !== null) // get steps from one adventure
 		{
-			$result[$adventureStep->id] = $adventureStep->name;
+			$list = self::model()->findAllByAttributes(array('adventure' => $adventure->id));
 		}
+		else
+		{
+			$list = self::model()->findAll();
+		}
+		foreach ($list as $adventureStep)
+		{
+			$adventure_key = sprintf('[%s] %s', $adventureStep->getRelated('adventureParent')->adventureId, $adventureStep->getRelated('adventureParent')->name);
+			if (!isset($result[$adventure_key]))
+			{
+				$result[$adventure_key] = array();
+			}
+			$result[$adventure_key][$adventureStep->id] =
+				sprintf('[%s] %s', $adventureStep->stepId, $adventureStep->name);
+		}
+		ksort($result);
 		return $result;
 	}
 }
