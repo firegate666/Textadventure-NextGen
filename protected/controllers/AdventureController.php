@@ -51,6 +51,7 @@ class AdventureController extends Controller
 	 * remove played info about this adventure and restart it
 	 * 
 	 * @param type $id
+	 * @throws CHttpException if $id is invalid
 	 * @return void
 	 */
 	public function actionReset($id)
@@ -76,6 +77,7 @@ class AdventureController extends Controller
 	 * Displays a particular model.
 	 *
 	 * @param integer $id the ID of the model to be displayed
+	 * @throws CHttpException if $id is invalid
 	 * @return void
 	 */
 	public function actionView($id, $step = null)
