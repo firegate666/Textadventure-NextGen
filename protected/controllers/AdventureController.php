@@ -59,13 +59,14 @@ class AdventureController extends Controller
 		{
 			throw new CHttpException(404, 'Adventure not found');
 		}
-		$lastStep = static::getSessionValue('adventureStep', null);
+
+		$lastStep = static::getSessionValue('adventureStep_'.$id, null);
 		if ($lastStep !== null)
 		{
 			$stepModel = AdventureStep::model()->findByPk($lastStep);
 			if ($stepModel->endingPoint)
 			{
-				static::addSessionValue('adventureStep', null);
+				static::addSessionValue('adventureStep_'.$id, null);
 			}
 		}
 		$this->redirect(array('view', 'id' => $id));
@@ -83,13 +84,14 @@ class AdventureController extends Controller
 		{
 			throw new CHttpException(404, 'Adventure not found');
 		}
+
 		$stepModel = null;
-		$lastStep = static::getSessionValue('adventureStep', null);
+		$lastStep = static::getSessionValue('adventureStep_'.$id, null);
 
 		if (empty($step) && !empty($lastStep))
 		{
 			// restore last step in this adventure from session
-			$step = static::getSessionValue('adventureStep', null);
+			$step = static::getSessionValue('adventureStep_'.$id, null);
 		}
 
 		// always access the startingPoint if last step is empty
@@ -116,7 +118,7 @@ class AdventureController extends Controller
 		}
 
 		// save step to session
-		static::addSessionValue('adventureStep', $stepModel->id);
+		static::addSessionValue('adventureStep_'.$id, $stepModel->id);
 		$this->render('view', array(
 			'model' => $this->loadModel($id),
 			'stepModel' => $stepModel,
