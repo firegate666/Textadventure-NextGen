@@ -33,6 +33,7 @@ return array(
 		'user' => array(
 			// enable cookie-based authentication
 			'allowAutoLogin' => true,
+			'loginUrl' => array('/auth/login'),
 		),
 
 		'cache' => array( // override in local conf if a different caching class is desired
