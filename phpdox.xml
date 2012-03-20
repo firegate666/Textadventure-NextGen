@@ -11,6 +11,9 @@
 
 		<generator output="build">
 			<build engine="html" enabled="true" output="api" />
+			<build engine="todo" enabled="true" output="phpdox-todo">
+				<file name="todolist.txt" encoding="utf-8" />
+			</build>
 		</generator>
 
 	</project>
