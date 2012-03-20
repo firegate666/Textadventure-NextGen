@@ -2,7 +2,7 @@
 
 class SiteTest extends WebTestCase
 {
-	/*public function testIndex()
+	public function testIndex()
 	{
 		$this->open('');
 		$this->assertTextPresent('Welcome');
@@ -45,5 +45,5 @@ class SiteTest extends WebTestCase
 		$this->assertTextNotPresent('Login');
 		$this->clickAndWait('link=Logout (demo)');
 		$this->assertTextPresent('Login');
-	}*/
+	}
 }
