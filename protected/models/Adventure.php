@@ -10,6 +10,8 @@
 class Adventure extends CActiveRecord
 {
 
+	const STATE_DISABLED = 0;
+
 	const STATE_DRAFT = 1;
 
 	const STATE_PUBLISHED = 2;
@@ -140,6 +142,7 @@ class Adventure extends CActiveRecord
 	public static function stopStates()
 	{
 		return array(
+			self::STATE_DISABLED => 'Disabled',
 			self::STATE_DRAFT => 'Draft',
 		);
 	}
