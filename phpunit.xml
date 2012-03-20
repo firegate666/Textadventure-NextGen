@@ -24,6 +24,7 @@
 			<directory suffix=".php">./../tests</directory>
 			<directory suffix=".php">./../runtime</directory>
 			<directory suffix=".php">./../../assets</directory>
+			<directory suffix=".php">./../../build</directory>
 		</blacklist>
 	</filter>
 
