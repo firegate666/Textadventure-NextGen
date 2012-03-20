@@ -4,9 +4,12 @@
 	verbose="true" timeoutForSmallTests="5">
 
 	<testsuites>
-		<testsuite name="AllTests">
-			<directory suffix=".php">protected/tests</directory>
+		<testsuite name="Units">
+			<directory suffix=".php">protected/tests/unit</directory>
 		</testsuite>
+		<!--testsuite name="Functionals">
+			<directory suffix=".php">protected/tests/functional</directory>
+		</testsuite-->
 	</testsuites>
 
 	<logging>
