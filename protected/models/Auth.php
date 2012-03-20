@@ -69,14 +69,14 @@ class Auth extends CFormModel
 	 *
 	 * @return void
 	 */
-	public function authenticate($attribute,$params)
+	public function authenticate($attribute, $params)
 	{
 		if (!$this->hasErrors())
 		{
 			$this->_identity = new UserIdentity($this->username, $this->password);
 			if (!$this->_identity->authenticate())
 			{
-				$this->addError('password', 'Incorrect username or password.');
+				$this->addError($attribute, 'Incorrect username or password.');
 			}
 		}
 	}
