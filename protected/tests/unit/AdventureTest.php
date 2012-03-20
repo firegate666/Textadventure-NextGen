@@ -20,17 +20,17 @@ class AdventureTest extends CDbTestCase
 		$model->validate();
 
 		// adventure id is required
-		$this->assertTrue($model->hasErrors('adventureId'));
+		$this->assertTrue($model->hasErrors('adventureId'), var_export($model->getErrors('adventureId'), true));
 		// state is required
-		$this->assertTrue($model->hasErrors('state'));
+		$this->assertTrue($model->hasErrors('state'), var_export($model->getErrors('state'), true));
 		// bit gets an auto created value
 		$this->assertFalse(empty($model->adventureId));
 		$this->assertFalse(stripos($model->adventureId, ' '));
 
 		// a second validation should auto accept the auto created value
 		$model->validate();
-		$this->assertFalse($model->hasErrors('adventureId'));
-		$this->assertTrue($model->hasErrors('state'));
+		$this->assertFalse($model->hasErrors('adventureId'), var_export($model->getErrors('adventureId'), true));
+		$this->assertTrue($model->hasErrors('state'), var_export($model->getErrors('state'), true));
 	}
 
 	/**
@@ -51,16 +51,16 @@ class AdventureTest extends CDbTestCase
 			'stopDate' => $today,
 		);
 		$model->validate();
-		$this->assertTrue($model->hasErrors('startDate'));
-		$this->assertTrue($model->hasErrors('stopDate'));
+		$this->assertTrue($model->hasErrors('startDate'), var_export($model->getErrors('startDate'), true));
+		$this->assertTrue($model->hasErrors('stopDate'), var_export($model->getErrors('stopDate'), true));
 
 		$model->attributes = array(
 			'startDate' => $tomorrow,
 			'stopDate' => $yesterday,
 		);
 		$model->validate();
-		$this->assertTrue($model->hasErrors('startDate'));
-		$this->assertTrue($model->hasErrors('stopDate'));
+		$this->assertTrue($model->hasErrors('startDate'), var_export($model->getErrors('startDate'), true));
+		$this->assertTrue($model->hasErrors('stopDate'), var_export($model->getErrors('stopDate'), true));
 
 		$model->attributes = array(
 			'startDate' => null,
@@ -87,14 +87,14 @@ class AdventureTest extends CDbTestCase
 				'state' => $valid_state,
 			);
 			$model->validate();
-			$this->assertFalse($model->hasErrors('state'));
+			$this->assertFalse($model->hasErrors('state'), var_export($model->getErrors('state'), true));
 		}
 
 		$model->attributes = array(
 			'state' => 'FOO',
 		);
 		$model->validate();
-		$this->assertTrue($model->hasErrors('state'));
+		$this->assertTrue($model->hasErrors('state'), var_export($model->getErrors('state'), true));
 	}
 
 	/**

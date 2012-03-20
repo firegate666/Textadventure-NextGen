@@ -17,7 +17,7 @@ class UserTest extends CDbTestCase
 				'groupId'=>1,
 		);
 		$this->assertFalse($user->validate());
-		$this->assertTrue($user->hasErrors('username'));
+		$this->assertTrue($user->hasErrors('username'), var_export($user->getErrors('username'), true));
 
 		$user = new User();
 		$user->attributes = array(
@@ -27,7 +27,7 @@ class UserTest extends CDbTestCase
 				'groupId'=>1,
 		);
 		$this->assertFalse($user->validate());
-		$this->assertTrue($user->hasErrors('password'));
+		$this->assertTrue($user->hasErrors('password'), var_export($user->getErrors('password'), true));
 
 		$user = new User();
 		$user->attributes = array(
@@ -37,7 +37,7 @@ class UserTest extends CDbTestCase
 				'groupId'=>1,
 		);
 		$this->assertFalse($user->validate());
-		$this->assertTrue($user->hasErrors('email'));
+		$this->assertTrue($user->hasErrors('email'), var_export($user->getErrors('email'), true));
 
 		$user = new User();
 		$user->attributes = array(
@@ -47,7 +47,7 @@ class UserTest extends CDbTestCase
 				//'groupId'=>1,
 		);
 		$this->assertFalse($user->validate());
-		$this->assertTrue($user->hasErrors('groupId'));
+		$this->assertTrue($user->hasErrors('groupId'), var_export($user->getErrors('groupId'), true));
 
 		$user = new User();
 		$user->attributes = array(
@@ -56,7 +56,7 @@ class UserTest extends CDbTestCase
 			'email'=>'email',
 			'groupId'=>1,
 		);
-		$this->assertTrue($user->validate());
+		$this->assertTrue($user->validate(), var_export($user->getErrors(), true));
 	}
 
 	public function testNewPassword()
@@ -71,12 +71,12 @@ class UserTest extends CDbTestCase
 
 		$user = new User();
 		$user->attributes = $post;
-		$this->assertFalse($user->validate());
+		$this->assertFalse($user->validate(), var_export($user->getErrors(), true));
 
 		$post['newPasswordConfirm'] = $post['newPassword'];
 		$user = new User();
 		$user->attributes = $post;
-		$this->assertTrue($user->validate());
+		$this->assertTrue($user->validate(), var_export($user->getErrors(), true));
 	}
 
 	public function testPasswordHashing()
