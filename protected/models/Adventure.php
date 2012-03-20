@@ -127,10 +127,9 @@ class Adventure extends CActiveRecord
 	 */
 	public static function validStates()
 	{
-		return array_merge_recursive(
-			self::runningStates(),
-			self::stopStates()
-		);
+		return self::runningStates()
+			+ self::stopStates()
+		;
 	}
 
 	/**
