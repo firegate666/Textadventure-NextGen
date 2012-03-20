@@ -3,6 +3,11 @@
 class AdventureTest extends CDbTestCase
 {
 
+	/**
+	 * test required fields
+	 *
+	 * @return void
+	 */
 	public function testRequirements()
 	{
 		$post = array(
@@ -28,7 +33,76 @@ class AdventureTest extends CDbTestCase
 		$this->assertTrue($model->hasErrors('state'));
 	}
 
+	/**
+	 * test if startDate and stopDate are not equal and startDate is lower than stopDate
+	 *
+	 * @return void
+	 */
+	public function testValidDates()
+	{
+		$today = date('Y-m-d');
+		$yesterday = date('Y-m-d', time() - 60*60*24);
+		$tomorrow = date('Y-m-d', time() + 60*60*24);
+
+		$model = new Adventure();
+
+		$model->attributes = array(
+			'startDate' => $today,
+			'stopDate' => $today,
+		);
+		$model->validate();
+		$this->assertTrue($model->hasErrors('startDate'));
+		$this->assertTrue($model->hasErrors('stopDate'));
+
+		$model->attributes = array(
+			'startDate' => $tomorrow,
+			'stopDate' => $yesterday,
+		);
+		$model->validate();
+		$this->assertTrue($model->hasErrors('startDate'));
+		$this->assertTrue($model->hasErrors('stopDate'));
+
+		$model->attributes = array(
+			'startDate' => null,
+			'stopDate' => null,
+		);
+		$model->validate();
+		// values must not be altered if null
+		$this->assertNull($model->startDate);
+		$this->assertNull($model->stopDate);
+	}
+
+	/**
+	 * test valid states
+	 *
+	 * @return void
+	 */
 	public function testState()
+	{
+		$model = new Adventure();
+
+		foreach(Adventure::validStates() as $valid_state => $state_name)
+		{
+			$model->attributes = array(
+				'state' => $valid_state,
+			);
+			$model->validate();
+			$this->assertFalse($model->hasErrors('state'));
+		}
+
+		$model->attributes = array(
+			'state' => 'FOO',
+		);
+		$model->validate();
+		$this->assertTrue($model->hasErrors('state'));
+	}
+
+	/**
+	 * test running states
+	 *
+	 * @return void
+	 */
+	public function testRunningState()
 	{
 		$model = new Adventure();
 
