@@ -10,7 +10,8 @@ class ClearcacheCommand extends AbstractCommand
 	 * @see CConsoleCommand::init()
 	 * @return void
 	 */
-	public function init() {
+	public function init()
+	{
 		parent::init();
 		$this->defaultAction = 'help';
 	}
