@@ -5,58 +5,58 @@ class UserTest extends CDbTestCase
 
 	public function testRequiredFields()
 	{
-		$user = new User();
-		$user->attributes = array();
-		$this->assertFalse($user->validate());
+		$model = new User();
+		$model->attributes = array();
+		$this->assertFalse($model->validate());
 
-		$user = new User();
-		$user->attributes = array(
+		$model = new User();
+		$model->attributes = array(
 				//'username'=>'username',
 				'password'=>'password',
 				'email'=>'email',
 				'groupId'=>1,
 		);
-		$this->assertFalse($user->validate());
-		$this->assertTrue($user->hasErrors('username'), var_export($user->getErrors('username'), true));
+		$this->assertFalse($model->validate());
+		$this->assertTrue($model->hasErrors('username'), var_export($model->getErrors('username'), true));
 
-		$user = new User();
-		$user->attributes = array(
+		$model = new User();
+		$model->attributes = array(
 				'username'=>'username',
 				//'password'=>'password',
 				'email'=>'email',
 				'groupId'=>1,
 		);
-		$this->assertFalse($user->validate());
-		$this->assertTrue($user->hasErrors('password'), var_export($user->getErrors('password'), true));
+		$this->assertFalse($model->validate());
+		$this->assertTrue($model->hasErrors('password'), var_export($model->getErrors('password'), true));
 
-		$user = new User();
-		$user->attributes = array(
+		$model = new User();
+		$model->attributes = array(
 				'username'=>'username',
 				'password'=>'password',
 				//'email'=>'email',
 				'groupId'=>1,
 		);
-		$this->assertFalse($user->validate());
-		$this->assertTrue($user->hasErrors('email'), var_export($user->getErrors('email'), true));
+		$this->assertFalse($model->validate());
+		$this->assertTrue($model->hasErrors('email'), var_export($model->getErrors('email'), true));
 
-		$user = new User();
-		$user->attributes = array(
+		$model = new User();
+		$model->attributes = array(
 				'username'=>'username',
 				'password'=>'password',
 				'email'=>'email',
 				//'groupId'=>1,
 		);
-		$this->assertFalse($user->validate());
-		$this->assertTrue($user->hasErrors('groupId'), var_export($user->getErrors('groupId'), true));
+		$this->assertFalse($model->validate());
+		$this->assertTrue($model->hasErrors('groupId'), var_export($model->getErrors('groupId'), true));
 
-		$user = new User();
-		$user->attributes = array(
+		$model = new User();
+		$model->attributes = array(
 			'username'=>'username',
 			'password'=>'password',
 			'email'=>'email',
 			'groupId'=>1,
 		);
-		$this->assertTrue($user->validate(), var_export($user->getErrors(), true));
+		$this->assertTrue($model->validate(), var_export($model->getErrors(), true));
 	}
 
 	public function testNewPassword()
@@ -69,25 +69,25 @@ class UserTest extends CDbTestCase
 			'groupId' => 1,
 		);
 
-		$user = new User();
-		$user->attributes = $post;
-		$this->assertFalse($user->validate(), var_export($user->getErrors(), true));
+		$model = new User();
+		$model->attributes = $post;
+		$this->assertFalse($model->validate(), var_export($model->getErrors(), true));
 
 		$post['newPasswordConfirm'] = $post['newPassword'];
-		$user = new User();
-		$user->attributes = $post;
-		$this->assertTrue($user->validate(), var_export($user->getErrors(), true));
+		$model = new User();
+		$model->attributes = $post;
+		$this->assertTrue($model->validate(), var_export($model->getErrors(), true));
 	}
 
 	public function testPasswordHashing()
 	{
-		$user = new User();
+		$model = new User();
 		$password = 'test';
 		$salt = 'salt';
 
-		$user->salt = $salt;
-		$user->password = User::hashPassword($password, $salt);
+		$model->salt = $salt;
+		$model->password = User::hashPassword($password, $salt);
 
-		$this->assertTrue($user->validatePassword($password), 'Password hashing failed');
+		$this->assertTrue($model->validatePassword($password), 'Password hashing failed');
 	}
 }
