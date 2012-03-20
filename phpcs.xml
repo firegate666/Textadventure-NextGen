@@ -36,4 +36,10 @@
 
 	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
 
+	<rule ref="PEAR.Commenting.InlineComment" />
+
+	<rule ref="Squiz.PHP.Eval" />
+
+	<rule ref="Zend.Files.ClosingTag" />
+
 </ruleset>
