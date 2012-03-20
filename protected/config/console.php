@@ -10,4 +10,7 @@ return array(
 	'components' => array(
 		// no components
 	),
+	'import' => array(
+		'application.commands.*',
+	),
 );
