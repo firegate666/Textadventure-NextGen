@@ -133,6 +133,22 @@ class Adventure extends CActiveRecord
 	}
 
 	/**
+	 * get the human readable state name
+	 *
+	 * @param integer $state_id
+	 * @return string
+	 */
+	public static function getStateName($state_id)
+	{
+		$states = self::validStates();
+		if (!isset($states[$state_id]))
+		{
+			throw new CException('Invalid state requested');
+		}
+		return $states[$state_id];
+	}
+
+	/**
 	 * get a list of valid stop states
 	 *
 	 * @static
