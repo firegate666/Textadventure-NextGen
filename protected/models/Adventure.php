@@ -198,6 +198,20 @@ class Adventure extends CActiveRecord
 			$this->stopDate = null;
 		}
 
+		if (!empty($this->startDate) && !empty($this->stopDate))
+		{
+			if ($this->startDate == $this->stopDate)
+			{
+				$this->addError('startDate', 'must not equal stopDate');
+				$this->addError('stopDate', 'must not equal startDate');
+			}
+			else if ($this->startDate > $this->stopDate)
+			{
+				$this->addError('startDate', 'must be lower than stopDate');
+				$this->addError('stopDate', 'must be greater than startDate');
+			}
+		}
+
 		return $ret;
 	}
 
