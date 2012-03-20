@@ -118,13 +118,41 @@ class Adventure extends CActiveRecord
 	/**
 	 * get list of valid states
 	 *
+	 * @uses Adventure::stopStates()
+	 * @uses Adventure::runningStates()
 	 * @static
 	 * @return array
 	 */
 	public static function validStates()
 	{
+		return array_merge_recursive(
+			self::runningStates(),
+			self::stopStates()
+		);
+	}
+
+	/**
+	 * get a list of valid stop states
+	 *
+	 * @static
+	 * @return array
+	 */
+	public static function stopStates()
+	{
 		return array(
 			self::STATE_DRAFT => 'Draft',
+		);
+	}
+
+	/**
+	 * get a list of valid running states
+	 *
+	 * @static
+	 * @return array
+	 */
+	public static function runningStates()
+	{
+		return array(
 			self::STATE_PUBLISHED => 'Published',
 		);
 	}
@@ -136,7 +164,7 @@ class Adventure extends CActiveRecord
 	 */
 	public function isRunning()
 	{
-		if ((int)$this->state === self::STATE_DRAFT)
+		if (array_key_exists((int)$this->state, self::stopStates()))
 		{
 			return false;
 		}
