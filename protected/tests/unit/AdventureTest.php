@@ -141,44 +141,44 @@ class AdventureTest extends CDbTestCase
 		$model = new Adventure();
 
 		$model->attributes = array(
-				'startDate' => $today,
-				'stopDate' => null,
-				'state' => Adventure::STATE_PUBLISHED,
+			'startDate' => $today,
+			'stopDate' => null,
+			'state' => Adventure::STATE_PUBLISHED,
 		);
 		$this->assertTrue($model->isRunning());
 
 		$model->attributes = array(
-				'startDate' => $yesterday,
-				'stopDate' => null,
-				'state' => Adventure::STATE_PUBLISHED,
+			'startDate' => $yesterday,
+			'stopDate' => null,
+			'state' => Adventure::STATE_PUBLISHED,
 		);
 		$this->assertTrue($model->isRunning());
 
 		$model->attributes = array(
-				'startDate' => $tomorrow,
-				'stopDate' => null,
-				'state' => Adventure::STATE_PUBLISHED,
+			'startDate' => $tomorrow,
+			'stopDate' => null,
+			'state' => Adventure::STATE_PUBLISHED,
 		);
 		$this->assertFalse($model->isRunning());
 
 		$model->attributes = array(
-				'startDate' => null,
-				'stopDate' => $tomorrow,
-				'state' => Adventure::STATE_PUBLISHED,
+			'startDate' => null,
+			'stopDate' => $tomorrow,
+			'state' => Adventure::STATE_PUBLISHED,
 		);
 		$this->assertTrue($model->isRunning());
 
 		$model->attributes = array(
-				'startDate' => null,
-				'stopDate' => $today,
-				'state' => Adventure::STATE_PUBLISHED,
+			'startDate' => null,
+			'stopDate' => $today,
+			'state' => Adventure::STATE_PUBLISHED,
 		);
 		$this->assertFalse($model->isRunning());
 
 		$model->attributes = array(
-				'startDate' => null,
-				'stopDate' => $yesterday,
-				'state' => Adventure::STATE_PUBLISHED,
+			'startDate' => null,
+			'stopDate' => $yesterday,
+			'state' => Adventure::STATE_PUBLISHED,
 		);
 		$this->assertFalse($model->isRunning());
 	}
