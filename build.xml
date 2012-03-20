@@ -37,6 +37,7 @@
 
 	<target name="prepare" depends="clean" description="Prepare for build">
 		<mkdir dir="${basedir}/build/api" />
+		<mkdir dir="${basedir}/build/api2" />
 		<mkdir dir="${basedir}/build/code-browser" />
 		<mkdir dir="${basedir}/build/coverage" />
 		<mkdir dir="${basedir}/build/logs" />
