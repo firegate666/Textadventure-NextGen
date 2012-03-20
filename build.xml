@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="Textadventure-NextGen" default="build">
-	<target name="build" depends="prepare,yiimigrate,lint,phploc,pdepend,phpcpd,phpunit,phpdox,phpcs-ci" />
+	<target name="build" depends="prepare,yiimigrate,lint,phploc,pdepend,phpcpd,phpunit,phpdox" />
 
 	<!-- disabled tasks
+		phpcs-ci
 		phpmd-ci
 		phpcb
 	-->
