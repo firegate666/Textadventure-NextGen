@@ -21,7 +21,6 @@ $this->widget('zii.widgets.CDetailView', array(
 	'attributes'=>array(
 		'id',
 		'username',
-		'password',
 		'email',
 		'groupId',
 	),
