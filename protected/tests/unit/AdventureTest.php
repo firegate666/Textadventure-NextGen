@@ -106,19 +106,25 @@ class AdventureTest extends CDbTestCase
 	{
 		$model = new Adventure();
 
-		$model->attributes = array(
+		foreach(Adventure::runningStates() as $state_value => $state_name)
+		{
+			$model->attributes = array(
 				'startDate' => null,
 				'stopDate' => null,
-				'state' => Adventure::STATE_PUBLISHED,
-		);
-		$this->assertTrue($model->isRunning());
+				'state' => $state_value,
+			);
+			$this->assertTrue($model->isRunning());
+		}
 
-		$model->attributes = array(
+		foreach(Adventure::stopStates() as $state_value => $state_name)
+		{
+			$model->attributes = array(
 				'startDate' => null,
 				'stopDate' => null,
-				'state' => Adventure::STATE_DRAFT,
-		);
-		$this->assertFalse($model->isRunning());
+				'state' => $state_value,
+			);
+			$this->assertFalse($model->isRunning());
+		}
 	}
 
 	/**
