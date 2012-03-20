@@ -8,7 +8,9 @@ return array(
 
 	// application components
 	'components' => array(
-		// no components
+		'cache' => array( // override in local conf if a different caching class is desired
+			'class' => 'system.caching.CFileCache',
+		),
 	),
 	'import' => array(
 		'application.commands.*',
