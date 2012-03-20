@@ -127,6 +127,7 @@ class Adventure extends CActiveRecord
 	 */
 	public static function validStates()
 	{
+		// using array_merge instead of + would result in losing our numeric array keys
 		return self::runningStates()
 			+ self::stopStates()
 		;
