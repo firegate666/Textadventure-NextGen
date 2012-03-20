@@ -3,6 +3,7 @@
 .settings
 nbproject
 
+build/*
 assets/*
 protected/runtime/*
 
