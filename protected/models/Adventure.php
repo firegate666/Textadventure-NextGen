@@ -263,6 +263,9 @@ class Adventure extends CActiveRecord
 			'name' => 'Name',
 			'description' => 'Description',
 			'adventureId' => 'Adventure ID',
+			'state' => 'State',
+			'startDate' => 'Start date',
+			'stopDate' => 'Stop date',
 		);
 	}
 
@@ -282,6 +285,9 @@ class Adventure extends CActiveRecord
 		$criteria->compare('name', $this->name, true);
 		$criteria->compare('description', $this->description, true);
 		$criteria->compare('adventureId', $this->adventureId, true);
+		$criteria->compare('state', $this->adventureId, true);
+		$criteria->compare('startDate', $this->adventureId, true);
+		$criteria->compare('stopDate', $this->adventureId, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
