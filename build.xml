@@ -47,17 +47,12 @@
 		<apply executable="php" failonerror="true">
 			<arg value="-l" />
 
-			<fileset dir="${basedir}/protected">
+			<fileset dir="${basedir}">
 				<include name="**/*.php" />
 				<exclude name="**/yii/**" />
 				<modified />
 			</fileset>
 
-			<fileset dir="${basedir}/protected/tests">
-				<include name="**/*.php" />
-				<exclude name="**/yii/**" />
-				<modified />
-			</fileset>
 		</apply>
 	</target>
 
