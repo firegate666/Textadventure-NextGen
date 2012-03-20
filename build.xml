@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="Textadventure-NextGen" default="build">
-	<target name="build" depends="prepare,yiimigrate,lint,phploc,pdepend,phpcpd,phpunit" />
+	<target name="build" depends="prepare,yiimigrate,lint,phploc,pdepend,phpcpd,phpunit,phpdox" />
 
 	<!-- disabled tasks
 		phpcs-ci
-		phpdox
 		phpmd-ci
 		phpcb
 	-->
@@ -31,6 +30,8 @@
 		<delete dir="${basedir}/build/coverage" />
 		<delete dir="${basedir}/build/logs" />
 		<delete dir="${basedir}/build/pdepend" />
+		<delete dir="${basedir}/build/phpdox" />
+		<delete dir="${basedir}/build/todo" />
 	</target>
 
 	<target name="prepare" depends="clean" description="Prepare for build">
@@ -40,6 +41,7 @@
 		<mkdir dir="${basedir}/build/logs" />
 		<mkdir dir="${basedir}/build/pdepend" />
 		<mkdir dir="${basedir}/build/phpdox" />
+		<mkdir dir="${basedir}/build/todo" />
 	</target>
 
 	<target name="lint">
