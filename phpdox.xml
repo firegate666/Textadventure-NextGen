@@ -12,8 +12,6 @@
 		<generator output="build">
 
 			<build engine="html" enabled="true" output="api" />
-			
-			<build engine="xslrunner" enabled="true" output="api2" />
 
 			<build engine="todo" enabled="true" output="todo">
 				<file name="todolist.txt" encoding="utf-8" />
