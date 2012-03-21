@@ -33,6 +33,12 @@ class UserGroup extends MetaInfo
 	public $defaultRegisterGroup;
 
 	/**
+	 *
+	 * @var User[]
+	 */
+	public $users;
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 *
 	 * @static
@@ -93,6 +99,7 @@ class UserGroup extends MetaInfo
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'users' => array(self::HAS_MANY, 'User', 'groupId'),
 		);
 	}
 
