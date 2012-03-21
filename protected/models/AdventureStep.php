@@ -161,7 +161,8 @@ class AdventureStep extends MetaInfo
 	 */
 	public function relations()
 	{
-		return array(
+		$relations = parent::relations();
+		return $relations + array(
 			'adventureParent' => array(self::BELONGS_TO, 'Adventure', 'adventure'),
 			'stepOptions' => array(self::HAS_MANY, 'AdventureStepOption', 'parent'),
 		);

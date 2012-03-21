@@ -267,7 +267,8 @@ class Adventure extends MetaInfo
 	 */
 	public function relations()
 	{
-		return array(
+		$relations = parent::relations();
+		return $relations + array(
 			'adventureSteps' => array(self::HAS_MANY, 'AdventureStep', 'adventure'),
 		);
 	}
