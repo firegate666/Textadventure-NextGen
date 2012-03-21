@@ -126,12 +126,14 @@
 		<!-- production database -->
 		<exec executable="${basedir}/protected/yiic">
 			<arg value="migrate" />
+			<arg value="--interactive=1" />
 		</exec>
 
 		<!-- test database -->
 		<exec executable="${basedir}/protected/yiic">
 			<arg value="migrate" />
 			<arg value="--connectionID=testdb" />
+			<arg value="--interactive=1" />
 		</exec>
 	</target>
 
