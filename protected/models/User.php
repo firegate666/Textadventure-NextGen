@@ -4,7 +4,7 @@
  * This is the model class for table "User".
  *
  */
-class User extends CActiveRecord
+class User extends MetaInfo
 {
 	// The followings are the available columns in table 'User':
 

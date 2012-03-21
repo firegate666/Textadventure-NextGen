@@ -4,7 +4,7 @@
  * This is the model class for table "UserGroup".
  *
  */
-class UserGroup extends CActiveRecord
+class UserGroup extends MetaInfo
 {
 	// The following are the available columns in table 'UserGroup':
 

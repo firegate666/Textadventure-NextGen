@@ -3,6 +3,74 @@
 class UserTest extends CDbTestCase
 {
 
+	/**
+	 * hold transcation
+	 *
+	 * @todo move to parent class
+	 * @var CDbTransaction
+	 */
+	protected $transaction;
+
+	/**
+	 * create transaction
+	 *
+	 * @todo move to parent class
+	 * @return void
+	 */
+	public function setUp()
+	{
+		parent::setUp();
+		$this->transaction = Yii::app()->db->beginTransaction();
+	}
+
+	/**
+	 * rollback transcation
+	 *
+	 * @todo move to parent class
+	 * @return void
+	 */
+	public function tearDown()
+	{
+		parent::tearDown();
+		$this->transaction->rollback();
+	}
+
+	/**
+	 * test metainfo setting
+	 *
+	 * @todo add second user to test, see if createdBy and changedBy have different users
+	 * @return void
+	 */
+	public function testMetainfo()
+	{
+		$user = User::model()->findBySql('SELECT * FROM User LIMIT 1');
+		$this->assertNotNull($user);
+		Yii::app()->user->id = $user->id;
+
+		$model = new UserGroup();
+		$model->attributes = array(
+			'name' => 'Test Group',
+		);
+
+		$this->assertTrue($model->validate(), var_export($model->getErrors(), true));
+
+		$this->assertNull($model->createdAt);
+		$this->assertNull($model->changedAt);
+		$this->assertNull($model->createdBy);
+		$this->assertNull($model->changedBy);
+		$model->save();
+		$this->assertNotNull($model->createdAt);
+		$this->assertEquals($user->id, $model->createdBy);
+
+		$this->assertNull($model->changedAt);
+		$this->assertNull($model->changedBy);
+		$model->save();
+		$this->assertNotNull($model->createdAt);
+		$this->assertNotNull($model->changedAt);
+		$this->assertEquals($user->id, $model->createdBy);
+		$this->assertEquals($user->id, $model->changedBy);
+	}
+
 	public function testRequiredFields()
 	{
 		$model = new User();

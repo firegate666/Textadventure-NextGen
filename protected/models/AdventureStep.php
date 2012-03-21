@@ -6,7 +6,7 @@
  * and relations to the step options
  *
  */
-class AdventureStep extends CActiveRecord
+class AdventureStep extends MetaInfo
 {
 	// The following are the available columns in table 'AdventureStep':
 

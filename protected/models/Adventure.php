@@ -7,7 +7,7 @@
  * holds relations to the single adventure steps
  *
  */
-class Adventure extends CActiveRecord
+class Adventure extends MetaInfo
 {
 
 	const STATE_DISABLED = 0;
