@@ -28,10 +28,22 @@ abstract class MetaInfo extends CActiveRecord {
 
 	/**
 	 * who changed
-	 * 
+	 *
 	 * @var integer
 	 */
 	public $changedBy;
+
+	/**
+	 *
+	 * @var User
+	 */
+	public $createUser;
+
+	/**
+	 *
+	 * @var User
+	 */
+	public $changeUser;
 
 	/**
 	 * write dates and user ids to model
@@ -61,6 +73,18 @@ abstract class MetaInfo extends CActiveRecord {
 			}
 		}
 		return $before_safe;
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		$relations = parent::relations();
+		return $relations + array(
+				'createUser' => array(self::BELONGS_TO, 'User', 'createdBy'),
+				'changeUser' => array(self::BELONGS_TO, 'User', 'changedBy'),
+		);
 	}
 
 }
