@@ -69,6 +69,12 @@ class UserTest extends CDbTestCase
 		$this->assertNotNull($model->changedAt);
 		$this->assertEquals($user->id, $model->createdBy);
 		$this->assertEquals($user->id, $model->changedBy);
+
+		$model2 = UserGroup::model()->findByPk($model->id);
+		$this->assertNotNull($model2->createdAt);
+		$this->assertNotNull($model2->changedAt);
+		$this->assertNotNull($model2->createdBy);
+		$this->assertNotNull($model2->changedBy);
 	}
 
 	public function testRequiredFields()
