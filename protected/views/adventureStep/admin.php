@@ -44,6 +44,16 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
+		array(            // display 'author.username' using an expression
+			'name'=>'createdBy',
+			'value'=>'$data->getCreateUserName()',
+		),
+		'createdAt',
+		array(            // display 'author.username' using an expression
+			'name'=>'changedBy',
+			'value'=>'$data->getChangeUserName()',
+		),
+		'changedAt',
 		'adventure',
 		'name',
 		'description',

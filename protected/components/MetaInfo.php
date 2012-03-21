@@ -76,6 +76,42 @@ abstract class MetaInfo extends CActiveRecord {
 	}
 
 	/**
+	 * get username of user who created this object
+	 *
+	 * @return string
+	 */
+	public function getCreateUserName()
+	{
+		$user = $this->getRelated('createUser');
+		if ($user !== null)
+		{
+			return $user->username;
+		}
+		else
+		{
+			return '';
+		}
+	}
+
+	/**
+	 * get username of user who changed this object
+	 *
+	 * @return string
+	 */
+	public function getChangeUserName()
+	{
+		$user = $this->getRelated('changeUser');
+		if ($user !== null)
+		{
+			return $user->username;
+		}
+		else
+		{
+			return '';
+		}
+	}
+
+	/**
 	 * @return array relational rules.
 	 */
 	public function relations()
