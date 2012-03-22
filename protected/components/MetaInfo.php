@@ -123,4 +123,17 @@ abstract class MetaInfo extends CActiveRecord {
 		);
 	}
 
+	/**
+	 * Returns the static model of the specified AR class.
+	 *
+	 * @static
+	 * @param string $className active record class name. (deprecated)
+	 * @uses get_called_class()
+	 * @return CActiveRecord the late static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		$className = get_called_class();
+		return parent::model($className);
+	}
 }

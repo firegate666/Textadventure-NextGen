@@ -39,18 +39,6 @@ class UserGroup extends MetaInfo
 	public $users;
 
 	/**
-	 * Returns the static model of the specified AR class.
-	 *
-	 * @static
-	 * @param string $className active record class name.
-	 * @return UserGroup the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
-
-	/**
 	 * get a list of usergroups
 	 *
 	 * @static
