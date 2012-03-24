@@ -1,4 +1,4 @@
-<?php if ($data->isRunning() || $data->userInAdventure()): ?>
+<?php if ($data->isRunning() || $data->userInAdventure(Yii::app()->user->id)): ?>
 	<div class="adventure view">
 
 		<div class="description">
@@ -9,7 +9,7 @@
 		<?php if ($data->hasSteps()): ?>
 			<div class="button button-play">
 				<?php if ($data->isRunning()): ?>
-					<?=CHtml::link($data->userInAdventure()?'CONTINUE':'PLAY', array('view', 'id' => $data->id))?>
+					<?=CHtml::link($data->userInAdventure(Yii::app()->user->id)?'CONTINUE':'PLAY', array('view', 'id' => $data->id))?>
 				<?php else: ?>
 					<?=CHtml::link('Closed for now, please return later', '#')?>
 				<?php endif;?>

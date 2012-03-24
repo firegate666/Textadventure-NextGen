@@ -117,13 +117,13 @@ class AdventureController extends Controller
 
 		if ($stepModel->startingPoint)
 		{
-			$model->start();
+			$model->start(Yii::app()->user->id);
 		}
 		else if ($stepModel->endingPoint)
 		{
-			$model->stop();
+			$model->stop(Yii::app()->user->id);
 		}
-		$stepModel->log();
+		$stepModel->log(Yii::app()->user->id);
 
 		$this->render('view', array(
 			'model' => $model,

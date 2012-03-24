@@ -233,12 +233,13 @@ class AdventureStep extends MetaInfo
 	/**
 	 * log this step and user
 	 *
+	 * @param integer $userId
 	 * @return void;
 	 */
-	public function log()
+	public function log($userId)
 	{
 		$log = new AdventureLog();
-		$log->userId = Yii::app()->user->id;
+		$log->userId = $userId;
 		$log->adventureId = $this->adventure;
 		$log->adventureStepId = $this->id;
 		$log->save();

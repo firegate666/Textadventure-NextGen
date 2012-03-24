@@ -322,9 +322,10 @@ class Adventure extends MetaInfo
 	/**
 	 * find an started and not ended participation entry
 	 *
+	 * @param integer $userId
 	 * @return AdventureParticipation
 	 */
-	public function findOpenEntryForUser()
+	public function findOpenEntryForUser($userId)
 	{
 		return AdventureParticipation::model()->findBySql('
 			SELECT
@@ -337,7 +338,7 @@ class Adventure extends MetaInfo
 				started IS NOT NULL AND
 				ended IS NULL
 		', array(
-			':userId' => Yii::app()->user->id,
+			':userId' => $userId,
 			':adventureId' => $this->id,
 		));
 	}
@@ -345,27 +346,29 @@ class Adventure extends MetaInfo
 	/**
 	 * test if logged in user is running this adventure
 	 *
+	 * @param integer $userId
 	 * @return boolean
 	 */
-	public function userInAdventure()
+	public function userInAdventure($userId)
 	{
-		$log = $this->findOpenEntryForUser();
+		$log = $this->findOpenEntryForUser($userId);
 		return $log !== null;
 	}
 
 	/**
 	 * write starting log entry for adventure and logged in user
 	 *
+	 * @param integer $userId
 	 * @return void
 	 */
-	public function start()
+	public function start($userId)
 	{
-		$log = $this->findOpenEntryForUser();
+		$log = $this->findOpenEntryForUser($userId);
 
 		if ($log === null)
 		{
 			$log = new AdventureParticipation();
-			$log->userId = Yii::app()->user->id;
+			$log->userId = $userId;
 			$log->adventureId = $this->id;
 			$log->started = date('Y-m-d H:i:s');
 			$log->save();
@@ -380,12 +383,13 @@ class Adventure extends MetaInfo
 	/**
 	 * write ending log entry for adventure and logged in user
 	 *
+	 * @param integer $userID
 	 * @throws CHttpException if starting log entry could not be found
 	 * @return void
 	 */
-	public function stop()
+	public function stop($userId)
 	{
-		$log = $this->findOpenEntryForUser();
+		$log = $this->findOpenEntryForUser($userId);
 
 		if ($log === null)
 		{
