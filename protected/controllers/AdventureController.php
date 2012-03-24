@@ -110,6 +110,11 @@ class AdventureController extends Controller
 		}
 
 		$model = $this->loadModel($id);
+		if (!$model->isRunning())
+		{
+			throw new CHttpException(423, 'The requested adventure is temporarily not available');
+		}
+
 		if ($stepModel->startingPoint)
 		{
 			$model->start();
