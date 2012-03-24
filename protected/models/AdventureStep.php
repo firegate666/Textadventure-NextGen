@@ -216,15 +216,15 @@ class AdventureStep extends MetaInfo
 		{
 			$list = self::model()->findAll();
 		}
-		foreach ($list as $adventureStep)
+		foreach ($list as $adventure_step)
 		{
-			$adventure_key = sprintf('[%s] %s', $adventureStep->getRelated('adventureParent')->adventureId, $adventureStep->getRelated('adventureParent')->name);
+			$adventure_key = sprintf('[%s] %s', $adventure_step->getRelated('adventureParent')->adventureId, $adventure_step->getRelated('adventureParent')->name);
 			if (!isset($result[$adventure_key]))
 			{
 				$result[$adventure_key] = array();
 			}
-			$result[$adventure_key][$adventureStep->id] =
-				sprintf('[%s] %s', $adventureStep->stepId, $adventureStep->name);
+			$result[$adventure_key][$adventure_step->id] =
+				sprintf('[%s] %s', $adventure_step->stepId, $adventure_step->name);
 		}
 		ksort($result);
 		return $result;
@@ -233,13 +233,13 @@ class AdventureStep extends MetaInfo
 	/**
 	 * log this step and user
 	 *
-	 * @param integer $userId
+	 * @param integer $user_id
 	 * @return void;
 	 */
-	public function log($userId)
+	public function log($user_id)
 	{
 		$log = new AdventureLog();
-		$log->userId = $userId;
+		$log->userId = $user_id;
 		$log->adventureId = $this->adventure;
 		$log->adventureStepId = $this->id;
 		$log->save();

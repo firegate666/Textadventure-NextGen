@@ -132,13 +132,16 @@ class AdventureLog extends MetaInfo
 	 * set all log entries for this adventure and user to finalized
 	 * this happens if an adventure is restarted
 	 *
-	 * @param integer $userId
-	 * @param integer $adventureId
+	 * @param integer $user_id
+	 * @param integer $adventure_id
 	 * @return void
 	 */
-	public static function finalize($userId, $adventureId)
+	public static function finalize($user_id, $adventure_id)
 	{
-		$logs = AdventureLog::model()->findAllByAttributes(array('userId'=>$userId, 'adventureId'=>$adventureId));
+		$logs = AdventureLog::model()->findAllByAttributes(array(
+			'userId'=>$user_id,
+			'adventureId'=>$adventure_id,
+		));
 		foreach ($logs as $log)
 		{
 			$log->finalized = true;
@@ -149,11 +152,11 @@ class AdventureLog extends MetaInfo
 	/**
 	 * get last visited step for user and adventure
 	 *
-	 * @param integer $userId
-	 * @param integer $adventureId
+	 * @param integer $user_id
+	 * @param integer $adventure_id
 	 * @return integer
 	 */
-	public static function getLastStep($userId, $adventureId)
+	public static function getLastStep($user_id, $adventure_id)
 	{
 		$log = AdventureLog::model()->findBySql('
 			SELECT
@@ -169,8 +172,8 @@ class AdventureLog extends MetaInfo
 			LIMIT
 				1
 		', array(
-			':userId' => $userId,
-			':adventureId' => $adventureId,
+			':userId' => $user_id,
+			':adventureId' => $adventure_id,
 		));
 
 		if ($log === null)
