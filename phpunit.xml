@@ -20,11 +20,11 @@
 
 	<filter>
 		<blacklist>
-			<directory suffix=".php">./../vendors</directory>
-			<directory suffix=".php">./../tests</directory>
-			<directory suffix=".php">./../runtime</directory>
-			<directory suffix=".php">./../../assets</directory>
-			<directory suffix=".php">./../../build</directory>
+			<directory suffix=".php">./protected/vendors</directory>
+			<directory suffix=".php">./protected/tests</directory>
+			<directory suffix=".php">./protected/runtime</directory>
+			<directory suffix=".php">./assets</directory>
+			<directory suffix=".php">./build</directory>
 		</blacklist>
 	</filter>
 
