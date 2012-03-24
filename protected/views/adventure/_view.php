@@ -1,4 +1,4 @@
-<?php if ($data->isRunning()): ?>
+<?php if ($data->isRunning() || $data->userInAdventure()): ?>
 	<div class="adventure view">
 
 		<div class="description">
@@ -8,7 +8,11 @@
 
 		<?php if ($data->hasSteps()): ?>
 			<div class="button button-play">
-				<?=CHtml::link($data->userInAdventure()?'CONTINUE':'PLAY', array('view', 'id' => $data->id))?>
+				<?php if ($data->isRunning()): ?>
+					<?=CHtml::link($data->userInAdventure()?'CONTINUE':'PLAY', array('view', 'id' => $data->id))?>
+				<?php else: ?>
+					<?=CHtml::link('Closed for now, please return later', '#')?>
+				<?php endif;?>
 			</div>
 		<?php else: ?>
 			<div class="button button-noplay">
