@@ -318,4 +318,84 @@ class Adventure extends MetaInfo
 		natcasesort($result);
 		return $result;
 	}
+
+	/**
+	 * find an started and not ended participation entry
+	 *
+	 * @return AdventureParticipation
+	 */
+	public function findOpenEntryForUser()
+	{
+		return AdventureParticipation::model()->findBySql('
+			SELECT
+				*
+			FROM
+				AdventureParticipation
+			WHERE
+				userId = :userId AND
+				adventureId = :adventureId AND
+				started IS NOT NULL AND
+				ended IS NULL
+		', array(
+			':userId' => Yii::app()->user->id,
+			':adventureId' => $this->id,
+		));
+	}
+
+	/**
+	 * test if logged in user is running this adventure
+	 *
+	 * @return boolean
+	 */
+	public function userInAdventure()
+	{
+		$log = $this->findOpenEntryForUser();
+		return $log !== null;
+	}
+
+	/**
+	 * write starting log entry for adventure and logged in user
+	 *
+	 * @return void
+	 */
+	public function start()
+	{
+		$log = $this->findOpenEntryForUser();
+
+		if ($log === null)
+		{
+			$log = new AdventureParticipation();
+			$log->userId = Yii::app()->user->id;
+			$log->adventureId = $this->id;
+			$log->started = date('Y-m-d H:i:s');
+			$log->save();
+		}
+		else
+		{
+			// adventure already started and not ended
+			// this is a returning user
+		}
+	}
+
+	/**
+	 * write ending log entry for adventure and logged in user
+	 *
+	 * @throws CHttpException if starting log entry could not be found
+	 * @return void
+	 */
+	public function stop()
+	{
+		$log = $this->findOpenEntryForUser();
+
+		if ($log === null)
+		{
+			// adventure already started and ended
+			// this is a returning user
+		}
+		else
+		{
+			$log->ended = date('Y-m-d H:i:s');
+			$log->save();
+		}
+	}
 }

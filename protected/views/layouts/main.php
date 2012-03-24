@@ -42,6 +42,9 @@
 				array('label'=>'AdventureStep', 'url'=>array('/AdventureStep/admin'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'AdventureStepOption', 'url'=>array('/AdventureStepOption/admin'), 'visible'=>!Yii::app()->user->isGuest),
 
+				array('label'=>'Adventure Log', 'url'=>array('/AdventureLog/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Adventure Participation', 'url'=>array('/AdventureParticipation/index'), 'visible'=>!Yii::app()->user->isGuest),
+
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>

@@ -229,4 +229,18 @@ class AdventureStep extends MetaInfo
 		ksort($result);
 		return $result;
 	}
+
+	/**
+	 * log this step and user
+	 *
+	 * @return void;
+	 */
+	public function log()
+	{
+		$log = new AdventureLog();
+		$log->userId = Yii::app()->user->id;
+		$log->adventureId = $this->adventure;
+		$log->adventureStepId = $this->id;
+		$log->save();
+	}
 }

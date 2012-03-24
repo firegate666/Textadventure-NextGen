@@ -61,15 +61,7 @@ class AdventureController extends Controller
 			throw new CHttpException(404, 'Adventure not found');
 		}
 
-		$lastStep = static::getSessionValue('adventureStep_'.$id, null);
-		if ($lastStep !== null)
-		{
-			$stepModel = AdventureStep::model()->findByPk($lastStep);
-			if ($stepModel->endingPoint)
-			{
-				static::addSessionValue('adventureStep_'.$id, null);
-			}
-		}
+		AdventureLog::finalize(Yii::app()->user->id, $id);
 		$this->redirect(array('view', 'id' => $id));
 	}
 
@@ -88,12 +80,10 @@ class AdventureController extends Controller
 		}
 
 		$stepModel = null;
-		$lastStep = static::getSessionValue('adventureStep_'.$id, null);
-
+		$lastStep = AdventureLog::getLastStep(Yii::app()->user->id, $id);
 		if (empty($step) && !empty($lastStep))
 		{
-			// restore last step in this adventure from session
-			$step = static::getSessionValue('adventureStep_'.$id, null);
+			$step = $lastStep;
 		}
 
 		// always access the startingPoint if last step is empty
@@ -119,10 +109,19 @@ class AdventureController extends Controller
 			}
 		}
 
-		// save step to session
-		static::addSessionValue('adventureStep_'.$id, $stepModel->id);
+		$model = $this->loadModel($id);
+		if ($stepModel->startingPoint)
+		{
+			$model->start();
+		}
+		else if ($stepModel->endingPoint)
+		{
+			$model->stop();
+		}
+		$stepModel->log();
+
 		$this->render('view', array(
-			'model' => $this->loadModel($id),
+			'model' => $model,
 			'stepModel' => $stepModel,
 		));
 	}
