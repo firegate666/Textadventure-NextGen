@@ -60,11 +60,11 @@ class AdventureParticipation extends MetaInfo
 		// will receive user inputs.
 		return array(
 			array('userId, adventureId, started', 'required'),
-			array('userId, adventureId', 'numerical', 'integerOnly'=>true),
+			array('userId, adventureId', 'numerical', 'integerOnly' => true),
 			array('ended', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, createdAt, changedAt, createdBy, changedBy, userId, adventureId, started, ended', 'safe', 'on'=>'search'),
+			array('id, createdAt, changedAt, createdBy, changedBy, userId, adventureId, started, ended', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -99,27 +99,26 @@ class AdventureParticipation extends MetaInfo
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
+	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
 
-		$criteria=new CDbCriteria;
+		$criteria = new CDbCriteria();
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('createdAt',$this->createdAt,true);
-		$criteria->compare('changedAt',$this->changedAt,true);
-		$criteria->compare('createdBy',$this->createdBy);
-		$criteria->compare('changedBy',$this->changedBy);
-		$criteria->compare('userId',$this->userId);
-		$criteria->compare('adventureId',$this->adventureId);
-		$criteria->compare('started',$this->started,true);
-		$criteria->compare('ended',$this->ended,true);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('createdAt', $this->createdAt,true);
+		$criteria->compare('changedAt', $this->changedAt,true);
+		$criteria->compare('createdBy', $this->createdBy);
+		$criteria->compare('changedBy', $this->changedBy);
+		$criteria->compare('userId', $this->userId);
+		$criteria->compare('adventureId', $this->adventureId);
+		$criteria->compare('started', $this->started,true);
+		$criteria->compare('ended', $this->ended,true);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria' => $criteria,
 		));
 	}
 }
