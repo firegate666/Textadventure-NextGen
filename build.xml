@@ -63,15 +63,13 @@
 	</target>
 
 	<target name="jslint" depends="clean">
-        <mkdir dir="reports" />
-        //options for jslint
-        <jslint options="white,undef,plusplus,newcap,vars,indent=4">
-            //global variables like jquery
-            <predef>jQuery, setTimeout, history, window, document</predef>
-            <formatter type="junit" destfile="build/jslint" />
-            <fileset dir="js" includes="**/*.js" excludes="protected/vendors/**" />
-        </jslint>
-    </target>
+		<mkdir dir="reports" />
+		<jslint options="white,undef,plusplus,newcap,vars,indent=4">
+			<predef>jQuery, setTimeout, history, window, document</predef>
+			<formatter type="junit" destfile="build/jslint" />
+			<fileset dir="js" includes="**/*.js" excludes="protected/vendors/**" />
+		</jslint>
+	</target>
 
 	<target name="phploc" description="Measure project size using PHPLOC">
 		<exec executable="phploc">
