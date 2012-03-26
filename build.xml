@@ -38,7 +38,7 @@
 		<delete dir="${basedir}/build/phpdox" />
 		<delete dir="${basedir}/build/todo" />
 		<delete dir="${basedir}/build/jslint" />
-		<delete dir="${basedir}/build/jslint-checkstyle" />
+		<delete dir="${basedir}/build/jslint-checkstyle.xml" />
 	</target>
 
 	<target name="prepare" depends="clean" description="Prepare for build">
@@ -50,7 +50,6 @@
 		<mkdir dir="${basedir}/build/phpdox" />
 		<mkdir dir="${basedir}/build/todo" />
 		<mkdir dir="${basedir}/build/jslint" />
-		<mkdir dir="${basedir}/build/jslint-checkstyle" />
 	</target>
 
 	<target name="lint">
@@ -70,7 +69,7 @@
 		<jslint options="white,undef,plusplus,newcap,vars,indent=4">
 			<predef>jQuery, setTimeout, history, window, document</predef>
 			<formatter type="junit" destfile="build/jslint" />
-			<formatter type="checkstyle" destfile="build/jslint-checkstyle" />
+			<formatter type="checkstyle" destfile="build/jslint-checkstyle.xml" />
 			<fileset dir="js" includes="**/*.js" excludes="protected/vendors/**" />
 		</jslint>
 	</target>
