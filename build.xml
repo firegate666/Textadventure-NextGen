@@ -6,7 +6,7 @@
            classname="com.googlecode.jslint4java.ant.JSLintTask"
            classpath="protected/vendors/jslint/jslint4java-2.0.2.jar" />
 
-	<target name="build" depends="prepare,yiimigrate,lint,phploc,pdepend,phpcpd,phpunit,phpdox" />
+	<target name="build" depends="prepare,yiimigrate,lint,jslint,phploc,pdepend,phpcpd,phpunit,phpdox" />
 
 	<!-- disabled tasks
 		phpcs-ci
@@ -14,7 +14,7 @@
 		phpcb
 	-->
 
-	<target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb" />
+	<target name="build-parallel" depends="prepare,lint,jslint,tools-parallel,phpunit,phpcb" />
 
 	<target name="tools-parallel" description="Run tools in parallel">
 		<parallel threadCount="2">
@@ -37,6 +37,8 @@
 		<delete dir="${basedir}/build/pdepend" />
 		<delete dir="${basedir}/build/phpdox" />
 		<delete dir="${basedir}/build/todo" />
+		<delete dir="${basedir}/build/jslint" />
+		<delete dir="${basedir}/build/jslint-checkstyle" />
 	</target>
 
 	<target name="prepare" depends="clean" description="Prepare for build">
@@ -47,6 +49,8 @@
 		<mkdir dir="${basedir}/build/pdepend" />
 		<mkdir dir="${basedir}/build/phpdox" />
 		<mkdir dir="${basedir}/build/todo" />
+		<mkdir dir="${basedir}/build/jslint" />
+		<mkdir dir="${basedir}/build/jslint-checkstyle" />
 	</target>
 
 	<target name="lint">
@@ -63,10 +67,10 @@
 	</target>
 
 	<target name="jslint" depends="clean">
-		<mkdir dir="reports" />
 		<jslint options="white,undef,plusplus,newcap,vars,indent=4">
 			<predef>jQuery, setTimeout, history, window, document</predef>
 			<formatter type="junit" destfile="build/jslint" />
+			<formatter type="checkstyle" destfile="build/jslint-checkstyle" />
 			<fileset dir="js" includes="**/*.js" excludes="protected/vendors/**" />
 		</jslint>
 	</target>
