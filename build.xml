@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="Textadventure-NextGen" default="build">
+
+	<taskdef name="jslint"
+           classname="com.googlecode.jslint4java.ant.JSLintTask"
+           classpath="protected/vendors/jslint/jslint4java-2.0.2.jar" />
+
 	<target name="build" depends="prepare,yiimigrate,lint,phploc,pdepend,phpcpd,phpunit,phpdox" />
 
 	<!-- disabled tasks
@@ -56,6 +61,17 @@
 
 		</apply>
 	</target>
+
+	<target name="jslint" depends="clean">
+        <mkdir dir="reports" />
+        //options for jslint
+        <jslint options="white,undef,plusplus,newcap,vars,indent=4">
+            //global variables like jquery
+            <predef>jQuery, setTimeout, history, window, document</predef>
+            <formatter type="junit" destfile="build/jslint" />
+            <fileset dir="js" includes="**/*.js" excludes="protected/vendors/**" />
+        </jslint>
+    </target>
 
 	<target name="phploc" description="Measure project size using PHPLOC">
 		<exec executable="phploc">
