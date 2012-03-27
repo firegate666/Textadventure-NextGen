@@ -6,7 +6,8 @@
            classname="com.googlecode.jslint4java.ant.JSLintTask"
            classpath="protected/vendors/jslint/jslint4java-2.0.2.jar" />
 
-	<target name="build" depends="prepare,yiimigrate,lint,jslint,phploc,pdepend,phpcpd,phpunit,phpdox" />
+	<!-- full build -->
+	<target name="build" depends="prepare,yiimigrate,lint,jslint,csslint,phploc,pdepend,phpcpd,phpunit,phpdox" />
 
 	<!-- disabled tasks
 		phpcs-ci
