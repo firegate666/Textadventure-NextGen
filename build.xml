@@ -46,7 +46,7 @@
 		<delete dir="${basedir}/build/phpdox" />
 		<delete dir="${basedir}/build/todo" />
 		<delete dir="${basedir}/build/jslint" />
-		<delete dir="${basedir}/build/jslint-xml" />
+		<delete dir="${basedir}/build/jslint.xml" />
 		<delete dir="${basedir}/build/jslint-checkstyle.xml" />
 	</target>
 
@@ -59,7 +59,6 @@
 		<mkdir dir="${basedir}/build/phpdox" />
 		<mkdir dir="${basedir}/build/todo" />
 		<mkdir dir="${basedir}/build/jslint" />
-		<mkdir dir="${basedir}/build/jslint-xml" />
 	</target>
 
 	<target name="lint">
