@@ -78,7 +78,7 @@
 		<jslint options="white,undef,plusplus,newcap,vars,indent=4">
 			<predef>jQuery, setTimeout, history, window, document</predef>
 			<formatter type="junit" destfile="build/jslint" />
-			<formatter type="xml" destfile="build/jslint-xml" />
+			<formatter type="xml" destfile="build/jslint.xml" />
 			<formatter type="checkstyle" destfile="build/jslint-checkstyle.xml" />
 			<fileset dir="js" includes="**/*.js" excludes="protected/vendors/**" />
 		</jslint>
