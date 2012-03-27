@@ -9,6 +9,9 @@
 	<!-- full build -->
 	<target name="build" depends="prepare,yiimigrate,lint,jslint,csslint,phploc,pdepend,phpcpd,phpunit,phpdox" />
 
+	<!-- no full build, only unittests and syntax/lint -->
+	<target name="build_small" depends="prepare,yiimigrate,lint,jslint,csslint,phpunit" />
+
 	<!-- disabled tasks
 		phpcs-ci
 		phpmd-ci
