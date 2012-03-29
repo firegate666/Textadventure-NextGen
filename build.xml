@@ -65,7 +65,7 @@
 		</apply>
 	</target>
 
-	<target name="jslint" depends="clean">
+	<target name="jslint" depends="clean,prepare">
 		<jslint options="white,undef,plusplus,newcap,vars,indent=4">
 			<predef>jQuery, setTimeout, history, window, document</predef>
 			<formatter type="junit" destfile="build/jslint" />
