@@ -38,7 +38,6 @@
 		<delete dir="${basedir}/build/phpdox" />
 		<delete dir="${basedir}/build/todo" />
 		<delete dir="${basedir}/build/jslint" />
-		<delete dir="${basedir}/build/jslint-checkstyle.xml" />
 	</target>
 
 	<target name="prepare" depends="clean" description="Prepare for build">
