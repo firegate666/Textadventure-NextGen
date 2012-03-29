@@ -6,7 +6,8 @@
            classname="com.googlecode.jslint4java.ant.JSLintTask"
            classpath="protected/vendors/jslint/jslint4java-2.0.2.jar" />
 
-	<target name="build" depends="prepare,yiimigrate,lint,jslint,phploc,pdepend,phpcpd,phpunit,phpdox" />
+	<!-- full build -->
+	<target name="build" depends="prepare,yiimigrate,lint,jslint,csslint,phploc,pdepend,phpcpd,phpunit,phpdox" />
 
 	<!-- disabled tasks
 		phpcs-ci
@@ -14,16 +15,23 @@
 		phpcb
 	-->
 
-	<target name="build-parallel" depends="prepare,lint,jslint,tools-parallel,phpunit,phpcb" />
+	<!-- no full build, only unittests and syntax/lint -->
+	<target name="build_small" depends="prepare,yiimigrate,lint,jslint,csslint,phpunit" />
+
+	<target name="build-parallel" depends="prepare,lint,jslint,csslint,tools-parallel,phpunit" />
+
+	<!-- disabled tasks
+		phpcb
+	-->
 
 	<target name="tools-parallel" description="Run tools in parallel">
 		<parallel threadCount="2">
 			<sequential>
 				<antcall target="pdepend" />
-				<antcall target="phpmd-ci" />
+				<!--antcall target="phpmd-ci" /-->
 			</sequential>
 			<antcall target="phpcpd" />
-			<antcall target="phpcs-ci" />
+			<!--antcall target="phpcs-ci" /-->
 			<antcall target="phploc" />
 			<antcall target="phpdox" />
 		</parallel>
@@ -69,9 +77,27 @@
 		<jslint options="white,undef,plusplus,newcap,vars,indent=4">
 			<predef>jQuery, setTimeout, history, window, document</predef>
 			<formatter type="junit" destfile="build/jslint" />
+			<formatter type="xml" destfile="build/jslint.xml" />
 			<formatter type="checkstyle" destfile="build/jslint-checkstyle.xml" />
-			<fileset dir="public/js" includes="**/*.js" excludes="protected/vendors/**,public/vendors/**" />
+			<fileset dir="${basedir}" includes="**/*.js" excludes="protected/vendors/**,public/vendors/**" />
 		</jslint>
+	</target>
+
+	<target name="csslint">
+		<apply executable="java" failonerror="true">
+			<arg value="-jar" />
+			<arg path="protected/vendors/rhino/js.jar" />
+			<arg path="protected/vendors/csslint/release/csslint-rhino.js" />
+			<arg value="--format=compact" />
+			<arg value="--warnings=empty-rules,import,important,known-properties" />
+
+			<fileset dir="${basedir}">
+				<include name="**/*.css" />
+				<exclude name="**/vendors/**" />
+				<modified />
+			</fileset>
+
+		</apply>
 	</target>
 
 	<target name="phploc" description="Measure project size using PHPLOC">
