@@ -58,7 +58,7 @@
 
 			<fileset dir="${basedir}">
 				<include name="**/*.php" />
-				<exclude name="**/yii/**" />
+				<exclude name="**/vendors/**" />
 				<modified />
 			</fileset>
 
@@ -70,7 +70,7 @@
 			<predef>jQuery, setTimeout, history, window, document</predef>
 			<formatter type="junit" destfile="build/jslint" />
 			<formatter type="checkstyle" destfile="build/jslint-checkstyle.xml" />
-			<fileset dir="js" includes="**/*.js" excludes="protected/vendors/**" />
+			<fileset dir="js" includes="**/*.js" excludes="protected/vendors/**,public/vendors/**" />
 		</jslint>
 	</target>
 

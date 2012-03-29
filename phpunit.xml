@@ -23,6 +23,7 @@
 			<directory suffix=".php">./protected/vendors</directory>
 			<directory suffix=".php">./protected/tests</directory>
 			<directory suffix=".php">./protected/runtime</directory>
+			<directory suffix=".php">./public/vendors</directory>
 			<directory suffix=".php">./assets</directory>
 			<directory suffix=".php">./build</directory>
 		</blacklist>

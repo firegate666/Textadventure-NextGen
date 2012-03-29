@@ -7,6 +7,7 @@
 			<include mask="*.php" />
 			<exclude mask="**/protected/vendors/**" />
 			<exclude mask="**/protected/tests/**" />
+			<exclude mask="**/public/vendors/**" />
 		</collector>
 
 		<generator output="build">
