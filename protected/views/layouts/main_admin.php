@@ -29,15 +29,15 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
 
-				array('label'=>'Start adventuring', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Adventure', 'url'=>array('/Adventure/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label'=>'AdventureStep', 'url'=>array('/AdventureStep/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label'=>'AdventureStepOption', 'url'=>array('/AdventureStepOption/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label'=>'Adventure Log', 'url'=>array('/AdventureLog/index'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label'=>'Adventure Participation', 'url'=>array('/AdventureParticipation/index'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label'=>'User', 'url'=>array('/User'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label'=>'UserGroup', 'url'=>array('/UserGroup'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 
-				array('label'=>'Login', 'url'=>array('/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Register', 'url'=>array('/User/register'), 'visible'=>Yii::app()->user->isGuest),
-
-				array('label'=>'Admin', 'url'=>array('/site/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
 			),
 		)); ?>

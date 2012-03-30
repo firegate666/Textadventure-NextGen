@@ -74,6 +74,7 @@ class AdventureController extends Controller
 	 */
 	public function actionView($id, $step = null)
 	{
+		$this->layout = '//layouts/column1';
 		if (empty($id))
 		{
 			throw new CHttpException(404, 'Adventure not found');
@@ -219,6 +220,7 @@ class AdventureController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$this->layout = '//layouts/column1';
 		$dataProvider = new CActiveDataProvider('Adventure');
 		$sort = new CSort('Adventure');
 		$sort->defaultOrder = array('id' => CSort::SORT_DESC);

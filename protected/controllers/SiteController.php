@@ -35,6 +35,17 @@ class SiteController extends Controller
 	}
 
 	/**
+	 * show admin interface
+	 *
+	 * @return void
+	 */
+	public function actionAdmin()
+	{
+		$this->layout = '//layouts/column1_admin';
+		$this->render('admin');
+	}
+
+	/**
 	 * This is the action to handle external exceptions.
 	 *
 	 * @return void
