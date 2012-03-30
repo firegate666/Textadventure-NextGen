@@ -75,7 +75,9 @@ class AdventureStepController extends Controller
 		{
 			$model->attributes = $_POST['AdventureStep'];
 			if($model->save())
+			{
 				$this->redirect(array('admin'));
+			}
 		}
 
 		$this->render('create', array(
@@ -130,7 +132,7 @@ class AdventureStepController extends Controller
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if (!isset($_GET['ajax']))
 			{
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				$this->redirect(array('admin'));
 			}
 		}
 		else
