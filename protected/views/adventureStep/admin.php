@@ -62,6 +62,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'endingPoint',
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{update} {delete}',
 		),
 	),
 ));
