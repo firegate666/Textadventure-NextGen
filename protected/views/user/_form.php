@@ -9,55 +9,55 @@ $form = $this->beginWidget('CActiveForm', array(
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?=$form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model, 'username'); ?>
-		<?php echo $form->textField($model, 'username',array('size' => 60, 'maxlength' => 128)); ?>
-		<?php echo $form->error($model, 'username'); ?>
+		<?=$form->labelEx($model, 'username'); ?>
+		<?=$form->textField($model, 'username',array('size' => 60, 'maxlength' => 128)); ?>
+		<?=$form->error($model, 'username'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model, 'newPassword'); ?>
-		<?php echo $form->passwordField($model, 'newPassword',array('size' => 60, 'maxlength' => 128)); ?>
-		<?php echo $form->error($model, 'newPassword'); ?>
+		<?=$form->labelEx($model, 'newPassword'); ?>
+		<?=$form->passwordField($model, 'newPassword',array('size' => 60, 'maxlength' => 128)); ?>
+		<?=$form->error($model, 'newPassword'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model, 'newPasswordConfirm'); ?>
-		<?php echo $form->passwordField($model, 'newPasswordConfirm',array('size' => 60, 'maxlength' => 128)); ?>
-		<?php echo $form->error($model, 'newPasswordConfirm'); ?>
+		<?=$form->labelEx($model, 'newPasswordConfirm'); ?>
+		<?=$form->passwordField($model, 'newPasswordConfirm',array('size' => 60, 'maxlength' => 128)); ?>
+		<?=$form->error($model, 'newPasswordConfirm'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model, 'email'); ?>
-		<?php echo $form->textField($model, 'email',array('size' => 60, 'maxlength' => 128)); ?>
-		<?php echo $form->error($model, 'email'); ?>
+		<?=$form->labelEx($model, 'email'); ?>
+		<?=$form->textField($model, 'email',array('size' => 60, 'maxlength' => 128)); ?>
+		<?=$form->error($model, 'email'); ?>
 	</div>
 
 	<?php if (isset($register) && $register): ?>
 		<?php if(CCaptcha::checkRequirements()): ?>
 		<div class="row">
-			<?php echo $form->labelEx($model, 'verifyCode'); ?>
+			<?=$form->labelEx($model, 'verifyCode'); ?>
 			<div>
 			<?php $this->widget('CCaptcha'); ?>
-			<?php echo $form->textField($model, 'verifyCode'); ?>
+			<?=$form->textField($model, 'verifyCode'); ?>
 			</div>
 			<div class="hint">Please enter the letters as they are shown in the image above.
 			<br/>Letters are not case-sensitive.</div>
-			<?php echo $form->error($model, 'verifyCode'); ?>
+			<?=$form->error($model, 'verifyCode'); ?>
 		</div>
 		<?php endif; ?>
 	<?php else: ?>
 		<div class="row">
-			<?php echo $form->labelEx($model, 'groupId'); ?>
-			<?php echo $form->dropDownList($model, 'groupId', $groupList); ?>
-			<?php echo $form->error($model, 'groupId'); ?>
+			<?=$form->labelEx($model, 'groupId'); ?>
+			<?=$form->dropDownList($model, 'groupId', $groupList); ?>
+			<?=$form->error($model, 'groupId'); ?>
 		</div>
 	<?php endif; ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?=CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

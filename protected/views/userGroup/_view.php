@@ -1,19 +1,19 @@
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id' => $data->id)); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?=CHtml::link(CHtml::encode($data->id), array('view', 'id' => $data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
+	<?=CHtml::encode($data->name); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('isAdmin')); ?>:</b>
-	<?php echo CHtml::encode($data->isAdmin); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('isAdmin')); ?>:</b>
+	<?=CHtml::encode($data->isAdmin); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('defaultRegisterGroup')); ?>:</b>
-	<?php echo CHtml::encode($data->defaultRegisterGroup); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('defaultRegisterGroup')); ?>:</b>
+	<?=CHtml::encode($data->defaultRegisterGroup); ?>
 	<br />
 
 </div>

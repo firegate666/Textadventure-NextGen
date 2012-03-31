@@ -9,28 +9,28 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?=$form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'parent'); ?>
-		<?php echo $form->dropDownList($model, 'parent', $adventureStepList); ?>
-		<?php echo $form->error($model,'parent'); ?>
+		<?=$form->labelEx($model,'parent'); ?>
+		<?=$form->dropDownList($model, 'parent', $adventureStepList); ?>
+		<?=$form->error($model,'parent'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'target'); ?>
-		<?php echo $form->dropDownList($model, 'target', $adventureStepList); ?>
-		<?php echo $form->error($model,'target'); ?>
+		<?=$form->labelEx($model,'target'); ?>
+		<?=$form->dropDownList($model, 'target', $adventureStepList); ?>
+		<?=$form->error($model,'target'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>256)); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<?=$form->labelEx($model,'name'); ?>
+		<?=$form->textField($model,'name',array('size'=>60,'maxlength'=>256)); ?>
+		<?=$form->error($model,'name'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?=CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

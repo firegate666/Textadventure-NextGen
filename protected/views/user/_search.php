@@ -8,27 +8,27 @@ $form=$this->beginWidget('CActiveForm', array(
 ?>
 
 	<div class="row">
-		<?php echo $form->label($model, 'id'); ?>
-		<?php echo $form->textField($model, 'id'); ?>
+		<?=$form->label($model, 'id'); ?>
+		<?=$form->textField($model, 'id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model, 'username'); ?>
-		<?php echo $form->textField($model, 'username',array('size' => 60, 'maxlength' => 128)); ?>
+		<?=$form->label($model, 'username'); ?>
+		<?=$form->textField($model, 'username',array('size' => 60, 'maxlength' => 128)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model, 'email'); ?>
-		<?php echo $form->textField($model, 'email',array('size' => 60, 'maxlength' => 128)); ?>
+		<?=$form->label($model, 'email'); ?>
+		<?=$form->textField($model, 'email',array('size' => 60, 'maxlength' => 128)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model, 'groupId'); ?>
-		<?php echo $form->textField($model, 'groupId'); ?>
+		<?=$form->label($model, 'groupId'); ?>
+		<?=$form->textField($model, 'groupId'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?=CHtml::submitButton('Search'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

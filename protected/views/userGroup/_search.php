@@ -8,27 +8,27 @@ $form=$this->beginWidget('CActiveForm', array(
 ?>
 
 	<div class="row">
-		<?php echo $form->label($model, 'id'); ?>
-		<?php echo $form->textField($model, 'id'); ?>
+		<?=$form->label($model, 'id'); ?>
+		<?=$form->textField($model, 'id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model, 'name'); ?>
-		<?php echo $form->textField($model, 'name'); ?>
+		<?=$form->label($model, 'name'); ?>
+		<?=$form->textField($model, 'name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model, 'isAdmin'); ?>
-		<?php echo $form->checkBox($model, 'isAdmin'); ?>
+		<?=$form->label($model, 'isAdmin'); ?>
+		<?=$form->checkBox($model, 'isAdmin'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model, 'defaultRegisterGroup'); ?>
-		<?php echo $form->checkBox($model, 'defaultRegisterGroup'); ?>
+		<?=$form->label($model, 'defaultRegisterGroup'); ?>
+		<?=$form->checkBox($model, 'defaultRegisterGroup'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?=CHtml::submitButton('Search'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -1,39 +1,39 @@
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id' => $data->id)); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?=CHtml::link(CHtml::encode($data->id), array('view', 'id' => $data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('createdAt')); ?>:</b>
-	<?php echo CHtml::encode($data->createdAt); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('createdAt')); ?>:</b>
+	<?=CHtml::encode($data->createdAt); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('changedAt')); ?>:</b>
-	<?php echo CHtml::encode($data->changedAt); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('changedAt')); ?>:</b>
+	<?=CHtml::encode($data->changedAt); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('createdBy')); ?>:</b>
-	<?php echo CHtml::encode($data->createdBy); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('createdBy')); ?>:</b>
+	<?=CHtml::encode($data->createdBy); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('changedBy')); ?>:</b>
-	<?php echo CHtml::encode($data->changedBy); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('changedBy')); ?>:</b>
+	<?=CHtml::encode($data->changedBy); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('userId')); ?>:</b>
-	<?php echo CHtml::encode($data->userId); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('userId')); ?>:</b>
+	<?=CHtml::encode($data->userId); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('adventureId')); ?>:</b>
-	<?php echo CHtml::encode($data->adventureId); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('adventureId')); ?>:</b>
+	<?=CHtml::encode($data->adventureId); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('started')); ?>:</b>
-	<?php echo CHtml::encode($data->started); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('started')); ?>:</b>
+	<?=CHtml::encode($data->started); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ended')); ?>:</b>
-	<?php echo CHtml::encode($data->ended); ?>
+	<b><?=CHtml::encode($data->getAttributeLabel('ended')); ?>:</b>
+	<?=CHtml::encode($data->ended); ?>
 	<br />
 
 </div>
