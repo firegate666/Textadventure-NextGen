@@ -99,6 +99,7 @@ class AdventureStep extends MetaInfo
 	 *
 	 * (non-PHPdoc)
 	 * @see CModel::beforeValidate()
+	 * @return boolean
 	 */
 	public function beforeValidate()
 	{

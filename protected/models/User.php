@@ -196,6 +196,7 @@ class User extends MetaInfo
 	/**
 	 * (non-PHPdoc)
 	 * @see CModel::beforeValidate()
+	 * @return boolean
 	 */
 	protected function beforeValidate()
 	{

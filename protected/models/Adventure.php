@@ -195,6 +195,7 @@ class Adventure extends MetaInfo
 	 *
 	 * @param string $attribute
 	 * @param array $params
+	 * @return void
 	 */
 	public function isAdventureState($attribute, $params)
 	{
@@ -209,6 +210,7 @@ class Adventure extends MetaInfo
 	 *
 	 * (non-PHPdoc)
 	 * @see CModel::beforeValidate()
+	 * @return boolean
 	 */
 	public function beforeValidate()
 	{
