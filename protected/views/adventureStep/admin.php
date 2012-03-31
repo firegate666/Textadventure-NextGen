@@ -4,22 +4,22 @@ $this->breadcrumbs=array(
 	'Manage',
 );
 
-$this->menu=array(
-	array('label'=>'List AdventureStep', 'url'=>array('index')),
-	array('label'=>'Create AdventureStep', 'url'=>array('create')),
+$this->menu = array(
+	array('label' => 'List AdventureStep', 'url' => array('index')),
+	array('label' => 'Create AdventureStep', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('adventure-step-grid', {
-		data: $(this).serialize()
+	$('.search-button').click(function(){
+		$('.search-form').toggle();
+		return false;
 	});
-	return false;
-});
+	$('.search-form form').submit(function(){
+		$.fn.yiiGridView.update('adventure-step-grid', {
+			data: $(this).serialize()
+		});
+		return false;
+	});
 ");
 ?>
 
@@ -32,26 +32,30 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
+
+<?php
+$this->renderPartial('_search',array(
 	'model'=>$model,
-)); ?>
+));
+?>
+
 </div><!-- search-form -->
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'adventure-step-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
+	'id' => 'adventure-step-grid',
+	'dataProvider' => $model->search(),
+	'filter' => $model,
+	'columns' => array(
 		'id',
 		array(            // display 'author.username' using an expression
-			'name'=>'createdBy',
-			'value'=>'$data->getCreateUserName()',
+			'name' => 'createdBy',
+			'value' => '$data->getCreateUserName()',
 		),
 		'createdAt',
 		array(            // display 'author.username' using an expression
-			'name'=>'changedBy',
-			'value'=>'$data->getChangeUserName()',
+			'name' => 'changedBy',
+			'value' => '$data->getChangeUserName()',
 		),
 		'changedAt',
 		'adventure',

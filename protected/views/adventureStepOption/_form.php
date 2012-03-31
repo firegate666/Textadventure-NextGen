@@ -1,9 +1,11 @@
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php
+$form=$this->beginWidget('CActiveForm', array(
 	'id'=>'adventure-step-option-form',
 	'enableAjaxValidation'=>false,
-)); ?>
+));
+?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 

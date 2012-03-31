@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create UserGroup', 'url'=>array('create')),
-	array('label'=>'Manage UserGroup', 'url'=>array('admin')),
+	array('label' => 'Create UserGroup', 'url' => array('create')),
+	array('label' => 'Manage UserGroup', 'url' => array('admin')),
 );
 ?>
 
@@ -13,6 +13,6 @@ $this->menu=array(
 
 <?php
 $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+	'dataProvider' => $dataProvider,
+	'itemView' => '_view',
 ));

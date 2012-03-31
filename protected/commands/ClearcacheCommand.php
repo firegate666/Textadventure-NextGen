@@ -1,5 +1,5 @@
 <?php
-Yii::import('application.commands.AbstractCommand');
+Yii::import('application.commands.shell.AbstractCommand');
 
 /**
  * Yiic command to delete assets and cache

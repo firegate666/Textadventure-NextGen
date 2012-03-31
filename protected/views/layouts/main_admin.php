@@ -26,25 +26,25 @@
 	</div><!-- header -->
 
 	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
+		<?php $this->widget('zii.widgets.CMenu', array(
+			'items' => array(
+				array('label' => 'Home', 'url' => array('/site/index')),
 
-				array('label'=>'Adventure', 'url'=>array('/Adventure/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label'=>'AdventureStep', 'url'=>array('/AdventureStep/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label'=>'AdventureStepOption', 'url'=>array('/AdventureStepOption/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label'=>'Adventure Log', 'url'=>array('/AdventureLog/index'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label'=>'Adventure Participation', 'url'=>array('/AdventureParticipation/index'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label'=>'User', 'url'=>array('/User'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label'=>'UserGroup', 'url'=>array('/UserGroup'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'Adventure', 'url' => array('/Adventure/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'AdventureStep', 'url' => array('/AdventureStep/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'AdventureStepOption', 'url' => array('/AdventureStepOption/admin'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'Adventure Log', 'url' => array('/AdventureLog/index'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'Adventure Participation', 'url' => array('/AdventureParticipation/index'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'User', 'url' => array('/User'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'UserGroup', 'url' => array('/UserGroup'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
+				array('label' => 'Logout ('.Yii::app()->user->name.')', 'url' => array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
+			'links' => $this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 

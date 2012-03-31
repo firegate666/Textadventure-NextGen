@@ -1,28 +1,30 @@
 <div class="wide form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php
+$form=$this->beginWidget('CActiveForm', array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
-)); ?>
+));
+?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
+		<?php echo $form->label($model, 'id'); ?>
+		<?php echo $form->textField($model, 'id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name'); ?>
+		<?php echo $form->label($model, 'name'); ?>
+		<?php echo $form->textField($model, 'name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'isAdmin'); ?>
-		<?php echo $form->checkBox($model,'isAdmin'); ?>
+		<?php echo $form->label($model, 'isAdmin'); ?>
+		<?php echo $form->checkBox($model, 'isAdmin'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'defaultRegisterGroup'); ?>
-		<?php echo $form->checkBox($model,'defaultRegisterGroup'); ?>
+		<?php echo $form->label($model, 'defaultRegisterGroup'); ?>
+		<?php echo $form->checkBox($model, 'defaultRegisterGroup'); ?>
 	</div>
 
 	<div class="row buttons">

@@ -10,16 +10,16 @@ $this->menu=array(
 );
 
 Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('adventure-step-option-grid', {
-		data: $(this).serialize()
+	$('.search-button').click(function(){
+		$('.search-form').toggle();
+		return false;
 	});
-	return false;
-});
+	$('.search-form form').submit(function(){
+		$.fn.yiiGridView.update('adventure-step-option-grid', {
+			data: $(this).serialize()
+		});
+		return false;
+	});
 ");
 ?>
 
@@ -40,25 +40,25 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'adventure-step-option-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
+	'dataProvider' => $model->search(),
+	'filter' => $model,
+	'columns' => array(
 		'id',
 		array(            // display 'author.username' using an expression
-			'name'=>'createdBy',
-			'value'=>'$data->getCreateUserName()',
+			'name' => 'createdBy',
+			'value' => '$data->getCreateUserName()',
 		),
 		'createdAt',
 		array(            // display 'author.username' using an expression
-			'name'=>'changedBy',
-			'value'=>'$data->getChangeUserName()',
+			'name' => 'changedBy',
+			'value' => '$data->getChangeUserName()',
 		),
 		'changedAt',
 		'parent',
 		'target',
 		'name',
 		array(
-			'class'=>'CButtonColumn',
+			'class' => 'CButtonColumn',
 			'template' => '{update} {delete}',
 		),
 	),

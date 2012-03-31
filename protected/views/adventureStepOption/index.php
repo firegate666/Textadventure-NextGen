@@ -3,7 +3,7 @@ $this->breadcrumbs=array(
 	'Adventure Step Options',
 );
 
-$this->menu=array(
+$this->menu = array(
 	array('label'=>'Create AdventureStepOption', 'url'=>array('create')),
 	array('label'=>'Manage AdventureStepOption', 'url'=>array('admin')),
 );
@@ -13,6 +13,6 @@ $this->menu=array(
 
 <?php
 $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+	'dataProvider' => $dataProvider,
+	'itemView' => '_view',
 ));
