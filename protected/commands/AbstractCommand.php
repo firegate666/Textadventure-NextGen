@@ -1,5 +1,4 @@
 <?php
-Yii::import('application.commands.AbstractCommand');
 
 /**
  * Yiic abstract command with common methods to use
@@ -35,7 +34,7 @@ class AbstractCommand extends CConsoleCommand
 
 	/**
 	 * collect global options
-	 * 
+	 *
 	 * @return array
 	 */
 	protected function getGlobalOptions()
@@ -55,7 +54,7 @@ class AbstractCommand extends CConsoleCommand
 
 	/**
 	 * show this information
-	 * 
+	 *
 	 * @return void
 	 */
 	public function actionHelp()
