@@ -375,11 +375,7 @@ class Adventure extends MetaInfo
 			$log->started = date('Y-m-d H:i:s');
 			$log->save();
 		}
-		else
-		{
-			// adventure already started and not ended
-			// this is a returning user
-		}
+		// else adventure already started and not ended, this is a returning user
 	}
 
 	/**
@@ -393,15 +389,11 @@ class Adventure extends MetaInfo
 	{
 		$log = $this->findOpenEntryForUser($user_id);
 
-		if ($log === null)
-		{
-			// adventure already started and ended
-			// this is a returning user
-		}
-		else
+		if ($log !== null)
 		{
 			$log->ended = date('Y-m-d H:i:s');
 			$log->save();
 		}
+		// else adventure already started and ended; this is a returning user
 	}
 }
