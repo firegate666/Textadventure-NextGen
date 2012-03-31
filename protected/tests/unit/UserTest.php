@@ -1,39 +1,7 @@
 <?php
 
-class UserTest extends CDbTestCase
+class UserTest extends AbstractUnitTest
 {
-
-	/**
-	 * hold transcation
-	 *
-	 * @todo move to parent class
-	 * @var CDbTransaction
-	 */
-	protected $transaction;
-
-	/**
-	 * create transaction
-	 *
-	 * @todo move to parent class
-	 * @return void
-	 */
-	public function setUp()
-	{
-		parent::setUp();
-		$this->transaction = Yii::app()->db->beginTransaction();
-	}
-
-	/**
-	 * rollback transcation
-	 *
-	 * @todo move to parent class
-	 * @return void
-	 */
-	public function tearDown()
-	{
-		parent::tearDown();
-		$this->transaction->rollback();
-	}
 
 	/**
 	 * test metainfo setting

@@ -1,6 +1,6 @@
 <?php
 
-class AdventureTest extends CDbTestCase
+class AdventureTest extends AbstractUnitTest
 {
 
 	/**

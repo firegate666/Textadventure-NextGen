@@ -1,6 +1,6 @@
 <?php
 
-class AdventureStepTest extends CDbTestCase
+class AdventureStepTest extends AbstractUnitTest
 {
 
 	public function testRequirements()
