@@ -6,6 +6,7 @@
 	<exclude-pattern>**/assets/**</exclude-pattern>
 	<exclude-pattern>**/protected/vendors/**</exclude-pattern>
 	<exclude-pattern>**/protected/runtime/**</exclude-pattern>
+	<exclude-pattern>**/protected/views/**</exclude-pattern>
 	<exclude-pattern>**/public/vendors/**</exclude-pattern>
 
 	<rule ref="Generic.Classes.DuplicateClassName" />
