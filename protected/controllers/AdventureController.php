@@ -74,6 +74,7 @@ class AdventureController extends Controller
 	 */
 	public function actionView($id, $step = null)
 	{
+		$this->layout = '//layouts/column1';
 		if (empty($id))
 		{
 			throw new CHttpException(404, 'Adventure not found');
@@ -203,7 +204,7 @@ class AdventureController extends Controller
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if (!isset($_GET['ajax']))
 			{
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				$this->redirect(array('admin'));
 			}
 		}
 		else
@@ -219,6 +220,7 @@ class AdventureController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$this->layout = '//layouts/column1';
 		$dataProvider = new CActiveDataProvider('Adventure');
 		$sort = new CSort('Adventure');
 		$sort->defaultOrder = array('id' => CSort::SORT_DESC);

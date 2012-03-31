@@ -35,6 +35,23 @@ class SiteController extends Controller
 	}
 
 	/**
+	 * show admin interface
+	 *
+	 * @throws CHttpException if logged in user is not an admin
+	 * @return void
+	 */
+	public function actionAdmin()
+	{
+		if (!Yii::app()->user->getState('isAdmin'))
+		{
+			throw new CHttpException(403, 'Not authorized');
+		}
+
+		$this->layout = '//layouts/column1_admin';
+		$this->render('admin');
+	}
+
+	/**
 	 * This is the action to handle external exceptions.
 	 *
 	 * @return void
