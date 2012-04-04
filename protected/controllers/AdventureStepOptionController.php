@@ -29,11 +29,11 @@ class AdventureStepOptionController extends Controller
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions' => array('index', 'view', 'create', 'update'),
-				'expression' => '$user->getState("isAdmin")',
+				'expression' => '$user->getState("isAdmin") || $user->getState("canCreateAdventure")',
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions' => array('admin', 'delete'),
-				'expression' => '$user->getState("isAdmin")',
+				'expression' => '$user->getState("isAdmin") || $user->getState("canCreateAdventure")',
 			),
 			array('deny',  // deny all users
 				'users' => array('*'),
@@ -144,6 +144,14 @@ class AdventureStepOptionController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider = new CActiveDataProvider('AdventureStepOption');
+
+		$criteria = new CDbCriteria();
+		if (!Yii::app()->user->isAdmin)
+		{
+			$criteria->compare('createdBy', Yii::app()->user->id);
+		}
+		$dataProvider->setCriteria($criteria);
+
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));
@@ -161,6 +169,11 @@ class AdventureStepOptionController extends Controller
 		if (isset($_GET['AdventureStepOption']))
 		{
 			$model->attributes=$_GET['AdventureStepOption'];
+		}
+
+		if (!Yii::app()->user->isAdmin)
+		{
+			$model->createdBy = Yii::app()->user->id;
 		}
 
 		$this->render('admin', array(
@@ -181,6 +194,10 @@ class AdventureStepOptionController extends Controller
 		if ($model === null)
 		{
 			throw new CHttpException(404, 'The requested page does not exist.');
+		}
+		else if (!$model->isAdminOrOwner(Yii::app()->user->id))
+		{
+			throw new CHttpException(403, 'Not authorized');
 		}
 		return $model;
 	}
