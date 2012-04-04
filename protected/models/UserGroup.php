@@ -117,12 +117,7 @@ class UserGroup extends MetaInfo
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
-
-		$criteria = new CDbCriteria();
-
-		$criteria->compare('id', $this->id);
+		$criteria = $this->getSearchCriteria();
 		$criteria->compare('name', $this->name);
 		$criteria->compare('isAdmin', $this->isAdmin);
 		$criteria->compare('canCreateAdventure', $this->canCreateAdventure);

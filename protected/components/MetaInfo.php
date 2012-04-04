@@ -167,4 +167,20 @@ abstract class MetaInfo extends CActiveRecord {
 		$className = get_called_class();
 		return parent::model($className);
 	}
+
+	/**
+	 * get search criterias for this model
+	 *
+	 * @return CDbCriteria
+	 */
+	protected function getSearchCriteria()
+	{
+		$criteria = new CDbCriteria();
+		$criteria->compare('id', $this->id);
+		$criteria->compare('createdAt', $this->createdAt);
+		$criteria->compare('createdBy', $this->createdBy);
+		$criteria->compare('changedAt', $this->changedAt);
+		$criteria->compare('changedBy', $this->changedBy);
+		return $criteria;
+	}
 }

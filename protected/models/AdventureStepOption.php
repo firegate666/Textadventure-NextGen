@@ -124,12 +124,7 @@ class AdventureStepOption extends MetaInfo
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
-
-		$criteria = new CDbCriteria();
-
-		$criteria->compare('id', $this->id);
+		$criteria = $this->getSearchCriteria();
 		$criteria->compare('parent', $this->parent);
 		$criteria->compare('target', $this->target);
 		$criteria->compare('name', $this->name, true);

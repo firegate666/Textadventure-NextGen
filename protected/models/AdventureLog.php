@@ -110,14 +110,7 @@ class AdventureLog extends MetaInfo
 	 */
 	public function search()
 	{
-
-		$criteria = new CDbCriteria();
-
-		$criteria->compare('id', $this->id);
-		$criteria->compare('createdAt', $this->createdAt,true);
-		$criteria->compare('changedAt', $this->changedAt,true);
-		$criteria->compare('createdBy', $this->createdBy);
-		$criteria->compare('changedBy', $this->changedBy);
+		$criteria = $this->getSearchCriteria();
 		$criteria->compare('userId', $this->userId);
 		$criteria->compare('adventureId', $this->adventureId);
 		$criteria->compare('adventureStepId', $this->adventureStepId);
