@@ -82,15 +82,7 @@ abstract class MetaInfo extends CActiveRecord {
 	 */
 	public function getCreateUserName()
 	{
-		$user = $this->getRelated('createUser');
-		if ($user !== null)
-		{
-			return $user->username;
-		}
-		else
-		{
-			return '';
-		}
+		return $this->getRelatedAttribute('createUser', 'username', '', false);
 	}
 
 	/**
@@ -100,15 +92,7 @@ abstract class MetaInfo extends CActiveRecord {
 	 */
 	public function getChangeUserName()
 	{
-		$user = $this->getRelated('changeUser');
-		if ($user !== null)
-		{
-			return $user->username;
-		}
-		else
-		{
-			return '';
-		}
+		return $this->getRelatedAttribute('changeUser', 'username', '', false);
 	}
 
 	/**
