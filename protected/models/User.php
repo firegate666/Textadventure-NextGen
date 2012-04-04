@@ -89,6 +89,16 @@ class User extends MetaInfo
 	}
 
 	/**
+	 * test if use can create adventure
+	 *
+	 * @return boolean
+	 */
+	public function canCreateAdventure()
+	{
+		return (bool)$this->getRelatedAttribute('group', 'canCreateAdventure', false);
+	}
+
+	/**
 	 * @return array validation rules for model attributes.
 	 */
 	public function rules()

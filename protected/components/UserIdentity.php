@@ -17,6 +17,13 @@ class UserIdentity extends CUserIdentity
 	public $isAdmin = false;
 
 	/**
+	 * logged in user can create adventure
+	 *
+	 * @var boolean
+	 */
+	public $canCreateAdventure = false;
+
+	/**
 	 * Authenticates a user.
 	 *
 	 * @return boolean whether authentication succeeds.
@@ -37,6 +44,7 @@ class UserIdentity extends CUserIdentity
 			$this->username = $user->username;
 			$this->errorCode = self::ERROR_NONE;
 			$this->isAdmin = $user->isAdmin();
+			$this->canCreateAdventure = $user->canCreateAdventure();
 		}
 		return $this->errorCode == self::ERROR_NONE;
 	}
