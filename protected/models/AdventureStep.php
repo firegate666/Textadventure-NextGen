@@ -248,7 +248,8 @@ class AdventureStep extends MetaInfo
 	 * @param user_id $user_id
 	 * @return boolean
 	 */
-	public function isAdminOrOwner($user_id) {
+	public function isAdminOrOwner($user_id)
+	{
 		$user = User::model()->findByPk($user_id);
 		if ($user !== null)
 		{
