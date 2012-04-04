@@ -30,6 +30,12 @@ class UserGroup extends MetaInfo
 	 *
 	 * @var boolean
 	 */
+	public $canCreateAdventure;
+
+	/**
+	 *
+	 * @var boolean
+	 */
 	public $defaultRegisterGroup;
 
 	/**
@@ -72,10 +78,10 @@ class UserGroup extends MetaInfo
 		return array(
 			array('name', 'required'),
 			array('name', 'length', 'max' => 256),
-			array('isAdmin, defaultRegisterGroup', 'boolean'),
+			array('isAdmin, canCreateAdventure, defaultRegisterGroup', 'boolean'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, isAdmin', 'safe', 'on' => 'search'),
+			array('id, name, isAdmin, canCreateAdventure', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -99,6 +105,7 @@ class UserGroup extends MetaInfo
 			'id' => 'ID',
 			'name' => 'Name',
 			'isAdmin' => 'Is admin?',
+			'canCreateAdventure' => 'Can create adventures?',
 			'defaultRegisterGroup' => 'Is default register group?',
 		);
 	}
@@ -118,6 +125,7 @@ class UserGroup extends MetaInfo
 		$criteria->compare('id', $this->id);
 		$criteria->compare('name', $this->name);
 		$criteria->compare('isAdmin', $this->isAdmin);
+		$criteria->compare('canCreateAdventure', $this->canCreateAdventure);
 		$criteria->compare('defaultRegisterGroup', $this->defaultRegisterGroup);
 
 		return new CActiveDataProvider($this, array(

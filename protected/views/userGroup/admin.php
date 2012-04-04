@@ -56,6 +56,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'changedAt',
 		'name',
 		'isAdmin',
+		'canCreateAdventure',
 		'defaultRegisterGroup',
 		array(
 			'class' => 'CButtonColumn',

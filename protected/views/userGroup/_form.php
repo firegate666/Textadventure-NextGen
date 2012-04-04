@@ -24,6 +24,12 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 
 	<div class="row">
+		<?=$form->labelEx($model, 'canCreateAdventure'); ?>
+		<?=$form->checkBox($model, 'canCreateAdventure'); ?>
+		<?=$form->error($model, 'canCreateAdventure'); ?>
+	</div>
+
+	<div class="row">
 		<?=$form->labelEx($model, 'defaultRegisterGroup'); ?>
 		<?=$form->checkBox($model, 'defaultRegisterGroup'); ?>
 		<?=$form->error($model, 'defaultRegisterGroup'); ?>

@@ -12,6 +12,10 @@
 	<?=CHtml::encode($data->isAdmin); ?>
 	<br />
 
+	<b><?=CHtml::encode($data->getAttributeLabel('canCreateAdventure')); ?>:</b>
+	<?=CHtml::encode($data->canCreateAdventure); ?>
+	<br />
+
 	<b><?=CHtml::encode($data->getAttributeLabel('defaultRegisterGroup')); ?>:</b>
 	<?=CHtml::encode($data->defaultRegisterGroup); ?>
 	<br />

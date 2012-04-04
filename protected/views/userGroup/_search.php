@@ -23,6 +23,11 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 
 	<div class="row">
+		<?=$form->label($model, 'canCreateAdventure'); ?>
+		<?=$form->checkBox($model, 'canCreateAdventure'); ?>
+	</div>
+
+	<div class="row">
 		<?=$form->label($model, 'defaultRegisterGroup'); ?>
 		<?=$form->checkBox($model, 'defaultRegisterGroup'); ?>
 	</div>

@@ -22,6 +22,7 @@ $this->widget('zii.widgets.CDetailView', array(
 		'id',
 		'name',
 		'isAdmin',
+		'canCreateAdventure',
 		'defaultRegisterGroup',
 	),
 ));

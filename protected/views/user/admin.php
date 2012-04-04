@@ -56,7 +56,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'changedAt',
 		'username',
 		'email',
-		'groupId',
+		array(
+			'name' => 'groupId',
+			'value' => '$data->getRelatedAttribute("group", "name", "")',
+		),
 		array(
 			'class' => 'CButtonColumn',
 		),
