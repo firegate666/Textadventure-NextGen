@@ -240,4 +240,23 @@ class AdventureStep extends MetaInfo
 		$log->adventureStepId = $this->id;
 		$log->save();
 	}
+
+	/**
+	 * test if user is admin or if user can create adventures and this is created by him
+	 *
+	 * @todo refactor to reduce copy & paste (Adventure, AdventureStep, AdventureStepOption)
+	 * @param user_id $user_id
+	 * @return boolean
+	 */
+	public function isAdminOrOwner($user_id) {
+		$user = User::model()->findByPk($user_id);
+		if ($user !== null)
+		{
+			return $user->isAdmin() ||
+			($user->canCreateAdventure() && $user_id == $this->createdBy)
+			;
+		}
+		return false;
+	}
+
 }
