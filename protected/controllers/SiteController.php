@@ -40,7 +40,7 @@ class SiteController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		if (!Yii::app()->user->getState('isAdmin'))
+		if (!Yii::app()->user->getState('isAdmin') && !Yii::app()->user->getState('canCreateAdventure'))
 		{
 			throw new CHttpException(403, 'Not authorized');
 		}
