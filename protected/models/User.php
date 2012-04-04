@@ -113,7 +113,7 @@ class User extends MetaInfo
 	{
 		$relations = parent::relations();
 		return $relations + array(
-			'group' => array(self::BELONGS_TO, 'User', 'groupid'),
+			'group' => array(self::BELONGS_TO, 'UserGroup', 'groupId'),
 		);
 	}
 
@@ -233,4 +233,5 @@ class User extends MetaInfo
 
 		return $isValid;
 	}
+
 }
