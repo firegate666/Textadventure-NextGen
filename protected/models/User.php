@@ -84,8 +84,7 @@ class User extends MetaInfo
 	 */
 	public function isAdmin()
 	{
-		$group = UserGroup::model()->findByPk($this->groupId);
-		return (bool)$group->isAdmin;
+		return (bool)$this->getRelatedAttribute('group', 'isAdmin', false);
 	}
 
 	/**
