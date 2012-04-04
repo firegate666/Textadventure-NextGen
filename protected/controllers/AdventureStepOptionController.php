@@ -78,7 +78,7 @@ class AdventureStepOptionController extends Controller
 
 		$this->render('create', array(
 			'model' => $model,
-			'adventureStepList' => AdventureStep::items(),
+			'adventureStepList' => AdventureStep::items(null, Yii::app()->user->id),
 		));
 	}
 
@@ -107,7 +107,7 @@ class AdventureStepOptionController extends Controller
 
 		$this->render('update', array(
 			'model' => $model,
-			'adventureStepList' => AdventureStep::items(),
+			'adventureStepList' => AdventureStep::items(null, Yii::app()->user->isAdmin ? null : Yii::app()->user->id),
 		));
 	}
 

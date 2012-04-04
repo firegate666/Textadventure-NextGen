@@ -200,7 +200,7 @@ class AdventureStep extends MetaInfo
 	 * @static
 	 * @return array
 	 */
-	public static function items(Adventure $adventure = null)
+	public static function items(Adventure $adventure = null, $user_id = null)
 	{
 		$result = array();
 		$list = array();
@@ -211,6 +211,7 @@ class AdventureStep extends MetaInfo
 		else
 		{
 			$model = self::model();
+			$model->createdBy = $user_id;
 			$list = $model->search()->getData();
 		}
 		foreach ($list as $adventure_step)

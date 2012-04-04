@@ -305,10 +305,11 @@ class Adventure extends MetaInfo
 	 * @static
 	 * @return array
 	 */
-	public static function items()
+	public static function items($user_id = null)
 	{
 		$result = array();
 		$model = self::model();
+		$model->createdBy = $user_id;
 		foreach ($model->search()->getData() as $adventure)
 		{
 			$result[$adventure->id] = sprintf('[%s] %s', $adventure->adventureId, $adventure->name);
