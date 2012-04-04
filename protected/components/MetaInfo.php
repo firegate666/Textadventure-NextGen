@@ -124,6 +124,53 @@ abstract class MetaInfo extends CActiveRecord {
 	}
 
 	/**
+	 * test if object has this relation
+	 *
+	 * @param string $name
+	 * @return boolean
+	 */
+	public function isRelationDefined($name)
+	{
+		$relations = $this->relations();
+		return isset($relations[$name]);
+	}
+
+	/**
+	 * return attribute value of related object
+	 *
+	 * @param string $related
+	 * @param string $attribute
+	 * @param mixed $default
+	 * @param boolean $with_exception
+	 * @throws AttributeNotDefinedException
+	 * @throws RelationNotDefinedException
+	 * @return mixed
+	 */
+	public function getRelatedAttribute($related, $attribute, $default = null, $with_exception = false)
+	{
+		$response = $default;
+		if ($this->isRelationDefined($related))
+		{
+			$relation = $this->getRelated($related);
+			if ($relation !== null) {
+				if (isset($relation->$attribute))
+				{
+					$response = $relation->$attribute;
+				}
+				else if ($with_exception)
+				{
+					throw new AttributeNotDefinedException($attribute);
+				}
+			}
+		}
+		else if ($with_exception)
+		{
+			throw new RelationNotDefinedException($related);
+		}
+		return $response;
+	}
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 *
 	 * @static
