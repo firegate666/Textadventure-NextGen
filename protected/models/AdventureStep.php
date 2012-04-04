@@ -210,7 +210,8 @@ class AdventureStep extends MetaInfo
 		}
 		else
 		{
-			$list = self::model()->findAll();
+			$model = self::model();
+			$list = $model->search()->getData();
 		}
 		foreach ($list as $adventure_step)
 		{

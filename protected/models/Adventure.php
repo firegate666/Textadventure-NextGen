@@ -308,7 +308,8 @@ class Adventure extends MetaInfo
 	public static function items()
 	{
 		$result = array();
-		foreach (self::model()->findAll() as $adventure)
+		$model = self::model();
+		foreach ($model->search()->getData() as $adventure)
 		{
 			$result[$adventure->id] = sprintf('[%s] %s', $adventure->adventureId, $adventure->name);
 		}
