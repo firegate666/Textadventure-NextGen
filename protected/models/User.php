@@ -1,8 +1,7 @@
 <?php
 
 /**
- * This is the model class for table "User".
- *
+ * This is the model class for table "User"
  */
 class User extends MetaInfo
 {
