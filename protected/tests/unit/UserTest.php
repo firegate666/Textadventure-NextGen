@@ -3,17 +3,17 @@
 class UserTest extends AbstractUnitTest
 {
 
-	/**
-	 * test metainfo setting
-	 *
-	 * @todo add second user to test, see if createdBy and changedBy have different users
-	 * @return void
-	 */
 	public function testMetainfo()
 	{
-		$user = User::model()->findBySql('SELECT * FROM User LIMIT 1');
-		$this->assertNotNull($user);
-		Yii::app()->user->id = $user->id;
+		$user_1 = User::model()->findBySql('SELECT * FROM User ORDER BY id ASC LIMIT 1');
+		$user_2 = User::model()->findBySql('SELECT * FROM User ORDER BY id DESC LIMIT 1');
+
+		$this->assertNotNull($user_1);
+		$this->assertNotNull($user_2);
+
+		$this->assertNotEquals($user_1->id, $user_2->id);
+
+		Yii::app()->user->id = $user_1->id;
 
 		$model = new UserGroup();
 		$model->attributes = array(
@@ -28,15 +28,17 @@ class UserTest extends AbstractUnitTest
 		$this->assertNull($model->changedBy);
 		$model->save();
 		$this->assertNotNull($model->createdAt);
-		$this->assertEquals($user->id, $model->createdBy);
+		$this->assertEquals($user_1->id, $model->createdBy);
 
 		$this->assertNull($model->changedAt);
 		$this->assertNull($model->changedBy);
+
+		Yii::app()->user->id = $user_2->id;
 		$model->save();
 		$this->assertNotNull($model->createdAt);
 		$this->assertNotNull($model->changedAt);
-		$this->assertEquals($user->id, $model->createdBy);
-		$this->assertEquals($user->id, $model->changedBy);
+		$this->assertEquals($user_1->id, $model->createdBy);
+		$this->assertEquals($user_2->id, $model->changedBy);
 
 		$model2 = UserGroup::model()->findByPk($model->id);
 		$this->assertNotNull($model2->createdAt);
