@@ -20,6 +20,8 @@
 
 	<target name="build-parallel" depends="prepare,lint,jslint,csslint,tools-parallel,phpunit" />
 
+	<target name="quickcheck" depends="prepare,lint,jslint,csslint,phpcs,phpcpd,phpunit" />
+	
 	<!-- disabled tasks
 		phpcb
 	-->
