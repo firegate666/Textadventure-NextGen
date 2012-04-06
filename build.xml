@@ -79,7 +79,7 @@
 			<formatter type="junit" destfile="build/jslint" />
 			<formatter type="xml" destfile="build/jslint.xml" />
 			<formatter type="checkstyle" destfile="build/jslint-checkstyle.xml" />
-			<fileset dir="${basedir}" includes="**/*.js" excludes="protected/vendors/**,public/vendors/**" />
+			<fileset dir="${basedir}" includes="**/*.js" excludes="assets/**,protected/vendors/**,public/vendors/**" />
 		</jslint>
 	</target>
 
@@ -93,6 +93,7 @@
 
 			<fileset dir="${basedir}">
 				<include name="**/*.css" />
+				<exclude name="**/assets/**" />
 				<exclude name="**/vendors/**" />
 				<modified />
 			</fileset>
