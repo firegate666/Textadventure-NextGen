@@ -13,3 +13,5 @@ protected/tests/build/
 
 *.tmp
 *.bak
+cache.properties
+

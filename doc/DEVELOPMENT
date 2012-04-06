@@ -1,0 +1,15 @@
+There are a few rules that should be honored when developing
+
+1) Everything checked in into branch master will be checked by jenkins ci who pushes to branch latest_stable
+
+2) Deployment only through branch latest_stable
+
+3) Everything pushed is working
+
+4) Before pushing, use "ant quickcheck" to test your code. It executes
+	# PHP, JS and CSS Syntaxcheck
+	# PHP Code Style
+	# PHP Copy Paste Detection
+	# PHPUnit
+
+5) If a bigger feature is developed by several parties or has to be pushed in between, switch to a feature branch
