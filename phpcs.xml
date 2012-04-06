@@ -8,6 +8,7 @@
 	<exclude-pattern>**/protected/runtime/**</exclude-pattern>
 	<exclude-pattern>**/protected/views/**</exclude-pattern>
 	<exclude-pattern>**/public/vendors/**</exclude-pattern>
+	<exclude-pattern>**/themes/**/views/**</exclude-pattern>
 
 	<rule ref="Generic.Classes.DuplicateClassName" />
 
