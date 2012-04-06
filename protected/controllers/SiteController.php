@@ -93,13 +93,16 @@ class SiteController extends Controller
 
 	public function filters()
 	{
-		return array(
+		return array_merge(
+			parent::filters(),
 			array(
-				'COutputCache + page, index',
-				'duration' => 100,
-				'varyByParam' => array('view'),
-				'varyBySession' => true,
-			),
+				array(
+					'COutputCache + page, index',
+					'duration' => 100,
+					'varyByParam' => array('view'),
+					'varyBySession' => true,
+				),
+			)
 		);
 	}
 
