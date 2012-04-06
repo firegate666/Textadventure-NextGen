@@ -82,7 +82,8 @@ class Controller extends CController
 	 * @see CController::filters()
 	 * @return array
 	 */
-	public function filters() {
+	public function filters()
+	{
 		return array(
 			'theming',
 		);
@@ -94,7 +95,8 @@ class Controller extends CController
 	 * @param CFilterChain $filterchain
 	 * @return void
 	 */
-	function filterTheming(CFilterChain $filterchain) {
+	function filterTheming(CFilterChain $filterchain)
+	{
 		$theme = Yii::app()->request->getParam('theme', false);
 		if ($theme !== false && !empty($theme))
 		{
