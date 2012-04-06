@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+
+html,body,a,td {
+	font: 18px/27px 'KingthingsPetrockLightRegular', Arial, sans-serif;
+	color: #333;
+}
+
+pre,code {
+	font-family: monospace;
+	font-size: 0.8em;
+}
+
+body {
+	background: none repeat scroll 0 0 #E3DACC;
+}
+
+.clear {
+	clear: both;
+}
+
+a,a:ACTIVE,a:FOCUS,a:HOVER,a:LINK,a:VISITED {
+	color: #5252FF;
+}
+
+h1 {
+	font: 60px/68px 'KingthingsPetrockRegular', Arial, sans-serif;
+	letter-spacing: 0;
+}
+
+h2 {
+	font: 42px/50px 'KingthingsPetrockRegular', Arial, sans-serif;
+	letter-spacing: 0;
+}
+
+h3 {
+	font: 36px/44px 'KingthingsPetrockRegular', Arial, sans-serif;
+	letter-spacing: 0;
+}
+
+h4 {
+	font: 32px/40px 'KingthingsPetrockRegular', Arial, sans-serif;
+	letter-spacing: 0;
+}
+
+h5 {
+	font: 24px/32px 'KingthingsPetrockRegular', Arial, sans-serif;
+	letter-spacing: 0;
+}
+
+div#page {
+	width: 95%;
+	margin: 10px auto 0;
+}
+
+div#logo img {
+	width: 128px;
+	float: left;
+}
+
+div#logo span {
+	float: left;
+}
+
+div#footer {
+	font-size: 12px;
+	line-height: 14px;
+	border-top: 1px solid #333;
+}
+
+div#footer a {
+	font-size: 14px;
+	line-height: 16px;
+}
+
+div#mainmenu ul li {
+	display: inline;
+	margin: 0 5px 0 0;
+	padding: 0 0 0 5px;
+	border-left: 1px solid black;
+}
+
+div#mainmenu ul li:FIRST-CHILD {
+	border: none;
+}
+
+div#mainmenu ul li a {
+	text-decoration: none;
+}
+
+div#mainmenu ul li a:HOVER {
+	text-decoration: underline;
+}
+
+div#mainmenu ul li.active a {
+	font: 18px/27px 'KingthingsPetrockRegular', Arial, sans-serif;
+}
