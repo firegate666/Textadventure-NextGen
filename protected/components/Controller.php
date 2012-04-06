@@ -47,7 +47,7 @@ class Controller extends CController
 
 	/**
 	 * read version date from VERSION file in runtime path
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getVersionInfo()
@@ -75,6 +75,32 @@ class Controller extends CController
 					'backColor' => 0xFFFFFF,
 			),
 		);
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see CController::filters()
+	 * @return array
+	 */
+	public function filters() {
+		return array(
+			'theming',
+		);
+	}
+
+	/**
+	 * switch theme with request get parameter 'theme'
+	 *
+	 * @param CFilterChain $filterchain
+	 * @return void
+	 */
+	function filterTheming(CFilterChain $filterchain) {
+		$theme = Yii::app()->request->getParam('theme', false);
+		if ($theme !== false && !empty($theme))
+		{
+			Yii::app()->theme = $theme;
+		}
+		$filterchain->run();
 	}
 
 	/**
