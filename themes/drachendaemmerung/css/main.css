@@ -10,6 +10,12 @@ pre,code {
 	font-size: 0.8em;
 }
 
+blockquote {
+	padding-left: 12px;
+	border-left: 1px dotted #333;
+	margin: 6px;
+}
+
 body {
 	background: none repeat scroll 0 0 #E3DACC;
 }
