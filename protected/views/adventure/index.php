@@ -11,8 +11,11 @@ $this->menu = array(
 
 <h1>Start adventuring</h1>
 
-<?php
-$this->widget('zii.widgets.CListView', array(
-	'dataProvider' => $dataProvider,
-	'itemView' => '_view',
-));
+<div id="adventure-index">
+	<?php
+		$this->widget('zii.widgets.CListView', array(
+			'dataProvider' => $dataProvider,
+			'itemView' => '_view',
+		));
+	?>
+</div>
