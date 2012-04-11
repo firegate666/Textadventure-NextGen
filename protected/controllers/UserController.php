@@ -109,6 +109,7 @@ class UserController extends Controller
 	 */
 	public function actionRegister()
 	{
+		$this->layout = '//layouts/column1';
 		$model = new User('register');
 		$view = 'register';
 		// Uncomment the following line if AJAX validation is needed
