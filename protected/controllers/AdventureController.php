@@ -113,7 +113,7 @@ class AdventureController extends Controller
 			}
 		}
 
-		$model = $this->loadModel($id);
+		$model = $this->loadModel($id, false);
 		if (!$model->isRunning())
 		{
 			throw new CHttpException(423, 'The requested adventure is temporarily not available');
@@ -261,17 +261,18 @@ class AdventureController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 *
-	 * @param integer the ID of the model to be loaded
+	 * @param integer $id the ID of the model to be loaded
+	 * @param boolean $with_acl check acl upon model load
 	 * @return void
 	 */
-	public function loadModel($id)
+	public function loadModel($id, $with_acl = true)
 	{
 		$model = Adventure::model()->findByPk($id);
 		if ($model === null)
 		{
 			throw new CHttpException(404, 'The requested page does not exist.');
 		}
-		else if (!$model->isAdminOrOwner(Yii::app()->user->id))
+		else if ($with_acl && !$model->isAdminOrOwner(Yii::app()->user->id))
 		{
 			throw new CHttpException(403, 'Not authorized');
 		}
