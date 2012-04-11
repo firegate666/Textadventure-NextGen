@@ -20,7 +20,7 @@
 			</div>
 		<?php endif;?>
 
-		<div style="clear: both;"></div>
+		<div class="clear"></div>
 
 	</div>
 <?php endif; ?>

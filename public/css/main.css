@@ -193,6 +193,10 @@ div.search-form {
 	background: #80CFFF;
 }
 
+.clear {
+	clear: both;
+}
+
 div.view.adventure div.description
 {
 	float: left;
