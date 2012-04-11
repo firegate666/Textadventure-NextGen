@@ -16,7 +16,7 @@
 			</div>
 		<?php else: ?>
 			<div class="button button-noplay">
-				<?=CHtml::link('Not open yet', '#')?>
+				<?=CHtml::link('Not open yet', null)?>
 			</div>
 		<?php endif;?>
 
