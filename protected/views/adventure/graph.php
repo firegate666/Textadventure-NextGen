@@ -16,17 +16,14 @@ $this->breadcrumbs = array(
 
 
 ?>
-<div id="canvas"></div>
 
-<button id="redraw" onclick="Adventure.graph.redraw();">redraw</button>
+<div id="canvas"></div>
 
 <script type="text/javascript">
 var g = new Graph();
-var count = 0;
 <?php foreach ($steps_to_draw as $step_to_draw): ?>
 g.addEdge("<?=key($step_to_draw)?>", "<?=current($step_to_draw)?>", { directed : true });
-count++;
 <?php endforeach; ?>
-Adventure.graph.draw(g, 'canvas', $(canvas).width(), 600, Graph);
+Adventure.graph.draw(g, 'canvas', $(canvas).width(), 600);
 </script>
 </pre>
