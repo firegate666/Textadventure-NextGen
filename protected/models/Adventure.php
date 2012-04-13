@@ -191,6 +191,36 @@ class Adventure extends MetaInfo
 	}
 
 	/**
+	 * test if adventure has starting point
+	 * 
+	 * @return boolean
+	 */
+	public function hasStartingPoint()
+	{
+		$where = array(
+			'adventure' => $this->id,
+			'startingPoint' => 1,
+		);
+		$step = AdventureStep::model()->findByAttributes($where);
+		return $step !== null;
+	}
+
+	/**
+	 * test if adventure has ending point
+	 * 
+	 * @return boolean
+	 */
+	public function hasEndingPoint()
+	{
+		$where = array(
+				'adventure' => $this->id,
+				'endingPoint' => 1,
+		);
+		$step = AdventureStep::model()->findByAttributes($where);
+		return $step !== null;
+	}
+
+	/**
 	 * state validator
 	 *
 	 * @param string $attribute
