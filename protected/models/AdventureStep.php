@@ -221,7 +221,7 @@ class AdventureStep extends MetaInfo
 		{
 			$model = self::model();
 			$model->createdBy = $user_id;
-			$list = $model->search()->getData();
+			$list = $model->findAll($model->getSearchCriteria());
 		}
 		foreach ($list as $adventure_step)
 		{

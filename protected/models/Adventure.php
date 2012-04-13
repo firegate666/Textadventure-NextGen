@@ -353,7 +353,7 @@ class Adventure extends MetaInfo
 		$result = array();
 		$model = self::model();
 		$model->createdBy = $user_id;
-		foreach ($model->search()->getData() as $adventure)
+		foreach ($model->findAll($model->getSearchCriteria()) as $adventure)
 		{
 			$result[$adventure->id] = sprintf('[%s] %s', $adventure->adventureId, $adventure->name);
 		}
