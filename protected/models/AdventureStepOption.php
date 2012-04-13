@@ -118,6 +118,18 @@ class AdventureStepOption extends MetaInfo
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see MetaInfo::getSearchCriteria()
+	 */
+	protected function getSearchCriteria() {
+		$criteria = parent::getSearchCriteria();
+		$criteria->compare('parent', $this->parent);
+		$criteria->compare('target', $this->target);
+		$criteria->compare('name', $this->name, true);
+		return $criteria;
+	}
+
+	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
@@ -125,9 +137,6 @@ class AdventureStepOption extends MetaInfo
 	public function search()
 	{
 		$criteria = $this->getSearchCriteria();
-		$criteria->compare('parent', $this->parent);
-		$criteria->compare('target', $this->target);
-		$criteria->compare('name', $this->name, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

@@ -111,6 +111,19 @@ class UserGroup extends MetaInfo
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see MetaInfo::getSearchCriteria()
+	 */
+	protected function getSearchCriteria() {
+		$criteria = parent::getSearchCriteria();
+		$criteria->compare('name', $this->name);
+		$criteria->compare('isAdmin', $this->isAdmin);
+		$criteria->compare('canCreateAdventure', $this->canCreateAdventure);
+		$criteria->compare('defaultRegisterGroup', $this->defaultRegisterGroup);
+		return $criteria;
+	}
+
+	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
@@ -118,10 +131,6 @@ class UserGroup extends MetaInfo
 	public function search()
 	{
 		$criteria = $this->getSearchCriteria();
-		$criteria->compare('name', $this->name);
-		$criteria->compare('isAdmin', $this->isAdmin);
-		$criteria->compare('canCreateAdventure', $this->canCreateAdventure);
-		$criteria->compare('defaultRegisterGroup', $this->defaultRegisterGroup);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

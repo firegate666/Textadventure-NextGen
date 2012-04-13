@@ -196,7 +196,7 @@ class Adventure extends MetaInfo
 
 	/**
 	 * test if adventure has starting point
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function hasStartingPoint()
@@ -211,7 +211,7 @@ class Adventure extends MetaInfo
 
 	/**
 	 * test if adventure has ending point
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function hasEndingPoint()
@@ -314,6 +314,21 @@ class Adventure extends MetaInfo
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see MetaInfo::getSearchCriteria()
+	 */
+	protected function getSearchCriteria() {
+		$criteria = parent::getSearchCriteria();
+		$criteria->compare('name', $this->name, true);
+		$criteria->compare('description', $this->description, true);
+		$criteria->compare('adventureId', $this->adventureId, true);
+		$criteria->compare('state', $this->adventureId, true);
+		$criteria->compare('startDate', $this->adventureId, true);
+		$criteria->compare('stopDate', $this->adventureId, true);
+		return $criteria;
+	}
+
+	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
@@ -321,12 +336,6 @@ class Adventure extends MetaInfo
 	public function search()
 	{
 		$criteria = $this->getSearchCriteria();
-		$criteria->compare('name', $this->name, true);
-		$criteria->compare('description', $this->description, true);
-		$criteria->compare('adventureId', $this->adventureId, true);
-		$criteria->compare('state', $this->adventureId, true);
-		$criteria->compare('startDate', $this->adventureId, true);
-		$criteria->compare('stopDate', $this->adventureId, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

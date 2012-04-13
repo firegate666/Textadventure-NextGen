@@ -143,6 +143,19 @@ class User extends MetaInfo
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see MetaInfo::getSearchCriteria()
+	 */
+	protected function getSearchCriteria() {
+		$criteria = parent::getSearchCriteria();
+		$criteria->compare('username', $this->username, true);
+		$criteria->compare('password', $this->password, true);
+		$criteria->compare('email', $this->email, true);
+		$criteria->compare('groupId', $this->groupId);
+		return $criteria;
+	}
+
+	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
@@ -150,10 +163,6 @@ class User extends MetaInfo
 	public function search()
 	{
 		$criteria = $this->getSearchCriteria();
-		$criteria->compare('username', $this->username, true);
-		$criteria->compare('password', $this->password, true);
-		$criteria->compare('email', $this->email, true);
-		$criteria->compare('groupId', $this->groupId);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

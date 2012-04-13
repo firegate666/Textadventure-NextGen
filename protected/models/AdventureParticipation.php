@@ -98,6 +98,19 @@ class AdventureParticipation extends MetaInfo
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see MetaInfo::getSearchCriteria()
+	 */
+	protected function getSearchCriteria() {
+		$criteria = parent::getSearchCriteria();
+		$criteria->compare('userId', $this->userId);
+		$criteria->compare('adventureId', $this->adventureId);
+		$criteria->compare('started', $this->started,true);
+		$criteria->compare('ended', $this->ended,true);
+		return $criteria;
+	}
+
+	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
@@ -105,10 +118,6 @@ class AdventureParticipation extends MetaInfo
 	public function search()
 	{
 		$criteria = $this->getSearchCriteria();
-		$criteria->compare('userId', $this->userId);
-		$criteria->compare('adventureId', $this->adventureId);
-		$criteria->compare('started', $this->started,true);
-		$criteria->compare('ended', $this->ended,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
