@@ -37,7 +37,7 @@ class AdventureController extends Controller
 				'users' => array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions' => array('create', 'update'),
+				'actions' => array('create', 'update', 'graph'),
 				'expression' => '$user->getState("isAdmin") || $user->getState("canCreateAdventure")',
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -66,6 +66,45 @@ class AdventureController extends Controller
 
 		AdventureLog::finalize(Yii::app()->user->id, $id);
 		$this->redirect(array('view', 'id' => $id));
+	}
+
+	public function actionGraph($id)
+	{
+		$this->layout = '//layouts/column1_admin';
+		if (empty($id))
+		{
+			throw new CHttpException(404, 'Adventure not found');
+		}
+
+		$model = $this->loadModel($id);
+
+		if ($model === null)
+		{
+			throw new CHttpException(404, 'Adventure not found');
+		}
+
+		$startStep = AdventureStep::model()->findByAttributes(array('startingPoint'=>1, 'adventure'=>$model->id));
+		$remainingSteps = AdventureStep::model()->findAllByAttributes(array('startingPoint'=>0, 'adventure'=>$model->id));
+
+		$steps_to_draw = array();
+
+		foreach($startStep->getRelated('stepOptions') as $stepOption)
+		{
+			$steps_to_draw[] = array($startStep->stepId => $stepOption->getRelated('targetStep')->stepId);
+		}
+
+		foreach ($remainingSteps as $adventureStep)
+		{
+			foreach($adventureStep->getRelated('stepOptions') as $stepOption)
+			{
+				$steps_to_draw[] = array($adventureStep->stepId => $stepOption->getRelated('targetStep')->stepId);
+			}
+		}
+
+		$this->render('graph', array(
+			'model' => $model,
+			'steps_to_draw' => $steps_to_draw,
+		));
 	}
 
 	/**

@@ -80,7 +80,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		),
 		array(
 			'class' => 'CButtonColumn',
-			'template' => '{update} {delete}',
+			'template' => '{update} {delete} {graph}',
+			'buttons' => array(
+				'graph' => array(
+					'label' => 'Graph',
+					'url' => 'Yii::app()->controller->createUrl("graph",array("id"=>$data->primaryKey))',
+					'imageUrl' => Yii::app()->request->baseUrl . '/public/images/icons/tree.gif',
+				),
+			),
 		),
 	),
 ));
