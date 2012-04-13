@@ -182,6 +182,10 @@ class Adventure extends MetaInfo
 		$nowDate = new DateTime();
 
 		return
+			$this->hasStartingPoint()
+			&&
+			$this->hasEndingPoint()
+			&&
 			(empty($this->startDate) || $startDate->getTimestamp() <=
 					$nowDate->getTimestamp())
 			&&
