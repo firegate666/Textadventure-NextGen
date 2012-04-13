@@ -32,18 +32,21 @@ $form = $this->beginWidget('CActiveForm', array(
 	<div class="row">
 		<?=$form->labelEx($model, 'state'); ?>
 		<?=$form->dropDownList($model, 'state', Adventure::validStates()); ?>
+		(set to "Published"	if you want to play it)
 		<?=$form->error($model, 'state'); ?>
 	</div>
 
 	<div class="row">
 		<?=$form->labelEx($model, 'startDate'); ?>
 		<?=$form->textField($model, 'startDate',array('size' => 12,'maxlength' => 10)); ?>
+		(z.B. <?=date('Y-m-d')?>)
 		<?=$form->error($model, 'startDate'); ?>
 	</div>
 
 	<div class="row">
 		<?=$form->labelEx($model, 'stopDate'); ?>
 		<?=$form->textField($model, 'stopDate',array('size' => 12,'maxlength' => 10)); ?>
+		(z.B. <?=date('Y-m-d', time() + 60*60*24)?>)
 		<?=$form->error($model, 'stopDate'); ?>
 	</div>
 
