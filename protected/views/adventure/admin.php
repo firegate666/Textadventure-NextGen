@@ -66,6 +66,16 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'startDate',
 		'stopDate',
 		array(
+			'header' => 'Startpoint set?',
+			'type' => 'html',
+			'value' => 'Utils::bool2icon($data->hasStartingPoint(), "Needed to play the adventure")',
+		),
+		array(
+			'header' => 'Endpoint set?',
+			'type' => 'html',
+			'value' => 'Utils::bool2icon($data->hasEndingPoint(), "Needed to play the adventure")',
+		),
+		array(
 			'class' => 'CButtonColumn',
 			'template' => '{update} {delete}',
 		),
