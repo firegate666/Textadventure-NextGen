@@ -62,7 +62,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'name',
 		'description',
 		'adventureId',
-		'state',
+		array(
+			'name' => 'state',
+			'value' => '$data->getStateName($data->state)',
+		),
 		'startDate',
 		'stopDate',
 		array(
