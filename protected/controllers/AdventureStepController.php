@@ -110,7 +110,7 @@ class AdventureStepController extends Controller
 
 		$this->render('update', array(
 			'model' => $model,
-			'adventureList' => Adventure::items(Yii::app()->user->id),
+			'adventureList' => Adventure::items(Yii::app()->user->isAdmin ? null : Yii::app()->user->id),
 		));
 	}
 
