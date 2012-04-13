@@ -98,13 +98,64 @@ class AdventureTest extends AbstractUnitTest
 	}
 
 	/**
+	 * get adventure model with optional start and stop steps
+	 * 
+	 * @todo move to fictures
+	 * @param boolean $with_start
+	 * @param boolean $with_end
+	 * @return Adventure
+	 */
+	protected function getAdventureWithSteps($with_start = true, $with_end = true) {
+		$model = new Adventure();
+		$model->attributes = array(
+				'name' => 'my name',
+				'description' => 'my description',
+				'startDate' => null,
+				'stopDate' => null,
+				'adventureId' => 'MYID',
+				'state' => Adventure::STATE_DISABLED,
+		);
+		$model->save();
+		
+		if ($with_start)
+		{
+			$startStep = new AdventureStep();
+			$startStep->attributes = array(
+					'adventure' => $model->id,
+					'name' => 'step name 1',
+					'description' => 'description 1',
+					'startingPoint' => 1,
+					'endingPoint' => 0,
+					'stepId' => 'STEP1',
+			);
+			$startStep->save();
+		}
+
+		if ($with_end)
+		{
+			$endStep = new AdventureStep();
+			$endStep->attributes = array(
+					'adventure' => $model->id,
+					'name' => 'step name 2',
+					'description' => 'description 2',
+					'startingPoint' => 0,
+					'endingPoint' => 1,
+					'stepId' => 'STEP2',
+			);
+			$endStep->save();
+		}
+
+		return $model;
+	}
+	
+	/**
 	 * test running states
 	 *
 	 * @return void
 	 */
 	public function testRunningState()
 	{
-		$model = new Adventure();
+		$model = self::getAdventureWithSteps();
 
 		foreach(Adventure::runningStates() as $state_value => $state_name)
 		{
@@ -138,7 +189,7 @@ class AdventureTest extends AbstractUnitTest
 		$yesterday = date('Y-m-d', time() - 60*60*24);
 		$tomorrow = date('Y-m-d', time() + 60*60*24);
 
-		$model = new Adventure();
+		$model = self::getAdventureWithSteps();
 
 		$model->attributes = array(
 			'startDate' => $today,
