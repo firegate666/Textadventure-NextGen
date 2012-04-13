@@ -24,6 +24,6 @@ var g = new Graph();
 <?php foreach ($steps_to_draw as $step_to_draw): ?>
 g.addEdge("<?=key($step_to_draw)?>", "<?=current($step_to_draw)?>", { directed : true });
 <?php endforeach; ?>
-Adventure.graph.draw(g, 'canvas', $(canvas).width(), 600);
+Adventure.graph.draw(g, 'canvas', $('#' + canvas).width(), 600);
 </script>
 </pre>
