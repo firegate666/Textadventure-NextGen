@@ -1,8 +1,8 @@
 var Adventure = {
 
-		'graph': {
+		graph: {
 
-			'draw': function(g, id, width, height) {
+			draw: function(g, id, width, height) {
 				"use strict";
 
 				width = width || 800;
