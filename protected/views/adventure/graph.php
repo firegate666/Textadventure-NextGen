@@ -22,13 +22,23 @@ $this->breadcrumbs = array(
 var k, v;
 var g = new Graph();
 var nodes = <?=  json_encode($steps)?>;
-var edges = <?=  json_encode($steps_to_draw) ?>;
+var edges = <?=json_encode($edges_to_draw) ?>;
 
 $.each(nodes, function(k, v)
 {
 	"use strict";
+	var color = '#6699FF';
+	if (v.startingPoint === "1")
+	{
+		color = '#14FF14';
+	}
+	else if (v.endingPoint === "1")
+	{
+		color = '#FF0033';
+	}
 	g.addNode(v.stepId, {
 		label: Adventure.trimIf(v.name, 25),
+		color: color,
 		render: Adventure.renderFunc
 	});
 });
