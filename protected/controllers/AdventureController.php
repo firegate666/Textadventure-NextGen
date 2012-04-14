@@ -86,13 +86,17 @@ class AdventureController extends Controller
 		$startStep = AdventureStep::model()->findByAttributes(array('startingPoint'=>1, 'adventure'=>$model->id));
 		$remainingSteps = AdventureStep::model()->findAllByAttributes(array('startingPoint'=>0, 'adventure'=>$model->id));
 
-		$steps_to_draw = array();
+		$edges_to_draw = array();
 		$steps = array();
 
 		$steps[$startStep->stepId] = $startStep->getAttributes();
 		foreach($startStep->getRelated('stepOptions') as $stepOption)
 		{
-			$steps_to_draw[] = array('from' => $startStep->stepId, 'to' => $stepOption->getRelated('targetStep')->stepId);
+			$edges_to_draw[] = array(
+				'from' => $startStep->stepId,
+				'to' => $stepOption->getRelated('targetStep')->stepId,
+				'name' => $stepOption->name,
+			);
 		}
 
 		foreach ($remainingSteps as $adventureStep)
@@ -100,14 +104,18 @@ class AdventureController extends Controller
 			$steps[$adventureStep->stepId] = $adventureStep->getAttributes();
 			foreach($adventureStep->getRelated('stepOptions') as $stepOption)
 			{
-				$steps_to_draw[] = array('from' => $adventureStep->stepId, 'to' => $stepOption->getRelated('targetStep')->stepId);
+				$edges_to_draw[] = array(
+					'from' => $adventureStep->stepId,
+					'to' => $stepOption->getRelated('targetStep')->stepId,
+					'name' => $stepOption->name,
+				);
 			}
 		}
 
 		$this->render('graph', array(
 			'model' => $model,
 			'steps' => $steps,
-			'steps_to_draw' => $steps_to_draw,
+			'edges_to_draw' => $edges_to_draw,
 		));
 	}
 
