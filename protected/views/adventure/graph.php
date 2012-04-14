@@ -19,8 +19,20 @@ $this->breadcrumbs = array(
 <div id="canvas"></div>
 
 <script type="text/javascript">
+var k, v;
 var g = new Graph();
+var nodes = <?=  json_encode($steps)?>;
 var edges = <?=  json_encode($steps_to_draw) ?>;
+
+$.each(nodes, function(k, v)
+{
+	"use strict";
+	g.addNode(v.stepId, {
+		label: Adventure.trimIf(v.name, 25),
+		render: Adventure.renderFunc
+	});
+});
+
 $.each(edges, function(k, v)
 {
 	g.addEdge(v.from, v.to, { directed : true });

@@ -87,7 +87,9 @@ class AdventureController extends Controller
 		$remainingSteps = AdventureStep::model()->findAllByAttributes(array('startingPoint'=>0, 'adventure'=>$model->id));
 
 		$steps_to_draw = array();
+		$steps = array();
 
+		$steps[$startStep->stepId] = $startStep->getAttributes();
 		foreach($startStep->getRelated('stepOptions') as $stepOption)
 		{
 			$steps_to_draw[] = array('from' => $startStep->stepId, 'to' => $stepOption->getRelated('targetStep')->stepId);
@@ -95,6 +97,7 @@ class AdventureController extends Controller
 
 		foreach ($remainingSteps as $adventureStep)
 		{
+			$steps[$adventureStep->stepId] = $adventureStep->getAttributes();
 			foreach($adventureStep->getRelated('stepOptions') as $stepOption)
 			{
 				$steps_to_draw[] = array('from' => $adventureStep->stepId, 'to' => $stepOption->getRelated('targetStep')->stepId);
@@ -103,6 +106,7 @@ class AdventureController extends Controller
 
 		$this->render('graph', array(
 			'model' => $model,
+			'steps' => $steps,
 			'steps_to_draw' => $steps_to_draw,
 		));
 	}
