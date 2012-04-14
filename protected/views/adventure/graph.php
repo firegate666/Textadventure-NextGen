@@ -48,7 +48,10 @@ $.each(edges, function(k, v)
 	"use strict";
 	g.addEdge(v.from, v.to, {
 		directed : true,
-		label: Adventure.trimIf(v.name, 25)
+		label: Adventure.trimIf(v.name, 25),
+		'label-style' : {
+			'font-size': 10
+		}
 	});
 });
 Adventure.graph.draw(g, 'canvas', $('#canvas').width(), 600);
