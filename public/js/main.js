@@ -25,5 +25,17 @@ var Adventure = {
 				push(ellipse).
 				push(r.text(0, 30, node.label || node.id));
 			return shape;
+		},
+
+		trimIf: function(string, length, append) {
+			"use strict";
+
+			length = length || 100;
+			append = append || '...';
+			if (string.length > length) {
+				string = string.substr(0, length-append.length);
+				string = string + append;
+			}
+			return string;
 		}
 };
