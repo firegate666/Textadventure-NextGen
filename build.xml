@@ -77,7 +77,7 @@
 
 	<target name="jslint" depends="clean,prepare">
 		<jslint options="white,undef,plusplus,newcap,vars,indent=4">
-			<predef>jQuery, setTimeout, history, window, document, Graph</predef>
+			<predef>jQuery, setTimeout, history, window, document, Graph, Raphael</predef>
 			<formatter type="plain" />
 			<formatter type="junit" destfile="build/jslint" />
 			<formatter type="xml" destfile="build/jslint.xml" />
