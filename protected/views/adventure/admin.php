@@ -79,6 +79,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'value' => 'Utils::bool2icon($data->hasEndingPoint(), "Needed to play the adventure")',
 		),
 		array(
+			'header' => 'Steps',
+			'value' => 'count($data->getRelated(\'adventureSteps\'))',
+		),
+		array(
 			'class' => 'CButtonColumn',
 			'template' => '{update} {delete} {graph}',
 			'buttons' => array(
