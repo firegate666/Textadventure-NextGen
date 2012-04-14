@@ -11,7 +11,6 @@ $this->breadcrumbs = array(
 <script type="text/javascript" src="public/vendors/dracula/js/dracula_graffle.js"></script>
 <script type="text/javascript" src="public/vendors/dracula/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="public/vendors/dracula/js/dracula_graph.js"></script>
-<pre>
 <?php
 
 
@@ -26,4 +25,4 @@ g.addEdge("<?=key($step_to_draw)?>", "<?=current($step_to_draw)?>", { directed :
 <?php endforeach; ?>
 Adventure.graph.draw(g, 'canvas', $('#canvas').width(), 600);
 </script>
-</pre>
+
