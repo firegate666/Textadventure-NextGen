@@ -35,7 +35,11 @@ $.each(nodes, function(k, v)
 
 $.each(edges, function(k, v)
 {
-	g.addEdge(v.from, v.to, { directed : true });
+	"use strict";
+	g.addEdge(v.from, v.to, {
+		directed : true,
+		label: Adventure.trimIf(v.name, 25)
+	});
 });
 Adventure.graph.draw(g, 'canvas', $('#canvas').width(), 600);
 </script>
