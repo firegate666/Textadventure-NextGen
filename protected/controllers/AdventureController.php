@@ -90,14 +90,14 @@ class AdventureController extends Controller
 
 		foreach($startStep->getRelated('stepOptions') as $stepOption)
 		{
-			$steps_to_draw[] = array($startStep->stepId => $stepOption->getRelated('targetStep')->stepId);
+			$steps_to_draw[] = array('from' => $startStep->stepId, 'to' => $stepOption->getRelated('targetStep')->stepId);
 		}
 
 		foreach ($remainingSteps as $adventureStep)
 		{
 			foreach($adventureStep->getRelated('stepOptions') as $stepOption)
 			{
-				$steps_to_draw[] = array($adventureStep->stepId => $stepOption->getRelated('targetStep')->stepId);
+				$steps_to_draw[] = array('from' => $adventureStep->stepId, 'to' => $stepOption->getRelated('targetStep')->stepId);
 			}
 		}
 

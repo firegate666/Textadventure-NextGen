@@ -20,9 +20,11 @@ $this->breadcrumbs = array(
 
 <script type="text/javascript">
 var g = new Graph();
-<?php foreach ($steps_to_draw as $step_to_draw): ?>
-g.addEdge("<?=key($step_to_draw)?>", "<?=current($step_to_draw)?>", { directed : true });
-<?php endforeach; ?>
+var edges = <?=  json_encode($steps_to_draw) ?>;
+$.each(edges, function(k, v)
+{
+	g.addEdge(v.from, v.to, { directed : true });
+});
 Adventure.graph.draw(g, 'canvas', $('#canvas').width(), 600);
 </script>
 
