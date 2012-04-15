@@ -255,3 +255,21 @@ div.view.adventure div.button-play a:hover
 {
 	text-decoration: underline;	
 }
+
+#tooltip {
+	position: absolute;
+	display: none;
+	border: 1px solid #333;
+	background-color: #fff;
+	z-index: 100;
+}
+
+#tooltip .headline {
+	margin: 6px;
+	font-size: 16px;
+	border-bottom: 1px dotted #333;
+}
+
+#tooltip .text {
+	margin: 6px;
+}
