@@ -4,16 +4,13 @@ $this->breadcrumbs = array(
 	'Manage' => array('admin'),
 	'Graph'
 );
-?>
 
-<script type="text/javascript" src="public/js/main.js"></script>
-<script type="text/javascript" src="public/vendors/dracula/js/raphael-min.js"></script>
-<script type="text/javascript" src="public/vendors/dracula/js/dracula_graffle.js"></script>
-<script type="text/javascript" src="public/vendors/dracula/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="public/vendors/dracula/js/dracula_graph.js"></script>
-<?php
-
-
+$baseurl = Yii::app()->request->baseUrl;
+Yii::app()->clientScript->registerCoreScript('jquery');
+Yii::app()->clientScript->registerScriptFile($baseurl . 'public/vendors/dracula/js/raphael-min.js');
+Yii::app()->clientScript->registerScriptFile($baseurl . 'public/vendors/dracula/js/dracula_graffle.js');
+Yii::app()->clientScript->registerScriptFile($baseurl . 'public/vendors/dracula/js/dracula_graph.js');
+Yii::app()->clientScript->registerScriptFile($baseurl . 'public/js/main.js');
 ?>
 
 <div id="canvas"></div>
