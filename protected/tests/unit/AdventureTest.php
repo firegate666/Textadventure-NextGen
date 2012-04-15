@@ -105,7 +105,8 @@ class AdventureTest extends AbstractUnitTest
 	 * @param boolean $with_end
 	 * @return Adventure
 	 */
-	protected function getAdventureWithSteps($with_start = true, $with_end = true) {
+	protected function getAdventureWithSteps($with_start = true, $with_end = true)
+	{
 		$model = new Adventure();
 		$model->attributes = array(
 				'name' => 'my name',

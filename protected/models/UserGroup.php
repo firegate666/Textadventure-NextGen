@@ -114,7 +114,8 @@ class UserGroup extends MetaInfo
 	 * (non-PHPdoc)
 	 * @see MetaInfo::getSearchCriteria()
 	 */
-	protected function getSearchCriteria() {
+	protected function getSearchCriteria()
+	{
 		$criteria = parent::getSearchCriteria();
 		$criteria->compare('name', $this->name);
 		$criteria->compare('isAdmin', $this->isAdmin);

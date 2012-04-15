@@ -317,7 +317,8 @@ class Adventure extends MetaInfo
 	 * (non-PHPdoc)
 	 * @see MetaInfo::getSearchCriteria()
 	 */
-	protected function getSearchCriteria() {
+	protected function getSearchCriteria()
+	{
 		$criteria = parent::getSearchCriteria();
 		$criteria->compare('name', $this->name, true);
 		$criteria->compare('description', $this->description, true);
