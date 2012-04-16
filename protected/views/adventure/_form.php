@@ -21,6 +21,9 @@ $form = $this->beginWidget('CActiveForm', array(
 		<?=$form->labelEx($model, 'description'); ?>
 		<?=$form->textArea($model, 'description',array('rows' => 6, 'cols' => 50)); ?>
 		<?=$form->error($model, 'description'); ?>
+		<div class="small">
+			<i>(use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>-Syntax)</i>
+		</div>
 	</div>
 
 	<div class="row">

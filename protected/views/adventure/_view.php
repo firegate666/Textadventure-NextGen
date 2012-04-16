@@ -3,7 +3,9 @@
 
 		<div class="description">
 			<h2><?=CHtml::encode($data->name);?></h2>
-			<blockquote><?=CHtml::encode($data->description)?></blockquote>
+			<blockquote>
+				<?=$this->widget('CMarkdown')->transform($data->description)?>
+			</blockquote>
 		</div>
 
 		<?php if ($data->hasSteps()): ?>

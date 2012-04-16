@@ -9,6 +9,10 @@ strong, b {
 	font: 18px/27px 'KingthingsPetrockRegular', Arial, sans-serif;
 }
 
+em {
+	text-decoration: underline;
+}
+
 pre,code {
 	font-family: monospace;
 	font-size: 0.8em;
