@@ -43,6 +43,10 @@ class AuthController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
+
+		// destroy and re-create session to get the sticky cache rigth
+		Yii::app()->session->destroy();
+		Yii::app()->session->open();
 		Yii::app()->session->regenerateID(true);
 		$this->redirect(Yii::app()->homeUrl);
 	}
