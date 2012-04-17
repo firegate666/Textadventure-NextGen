@@ -167,11 +167,7 @@ class AdventureStep extends MetaInfo
 	public function delete()
 	{
 		$success = true;
-		$transaction = null;
-		if ($this->getDbConnection()->getCurrentTransaction() !== null)
-		{
-			$transaction = $this->getDbConnection()->beginTransaction();
-		}
+		$transaction = $this->getDbConnection()->beginTransaction();
 		$adventure_step_options = $this->getRelated('stepOptions');
 		foreach($adventure_step_options as $adventure_step_option)
 		{
@@ -185,11 +181,11 @@ class AdventureStep extends MetaInfo
 		{
 			$success = $success && parent::delete();
 		}
-		if ($success && $transaction !== null)
+		if ($success)
 		{
 			$transaction->commit();
 		}
-		else if ($transaction !== null)
+		else
 		{
 			$transaction->rollback();
 		}
