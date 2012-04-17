@@ -158,6 +158,45 @@ class AdventureStep extends MetaInfo
 	}
 
 	/**
+	 * Deletes the row corresponding to this active record with depending objects
+	 *
+	 * @see CActiveRecord::delete()
+	 * @return boolean whether the deletion is successful.
+	 * @throws CException if the record is new
+	 */
+	public function delete()
+	{
+		$success = true;
+		$transaction = null;
+		if ($this->getDbConnection()->getCurrentTransaction() !== null)
+		{
+			$transaction = $this->getDbConnection()->beginTransaction();
+		}
+		$adventure_step_options = $this->getRelated('stepOptions');
+		foreach($adventure_step_options as $adventure_step_option)
+		{
+			$success = $success && $adventure_step_option->deleteByPk($adventure_step_option->id);
+			if (!$success)
+			{
+				break;
+			}
+		}
+		if ($success)
+		{
+			$success = $success && parent::delete();
+		}
+		if ($success && $transaction !== null)
+		{
+			$transaction->commit();
+		}
+		else if ($transaction !== null)
+		{
+			$transaction->rollback();
+		}
+		return $success;
+	}
+
+	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
