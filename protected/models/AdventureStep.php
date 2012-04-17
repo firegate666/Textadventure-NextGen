@@ -171,7 +171,7 @@ class AdventureStep extends MetaInfo
 		$adventure_step_options = $this->getRelated('stepOptions');
 		foreach($adventure_step_options as $adventure_step_option)
 		{
-			$success = $success && $adventure_step_option->deleteByPk($adventure_step_option->id);
+			$success = $adventure_step_option->deleteByPk($adventure_step_option->id);
 			if (!$success)
 			{
 				break;
@@ -179,7 +179,7 @@ class AdventureStep extends MetaInfo
 		}
 		if ($success)
 		{
-			$success = $success && parent::delete();
+			$success = parent::delete();
 		}
 		if ($success)
 		{
