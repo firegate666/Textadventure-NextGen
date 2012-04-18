@@ -65,6 +65,7 @@
 
 <?php
 $this->renderPartial('//layouts/_piwik');
+$this->renderPartial('//layouts/_ga');
 ?>
 
 </body>
