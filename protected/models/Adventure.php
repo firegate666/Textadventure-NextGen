@@ -457,4 +457,66 @@ class Adventure extends MetaInfo
 		return false;
 	}
 
+	/**
+	 * Deletes the row corresponding to this active record with depending objects
+	 *
+	 * @see CActiveRecord::delete()
+	 * @return boolean whether the deletion is successful.
+	 * @throws CException if the record is new
+	 */
+	public function delete()
+	{
+		$success = true;
+		$transaction = $this->getDbConnection()->beginTransaction();
+
+		// get all related objects
+		$adventure_steps = $this->getRelated('adventureSteps');
+		$adventure_step_options = array();
+		foreach($adventure_steps as $adventure_step) {
+			$temp = $adventure_step->getRelated('stepOptions');
+			foreach($temp as $option)
+			{
+				$adventure_step_options[$option->id] = $option;
+			}
+		}
+
+		// first delete the step options/connections
+		foreach($adventure_step_options as $adventure_step_option)
+		{
+			$success = $adventure_step_option->deleteByPk($adventure_step_option->id);
+			if (!$success)
+			{
+				break;
+			}
+		}
+
+		if ($success)
+		{
+			// the delete the steps
+			foreach($adventure_steps as $adventure_step)
+			{
+				$success = $adventure_step->deleteByPk($adventure_step->id);
+				if (!$success)
+				{
+					break;
+				}
+			}
+		}
+
+		if ($success)
+		{
+			// delete the adventure
+			$success = parent::delete();
+		}
+		if ($success)
+		{
+			$transaction->commit();
+		}
+		else
+		{
+			$transaction->rollback();
+		}
+		return $success;
+	}
+
 }

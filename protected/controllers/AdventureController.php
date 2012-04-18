@@ -89,16 +89,6 @@ class AdventureController extends Controller
 		$edges_to_draw = array();
 		$steps = array();
 
-		$steps[$startStep->stepId] = $startStep->getAttributes();
-		foreach($startStep->getRelated('stepOptions') as $stepOption)
-		{
-			$edges_to_draw[] = array(
-				'from' => $startStep->stepId,
-				'to' => $stepOption->getRelated('targetStep')->stepId,
-				'name' => $stepOption->name,
-			);
-		}
-
 		foreach ($remainingSteps as $adventureStep)
 		{
 			$steps[$adventureStep->stepId] = $adventureStep->getAttributes();
@@ -106,6 +96,19 @@ class AdventureController extends Controller
 			{
 				$edges_to_draw[] = array(
 					'from' => $adventureStep->stepId,
+					'to' => $stepOption->getRelated('targetStep')->stepId,
+					'name' => $stepOption->name,
+				);
+			}
+		}
+
+		if ($startStep !== null)
+		{
+			$steps[$startStep->stepId] = $startStep->getAttributes();
+			foreach($startStep->getRelated('stepOptions') as $stepOption)
+			{
+				$edges_to_draw[] = array(
+					'from' => $startStep->stepId,
 					'to' => $stepOption->getRelated('targetStep')->stepId,
 					'name' => $stepOption->name,
 				);
