@@ -5,6 +5,10 @@ html,body,a,td {
 	color: #333;
 }
 
+p {
+	margin-bottom: 6px;
+}
+
 strong, b {
 	font: 18px/27px 'KingthingsPetrockRegular', Arial, sans-serif;
 }
