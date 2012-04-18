@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="google-site-verification" content="aG7-NEHDoXRFeIiDCHFIxhBmn6Uhp0IhEGvStsCLWzI" />
-	<meta name="language" content="en" />
+	<meta name="language" content="de" />
 
 	<!-- special fonts -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/fontfaces.css" />
@@ -30,19 +30,19 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
+				array('label'=>'Start', 'url'=>array('/site/index')),
+				array('label'=>'Info', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'Kontakt', 'url'=>array('/site/contact')),
 
-				array('label'=>'Start adventuring', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Starte das Abenteuer!', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
 
 				array('label'=>'Login', 'url'=>array('/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Register', 'url'=>array('/User/register'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Registrieren', 'url'=>array('/User/register'), 'visible'=>Yii::app()->user->isGuest),
 
 				array('label'=>'Admin', 'url'=>array('/site/admin'), 'visible' => !Yii::app()->user->isGuest && (
 					Yii::app()->user->getState("isAdmin") || Yii::app()->user->getState("canCreateAdventure"))
 				),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
+				array('label'=>'Ausloggen ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

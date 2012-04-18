@@ -1,15 +1,16 @@
 <?php $this->pageTitle = Yii::app()->name; ?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<h1>Willkommen bei <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<blockquote><strong>Heute ist <?php $this->renderDynamic('nowDate');?></strong></blockquote>
 
-<blockquote><strong>Today is <?php $this->renderDynamic('nowDate');?></strong></blockquote>
+<p>Drachend&aelig;mmerung ist mehr als nur ein Textadventure. Drachend&aelig;mmerung bietet Dir alle Möglicgkeiten selber zum Spielleiter zu werden.
+	Erstelle mit ein paar einfachen Handgriffen ein neues Abenteuer und spiele es oder lasse es andere spielen.</p>
 
-<p>Please take your time. Register yourself an account and try out the adventure builder
-	or play one of the sample ministeps.</p>
+<p>Alles was Du dazu benötigst ist Deine Fantasie und Einfallsreichtum und ein wenig Kreativität.</p>
 
-<p>Feedback is appreciated!</p>
+<p>Drachend&aelig;mmerung befindet sich noch in der Entwicklung, nicht alle Funktionen sind bereits ausgereift, dennoch kannst Du schon alles ausprobieren.
+	Über <a href="<?=$this->createUrl('contact')?>">Feedback</a> zu Drachend&aelig;mmerung freue ich mich!</p>
 
-<p>If you want to check out the project homepage, you can visit us on our
-	<a href="http://dev.firegate.de/projects/text-adventure-nextgen/wiki" target="_blank">Redmine</a></p>
+<p>Wenn Du mehr über das Projekt erfahren möchtest, Fehler melden möchtest oder einfach nur Deine eigene Ideen zur Weiterentwicklung beisteuern möchtest,
+	kannst Du unsere Projektseite im <a href="http://dev.firegate.de/projects/text-adventure-nextgen/wiki" target="_blank">Redmine</a> besuchen</p>
