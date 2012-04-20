@@ -29,7 +29,7 @@ blockquote {
 }
 
 body {
-	background: none repeat scroll 0 0 #E3DACC;
+	background: url("/themes/drachendaemmerung/images/vintage_paper.jpg") repeat scroll 0 0 #E3DACC;
 }
 
 .clear {
@@ -37,7 +37,7 @@ body {
 }
 
 a,a:ACTIVE,a:FOCUS,a:HOVER,a:LINK,a:VISITED {
-	color: #5252FF;
+	color: #0000CC;
 }
 
 h1 {
@@ -72,8 +72,11 @@ div#page {
 
 div#logo {
 	background-color: #DBCEBB;
+	background-image: url("/themes/drachendaemmerung/images/rdw_logo.jpg");
+	height: 110px;
 	border: 1px solid #333;
 	padding: 12px;
+	border-radius: 10px 10px 0 0;
 }
 
 div#logo img {
@@ -87,7 +90,10 @@ div#logo span {
 
 div.breadcrumbs {
 	font-size: 0.8em;
-	margin-left: 25px;
+	background-color: #DBCEBB;
+	border: 1px solid #333;
+	border-bottom: none;
+	padding: 0 0 0 25px;
 }
 
 div#footer {
@@ -101,6 +107,13 @@ div#footer {
 div#footer a {
 	font-size: 14px;
 	line-height: 16px;
+}
+
+div#mainmenu {
+	background-color: #DBCEBB;
+	border: 1px solid #333;
+	margin: 6px 0;
+	padding: 0 12px;
 }
 
 div#mainmenu ul li {
@@ -130,6 +143,7 @@ div#content {
 	background-color: #DBCEBB;
 	border: 1px solid #333;
 	padding: 12px;
+	border-radius: 0 0 10px 10px;
 }
 
 div.view.adventure {

@@ -22,7 +22,7 @@
 	<div id="header">
 		<div id="logo">
 			<img src="http://drachendaemmerung.de/fileadmin/drachendaemmerung.de/images/dragon_small.gif" alt="<?php echo CHtml::encode(Yii::app()->name); ?>"/>
-			<span style="float: left;">A fantastic and high-fantasy role-playing game world.</span>
+			<span style="float: left;"><strong>A fantastic and high-fantasy role-playing game world.</strong></span>
 			<div class="clear"></div>
 		</div>
 	</div><!-- header -->
@@ -46,6 +46,7 @@
 			),
 		)); ?>
 	</div><!-- mainmenu -->
+	
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
