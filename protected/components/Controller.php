@@ -86,6 +86,7 @@ class Controller extends CController
 	{
 		return array(
 			'theming',
+			'lang',
 		);
 	}
 
@@ -101,6 +102,26 @@ class Controller extends CController
 		if ($theme !== false && !empty($theme))
 		{
 			Yii::app()->theme = $theme;
+		}
+		$filterchain->run();
+	}
+
+	/**
+	 * handle application langue by get parameter "lang" or session stored lang
+	 *
+	 * @param CFilterChain $filterchain
+	 * @return void
+	 */
+	function filterLang(CFilterChain $filterchain)
+	{
+		$session_lang = $this->getSessionValue('session_lang', false, true, '');
+		$lang_from_get = Yii::app()->request->getParam('lang', false);
+		$lang = $lang_from_get ? $lang_from_get : $session_lang;
+		if ($lang)
+		{
+			var_dump('set lang', $lang);
+			Yii::app()->setLanguage($lang);
+			$this->addSessionValue('session_lang', $lang, true, '');
 		}
 		$filterchain->run();
 	}
