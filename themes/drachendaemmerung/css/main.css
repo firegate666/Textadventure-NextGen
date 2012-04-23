@@ -29,7 +29,9 @@ blockquote {
 }
 
 body {
-	background: url("/themes/drachendaemmerung/images/vintage_paper.jpg") repeat scroll 0 0 #E3DACC;
+	background: url("/themes/drachendaemmerung/images/vintage_paper.jpg") no-repeat scroll 0 0 #E3DACC;
+	max-width: 1280px;
+	max-height: 1007px; 
 }
 
 .clear {
@@ -144,6 +146,8 @@ div#content {
 	border: 1px solid #333;
 	padding: 12px;
 	border-radius: 0 0 10px 10px;
+	max-height: 700px;
+	overflow: auto;
 }
 
 div.view.adventure {
@@ -213,3 +217,74 @@ div.view.adventure div.button-play a:hover
 {
 	text-decoration: underline;
 }
+
+div.form form .row {
+	clear: both;	
+}
+
+div.form form .row label {
+	display: block;
+	float: left;
+	width: 24%;
+}
+
+div.form form .row .captcha-wrapper {
+	display: block;
+	float: left;
+	width: 74%;
+}
+
+div.form form .row .captcha-wrapper img {
+	display: block;
+	float: none;
+	clear: left;
+	margin: 2px;
+}
+
+div.form form .row input, div.form form .row textarea {
+	display: block;
+	float: left;
+	width: 74%;
+}
+
+div.form form .row.error input,
+div.form form .row .captcha-wrapper.error input,
+div.form form .row.error textarea {
+	display: block;
+	float: left;
+	width: 49%;
+}
+
+div.form form .row.buttons {
+	text-align: center;	
+}
+
+div.form form .row.buttons input {
+	float: none;
+	display: inline;
+}
+
+div.form form .row .hint {
+	display: block;
+	clear: both;
+}
+
+div.form form .row .errorMessage {
+	display: block;
+	float: left;
+	width: 24%;
+	color: #ff0000;
+	line-height: 16px;
+}
+
+div.errorSummary {
+	border: 1px solid #C50000;
+	background-color: #F2E5E5;
+	color: #C50000;
+	margin-bottom: 12px;
+}
+
+div.errorSummary p, div.errorSummary h4, div.errorSummary ul {
+	margin: 5px;
+}
+

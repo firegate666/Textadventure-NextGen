@@ -37,16 +37,18 @@ $form = $this->beginWidget('CActiveForm', array(
 
 	<?php if (isset($register) && $register): ?>
 		<?php if(CCaptcha::checkRequirements()): ?>
-		<div class="row">
-			<?=$form->labelEx($model, 'verifyCode'); ?>
-			<div>
-			<?php $this->widget('CCaptcha'); ?>
-			<?=$form->textField($model, 'verifyCode'); ?>
+			<div class="row">
+				<?=$form->labelEx($model, 'verifyCode'); ?>
+				<div class="captcha-wrapper">
+					<?=$form->textField($model, 'verifyCode'); ?>
+					<?=$form->error($model, 'verifyCode'); ?>
+					<?php $this->widget('CCaptcha'); ?>
+					<div class="hint">
+						Gebe die Buchstaben und Zahlen so ein, wie sie auf dem Bild dargestellt werden.<br />
+						Es wird nicht zwischen Groß- und Kleinbuchstaben unterschieden.
+					</div>
+				</div>
 			</div>
-			<div class="hint">Please enter the letters as they are shown in the image above.
-			<br/>Letters are not case-sensitive.</div>
-			<?=$form->error($model, 'verifyCode'); ?>
-		</div>
 		<?php endif; ?>
 	<?php else: ?>
 		<div class="row">

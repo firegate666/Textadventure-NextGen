@@ -31,7 +31,7 @@ $this->breadcrumbs = array(
 
 	<p class="note">Felder die mit einem <span class="required">*</span> markiert sind müssen ausgefüllt werden.</p>
 
-	<?=$form->errorSummary($model); ?>
+	<?=$form->errorSummary($model, '<h4>Bitte behebe die folgenden Fehler:</h4>'); ?>
 
 	<div class="row">
 		<?=$form->labelEx($model, 'name'); ?>
@@ -60,13 +60,15 @@ $this->breadcrumbs = array(
 	<?php if(CCaptcha::checkRequirements()): ?>
 	<div class="row">
 		<?=$form->labelEx($model, 'verifyCode'); ?>
-		<div>
-		<?php $this->widget('CCaptcha'); ?>
-		<?=$form->textField($model, 'verifyCode'); ?>
+		<div class="captcha-wrapper">
+			<?=$form->textField($model, 'verifyCode'); ?>
+			<?=$form->error($model, 'verifyCode'); ?>
+			<?php $this->widget('CCaptcha'); ?>
+			<div class="hint">
+				Gebe die Buchstaben und Zahlen so ein, wie sie auf dem Bild dargestellt werden.<br />
+				Es wird nicht zwischen Groß- und Kleinbuchstaben unterschieden.
+			</div>
 		</div>
-		<div class="hint">Gebe die Buchstaben und Zahlen so ein, wie sie auf dem Bild dargestellt werden.
-		<br/>Es wird nicht zwischen Groß- und Kleinbuchstaben unterschieden.</div>
-		<?=$form->error($model, 'verifyCode'); ?>
 	</div>
 	<?php endif; ?>
 
