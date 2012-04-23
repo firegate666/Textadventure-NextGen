@@ -1,3 +1,7 @@
+<?php
+	$langchooser_controller_action = $this->getRoute();
+	$langchooser_action_params = $this->getActionParams();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +27,10 @@
 		<div id="logo">
 			<img src="http://drachendaemmerung.de/fileadmin/drachendaemmerung.de/images/dragon_small.gif" alt="<?php echo CHtml::encode(Yii::app()->name); ?>"/>
 			<span style="float: left;"><strong>A fantastic and high-fantasy role-playing game world.</strong></span>
+			<div class="langchooser" style="float: right">
+				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'de')))?>">DE</a> |
+				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'en')))?>">EN</a>
+			</div>
 			<div class="clear"></div>
 		</div>
 	</div><!-- header -->
@@ -46,7 +54,7 @@
 			),
 		)); ?>
 	</div><!-- mainmenu -->
-	
+
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
