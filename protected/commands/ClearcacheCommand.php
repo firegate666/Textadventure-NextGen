@@ -45,7 +45,11 @@ class ClearcacheCommand extends AbstractCommand
 			$cache = trim($cache);
 			if (isset(Yii::app()->$cache))
 			{
-				if (Yii::app()->$cache->flush())
+				if (Yii::app()->$cache instanceof CApcCache)
+				{
+					$this->printf("Cache '%s' is CApcCache and therefor unsupported", $cache);
+				}
+				else if (Yii::app()->$cache->flush())
 				{
 					$this->printf("Cache '%s' cleared", $cache);
 				}
