@@ -70,7 +70,8 @@ class AbstractCommand extends CConsoleCommand
 	 */
 	protected function printf()
 	{
-		call_user_func_array('printf', func_get_args());
+		$args = func_get_args(); // PHP 5.2 workaround
+		call_user_func_array('printf', $args);
 		printf(PHP_EOL);
 	}
 
@@ -84,7 +85,8 @@ class AbstractCommand extends CConsoleCommand
 	{
 		if ($this->verbose)
 		{
-			call_user_func_array(array($this, 'printf'), func_get_args());
+			$args = func_get_args(); // PHP 5.2 workaround
+			call_user_func_array(array($this, 'printf'), $args);
 		}
 	}
 }
