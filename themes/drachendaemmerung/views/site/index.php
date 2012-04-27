@@ -2,7 +2,7 @@
 
 <h1>Willkommen bei <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<blockquote><strong>Heute ist <?php $this->renderDynamic('nowDate');?></strong></blockquote>
+<blockquote><strong>Heute ist</strong> <?php $this->renderDynamic('nowDate');?></blockquote>
 
 <p>Drachend&aelig;mmerung ist mehr als nur ein Textadventure. Drachend&aelig;mmerung bietet Dir alle Möglicgkeiten selber zum Spielleiter zu werden.
 	Erstelle mit ein paar einfachen Handgriffen ein neues Abenteuer und spiele es oder lasse es andere spielen.</p>
