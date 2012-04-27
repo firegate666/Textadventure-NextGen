@@ -74,11 +74,12 @@ div#page {
 
 div#logo {
 	background-color: #DBCEBB;
-	background-image: url("/themes/drachendaemmerung/images/rdw_logo.jpg");
+	background-image: url("/themes/drachendaemmerung/images/headbanner_1400x140_dd2.jpg");
 	height: 110px;
 	border: 1px solid #333;
 	padding: 12px;
 	border-radius: 10px 10px 0 0;
+	position: relative;
 }
 
 div#logo img {
@@ -86,8 +87,10 @@ div#logo img {
 	float: left;
 }
 
-div#logo span {
-	float: left;
+div#logo span.sticky {
+	position: absolute;
+	bottom: 0;
+	right: 12px;
 }
 
 div.breadcrumbs {
