@@ -84,6 +84,21 @@ div#logostrip {
 	font: 18px/22px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
+/*
+ * move background position for smaller screens to center text
+ */
+@media screen and (max-width: 1000px) {
+	div#logostrip {
+		background-position: -280px 0;
+	}
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+	div#logostrip {
+		background-position: -180px 0;
+	}
+}
+
 div#logostrip div.langchooser {
 	float: right;
 }
