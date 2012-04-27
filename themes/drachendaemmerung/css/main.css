@@ -82,6 +82,16 @@ div#logo {
 	position: relative;
 }
 
+div#logo div.langchooser {
+	float: right;
+}
+
+div#logo div.langchooser a {
+	margin-left: 5px;
+	float: left;
+	display: block;
+}
+
 div#logo img {
 	float: left;
 }
