@@ -24,8 +24,8 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo">
-			<img src="/themes/drachendaemmerung/images/dragon_115x.png" alt="<?php echo CHtml::encode(Yii::app()->name); ?>"/>
+		<div id="logostrip">
+			<img class="logo" src="/themes/drachendaemmerung/images/dragon_75x.png" alt="<?php echo CHtml::encode(Yii::app()->name); ?>"/>
 			<span class="sticky"><strong>A fantastic and high-fantasy role-playing game world.</strong></span>
 			<div class="langchooser" style="float: right">
 				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'de')))?>"><img src="/themes/drachendaemmerung/images/de-flag.jpg" alt="DE" /></a>
