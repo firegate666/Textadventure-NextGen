@@ -35,36 +35,37 @@
 		</div>
 	</div><!-- header -->
 
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Start', 'url'=>array('/site/index')),
-				array('label'=>'Info', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Kontakt', 'url'=>array('/site/contact')),
+	<div id="mainwrap">
+		<div id="mainmenu">
+			<?php $this->widget('zii.widgets.CMenu',array(
+				'items'=>array(
+					array('label'=>'Start', 'url'=>array('/site/index')),
+					array('label'=>'Info', 'url'=>array('/site/page', 'view'=>'about')),
+					array('label'=>'Kontakt', 'url'=>array('/site/contact')),
 
-				array('label'=>'Starte das Abenteuer!', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
+					array('label'=>'Starte das Abenteuer!', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
 
-				array('label'=>'Login', 'url'=>array('/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Registrieren', 'url'=>array('/User/register'), 'visible'=>Yii::app()->user->isGuest),
+					array('label'=>'Login', 'url'=>array('/auth/login'), 'visible'=>Yii::app()->user->isGuest),
+					array('label'=>'Registrieren', 'url'=>array('/User/register'), 'visible'=>Yii::app()->user->isGuest),
 
-				array('label'=>'Admin', 'url'=>array('/site/admin'), 'visible' => !Yii::app()->user->isGuest && (
-					Yii::app()->user->getState("isAdmin") || Yii::app()->user->getState("canCreateAdventure"))
+					array('label'=>'Admin', 'url'=>array('/site/admin'), 'visible' => !Yii::app()->user->isGuest && (
+						Yii::app()->user->getState("isAdmin") || Yii::app()->user->getState("canCreateAdventure"))
+					),
+					array('label'=>'Ausloggen ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
 				),
-				array('label'=>'Ausloggen ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
-			),
-		)); ?>
-	</div><!-- mainmenu -->
+			)); ?>
+		</div><!-- mainmenu -->
 
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+		<?php if(isset($this->breadcrumbs)):?>
+			<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+				'links'=>$this->breadcrumbs,
+			)); ?><!-- breadcrumbs -->
+		<?php endif?>
 
-	<?php echo $content; ?>
+		<?php echo $content; ?>
 
-	<div class="clear"></div>
-
+		<div class="clear"></div>
+	</div>
 	<div id="footer">
 		Copyright 2010 - <?php echo date('Y'); ?> by <a href="http://www.drachendaemmerung.de/">drachendaemmerung.de</a><br/>
 		All Rights Reserved. Report problems at <a href="http://dev.firegate.de/projects/text-adventure-nextgen" target="_blank">Redmine</a>.<br/>
