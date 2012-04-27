@@ -1,16 +1,12 @@
 @CHARSET "UTF-8";
 
-html,body,a,td {
-	font: 18px/27px 'KingthingsPetrockLightRegular', Arial, sans-serif;
+html, body, a, td {
+	font: 14px/18px Verdana, Tahoma, Arial, 'Trebuchet MS', Sans-Serif, Georgia, Courier, 'Times New Roman', Serif;
 	color: #333;
 }
 
 p {
 	margin-bottom: 6px;
-}
-
-strong, b {
-	font: 18px/27px 'KingthingsPetrockRegular', Arial, sans-serif;
 }
 
 em {
@@ -26,6 +22,11 @@ blockquote {
 	padding-left: 12px;
 	border-left: 1px dotted #333;
 	margin: 6px;
+	font: 18px/22px 'KingthingsPetrockLightRegular', Arial, sans-serif;
+}
+
+blockquote b, blockquote strong {
+	font: 18px/22px 'KingthingsPetrockRegular', Arial, sans-serif;
 }
 
 body {
@@ -43,27 +44,27 @@ a,a:ACTIVE,a:FOCUS,a:HOVER,a:LINK,a:VISITED {
 }
 
 h1 {
-	font: 60px/68px 'KingthingsPetrockRegular', Arial, sans-serif;
+	font: 32px/36px 'KingthingsPetrockRegular', Arial, sans-serif;
 	letter-spacing: 0;
 }
 
 h2 {
-	font: 42px/50px 'KingthingsPetrockRegular', Arial, sans-serif;
+	font: 26px/30px 'KingthingsPetrockRegular', Arial, sans-serif;
 	letter-spacing: 0;
 }
 
 h3 {
-	font: 36px/44px 'KingthingsPetrockRegular', Arial, sans-serif;
+	font: 22px/26px 'KingthingsPetrockRegular', Arial, sans-serif;
 	letter-spacing: 0;
 }
 
 h4 {
-	font: 32px/40px 'KingthingsPetrockRegular', Arial, sans-serif;
+	font: 18px/22px 'KingthingsPetrockRegular', Arial, sans-serif;
 	letter-spacing: 0;
 }
 
 h5 {
-	font: 24px/32px 'KingthingsPetrockRegular', Arial, sans-serif;
+	font: 16px/20px 'KingthingsPetrockRegular', Arial, sans-serif;
 	letter-spacing: 0;
 }
 
@@ -72,7 +73,7 @@ div#page {
 	margin: 10px auto 0;
 }
 
-div#logo {
+div#logostrip {
 	background-color: #DBCEBB;
 	background-image: url("/themes/drachendaemmerung/images/headbanner_1400x140_dd2.jpg");
 	height: 110px;
@@ -80,23 +81,24 @@ div#logo {
 	padding: 12px;
 	border-radius: 10px 10px 0 0;
 	position: relative;
+	font: 18px/22px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
-div#logo div.langchooser {
+div#logostrip div.langchooser {
 	float: right;
 }
 
-div#logo div.langchooser a {
+div#logostrip div.langchooser a {
 	margin-left: 5px;
 	float: left;
 	display: block;
 }
 
-div#logo img {
+div#logostrip img.logo {
 	float: left;
 }
 
-div#logo span.sticky {
+div#logostrip span.sticky {
 	position: absolute;
 	bottom: 0;
 	right: 12px;
@@ -111,19 +113,22 @@ div.breadcrumbs {
 	border: 1px solid #333;
 	border-bottom: none;
 	padding: 0 0 0 25px;
+	font: 18px/27px 'KingthingsPetrockLightRegular', Arial, sans-serif;
+}
+
+div.breadcrumbs a {
+	font: 18px/27px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
 div#footer {
-	font-size: 12px;
-	line-height: 14px;
 	/*border-top: 1px solid #333;*/
 	text-align: right;
 	margin-top: 12px;
+	font: 12px/16px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
 div#footer a {
-	font-size: 14px;
-	line-height: 16px;
+	font: 12px/16px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
 div#mainmenu {
@@ -146,10 +151,12 @@ div#mainmenu ul li:FIRST-CHILD {
 
 div#mainmenu ul li a {
 	text-decoration: none;
+	font: 18px/27px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
 div#mainmenu ul li a:HOVER {
 	text-decoration: underline;
+	font: 18px/27px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
 div#mainmenu ul li.active a {
