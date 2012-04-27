@@ -119,7 +119,6 @@ class Controller extends CController
 		$lang = $lang_from_get ? $lang_from_get : $session_lang;
 		if ($lang)
 		{
-			var_dump('set lang', $lang);
 			Yii::app()->setLanguage($lang);
 			$this->addSessionValue('session_lang', $lang, true, '');
 		}
