@@ -25,7 +25,7 @@
 
 	<div id="header">
 		<div id="logo">
-			<img src="http://drachendaemmerung.de/fileadmin/drachendaemmerung.de/images/dragon_small.gif" alt="<?php echo CHtml::encode(Yii::app()->name); ?>"/>
+			<img src="/themes/drachendaemmerung/images/dragon_115x.png" alt="<?php echo CHtml::encode(Yii::app()->name); ?>"/>
 			<span class="sticky"><strong>A fantastic and high-fantasy role-playing game world.</strong></span>
 			<div class="langchooser" style="float: right">
 				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'de')))?>">DE</a> |
