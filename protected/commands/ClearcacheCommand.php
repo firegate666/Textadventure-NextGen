@@ -8,6 +8,13 @@ class ClearcacheCommand extends AbstractCommand
 {
 
 	/**
+	 * if confirmation prompt is displayed or not
+	 *
+	 * @var boolean
+	 */
+	public $interactive = 1;
+
+	/**
 	 * @see CConsoleCommand::init()
 	 * @return void
 	 */
@@ -78,7 +85,8 @@ class ClearcacheCommand extends AbstractCommand
 		{
 			$assetPath = realpath(__DIR__.'/../../assets');
 			$this->printf("No asset path submitted. Assuming '%s'", $assetPath);
-			if (!$this->confirm('Continue deleting assets?'))
+
+			if ($this->interactive && !$this->confirm('Continue deleting assets?'))
 			{
 				return; // no exit, otherwise chained command will not be executed
 			}
@@ -95,7 +103,7 @@ class ClearcacheCommand extends AbstractCommand
 			$this->printf("Found %d directories and %d files", count($dirs), count($files));
 			if (!empty($dirs) ||!empty($files))
 			{
-				if (!$this->confirm('Continue deleting assets?'))
+				if ($this->interactive && !$this->confirm('Continue deleting assets?'))
 				{
 					return; // no exit, otherwise chained command will not be executed
 				}

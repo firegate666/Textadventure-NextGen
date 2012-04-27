@@ -29,7 +29,9 @@ blockquote {
 }
 
 body {
-	background: url("/themes/drachendaemmerung/images/vintage_paper.jpg") repeat scroll 0 0 #E3DACC;
+	background-color: #E3DACC;
+	max-width: 1280px;
+	max-height: 1007px; 
 }
 
 .clear {
@@ -72,25 +74,40 @@ div#page {
 
 div#logo {
 	background-color: #DBCEBB;
-	background-image: url("/themes/drachendaemmerung/images/rdw_logo.jpg");
+	background-image: url("/themes/drachendaemmerung/images/headbanner_1400x140_dd2.jpg");
 	height: 110px;
 	border: 1px solid #333;
 	padding: 12px;
 	border-radius: 10px 10px 0 0;
+	position: relative;
+}
+
+div#logo div.langchooser {
+	float: right;
+}
+
+div#logo div.langchooser a {
+	margin-left: 5px;
+	float: left;
+	display: block;
 }
 
 div#logo img {
-	width: 128px;
 	float: left;
 }
 
-div#logo span {
-	float: left;
+div#logo span.sticky {
+	position: absolute;
+	bottom: 0;
+	right: 12px;
+}
+
+div#mainwrap {
+	background: url("/themes/drachendaemmerung/images/hintergrund_1400x1200.jpg") no-repeat #DBCEBB;
 }
 
 div.breadcrumbs {
 	font-size: 0.8em;
-	background-color: #DBCEBB;
 	border: 1px solid #333;
 	border-bottom: none;
 	padding: 0 0 0 25px;
@@ -110,9 +127,9 @@ div#footer a {
 }
 
 div#mainmenu {
-	background-color: #DBCEBB;
 	border: 1px solid #333;
-	margin: 6px 0;
+	border-bottom: none;
+	margin: 6px 0 0;
 	padding: 0 12px;
 }
 
@@ -140,10 +157,11 @@ div#mainmenu ul li.active a {
 }
 
 div#content {
-	background-color: #DBCEBB;
 	border: 1px solid #333;
 	padding: 12px;
 	border-radius: 0 0 10px 10px;
+	max-height: 700px;
+	overflow: auto;
 }
 
 div.view.adventure {
@@ -213,3 +231,74 @@ div.view.adventure div.button-play a:hover
 {
 	text-decoration: underline;
 }
+
+div.form form .row {
+	clear: both;	
+}
+
+div.form form .row label {
+	display: block;
+	float: left;
+	width: 24%;
+}
+
+div.form form .row .captcha-wrapper {
+	display: block;
+	float: left;
+	width: 74%;
+}
+
+div.form form .row .captcha-wrapper img {
+	display: block;
+	float: none;
+	clear: left;
+	margin: 2px;
+}
+
+div.form form .row input, div.form form .row textarea {
+	display: block;
+	float: left;
+	width: 74%;
+}
+
+div.form form .row.error input,
+div.form form .row .captcha-wrapper.error input,
+div.form form .row.error textarea {
+	display: block;
+	float: left;
+	width: 49%;
+}
+
+div.form form .row.buttons {
+	text-align: center;	
+}
+
+div.form form .row.buttons input {
+	float: none;
+	display: inline;
+}
+
+div.form form .row .hint {
+	display: block;
+	clear: both;
+}
+
+div.form form .row .errorMessage {
+	display: block;
+	float: left;
+	width: 24%;
+	color: #ff0000;
+	line-height: 16px;
+}
+
+div.errorSummary {
+	border: 1px solid #C50000;
+	background-color: #F2E5E5;
+	color: #C50000;
+	margin-bottom: 12px;
+}
+
+div.errorSummary p, div.errorSummary h4, div.errorSummary ul {
+	margin: 5px;
+}
+

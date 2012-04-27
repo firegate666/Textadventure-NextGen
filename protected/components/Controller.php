@@ -86,6 +86,7 @@ class Controller extends CController
 	{
 		return array(
 			'theming',
+			'lang',
 		);
 	}
 
@@ -106,18 +107,42 @@ class Controller extends CController
 	}
 
 	/**
+	 * handle application langue by get parameter "lang" or session stored lang
+	 *
+	 * @param CFilterChain $filterchain
+	 * @return void
+	 */
+	function filterLang(CFilterChain $filterchain)
+	{
+		$session_lang = $this->getSessionValue('session_lang', false, true, '');
+		$lang_from_get = Yii::app()->request->getParam('lang', false);
+		$lang = $lang_from_get ? $lang_from_get : $session_lang;
+		if ($lang)
+		{
+			Yii::app()->setLanguage($lang);
+			$this->addSessionValue('session_lang', $lang, true, '');
+		}
+		$filterchain->run();
+	}
+
+	/**
 	 * get value from session
 	 *
 	 * @see CHttpSession::get(mixed, mixed)
 	 * @param mixed $key
 	 * @param mixed $defaultValue
 	 * @param boolean $allowGetEmpty
+	 * @param string $prefix prefix for session stored values, defaults to calling class
 	 * @throws SessionKeyNotExistsException
 	 * @return void
 	 */
-	public static function getSessionValue($key, $defaultValue, $allowGetEmpty = true)
+	public static function getSessionValue($key, $defaultValue, $allowGetEmpty = true, $prefix = null)
 	{
-		$prefix = get_called_class();
+		if ($prefix === null)
+		{
+			$prefix = get_called_class();
+		}
+
 		if (!$allowGetEmpty && !Yii::app()->session->contains($prefix.'_'.$key))
 		{
 			throw new SessionKeyNotExistsException();
@@ -132,16 +157,22 @@ class Controller extends CController
 	 * @param mixed $key
 	 * @param mixed $value
 	 * @param boolean $allowOverride override if value exists
+	 * @param string $prefix prefix for session stored values, defaults to calling class
 	 * @throws SessionKeyExistsException
 	 * @return void
 	 */
-	public static function addSessionValue($key, $value, $allowOverride = true)
+	public static function addSessionValue($key, $value, $allowOverride = true, $prefix = null)
 	{
-		$prefix = get_called_class();
+		if ($prefix === null)
+		{
+			$prefix = get_called_class();
+		}
+
 		if (!$allowOverride && Yii::app()->session->contains($prefix.'_'.$key))
 		{
 			throw new SessionKeyExistsException();
 		}
 		Yii::app()->session->add($prefix.'_'.$key, $value);
 	}
+
 }
