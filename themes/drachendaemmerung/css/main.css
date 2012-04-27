@@ -39,7 +39,7 @@ body {
 	clear: both;
 }
 
-a,a:ACTIVE,a:FOCUS,a:HOVER,a:LINK,a:VISITED {
+a, a:ACTIVE, a:FOCUS, a:HOVER, a:LINK, a:VISITED {
 	color: #0000CC;
 }
 
