@@ -1,4 +1,5 @@
 <?php
+Yii::import('application.tests.unit.AbstractUnitTest');
 
 class AdventureStepTest extends AbstractUnitTest
 {

@@ -1,4 +1,5 @@
 <?php
+Yii::import('application.tests.unit.AbstractUnitTest');
 
 class AdventureTest extends AbstractUnitTest
 {
@@ -99,7 +100,7 @@ class AdventureTest extends AbstractUnitTest
 
 	/**
 	 * get adventure model with optional start and stop steps
-	 * 
+	 *
 	 * @todo move to fictures
 	 * @param boolean $with_start
 	 * @param boolean $with_end
@@ -117,7 +118,7 @@ class AdventureTest extends AbstractUnitTest
 				'state' => Adventure::STATE_DISABLED,
 		);
 		$model->save();
-		
+
 		if ($with_start)
 		{
 			$startStep = new AdventureStep();
@@ -148,7 +149,7 @@ class AdventureTest extends AbstractUnitTest
 
 		return $model;
 	}
-	
+
 	/**
 	 * test running states
 	 *
