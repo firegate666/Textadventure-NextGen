@@ -1,26 +1,24 @@
 <?php
 Yii::import('application.tests.unit.AbstractUnitTest');
+Yii::import('application.tests.mocks.UserGroupMock');
 
 class UserTest extends AbstractUnitTest
 {
 
 	public function testMetainfo()
 	{
-		$user_1 = User::model()->findBySql('SELECT * FROM User ORDER BY id ASC LIMIT 1');
-		$user_2 = User::model()->findBySql('SELECT * FROM User ORDER BY id DESC LIMIT 1');
+		$user_1 = new User();
+		$user_1->id = 1;
 
-		$this->assertNotNull($user_1);
-		$this->assertNotNull($user_2);
-
-		$this->assertNotEquals($user_1->id, $user_2->id);
+		$user_2 = new User();
+		$user_2->id = 2;
 
 		Yii::app()->user->id = $user_1->id;
 
-		$model = new UserGroup();
+		$model = new UserGroupMock();
 		$model->attributes = array(
-			'name' => 'Test Group',
+				'name' => 'Test Group',
 		);
-
 		$this->assertTrue($model->validate(), var_export($model->getErrors(), true));
 
 		$this->assertNull($model->createdAt);
@@ -40,12 +38,6 @@ class UserTest extends AbstractUnitTest
 		$this->assertNotNull($model->changedAt);
 		$this->assertEquals($user_1->id, $model->createdBy);
 		$this->assertEquals($user_2->id, $model->changedBy);
-
-		$model2 = UserGroup::model()->findByPk($model->id);
-		$this->assertNotNull($model2->createdAt);
-		$this->assertNotNull($model2->changedAt);
-		$this->assertNotNull($model2->createdBy);
-		$this->assertNotNull($model2->changedBy);
 	}
 
 	public function testRequiredFields()
