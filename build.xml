@@ -104,6 +104,24 @@
 		</apply>
 	</target>
 
+	<target name="csslint-ci">
+		<apply executable="java" failonerror="true" output="build/logs/csslint-checkstyle.xml">
+			<arg value="-jar" />
+			<arg path="protected/vendors/rhino/js.jar" />
+			<arg path="protected/vendors/csslint/release/csslint-rhino.js" />
+			<arg value="--format=checkstyle-xml" />
+			<arg value="--warnings=empty-rules,import,important,known-properties" />
+
+			<fileset dir="${basedir}">
+				<include name="**/*.css" />
+				<exclude name="**/assets/**" />
+				<exclude name="**/vendors/**" />
+				<modified />
+			</fileset>
+
+		</apply>
+	</target>
+
 	<target name="phploc" description="Measure project size using PHPLOC">
 		<exec executable="phploc">
 			<arg value="--exclude" />
