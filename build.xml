@@ -7,7 +7,7 @@
            classpath="protected/vendors/jslint/jslint4java-2.0.2.jar" />
 
 	<!-- full build -->
-	<target name="build" depends="prepare,yiimigrate,lint,jslint,csslint-ci,phploc,pdepend,phpcpd,phpunit,phpdox,phpcs-ci" />
+	<target name="build" depends="prepare,yiimigrate,lint,jslint,csslint-ci,phploc,pdepend,phpcpd,phpunit,phpdox" />
 
 	<!-- disabled tasks
 		phpcs-ci
