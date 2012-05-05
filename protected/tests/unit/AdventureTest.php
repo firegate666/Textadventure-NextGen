@@ -108,7 +108,7 @@ class AdventureTest extends AbstractUnitTest
 	 */
 	protected function getAdventureWithSteps($with_start = true, $with_end = true)
 	{
-		$model = new Adventure();
+		$model = $this->getMock('Adventure', array('hasStartingPoint', 'hasEndingPoint'), array(), '', true);
 		$model->attributes = array(
 				'name' => 'my name',
 				'description' => 'my description',
@@ -117,7 +117,7 @@ class AdventureTest extends AbstractUnitTest
 				'adventureId' => 'MYID',
 				'state' => Adventure::STATE_DISABLED,
 		);
-		$model->save();
+		$model->id = 1;
 
 		if ($with_start)
 		{
@@ -130,7 +130,16 @@ class AdventureTest extends AbstractUnitTest
 					'endingPoint' => 0,
 					'stepId' => 'STEP1',
 			);
-			$startStep->save();
+			$startStep->id = 1;
+			$model->expects($this->any())
+				->method('hasStartingPoint')
+				->will($this->returnValue(true));
+		}
+		else
+		{
+			$model->expects($this->any())
+				->method('hasStartingPoint')
+				->will($this->returnValue(false));
 		}
 
 		if ($with_end)
@@ -144,7 +153,16 @@ class AdventureTest extends AbstractUnitTest
 					'endingPoint' => 1,
 					'stepId' => 'STEP2',
 			);
-			$endStep->save();
+			$endStep->id = 2;
+			$model->expects($this->any())
+				->method('hasEndingPoint')
+				->will($this->returnValue(true));
+		}
+		else
+		{
+			$model->expects($this->any())
+				->method('hasEndingPoint')
+				->will($this->returnValue(false));
 		}
 
 		return $model;
