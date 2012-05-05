@@ -199,6 +199,96 @@ class AdventureTest extends AbstractUnitTest
 	}
 
 	/**
+	 * test running states
+	 *
+	 * @return void
+	 */
+	public function testRunningStateNoStart()
+	{
+		$model = self::getAdventureWithSteps(false);
+
+		foreach(Adventure::runningStates() as $state_value => $state_name)
+		{
+			$model->attributes = array(
+					'startDate' => null,
+					'stopDate' => null,
+					'state' => $state_value,
+			);
+			$this->assertFalse($model->isRunning());
+		}
+
+		foreach(Adventure::stopStates() as $state_value => $state_name)
+		{
+			$model->attributes = array(
+					'startDate' => null,
+					'stopDate' => null,
+					'state' => $state_value,
+			);
+			$this->assertFalse($model->isRunning());
+		}
+	}
+
+	/**
+	 * test running states
+	 *
+	 * @return void
+	 */
+	public function testRunningStateNoEnd()
+	{
+		$model = self::getAdventureWithSteps(true, false);
+
+		foreach(Adventure::runningStates() as $state_value => $state_name)
+		{
+			$model->attributes = array(
+					'startDate' => null,
+					'stopDate' => null,
+					'state' => $state_value,
+			);
+			$this->assertFalse($model->isRunning());
+		}
+
+		foreach(Adventure::stopStates() as $state_value => $state_name)
+		{
+			$model->attributes = array(
+					'startDate' => null,
+					'stopDate' => null,
+					'state' => $state_value,
+			);
+			$this->assertFalse($model->isRunning());
+		}
+	}
+
+	/**
+	 * test running states
+	 *
+	 * @return void
+	 */
+	public function testRunningStateNoStartNoEnd()
+	{
+		$model = self::getAdventureWithSteps(false, false);
+
+		foreach(Adventure::runningStates() as $state_value => $state_name)
+		{
+			$model->attributes = array(
+					'startDate' => null,
+					'stopDate' => null,
+					'state' => $state_value,
+			);
+			$this->assertFalse($model->isRunning());
+		}
+
+		foreach(Adventure::stopStates() as $state_value => $state_name)
+		{
+			$model->attributes = array(
+					'startDate' => null,
+					'stopDate' => null,
+					'state' => $state_value,
+			);
+			$this->assertFalse($model->isRunning());
+		}
+	}
+
+	/**
 	 * test startDate and stopDate
 	 *
 	 * @return void
