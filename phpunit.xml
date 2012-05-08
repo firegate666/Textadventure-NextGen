@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="protected/tests/bootstrap.php"
-	backupGlobals="false" backupStaticAttributes="false" strict="true"
-	verbose="true" timeoutForSmallTests="5">
+	backupGlobals="false" backupStaticAttributes="false" strict="false"
+	verbose="true" timeoutForSmallTests="10">
 
 	<testsuites>
 		<testsuite name="Units">
