@@ -31,8 +31,6 @@ blockquote b, blockquote strong {
 
 body {
 	background-color: #E3DACC;
-	max-width: 1280px;
-	max-height: 1007px; 
 }
 
 .clear {
@@ -71,6 +69,8 @@ h5 {
 div#page {
 	width: 95%;
 	margin: 10px auto 0;
+	max-width: 1280px;
+	max-height: 1007px;
 }
 
 div#logostrip {
