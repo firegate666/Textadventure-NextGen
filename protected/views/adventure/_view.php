@@ -7,7 +7,7 @@
 			</blockquote>
 		</div>
 
-		<?php if ($data->hasSteps()): ?>
+		<?php if ($data->hasStartingPoint() && $data->hasEndingPoint()): ?>
 			<div class="button button-play">
 				<?php if ($data->isRunning()): ?>
 					<?=CHtml::link($data->userInAdventure(Yii::app()->user->id)?'CONTINUE':'PLAY', array('view', 'id' => $data->id))?>
