@@ -168,7 +168,7 @@ class AdventureController extends Controller
 		}
 
 		$model = $this->loadModel($id, false);
-		if (!$model->isRunning() || !$model->hasStartingPoint || !$model->hasEndingPoint())
+		if (!$model->isRunning() || !$model->hasStartingPoint() || !$model->hasEndingPoint())
 		{
 			throw new CHttpException(423, 'The requested adventure is temporarily not available');
 		}
