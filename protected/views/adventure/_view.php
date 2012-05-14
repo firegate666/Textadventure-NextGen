@@ -9,11 +9,7 @@
 
 	<?php if ($data->hasStartingPoint() && $data->hasEndingPoint()): ?>
 		<div class="button button-play">
-			<?php if ($data->isRunning()): ?>
-				<?=CHtml::link($data->userInAdventure(Yii::app()->user->id)?'CONTINUE':'PLAY', array('view', 'id' => $data->id))?>
-			<?php else: ?>
-				<?=CHtml::link('Closed for now, please return later', '#')?>
-			<?php endif;?>
+			<?=CHtml::link($data->userInAdventure(Yii::app()->user->id)?'CONTINUE':'PLAY', array('view', 'id' => $data->id))?>
 		</div>
 	<?php else: ?>
 		<div class="button button-noplay">
