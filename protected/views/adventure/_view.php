@@ -1,4 +1,3 @@
-<?php if ($data->isRunning() || $data->userInAdventure(Yii::app()->user->id)): ?>
 	<div class="adventure view">
 
 		<div class="description">
@@ -25,4 +24,3 @@
 		<div class="clear"></div>
 
 	</div>
-<?php endif; ?>

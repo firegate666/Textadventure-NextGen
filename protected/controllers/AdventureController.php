@@ -282,6 +282,25 @@ class AdventureController extends Controller
 		$sort = new CSort('Adventure');
 		$sort->defaultOrder = array('id' => CSort::SORT_DESC);
 		$dataProvider->setSort($sort);
+
+		$nowDate = new DateTime();
+
+		$criteria_is_running = new CDbCriteria();
+		$criteria_is_running->condition = sprintf(
+			'
+				(startDate IS NULL OR startDate > %d)
+				AND
+				(stopDate IS NULL OR stopDate < %d)
+				AND
+				state IN (%s)
+			',
+			$nowDate->getTimestamp(),
+			$nowDate->getTimestamp(),
+			implode(',', array_keys(Adventure::runningStates()))
+		);
+
+		$dataProvider->setCriteria($criteria_is_running);
+
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));
