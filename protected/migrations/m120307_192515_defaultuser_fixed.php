@@ -4,13 +4,36 @@ class m120307_192515_defaultuser_fixed extends CDbMigration
 {
 	public function safeUp()
 	{
-		$this->execute('ALTER TABLE User DROP FOREIGN KEY `user_ibfk_1`;');
 		$this->execute('DELETE FROM User;');
-		$this->execute("INSERT INTO  User (username, password, email, groupId, salt)
-				VALUES ('admin', MD5('admineasysalt'), 'yourmail@example.org', (SELECT id FROM UserGroup WHERE name = 'Admin'), 'easysalt');");
-		$this->execute("INSERT INTO  User (username, password, email, groupId, salt)
-				VALUES ('demo', MD5('demoeasysalt'), 'yourmail@example.org', (SELECT id FROM UserGroup WHERE name = 'User'), 'easysalt');");
-		
+
+		$this->truncateTable('UserGroup');
+		$this->truncateTable('User');
+
+		$this->insert('UserGroup', array('name' => 'Admin'));
+		$admin_group = $this->getDbConnection()->getLastInsertID();
+
+		$this->insert('UserGroup', array('name' => 'User'));
+		$user_group = $this->getDbConnection()->getLastInsertID();
+
+		$this->insert('User',
+				array(
+						'username' => 'admin',
+						'password' => md5('admineasysalt'),
+						'email' => 'admin@example.org',
+						'groupId' => $admin_group,
+						'salt' => 'easysalt'
+				)
+		);
+
+		$this->insert('User',
+				array(
+						'username' => 'demo',
+						'password' => md5('demoeasysalt'),
+						'email' => 'demo@example.org',
+						'groupId' => $user_group,
+						'salt' => 'easysalt'
+				)
+		);
 	}
 
 	public function down()

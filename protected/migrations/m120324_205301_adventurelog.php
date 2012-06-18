@@ -4,39 +4,45 @@ class m120324_205301_adventurelog extends CDbMigration
 {
 	public function up()
 	{
-		$this->execute ( 'CREATE TABLE `AdventureLog` (
-				`id` int(11) NOT NULL AUTO_INCREMENT,
-				createdAt DATETIME NULL,
-				changedAt DATETIME NULL,
-				createdBy INTEGER NULL REFERENCES User,
-				changedBy INTEGER NULL REFERENCES User,
-				userId INTEGER NOT NULL REFERENCES User,
-				adventureStepId INTEGER NOT NULL REFERENCES AdventureStep,
-				PRIMARY KEY (`id`),
-				KEY `userId` (`userId`),
-				KEY `adventureStepId` (`adventureStepId`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=utf8;' );
+		$this->createTable('AdventureLog',
+				array(
+						'id' => 'pk',
+						'createdAt' => 'DATETIME NULL',
+						'changedAt' => 'DATETIME NULL',
+						'createdBy' => 'INTEGER NOT NULL',
+						'changedBy' => 'INTEGER NOT NULL',
+						'userId' => 'INTEGER NOT NULL',
+						'adventureStepId' => 'INTEGER NOT NULL',
+				)
+		);
+		$this->addForeignKey('created_fk', 'AdventureLog', 'createdBy', 'User', 'id');
+		$this->addForeignKey('changed_fk', 'AdventureLog', 'changedBy', 'User', 'id');
+		$this->addForeignKey('user_fk', 'AdventureLog', 'userId', 'User', 'id');
+		$this->addForeignKey('adventurestep_fk', 'AdventureLog', 'adventureStepId', 'AdventureStep', 'id');
 
-		$this->execute ( 'CREATE TABLE `AdventureParticipation` (
-				`id` int(11) NOT NULL AUTO_INCREMENT,
-				createdAt DATETIME NULL,
-				changedAt DATETIME NULL,
-				createdBy INTEGER NULL REFERENCES User,
-				changedBy INTEGER NULL REFERENCES User,
-				userId INTEGER NOT NULL REFERENCES User,
-				adventureId INTEGER NOT NULL REFERENCES Adventure,
-				started DATETIME NOT NULL,
-				ended DATETIME NULL,
-				PRIMARY KEY (`id`),
-				KEY `userId` (`userId`),
-				KEY `adventureId` (`adventureId`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=utf8;' );
+		$this->createTable('AdventureParticipation',
+				array(
+						'id' => 'pk',
+						'createdAt' => 'DATETIME NULL',
+						'changedAt' => 'DATETIME NULL',
+						'createdBy' => 'INTEGER NOT NULL',
+						'changedBy' => 'INTEGER NOT NULL',
+						'userId' => 'INTEGER NOT NULL',
+						'adventureStepId' => 'INTEGER NOT NULL',
+						'started' => 'DATETIME NOT NULL',
+						'ended' => 'DATETIME NULL',
+				)
+		);
+		$this->addForeignKey('created_fk', 'AdventureParticipation', 'createdBy', 'User', 'id');
+		$this->addForeignKey('changed_fk', 'AdventureParticipation', 'changedBy', 'User', 'id');
+		$this->addForeignKey('user_fk', 'AdventureParticipation', 'userId', 'User', 'id');
+		$this->addForeignKey('adventurestep_fk', 'AdventureParticipation', 'adventureStepId', 'AdventureStep', 'id');
 	}
 
 	public function down()
 	{
-		$this->execute('DROP TABLE AdventureLog');
-		$this->execute('DROP TABLE AdventureParticipation');
+		$this->dropTable('AdventureLog');
+		$this->dropTable('AdventureParticipation');
 	}
 
 }

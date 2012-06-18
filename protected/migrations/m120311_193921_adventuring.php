@@ -4,16 +4,16 @@ class m120311_193921_adventuring extends CDbMigration
 {
 	public function safeUp()
 	{
-		$this->execute('ALTER TABLE Adventure ADD COLUMN adventureId VARCHAR(32) NOT NULL;');
-		$this->execute('ALTER TABLE AdventureStep ADD COLUMN stepId VARCHAR(32) NOT NULL;');
-		$this->execute('ALTER TABLE AdventureStep ADD COLUMN startingPoint TINYINT NOT NULL DEFAULT 0;');
+		$this->addColumn('Adventure', 'adventureId', 'string NOT NULL');
+		$this->addColumn('AdventureStep', 'stepId', 'string NOT NULL');
+		$this->addColumn('AdventureStep', 'startingPoint', 'boolean NOT NULL DEFAULT false');
 	}
 
 	public function down()
 	{
-		$this->execute('ALTER TABLE Adventure DROP COLUMN adventureId');
-		$this->execute('ALTER TABLE AdventureStep DROP COLUMN stepId');
-		$this->execute('ALTER TABLE AdventureStep DROP COLUMN startingPoint');
+		$this->dropColumn('Adventure', 'adventureId');
+		$this->dropColumn('AdventureStep', 'stepId');
+		$this->dropColumn('AdventureStep', 'startingPoint');
 	}
 
 }

@@ -4,12 +4,12 @@ class m120324_220243_adventurelogfinished extends CDbMigration
 {
 	public function up()
 	{
-		$this->execute('ALTER TABLE AdventureLog ADD COLUMN finalized TINYINT NOT NULL DEFAULT 0');
+		$this->addColumn('AdventureLog', 'finalized', 'boolean NOT NULL DEFAULT false');
 	}
 
 	public function down()
 	{
-		$this->execute('ALTER TABLE AdventureLog DROP COLUMN finalized');
+		$this->dropColumn('AdventureLog', 'finalized');
 	}
 
 }

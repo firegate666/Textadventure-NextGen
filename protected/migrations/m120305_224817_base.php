@@ -4,76 +4,67 @@ class m120305_224817_base extends CDbMigration {
 
 	public function safeUp()
 	{
-		$this->execute ( 'CREATE TABLE `Adventure` (
-				`id` int(11) NOT NULL AUTO_INCREMENT,
-				`name` varchar(256) NOT NULL,
-				`description` text NOT NULL,
-				PRIMARY KEY (`id`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=utf8;' );
 
-		$this->execute ( 'CREATE TABLE `AdventureStep` (
-				`id` int(11) NOT NULL AUTO_INCREMENT,
-				`adventure` int(11) NOT NULL,
-				`name` varchar(256) NOT NULL,
-				`description` text NOT NULL,
-				PRIMARY KEY (`id`),
-				KEY `adventure` (`adventure`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=utf8;' );
+		$this->createTable('Adventure',
+				array(
+						'id' => 'pk',
+						'name' => 'string NOT NULL',
+						'description' => 'text',
+				)
+		);
 
-		$this->execute ( 'CREATE TABLE `AdventureStepOption` (
-				`id` int(11) NOT NULL AUTO_INCREMENT,
-				`parent` int(11) NOT NULL,
-				`target` int(11) NOT NULL,
-				`name` varchar(256) NOT NULL,
-				PRIMARY KEY (`id`),
-				KEY `parent` (`parent`),
-				KEY `target` (`target`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=utf8;' );
+		$this->createTable('AdventureStep',
+				array(
+						'id' => 'pk',
+						'adventure' => 'integer NOT NULL',
+						'name' => 'string NOT NULL',
+						'description' => 'text',
+				)
+		);
+		$this->createIndex('adventure_idx', 'AdventureStep', 'adventure');
+		$this->addForeignKey('adventure_fk', 'AdventureStep', 'adventure', 'Adventure', 'id');
 
-		$this->execute ( 'CREATE TABLE `User` (
-				`id` int(11) NOT NULL AUTO_INCREMENT,
-				`username` varchar(128) NOT NULL,
-				`password` varchar(128) NOT NULL,
-				`email` varchar(128) NOT NULL,
-				`groupId` int(11) NOT NULL,
-				PRIMARY KEY (`id`),
-				KEY `groupid` (`groupId`)
-		) ENGINE=InnoDB DEFAULT CHARSET=utf8;' );
+		$this->createTable('AdventureStepOption',
+				array(
+						'id' => 'pk',
+						'parent' => 'integer NOT NULL',
+						'target' => 'integer NOT NULL',
+						'name' => 'string NOT NULL',
+				)
+		);
+		$this->createIndex('parent_idx', 'AdventureStepOption', 'parent');
+		$this->createIndex('target_idx', 'AdventureStepOption', 'target');
+		$this->addForeignKey('adventurestep_parent_fk', 'AdventureStepOption', 'parent', 'AdventureStep', 'id');
+		$this->addForeignKey('adventurestep_target_fk', 'AdventureStepOption', 'target', 'AdventureStep', 'id');
 
-		$this->execute ( 'CREATE TABLE `UserGroup` (
-				`id` int(11) NOT NULL AUTO_INCREMENT,
-				`name` int(11) NOT NULL,
-				PRIMARY KEY (`id`)
-		) ENGINE=InnoDB DEFAULT CHARSET=utf8;' );
+		$this->createTable('UserGroup',
+				array(
+						'id' => 'pk',
+						'name' => 'string NOT NULL',
+				)
+		);
 
-		$this->execute ( 'ALTER TABLE `AdventureStep`
-		ADD CONSTRAINT `adventurestep_ibfk_1` FOREIGN KEY (`adventure`) REFERENCES `Adventure` (`id`);' );
-
-		$this->execute ( 'ALTER TABLE `AdventureStepOption`
-		ADD CONSTRAINT `adventurestepoption_ibfk_2` FOREIGN KEY (`target`) REFERENCES `AdventureStep` (`id`),
-		ADD CONSTRAINT `adventurestepoption_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `AdventureStep` (`id`);' );
-
-		$this->execute ( 'ALTER TABLE `User`
-		ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`groupId`) REFERENCES `UserGroup` (`id`),
-		ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`groupid`) REFERENCES `User` (`id`);' );
+		$this->createTable('User',
+				array(
+						'id' => 'pk',
+						'username' => 'string NOT NULL',
+						'password' => 'string NOT NULL',
+						'email' => 'string NOT NULL',
+						'groupId' => 'integer NOT NULL',
+				)
+		);
+		$this->createIndex('groupId_idx', 'User', 'groupId');
+		$this->addForeignKey('groupId_fk', 'User', 'groupId', 'UserGroup', 'id');
 
 	}
 
 	public function down()
 	{
-		$this->execute('ALTER TABLE User DROP FOREIGN KEY user_ibfk_1');
-		$this->execute('ALTER TABLE User DROP FOREIGN KEY user_ibfk_2');
-
-		$this->execute('ALTER TABLE AdventureStepOption DROP FOREIGN KEY adventurestepoption_ibfk_2');
-		$this->execute('ALTER TABLE AdventureStepOption DROP FOREIGN KEY adventurestepoption_ibfk_1');
-
-		$this->execute('ALTER TABLE AdventureStep DROP FOREIGN KEY adventurestep_ibfk_1');
-
-		$this->execute('DROP TABLE UserGroup');
-		$this->execute('DROP TABLE User');
-		$this->execute('DROP TABLE AdventureStepOption');
-		$this->execute('DROP TABLE AdventureStep');
-		$this->execute('DROP TABLE Adventure');
+		$this->dropTable('AdventureStepOption');
+		$this->dropTable('AdventureStep');
+		$this->dropTable('Adventure');
+		$this->dropTable('User');
+		$this->dropTable('UserGroup');
 	}
 
 }

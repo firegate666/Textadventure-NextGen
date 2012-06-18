@@ -4,7 +4,7 @@ class m120324_220859_adventurelogadventureid extends CDbMigration
 {
 	public function up()
 	{
-		$this->execute('ALTER TABLE AdventureLog ADD COLUMN adventureId INTEGER NOT NULL REFERENCES Adventure');
+		$this->addColumn('AdventureLog', 'adventureId', 'integer NOT NULL');
 	}
 
 	public function down()

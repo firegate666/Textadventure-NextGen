@@ -20,10 +20,14 @@ class m120321_144504_modelmetainfo extends CDbMigration
 	{
 		foreach ($this->tables_to_alter as $table_name)
 		{
-			$this->execute('ALTER TABLE ' . $table_name . ' ADD COLUMN createdAt DATETIME NULL');
-			$this->execute('ALTER TABLE ' . $table_name . ' ADD COLUMN changedAt DATETIME NULL');
-			$this->execute('ALTER TABLE ' . $table_name . ' ADD COLUMN createdBy INTEGER NULL REFERENCES User');
-			$this->execute('ALTER TABLE ' . $table_name . ' ADD COLUMN changedBy INTEGER NULL REFERENCES User');
+			$this->addColumn($table_name, 'createdAt', 'DATETIME NULL');
+			$this->addColumn($table_name, 'changedAt', 'DATETIME NULL');
+			$this->addColumn($table_name, 'createdBy', 'INTEGER NULL');
+			$this->addColumn($table_name, 'changedBy', 'INTEGER NULL');
+			$this->createIndex('createuser_idx', $table_name, 'createdBy');
+			$this->createIndex('changeuser_idx', $table_name, 'changedBy');
+			$this->addForeignKey('createuser_fk', $table_name, 'createdBy', 'User', 'id');
+			$this->addForeignKey('changeuser_idx', $table_name, 'changedBy', 'User', 'id');
 		}
 	}
 
@@ -31,10 +35,10 @@ class m120321_144504_modelmetainfo extends CDbMigration
 	{
 		foreach ($this->tables_to_alter as $table_name)
 		{
-			$this->execute('ALTER TABLE ' . $table_name . ' DROP COLUMN createdAt');
-			$this->execute('ALTER TABLE ' . $table_name . ' DROP COLUMN changedAt');
-			$this->execute('ALTER TABLE ' . $table_name . ' DROP COLUMN createdBy');
-			$this->execute('ALTER TABLE ' . $table_name . ' DROP COLUMN changedBy');
+			$this->dropColumn($table_name, 'createdAt');
+			$this->dropColumn($table_name, 'changedAt');
+			$this->dropColumn($table_name, 'createdBy');
+			$this->dropColumn($table_name, 'changedBy');
 		}
 	}
 
