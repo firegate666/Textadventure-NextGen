@@ -164,13 +164,13 @@ class AdventureLog extends MetaInfo
 			SELECT
 				*
 			FROM
-				AdventureLog
+				"AdventureLog"
 			WHERE
-				userId = :userId AND
-				adventureId = :adventureId AND
-				finalized = 0
+				"userId" = :userId AND
+				"adventureId" = :adventureId AND
+				"finalized" = false
 			ORDER BY
-				createdAt DESC
+				"createdAt" DESC
 			LIMIT
 				1
 		', array(

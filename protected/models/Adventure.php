@@ -374,12 +374,12 @@ class Adventure extends MetaInfo
 			SELECT
 				*
 			FROM
-				AdventureParticipation
+				"AdventureParticipation"
 			WHERE
-				userId = :userId AND
-				adventureId = :adventureId AND
-				started IS NOT NULL AND
-				ended IS NULL
+				"userId" = :userId AND
+				"adventureId" = :adventureId AND
+				"started" IS NOT NULL AND
+				"ended" IS NULL
 		', array(
 			':userId' => $user_id,
 			':adventureId' => $this->id,
