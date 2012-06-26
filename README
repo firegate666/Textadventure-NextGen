@@ -1,23 +1,14 @@
 The project goal is to create a next level browser running text adventure game.
 
-For further specs consult the wiki at
-
-	http://dev.firegate.de/projects/text-adventure-nextgen/wiki
-
-Roadmap:
-========
-	http://dev.firegate.de/projects/text-adventure-nextgen/roadmap
+Roadmap and Wiki:
+=================
+	https://github.com/firegate666/Textadventure-NextGen/wiki
 
 Bug Reports:
 ============
-	http://dev.firegate.de/projects/text-adventure-nextgen/issues
-
-Build State:
-============
-	http://dev.firegate.de/hudson/index/text-adventure-nextgen
+	https://github.com/firegate666/Textadventure-NextGen/issues
 
 Authors:
 ========
 	Marco Behnke <marco@behnke.biz>
-	Kay Sauerland <sonicbiker@freenet.de>
 
