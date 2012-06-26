@@ -8,10 +8,10 @@ class m120307_192515_defaultuser_fixed extends CDbMigration
 		$this->delete('UserGroup');
 
 		$this->insert('UserGroup', array('name' => 'Admin'));
-		$admin_group = $this->getDbConnection()->getLastInsertID();
+		$admin_group = $this->getDbConnection()->getLastInsertID('"UserGroup_id_seq"');
 
 		$this->insert('UserGroup', array('name' => 'User'));
-		$user_group = $this->getDbConnection()->getLastInsertID();
+		$user_group = $this->getDbConnection()->getLastInsertID('"UserGroup_id_seq"');
 
 		$this->insert('User',
 				array(
