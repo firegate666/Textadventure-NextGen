@@ -28,7 +28,7 @@ class m120324_205301_adventurelog extends CDbMigration
 						'createdBy' => 'INTEGER NOT NULL',
 						'changedBy' => 'INTEGER NULL',
 						'userId' => 'INTEGER NOT NULL',
-						'adventureStepId' => 'INTEGER NOT NULL',
+						'adventureId' => 'INTEGER NOT NULL',
 						'started' => 'timestamp NOT NULL',
 						'ended' => 'timestamp NULL',
 				)
