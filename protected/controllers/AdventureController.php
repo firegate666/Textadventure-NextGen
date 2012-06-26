@@ -289,14 +289,14 @@ class AdventureController extends Controller
 		$criteria_is_running = new CDbCriteria();
 		$criteria_is_running->condition = sprintf(
 			'
-				(startDate IS NULL OR startDate > %d)
+				("startDate" IS NULL OR "startDate" <= \'%s\')
 				AND
-				(stopDate IS NULL OR stopDate < %d)
+				("stopDate" IS NULL OR "stopDate" >= \'%s\')
 				AND
-				state IN (%s)
+				"state" IN (%s)
 			',
-			$nowDate->getTimestamp(),
-			$nowDate->getTimestamp(),
+			$nowDate->format('Y-m-d'),
+			$nowDate->format('Y-m-d'),
 			implode(',', array_keys(Adventure::runningStates()))
 		);
 
