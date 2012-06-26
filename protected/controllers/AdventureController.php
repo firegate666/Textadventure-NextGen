@@ -147,8 +147,7 @@ class AdventureController extends Controller
 		// always access the startingPoint if last step is empty
 		if (empty($step) || empty($lastStep))
 		{
-			$stepModel = AdventureStep::model()->findBySql('SELECT * FROM "AdventureStep"
-					WHERE "startingPoint" = true AND "adventure" = :adventure', array(':adventure' => $id));
+			$stepModel = AdventureStep::model()->findByAttributes(array('startingPoint' => true, 'adventure' => $id));
 		}
 		else
 		{
