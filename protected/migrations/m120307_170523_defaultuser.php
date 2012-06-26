@@ -4,8 +4,8 @@ class m120307_170523_defaultuser extends CDbMigration
 {
 	public function safeUp()
 	{
-		$this->truncateTable('UserGroup');
-		$this->truncateTable('User');
+		$this->delete('User');
+		$this->delete('UserGroup');
 
 		$this->createIndex('user_username_unq', 'User', 'username', true);
 

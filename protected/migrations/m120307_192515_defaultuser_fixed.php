@@ -4,10 +4,8 @@ class m120307_192515_defaultuser_fixed extends CDbMigration
 {
 	public function safeUp()
 	{
-		$this->execute('DELETE FROM User;');
-
-		$this->truncateTable('UserGroup');
-		$this->truncateTable('User');
+		$this->delete('User');
+		$this->delete('UserGroup');
 
 		$this->insert('UserGroup', array('name' => 'Admin'));
 		$admin_group = $this->getDbConnection()->getLastInsertID();
