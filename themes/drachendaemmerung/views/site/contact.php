@@ -16,7 +16,7 @@ $this->breadcrumbs = array(
 <?php else: ?>
 
 <p>Nutze dieses Formular, um mit uns Kontakt aufzunehmen. Schreibe uns Deine Meinung und Ideen.
-	Solltest Du Fehler gefunden haben, so nutze bitte das <a href="http://dev.firegate.de/projects/text-adventure-nextgen" target="_blank">Redmine</a>
+	Solltest Du Fehler gefunden haben, so nutze bitte das <a href="https://github.com/firegate666/Textadventure-NextGen/issues?state=open" target="_blank">github</a>
 	um diese zu melden.</p>
 
 <div class="form">

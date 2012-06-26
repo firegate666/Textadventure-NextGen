@@ -54,7 +54,7 @@
 
 	<div id="footer">
 		Copyright &copy; 2010 - <?php echo date('Y'); ?> by <a href="http://web66.org">Web66</a><br/>
-		All Rights Reserved. Report problems at <a href="http://dev.firegate.de/projects/text-adventure-nextgen" target="_blank">Redmine</a>.<br/>
+		All Rights Reserved. Report problems at <a href="https://github.com/firegate666/Textadventure-NextGen/issues?state=open" target="_blank">github</a>.<br/>
 		<?php echo Yii::powered(); ?><br />
 		Game engine version: <?php $this->renderDynamic('getVersionInfo');?>
 	</div><!-- footer -->

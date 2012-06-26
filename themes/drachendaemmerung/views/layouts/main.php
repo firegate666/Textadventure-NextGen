@@ -68,7 +68,7 @@
 	</div>
 	<div id="footer">
 		Copyright 2010 - <?php echo date('Y'); ?> by <a href="http://www.drachendaemmerung.de/">drachendaemmerung.de</a><br/>
-		All Rights Reserved. Report problems at <a href="http://dev.firegate.de/projects/text-adventure-nextgen" target="_blank">Redmine</a>.<br/>
+		All Rights Reserved. Report problems at <a href="https://github.com/firegate666/Textadventure-NextGen/issues?state=open" target="_blank">github</a>.<br/>
 		Game engine version: <?php $this->renderDynamic('getVersionInfo');?> | <?php echo Yii::powered(); ?><br />
 
 	</div><!-- footer -->

@@ -9,6 +9,6 @@ $this->breadcrumbs = array(
 
 <div class="error">
 	<?php echo CHtml::encode($message); ?>
-	<p><a href="http://dev.firegate.de/projects/text-adventure-nextgen/issues">Click here</a>
+	<p><a href="https://github.com/firegate666/Textadventure-NextGen/issues?state=open">Click here</a>
 		if you want to report this error.</p>
 </div>

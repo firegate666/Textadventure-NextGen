@@ -10,6 +10,6 @@ $this->breadcrumbs = array(
 <p>Es ist ein Fehler aufgetreten!</p>
 <div class="error">
 	<?php echo CHtml::encode($message); ?>
-	<p><a href="http://dev.firegate.de/projects/text-adventure-nextgen/issues">Klicke hier</a>,
+	<p><a href="https://github.com/firegate666/Textadventure-NextGen/issues?state=open">Klicke hier</a>,
 		um diesen Fehler zu melden.</p>
 </div>

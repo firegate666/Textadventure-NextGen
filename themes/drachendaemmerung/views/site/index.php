@@ -13,4 +13,4 @@
 	Über <a href="<?=$this->createUrl('contact')?>">Feedback</a> zu Drachend&aelig;mmerung freue ich mich!</p>
 
 <p>Wenn Du mehr über das Projekt erfahren möchtest, Fehler melden möchtest oder einfach nur Deine eigene Ideen zur Weiterentwicklung beisteuern möchtest,
-	kannst Du unsere Projektseite im <a href="http://dev.firegate.de/projects/text-adventure-nextgen/wiki" target="_blank">Redmine</a> besuchen</p>
+	kannst Du unsere Projektseite im <a href="https://github.com/firegate666/Textadventure-NextGen/wiki" target="_blank">Redmine</a> besuchen</p>
