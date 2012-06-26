@@ -21,8 +21,8 @@ class m120305_224817_base extends CDbMigration {
 						'description' => 'text',
 				)
 		);
-		$this->createIndex('adventure_idx', 'AdventureStep', 'adventure');
-		$this->addForeignKey('adventure_fk', 'AdventureStep', 'adventure', 'Adventure', 'id');
+		$this->createIndex('adventurestep_adventure_idx', 'AdventureStep', 'adventure');
+		$this->addForeignKey('adventurestep_adventure_fk', 'AdventureStep', 'adventure', 'Adventure', 'id');
 
 		$this->createTable('AdventureStepOption',
 				array(
@@ -32,10 +32,10 @@ class m120305_224817_base extends CDbMigration {
 						'name' => 'string NOT NULL',
 				)
 		);
-		$this->createIndex('parent_idx', 'AdventureStepOption', 'parent');
-		$this->createIndex('target_idx', 'AdventureStepOption', 'target');
-		$this->addForeignKey('adventurestep_parent_fk', 'AdventureStepOption', 'parent', 'AdventureStep', 'id');
-		$this->addForeignKey('adventurestep_target_fk', 'AdventureStepOption', 'target', 'AdventureStep', 'id');
+		$this->createIndex('adventurestepoption_parent_idx', 'AdventureStepOption', 'parent');
+		$this->createIndex('adventurestepoption_target_idx', 'AdventureStepOption', 'target');
+		$this->addForeignKey('adventurestepoption_parent_fk', 'AdventureStepOption', 'parent', 'AdventureStep', 'id');
+		$this->addForeignKey('adventurestepoption_target_fk', 'AdventureStepOption', 'target', 'AdventureStep', 'id');
 
 		$this->createTable('UserGroup',
 				array(
@@ -53,8 +53,8 @@ class m120305_224817_base extends CDbMigration {
 						'groupId' => 'integer NOT NULL',
 				)
 		);
-		$this->createIndex('groupId_idx', 'User', 'groupId');
-		$this->addForeignKey('groupId_fk', 'User', 'groupId', 'UserGroup', 'id');
+		$this->createIndex('user_groupId_idx', 'User', 'groupId');
+		$this->addForeignKey('user_groupId_fk', 'User', 'groupId', 'UserGroup', 'id');
 
 	}
 

@@ -7,13 +7,13 @@ class m120307_170523_defaultuser extends CDbMigration
 		$this->truncateTable('UserGroup');
 		$this->truncateTable('User');
 
-		$this->createIndex('username_unq', 'User', 'username', true);
+		$this->createIndex('user_username_unq', 'User', 'username', true);
 
 		$this->insert('UserGroup', array('name' => 'Admin'));
-		$admin_group = $this->getDbConnection()->getLastInsertID();
+		$admin_group = $this->getDbConnection()->getLastInsertID('"UserGroup_id_seq"');
 
 		$this->insert('UserGroup', array('name' => 'User'));
-		$user_group = $this->getDbConnection()->getLastInsertID();
+		$user_group = $this->getDbConnection()->getLastInsertID('"UserGroup_id_seq"');
 
 		$this->insert('User',
 				array(

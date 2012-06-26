@@ -24,10 +24,10 @@ class m120321_144504_modelmetainfo extends CDbMigration
 			$this->addColumn($table_name, 'changedAt', 'DATETIME NULL');
 			$this->addColumn($table_name, 'createdBy', 'INTEGER NULL');
 			$this->addColumn($table_name, 'changedBy', 'INTEGER NULL');
-			$this->createIndex('createuser_idx', $table_name, 'createdBy');
-			$this->createIndex('changeuser_idx', $table_name, 'changedBy');
-			$this->addForeignKey('createuser_fk', $table_name, 'createdBy', 'User', 'id');
-			$this->addForeignKey('changeuser_idx', $table_name, 'changedBy', 'User', 'id');
+			$this->createIndex(strtolower($table_name) . '_createuser_idx', $table_name, 'createdBy');
+			$this->createIndex(strtolower($table_name) . '_changeuser_idx', $table_name, 'changedBy');
+			$this->addForeignKey(strtolower($table_name) . '_createuser_fk', $table_name, 'createdBy', 'User', 'id');
+			$this->addForeignKey(strtolower($table_name) . '_changeuser_idx', $table_name, 'changedBy', 'User', 'id');
 		}
 	}
 
