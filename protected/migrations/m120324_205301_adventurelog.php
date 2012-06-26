@@ -7,8 +7,8 @@ class m120324_205301_adventurelog extends CDbMigration
 		$this->createTable('AdventureLog',
 				array(
 						'id' => 'pk',
-						'createdAt' => 'DATETIME NULL',
-						'changedAt' => 'DATETIME NULL',
+						'createdAt' => 'timestamp NOT NULL',
+						'changedAt' => 'timestamp NULL',
 						'createdBy' => 'INTEGER NOT NULL',
 						'changedBy' => 'INTEGER NOT NULL',
 						'userId' => 'INTEGER NOT NULL',
@@ -23,14 +23,14 @@ class m120324_205301_adventurelog extends CDbMigration
 		$this->createTable('AdventureParticipation',
 				array(
 						'id' => 'pk',
-						'createdAt' => 'DATETIME NULL',
-						'changedAt' => 'DATETIME NULL',
+						'createdAt' => 'timestamp NOT NULL',
+						'changedAt' => 'timestamp NULL',
 						'createdBy' => 'INTEGER NOT NULL',
 						'changedBy' => 'INTEGER NOT NULL',
 						'userId' => 'INTEGER NOT NULL',
 						'adventureStepId' => 'INTEGER NOT NULL',
-						'started' => 'DATETIME NOT NULL',
-						'ended' => 'DATETIME NULL',
+						'started' => 'timestamp NOT NULL',
+						'ended' => 'timestamp NULL',
 				)
 		);
 		$this->addForeignKey('adventureparticipation_created_fk', 'AdventureParticipation', 'createdBy', 'User', 'id');

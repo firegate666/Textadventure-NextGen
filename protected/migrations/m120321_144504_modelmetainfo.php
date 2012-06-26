@@ -20,8 +20,8 @@ class m120321_144504_modelmetainfo extends CDbMigration
 	{
 		foreach ($this->tables_to_alter as $table_name)
 		{
-			$this->addColumn($table_name, 'createdAt', 'DATETIME NULL');
-			$this->addColumn($table_name, 'changedAt', 'DATETIME NULL');
+			$this->addColumn($table_name, 'createdAt', 'timestamp NULL');
+			$this->addColumn($table_name, 'changedAt', 'timestamp NULL');
 			$this->addColumn($table_name, 'createdBy', 'INTEGER NULL');
 			$this->addColumn($table_name, 'changedBy', 'INTEGER NULL');
 			$this->createIndex(strtolower($table_name) . '_createuser_idx', $table_name, 'createdBy');
