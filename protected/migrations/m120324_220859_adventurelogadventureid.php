@@ -9,7 +9,7 @@ class m120324_220859_adventurelogadventureid extends CDbMigration
 
 	public function down()
 	{
-		$this->execute('ALTER TABLE AdventureLog DROP COLUMN adventureId');
+		$this->dropColumn('AdventureLog', 'adventureId');
 	}
 
 }

@@ -2,14 +2,14 @@
 
 class m120404_184103_adventurecreate extends CDbMigration
 {
-	public function up()
+	public function safeUp()
 	{
-		$this->execute('ALTER TABLE UserGroup ADD COLUMN canCreateAdventure TINYINT NOT NULL DEFAULT 0');
+		$this->addColumn('UserGroup', 'canCreateAdventure', 'boolean NOT NULL DEFAULT false');
 	}
 
-	public function down()
+	public function safeDown()
 	{
-		$this->execute('ALTER TABLE UserGroup DROP COLUMN canCreateAdventure');
+		$this->dropColumn('UserGroup', 'canCreateAdventure');
 	}
 
 }
