@@ -16,7 +16,7 @@ class m120321_144504_modelmetainfo extends CDbMigration
 		'UserGroup',
 	);
 
-	public function up()
+	public function safeUp()
 	{
 		foreach ($this->tables_to_alter as $table_name)
 		{
@@ -31,7 +31,7 @@ class m120321_144504_modelmetainfo extends CDbMigration
 		}
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		foreach ($this->tables_to_alter as $table_name)
 		{

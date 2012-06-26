@@ -36,7 +36,7 @@ class m120307_192515_defaultuser_fixed extends CDbMigration
 		);
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		echo "m120307_192515_defaultuser_fixed does not support migration down.\n";
 		return false;

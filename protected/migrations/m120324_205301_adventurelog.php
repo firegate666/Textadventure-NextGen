@@ -2,7 +2,7 @@
 
 class m120324_205301_adventurelog extends CDbMigration
 {
-	public function up()
+	public function safeUp()
 	{
 		$this->createTable('AdventureLog',
 				array(
@@ -39,7 +39,7 @@ class m120324_205301_adventurelog extends CDbMigration
 		$this->addForeignKey('adventurestep_fk', 'AdventureParticipation', 'adventureStepId', 'AdventureStep', 'id');
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		$this->dropTable('AdventureLog');
 		$this->dropTable('AdventureParticipation');

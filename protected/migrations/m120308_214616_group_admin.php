@@ -9,7 +9,7 @@ class m120308_214616_group_admin extends CDbMigration
 		$this->update('UserGroup', array('isAdmin' => true), 'name = :name', array(':name'=>'Admin'));
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		$this->dropColumn('UserGroup', 'isAdmin');
 	}

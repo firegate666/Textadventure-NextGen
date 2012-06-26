@@ -58,7 +58,7 @@ class m120305_224817_base extends CDbMigration {
 
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		$this->dropTable('AdventureStepOption');
 		$this->dropTable('AdventureStep');

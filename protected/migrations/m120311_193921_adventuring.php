@@ -9,7 +9,7 @@ class m120311_193921_adventuring extends CDbMigration
 		$this->addColumn('AdventureStep', 'startingPoint', 'boolean NOT NULL DEFAULT false');
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		$this->dropColumn('Adventure', 'adventureId');
 		$this->dropColumn('AdventureStep', 'stepId');

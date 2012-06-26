@@ -7,7 +7,7 @@ class m120307_165956_user extends CDbMigration
 		$this->addColumn('User', 'salt', 'string NOT NULL');
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		$this->dropColumn('User', 'salt');
 	}

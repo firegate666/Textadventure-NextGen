@@ -2,12 +2,12 @@
 
 class m120324_220243_adventurelogfinished extends CDbMigration
 {
-	public function up()
+	public function safeUp()
 	{
 		$this->addColumn('AdventureLog', 'finalized', 'boolean NOT NULL DEFAULT false');
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		$this->dropColumn('AdventureLog', 'finalized');
 	}

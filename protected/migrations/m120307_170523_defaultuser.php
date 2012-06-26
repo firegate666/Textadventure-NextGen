@@ -37,7 +37,7 @@ class m120307_170523_defaultuser extends CDbMigration
 
 	}
 
-	public function down()
+	public function safeDown()
 	{
 		echo "m120307_170523_defaultuser does not support migration down.\n";
 		return false;
