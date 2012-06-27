@@ -286,19 +286,19 @@ class AdventureController extends Controller
 		$nowDate = new DateTime();
 
 		$criteria_is_running = new CDbCriteria();
-		$criteria_is_running->condition = sprintf(
-			'
-				("startDate" IS NULL OR "startDate" <= \'%s\')
-				AND
-				("stopDate" IS NULL OR "stopDate" >= \'%s\')
-				AND
-				"state" IN (%s)
-			',
-			$nowDate->format('Y-m-d'),
-			$nowDate->format('Y-m-d'),
-			implode(',', array_keys(Adventure::runningStates()))
-		);
+		$criteria_is_running_start = new CDbCriteria();
+		$criteria_is_running_stop = new CDbCriteria();
 
+		$criteria_is_running_start->addInCondition('startDate', array(null));
+		$criteria_is_running_start->addBetweenCondition('startDate', '1970-01-01', $nowDate->format('Y-m-d'), 'OR');
+
+		$criteria_is_running_stop->addInCondition('stopDate', array(null));
+		$criteria_is_running_stop->addBetweenCondition('stopDate', $nowDate->format('Y-m-d'), '2037-01-01', 'OR');
+
+		$criteria_is_running->mergeWith($criteria_is_running_start);
+		$criteria_is_running->mergeWith($criteria_is_running_stop);
+
+		$criteria_is_running->addInCondition('state', array_keys(Adventure::runningStates()), 'AND');
 		$dataProvider->setCriteria($criteria_is_running);
 
 		$this->render('index', array(
