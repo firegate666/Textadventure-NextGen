@@ -155,6 +155,16 @@ abstract class MetaInfo extends CActiveRecord {
 	}
 
 	/**
+	 * get quoted column name from db schema
+	 *
+	 * @param string $col_name
+	 * @return string
+	 */
+	public function quotedCol($col_name) {
+		return $this->getTableSchema()->getColumn($col_name)->rawName;
+	}
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 *
 	 * @static
