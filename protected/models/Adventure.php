@@ -363,30 +363,6 @@ class Adventure extends MetaInfo
 	}
 
 	/**
-	 * find an started and not ended participation entry
-	 *
-	 * @param integer $user_id
-	 * @return AdventureParticipation
-	 */
-	public function findOpenEntryForUser($user_id)
-	{
-		return AdventureParticipation::model()->findBySql('
-			SELECT
-				*
-			FROM
-				"AdventureParticipation"
-			WHERE
-				"userId" = :userId AND
-				"adventureId" = :adventureId AND
-				"started" IS NOT NULL AND
-				"ended" IS NULL
-		', array(
-			':userId' => $user_id,
-			':adventureId' => $this->id,
-		));
-	}
-
-	/**
 	 * test if logged in user is running this adventure
 	 *
 	 * @param integer $user_id
@@ -394,7 +370,7 @@ class Adventure extends MetaInfo
 	 */
 	public function userInAdventure($user_id)
 	{
-		$log = $this->findOpenEntryForUser($user_id);
+		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id);
 		return $log !== null;
 	}
 
@@ -406,7 +382,7 @@ class Adventure extends MetaInfo
 	 */
 	public function start($user_id)
 	{
-		$log = $this->findOpenEntryForUser($user_id);
+		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id);
 
 		if ($log === null)
 		{
@@ -428,7 +404,7 @@ class Adventure extends MetaInfo
 	 */
 	public function stop($user_id)
 	{
-		$log = $this->findOpenEntryForUser($user_id);
+		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id);
 
 		if ($log !== null)
 		{
