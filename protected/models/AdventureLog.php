@@ -158,25 +158,15 @@ class AdventureLog extends MetaInfo
 	 * @param integer $adventure_id
 	 * @return integer
 	 */
-	public static function getLastStep($user_id, $adventure_id)
+	public function getLastStep($user_id, $adventure_id)
 	{
-		$log = AdventureLog::model()->findBySql('
-			SELECT
-				*
-			FROM
-				"AdventureLog"
-			WHERE
-				"userId" = :userId AND
-				"adventureId" = :adventureId AND
-				"finalized" = false
-			ORDER BY
-				"createdAt" DESC
-			LIMIT
-				1
-		', array(
-			':userId' => $user_id,
-			':adventureId' => $adventure_id,
-		));
+		$criteria = new CDbCriteria();
+		$criteria->limit = 1;
+		$criteria->order = $this->quotedCol('createdAt') . ' DESC';
+		$criteria->compare($this->quotedCol('userId'), $user_id);
+		$criteria->compare($this->quotedCol('adventureId'), $adventure_id);
+		$criteria->compare($this->quotedCol('finalized'), false);
+		$log = $this->findByAttributes(array('finalized' => false), $criteria);
 
 		if ($log === null)
 		{

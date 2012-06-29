@@ -138,7 +138,8 @@ class AdventureController extends Controller
 		}
 
 		$stepModel = null;
-		$lastStep = AdventureLog::getLastStep(Yii::app()->user->id, $id);
+		$log = AdventureLog::model();
+		$lastStep = $log->getLastStep(Yii::app()->user->id, $id);
 		if (empty($step) && !empty($lastStep))
 		{
 			$step = $lastStep;
