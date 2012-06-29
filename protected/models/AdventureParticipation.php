@@ -142,4 +142,5 @@ class AdventureParticipation extends MetaInfo
 		return $this->findByAttributes(array(), $criteria);
 	}
 
+
 }

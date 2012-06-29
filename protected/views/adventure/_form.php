@@ -41,14 +41,16 @@ $form = $this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?=$form->labelEx($model, 'startDate'); ?>
-		<?=$form->textField($model, 'startDate',array('size' => 12,'maxlength' => 10)); ?>
+		<?=$this->widget('zii.widgets.jui.CJuiDatePicker', array('language' => 'sv',  'name' => 'startDate', 'model' => $model, 'attribute' => 'startDate'), true) ?>
 		(z.B. <?=date('Y-m-d')?>)
+
+
 		<?=$form->error($model, 'startDate'); ?>
 	</div>
 
 	<div class="row">
 		<?=$form->labelEx($model, 'stopDate'); ?>
-		<?=$form->textField($model, 'stopDate',array('size' => 12,'maxlength' => 10)); ?>
+		<?=$this->widget('zii.widgets.jui.CJuiDatePicker', array('language' => 'sv',  'name' => 'stopDate', 'model' => $model, 'attribute' => 'stopDate'), true) ?>
 		(z.B. <?=date('Y-m-d', time() + 60*60*24)?>)
 		<?=$form->error($model, 'stopDate'); ?>
 	</div>
