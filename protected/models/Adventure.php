@@ -370,7 +370,7 @@ class Adventure extends MetaInfo
 	 */
 	public function userInAdventure($user_id)
 	{
-		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id);
+		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id, $this->id);
 		return $log !== null;
 	}
 
@@ -382,7 +382,7 @@ class Adventure extends MetaInfo
 	 */
 	public function start($user_id)
 	{
-		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id);
+		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id, $this->id);
 
 		if ($log === null)
 		{
@@ -404,7 +404,7 @@ class Adventure extends MetaInfo
 	 */
 	public function stop($user_id)
 	{
-		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id);
+		$log = AdventureParticipation::model()->findOpenEntryForUser($user_id, $this->id);
 
 		if ($log !== null)
 		{

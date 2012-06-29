@@ -131,16 +131,15 @@ class AdventureParticipation extends MetaInfo
 	 * @param integer $user_id
 	 * @return AdventureParticipation
 	 */
-	public function findOpenEntryForUser($user_id)
+	public function findOpenEntryForUser($user_id, $adventure_id)
 	{
-		$participation = AdventureParticipation::model();
-
 		$criteria = new CDbCriteria();
 		$criteria->compare($this->quotedCol('userId'), $user_id);
-		$criteria->compare($this->quotedCol('adventureId'), $this->id);
+		$criteria->compare($this->quotedCol('adventureId'), $adventure_id);
 		$criteria->addNotInCondition($this->quotedCol('started'), array(null));
 		$criteria->addInCondition($this->quotedCol('ended'), array(null));
 
 		return $this->findByAttributes(array(), $criteria);
 	}
+
 }
