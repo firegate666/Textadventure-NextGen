@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="protected/tests/bootstrap.php"
 	backupGlobals="false" backupStaticAttributes="false" strict="false"
-	verbose="true" timeoutForSmallTests="10">
+	verbose="true" timeoutForSmallTests="60">
 
-	<testsuites>
-		<testsuite name="Units">
-			<directory suffix=".php">protected/tests/unit</directory>
-		</testsuite>
-		<!--testsuite name="Functionals">
-			<directory suffix=".php">protected/tests/functional</directory>
-		</testsuite-->
-	</testsuites>
+	<testsuite name="Units">
+		<directory suffix=".php">protected/tests/unit</directory>
+	</testsuite>
 
 	<logging>
 		<log type="coverage-html" target="build/coverage" title="Textadventure-NextGen"
