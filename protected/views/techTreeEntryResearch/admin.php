@@ -44,12 +44,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'createdAt',
-		'changedAt',
 		array(            // display 'author.username' using an expression
 			'name' => 'createdBy',
 			'value' => '$data->getCreateUserName()',
 		),
-		'createdAt',
+		'changedAt',
 		array(            // display 'author.username' using an expression
 			'name' => 'changedBy',
 			'value' => '$data->getChangeUserName()',
