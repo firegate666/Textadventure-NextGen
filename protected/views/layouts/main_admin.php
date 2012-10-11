@@ -38,9 +38,24 @@
 				array('label' => 'User', 'url' => array('/User'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'UserGroup', 'url' => array('/UserGroup'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 
+				array('label' => 'Archipelago', 'url' => array('/Archipelago'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'MapSection', 'url' => array('/MapSection'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'Resource', 'url' => array('/Resource'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'ResourceProduction', 'url' => array('/ResourceProduction'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'Stock', 'url' => array('/Stock'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'Storage', 'url' => array('/Storage'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'TechTreeCategory', 'url' => array('/TechTreeCategory'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'TechTreeType', 'url' => array('/TechTreeType'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'TechTreeEntry', 'url' => array('/TechTreeEntry'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'TechTreeDependency', 'url' => array('/TechTreeDependency'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'TechTreeResearch', 'url' => array('/TechTreeResearch'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'World', 'url' => array('/World'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+
+
 				array('label' => 'Logout ('.Yii::app()->user->name.')', 'url' => array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
 			),
 		)); ?>
+
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
