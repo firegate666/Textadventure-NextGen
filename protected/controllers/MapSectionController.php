@@ -9,12 +9,24 @@ class MapSectionController extends Controller
 	public $layout='//layouts/column2';
 
 	/**
+	 * (non-PHPdoc)
+	 * @see CController::init()
+	 */
+	public function init()
+	{
+		$this->defaultAction = 'admin';
+	}
+
+	/**
 	 * @return array action filters
 	 */
 	public function filters()
 	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
+		return array_merge(
+			parent::filters(),
+			array(
+				'accessControl', // perform access control for CRUD operations
+			)
 		);
 	}
 
