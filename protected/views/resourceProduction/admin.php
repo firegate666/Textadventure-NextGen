@@ -45,7 +45,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'createdAt',
 		'changedAt',
-		'createdBy',
+		array(            // display 'author.username' using an expression
+			'name' => 'createdBy',
+			'value' => '$data->getCreateUserName()',
+		),
+		'createdAt',
+		array(            // display 'author.username' using an expression
+			'name' => 'changedBy',
+			'value' => '$data->getChangeUserName()',
+		),
 		'changedBy',
 		'islandId',
 		'resourceId',
@@ -53,6 +61,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'productionValue',
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{update} {delete}',
 		),
 	),
 )); ?>

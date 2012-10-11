@@ -82,7 +82,7 @@ class TechTreeEntryDependencyController extends Controller
 		{
 			$model->attributes=$_POST['TechTreeEntryDependency'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -106,7 +106,7 @@ class TechTreeEntryDependencyController extends Controller
 		{
 			$model->attributes=$_POST['TechTreeEntryDependency'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(

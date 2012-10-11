@@ -45,11 +45,19 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'createdAt',
 		'changedAt',
-		'createdBy',
-		'changedBy',
+		array(            // display 'author.username' using an expression
+			'name' => 'createdBy',
+			'value' => '$data->getCreateUserName()',
+		),
+		'createdAt',
+		array(            // display 'author.username' using an expression
+			'name' => 'changedBy',
+			'value' => '$data->getChangeUserName()',
+		),
 		'capacity',
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{update} {delete}',
 		),
 	),
 )); ?>
