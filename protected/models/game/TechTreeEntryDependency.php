@@ -35,9 +35,8 @@ class TechTreeEntryDependency extends MetaInfo
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('createdAt, createdBy, techId, dependencyId', 'required'),
-			array('createdBy, changedBy, techId, dependencyId', 'numerical', 'integerOnly'=>true),
-			array('changedAt', 'safe'),
+			array('techId, dependencyId', 'required'),
+			array('techId, dependencyId', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, createdAt, changedAt, createdBy, changedBy, techId, dependencyId', 'safe', 'on'=>'search'),

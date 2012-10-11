@@ -38,9 +38,9 @@ class TechTreeEntryResearch extends MetaInfo
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('createdAt, createdBy, userId, techId', 'required'),
-			array('createdBy, changedBy, userId, techId, finished', 'numerical', 'integerOnly'=>true),
-			array('changedAt, start, end', 'safe'),
+			array('userId, techId', 'required'),
+			array('userId, techId, finished', 'numerical', 'integerOnly'=>true),
+			array('start, end', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, createdAt, changedAt, createdBy, changedBy, userId, techId, start, end, finished', 'safe', 'on'=>'search'),

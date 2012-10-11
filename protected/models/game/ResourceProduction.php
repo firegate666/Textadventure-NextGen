@@ -37,10 +37,9 @@ class ResourceProduction extends MetaInfo
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('createdAt, createdBy, islandId, resourceId, growthFactor, productionValue', 'required'),
-			array('createdBy, changedBy, islandId, resourceId, productionValue', 'numerical', 'integerOnly'=>true),
+			array('islandId, resourceId, growthFactor, productionValue', 'required'),
+			array('islandId, resourceId, productionValue', 'numerical', 'integerOnly'=>true),
 			array('growthFactor', 'numerical'),
-			array('changedAt', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, createdAt, changedAt, createdBy, changedBy, islandId, resourceId, growthFactor, productionValue', 'safe', 'on'=>'search'),

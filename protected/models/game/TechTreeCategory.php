@@ -30,10 +30,8 @@ class TechTreeCategory extends MetaInfo
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('createdAt, name', 'required'),
-			array('createdBy, changedBy', 'numerical', 'integerOnly'=>true),
+			array('name', 'required'),
 			array('name', 'length', 'max'=>255),
-			array('changedAt', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, createdAt, changedAt, createdBy, changedBy, name', 'safe', 'on'=>'search'),

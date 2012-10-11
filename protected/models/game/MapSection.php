@@ -37,9 +37,8 @@ class MapSection extends MetaInfo
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('createdAt, createdBy, leftSectionId, rightSectionId, worldId', 'required'),
-			array('createdBy, changedBy, leftSectionId, rightSectionId, worldId', 'numerical', 'integerOnly'=>true),
-			array('changedAt', 'safe'),
+			array('worldId', 'required'),
+			array('leftSectionId, rightSectionId, worldId', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, createdAt, changedAt, createdBy, changedBy, leftSectionId, rightSectionId, worldId', 'safe', 'on'=>'search'),

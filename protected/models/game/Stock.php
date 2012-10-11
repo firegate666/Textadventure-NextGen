@@ -35,9 +35,8 @@ class Stock extends MetaInfo
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('createdAt, createdBy, storageId, resourceId', 'required'),
-			array('createdBy, changedBy, storageId, resourceId', 'numerical', 'integerOnly'=>true),
-			array('changedAt', 'safe'),
+			array('storageId, resourceId', 'required'),
+			array('storageId, resourceId', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, createdAt, changedAt, createdBy, changedBy, storageId, resourceId', 'safe', 'on'=>'search'),

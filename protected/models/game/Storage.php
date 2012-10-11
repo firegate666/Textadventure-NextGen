@@ -34,9 +34,8 @@ class Storage extends MetaInfo
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('createdAt, createdBy, capacity', 'required'),
-			array('createdBy, changedBy, capacity', 'numerical', 'integerOnly'=>true),
-			array('changedAt', 'safe'),
+			array('capacity', 'required'),
+			array('capacity', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, createdAt, changedAt, createdBy, changedBy, capacity', 'safe', 'on'=>'search'),

@@ -10,30 +10,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'createdAt'); ?>
-		<?php echo $form->textField($model,'createdAt'); ?>
-		<?php echo $form->error($model,'createdAt'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'changedAt'); ?>
-		<?php echo $form->textField($model,'changedAt'); ?>
-		<?php echo $form->error($model,'changedAt'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'createdBy'); ?>
-		<?php echo $form->textField($model,'createdBy'); ?>
-		<?php echo $form->error($model,'createdBy'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'changedBy'); ?>
-		<?php echo $form->textField($model,'changedBy'); ?>
-		<?php echo $form->error($model,'changedBy'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'capacity'); ?>
 		<?php echo $form->textField($model,'capacity'); ?>
 		<?php echo $form->error($model,'capacity'); ?>

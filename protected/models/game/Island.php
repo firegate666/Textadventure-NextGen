@@ -42,10 +42,9 @@ class Island extends MetaInfo
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('createdAt, createdBy, name, size, xPos, yPos, archipelagoId, storageId', 'required'),
-			array('createdBy, changedBy, size, xPos, yPos, archipelagoId, ownerId, storageId', 'numerical', 'integerOnly'=>true),
+			array('name, size, xPos, yPos, archipelagoId, storageId', 'required'),
+			array('size, xPos, yPos, archipelagoId, ownerId, storageId', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
-			array('changedAt', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, createdAt, changedAt, createdBy, changedBy, name, size, xPos, yPos, archipelagoId, ownerId, storageId', 'safe', 'on'=>'search'),
