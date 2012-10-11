@@ -16,7 +16,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'yPos' => 'INTEGER NOT NULL',
 				'magnitude' => 'INTEGER NOT NULL',
 				'mapSectionId' => 'INTEGER NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('Island',
@@ -33,7 +33,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'archipelagoId' => 'INTEGER NOT NULL',
 				'ownerId' => 'INTEGER NULL',
 				'storageId' => 'INTEGER NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('MapSection',
@@ -46,7 +46,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'leftSectionId' => 'INTEGER NOT NULL',
 				'rightSectionId' => 'INTEGER NOT NULL',
 				'worldId' => 'INTEGER NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('Storage',
@@ -57,7 +57,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'createdBy' => 'INTEGER NOT NULL',
 				'changedBy' => 'INTEGER NULL',
 				'capacity' => 'INTEGER NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('Stock',
@@ -69,7 +69,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'changedBy' => 'INTEGER NULL',
 				'storageId' => 'INTEGER NOT NULL',
 				'resourceId' => 'INTEGER NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('Resource',
@@ -81,7 +81,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'changedBy' => 'INTEGER NULL',
 				'name' => 'string NOT NULL',
 				'description' => 'TEXT NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('ResourceProduction',
@@ -95,7 +95,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'resourceId' => 'INTEGER NOT NULL',
 				'growthFactor' => 'FLOAT NOT NULL',
 				'productionValue' => 'INTEGER NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('TechTreeCategory',
@@ -106,7 +106,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'createdBy' => 'INTEGER NULL',
 				'changedBy' => 'INTEGER NULL',
 				'name' => 'string NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('TechTreeType',
@@ -117,7 +117,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'createdBy' => 'INTEGER NULL',
 				'changedBy' => 'INTEGER NULL',
 				'name' => 'string NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('TechTreeEntry',
@@ -132,7 +132,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'costs' => 'INTEGER NOT NULL',
 				'categoryId' => 'INTEGER NOT NULL',
 				'typeId' => 'INTEGER NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('TechTreeEntryDependency',
@@ -144,7 +144,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'changedBy' => 'INTEGER NULL',
 				'techId' => 'INTEGER NOT NULL',
 				'dependencyId' => 'INTEGER NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('TechTreeEntryResearch',
@@ -159,7 +159,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'start' => 'timestamp NOT NULL',
 				'end' => 'timestamp NULL',
 				'finished' => 'boolean NOT NULL DEFAULT false',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->createTable('World',
@@ -170,7 +170,7 @@ class m121011_190832_create_game_tables extends CDbMigration
 				'createdBy' => 'INTEGER NOT NULL',
 				'changedBy' => 'INTEGER NULL',
 				'name' => 'string NOT NULL',
-			)
+			), 'ENGINE InnoDB DEFAULT CHARSET=utf8'
 		);
 
 		$this->addForeignKey('archipelago_map_fk', 'Archipelago', 'mapSectionId', 'MapSection', 'id');
