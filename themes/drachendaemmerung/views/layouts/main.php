@@ -38,13 +38,19 @@
 	<div id="mainwrap">
 		<div id="mainmenu">
 			<?php $this->widget('zii.widgets.CMenu',array(
+				'htmlOptions' => array('style' => 'float: left'),
 				'items'=>array(
 					array('label'=>'Start', 'url'=>array('/site/index')),
 					array('label'=>'Info', 'url'=>array('/site/page', 'view'=>'about')),
 					array('label'=>'Kontakt', 'url'=>array('/site/contact')),
 
 					array('label'=>'Starte das Abenteuer!', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
+				),
+			)); ?>
 
+			<?php $this->widget('zii.widgets.CMenu',array(
+				'htmlOptions' => array('style' => 'float: right'),
+				'items'=>array(
 					array('label'=>'Login', 'url'=>array('/auth/login'), 'visible'=>Yii::app()->user->isGuest),
 					array('label'=>'Registrieren', 'url'=>array('/User/register'), 'visible'=>Yii::app()->user->isGuest),
 
@@ -54,6 +60,8 @@
 					array('label'=>'Ausloggen ('.Yii::app()->user->name.')', 'url'=>array('/auth/logout'), 'visible' => !Yii::app()->user->isGuest),
 				),
 			)); ?>
+
+			<div style="clear: both"></div>
 		</div><!-- mainmenu -->
 
 		<?php if(isset($this->breadcrumbs)):?>

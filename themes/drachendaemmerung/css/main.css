@@ -156,6 +156,14 @@ div#mainmenu {
 	padding: 0 12px;
 }
 
+div#mainmenu ul.submenu {
+	display: none;
+}
+
+div#mainmenu ul li.active ul.submenu {
+	display: block;
+}
+
 div#mainmenu ul li {
 	display: inline;
 	margin: 0 5px 0 0;
