@@ -7,3 +7,6 @@
 [submodule "public/vendors/dracula"]
 	path = public/vendors/dracula
 	url = https://github.com/strathausen/dracula.git
+[submodule "protected/vendors/seawars-server"]
+	path = protected/vendors/seawars-server
+	url = https://github.com/firegate666/SeaWars2---Java-Server---Tools.git
