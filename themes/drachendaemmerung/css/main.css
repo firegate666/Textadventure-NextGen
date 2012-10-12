@@ -185,7 +185,7 @@ div#mainmenu ul li a:HOVER {
 	font: 18px/27px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
-div#mainmenu ul li.active a {
+div#mainmenu ul li.active>a {
 	font: 18px/27px 'KingthingsPetrockRegular', Arial, sans-serif;
 }
 

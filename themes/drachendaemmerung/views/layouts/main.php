@@ -45,6 +45,17 @@
 					array('label'=>'Kontakt', 'url'=>array('/site/contact')),
 
 					array('label'=>'Starte das Abenteuer!', 'url'=>array('/Adventure/index'), 'visible'=>!Yii::app()->user->isGuest),
+					array('label'=>'Sea Wars', 'url'=>array('/Game/index'), 'visible'=>!Yii::app()->user->isGuest,
+						'active' => strtolower($this->id) == 'game',
+						'submenuOptions' => array('class' => 'submenu'),
+						'items' => array(
+							array('label' => 'Inselreiche', 'url' => array('/Game/worldmap')),
+							array('label' => 'Meine Inseln', 'url' => array('/Game/islands')),
+							array('label' => 'Forschung', 'url' => array('/Game/research')),
+							array('label' => 'Highscore', 'url' => array('/Game/highscore')),
+						)
+					),
+
 				),
 			)); ?>
 
