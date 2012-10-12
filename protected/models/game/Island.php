@@ -25,7 +25,7 @@
  */
 class Island extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */
