@@ -16,7 +16,7 @@
  */
 class World extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -77,5 +77,45 @@ class World extends MetaInfo
 		$criteria = parent::getSearchCriteria();
 		$criteria->compare('name',$this->name,true);
 		return $criteria;
+	}
+
+	/**
+	 * Add player to world by giving him his first island
+	 *
+	 * @param integer $user_id
+	 * @throws CException
+	 * @return Island
+	 */
+	public function enterWorld($user_id) {
+		// check for map sections
+		$map_sections = MapSection::model()->findAllByAttributes(array('worldId' => $this->id));
+		if (empty($map_sections)) {
+			throw new CException('There are no map sections for this world');
+		}
+		$map_section_ids = array();
+		foreach ($map_sections as $map_section) {
+			$map_section_ids[] = $map_section->id;
+		}
+
+		// check for archipelagos
+		$archipelagos = Archipelago::model()->findAllByAttributes(array('mapSectionId' => $map_section_ids, 'magnitude' => 1));
+		if (empty($archipelagos)) {
+			throw new CException('There are no archipelagos with start islands for this world');
+		}
+		$archipelago_ids = array();
+		foreach ($archipelagos as $archipelago) {
+			$archipelago_ids[] = $archipelago->id;
+		}
+
+		// get start island
+		$island = Island::model()->findByAttributes(array('archipelagoId' => $archipelago_ids, 'ownerId' => null));
+		if (empty($island)) {
+			throw new CException('There are no start islands for this world');
+		}
+
+		$island->ownerId = $user_id;
+		$island->save();
+
+		return $island;
 	}
 }
