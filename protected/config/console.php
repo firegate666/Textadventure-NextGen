@@ -14,5 +14,8 @@ return array(
 	),
 	'import' => array(
 		'application.commands.*',
+		'application.models.*',
+		'application.models.game.*',
+		'application.components.*',
 	),
 );
