@@ -42,14 +42,14 @@
 				array('label' => 'MapSection', 'url' => array('/MapSection'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'Island', 'url' => array('/Island'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'Resource', 'url' => array('/Resource'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label' => 'ResourceProduction', 'url' => array('/ResourceProduction'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label' => 'Stock', 'url' => array('/Stock'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label' => 'Storage', 'url' => array('/Storage'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				//array('label' => 'ResourceProduction', 'url' => array('/ResourceProduction'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				//array('label' => 'Stock', 'url' => array('/Stock'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				//array('label' => 'Storage', 'url' => array('/Storage'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'TechTreeCategory', 'url' => array('/TechTreeCategory'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'TechTreeType', 'url' => array('/TechTreeType'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'TechTreeEntry', 'url' => array('/TechTreeEntry'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'TechTreeDependency', 'url' => array('/TechTreeDependency'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
-				array('label' => 'TechTreeResearch', 'url' => array('/TechTreeResearch'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				//array('label' => 'TechTreeResearch', 'url' => array('/TechTreeResearch'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'World', 'url' => array('/World'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 
 
