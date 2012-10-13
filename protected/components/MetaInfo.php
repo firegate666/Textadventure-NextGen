@@ -58,7 +58,7 @@ abstract class MetaInfo extends CActiveRecord {
 			if ($this->isNewRecord)
 			{
 				$this->createdAt = date('Y-m-d H:i:s');
-				if (Yii::app()->user->id)
+				if (isset(Yii::app()->user) && Yii::app()->user->id)
 				{
 					$this->createdBy = Yii::app()->user->id;
 				}
@@ -66,7 +66,7 @@ abstract class MetaInfo extends CActiveRecord {
 			else
 			{
 				$this->changedAt = date('Y-m-d H:i:s');
-				if (Yii::app()->user->id)
+				if (isset(Yii::app()->user) && Yii::app()->user->id)
 				{
 					$this->changedBy = Yii::app()->user->id;
 				}
