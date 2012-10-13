@@ -12,4 +12,5 @@ There are a few rules that should be honored when developing
 	# PHP Copy Paste Detection
 	# PHPUnit
 
-5) If a bigger feature is developed by several parties or has to be pushed in between, switch to a feature branch
+5) If a bigger feature is developed by several parties or has to be pushed in between,
+	push to a feature branch
