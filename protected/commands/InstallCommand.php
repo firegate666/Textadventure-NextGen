@@ -53,7 +53,8 @@ class InstallCommand extends AbstractCommand
 	 * @param string $runtimePath
 	 * @return void
 	 */
-	public function actionRuntimePaths($assetPath = null, $runtimePath = null) {
+	public function actionRuntimePaths($assetPath = null, $runtimePath = null)
+	{
 		if ($assetPath === null)
 		{
 			$assetPath = __DIR__ . '/../../assets/';
@@ -68,7 +69,8 @@ class InstallCommand extends AbstractCommand
 		$this->createPath($runtimePath, 'runtime');
 	}
 
-	public function actionFilePermissions() {
+	public function actionFilePermissions()
+	{
 
 	}
 
@@ -123,7 +125,8 @@ class InstallCommand extends AbstractCommand
 	 *
 	 * @return void
 	 */
-	public function actionSetupConfig() {
+	public function actionSetupConfig()
+	{
 		$web_config = __DIR__ . '/../config/main_local.php';
 		$web_config_template = file_get_contents(__DIR__ . '/../config/main.tmpl.php');
 
@@ -217,8 +220,8 @@ class InstallCommand extends AbstractCommand
 	 */
 	public function actionCreateWorld($world_name, $db_host, $db_name,
 		$imagePath = 'protected/vendors/seawars-server/resources/example.bmp',
-		$path_to_java = null, $path_to_seawars = null
-	) {
+		$path_to_java = null, $path_to_seawars = null)
+	{
 		$world = new World();
 		$world->name = $world_name;
 		$world->save();

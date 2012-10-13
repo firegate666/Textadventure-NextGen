@@ -160,7 +160,8 @@ abstract class MetaInfo extends CActiveRecord {
 	 * @param string $col_name
 	 * @return string
 	 */
-	public function quotedCol($col_name) {
+	public function quotedCol($col_name)
+	{
 		return $this->getTableSchema()->getColumn($col_name)->rawName;
 	}
 

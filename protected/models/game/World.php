@@ -86,7 +86,8 @@ class World extends MetaInfo
 	 * @throws CException
 	 * @return Island
 	 */
-	public function enterWorld($user_id) {
+	public function enterWorld($user_id)
+	{
 		// check for map sections
 		$map_sections = MapSection::model()->findAllByAttributes(array('worldId' => $this->id));
 		if (empty($map_sections)) {
