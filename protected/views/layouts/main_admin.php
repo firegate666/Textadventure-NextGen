@@ -40,6 +40,7 @@
 
 				array('label' => 'Archipelago', 'url' => array('/Archipelago'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'MapSection', 'url' => array('/MapSection'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
+				array('label' => 'Island', 'url' => array('/Island'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'Resource', 'url' => array('/Resource'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'ResourceProduction', 'url' => array('/ResourceProduction'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'Stock', 'url' => array('/Stock'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
