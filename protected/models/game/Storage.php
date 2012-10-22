@@ -81,4 +81,20 @@ class Storage extends MetaInfo
 		return $criteria;
 	}
 
+	/**
+	 * create a stock for each known resource in this storage
+	 *
+	 * @param Storage $storage
+	 * @param Resource[] $resources
+	 * @return void
+	 */
+	public function createStocksForStorage($resources) {
+		foreach ($resources as $resource) {
+			$stock = new Stock();
+			$stock->storageId = $this->id;
+			$stock->resourceId = $resource->id;
+			$stock->save();
+		}
+	}
+
 }
