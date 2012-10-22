@@ -132,4 +132,20 @@ class Island extends MetaInfo
 		return $island;
 	}
 
+	/**
+	 * create initial resource production values
+	 *
+	 * @param Resource[] $resources
+	 * @return void
+	 */
+	protected function initializeResourceProduction($resources) {
+		foreach ($resources as $resource) {
+			$production = new ResourceProduction();
+			$production->islandId = $this->id;
+			$production->resourceId = $resource->id;
+			$production->growthFactor = mt_rand(50, 150) / 100.0;
+			$production->productionValue = mt_rand(1, 5);
+			$production->save();
+		}
+	}
 }
