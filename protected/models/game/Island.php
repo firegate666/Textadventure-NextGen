@@ -133,6 +133,27 @@ class Island extends MetaInfo
 	}
 
 	/**
+	 * if this island is being assigned to a player,
+	 * create island dependencies like stocks and resource production
+	 *
+	 * @return boolean
+	 */
+	protected function beforeSave() {
+		$beforeSave = parent::beforeSave();
+		if ($beforeSave
+			&& !$this->isNewRecord
+			&& $this->_changedAttributes['ownerId'] === null
+			&& $this->ownerId !== null
+		) {
+			// for the first time, this island is assigned to a player
+			$storage = $this->storage->createStocksForStorage(Resource::model()->findAll());
+			$this->initializeResourceProduction(Resource::model()->findAll());
+
+		}
+		return $beforeSave;
+	}
+
+	/**
 	 * create initial resource production values
 	 *
 	 * @param Resource[] $resources
