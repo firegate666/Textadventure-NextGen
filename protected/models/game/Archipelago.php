@@ -54,7 +54,7 @@ class Archipelago extends MetaInfo
 	{
 		$relations = parent::relations();
 		return $relations + array(
-			'mapSection' => array(self::BELONGS_TO, 'Mapsection', 'mapSectionId'),
+			'mapSection' => array(self::BELONGS_TO, 'MapSection', 'mapSectionId'),
 			'islands' => array(self::HAS_MANY, 'Island', 'archipelagoId'),
 		);
 	}
