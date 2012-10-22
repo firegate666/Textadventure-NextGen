@@ -21,7 +21,7 @@
  */
 class Archipelago extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */
