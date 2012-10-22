@@ -116,16 +116,16 @@ class Island extends MetaInfo
 	public function getPlayerStartIsland($world_id, $user_id) {
 		$transaction = $this->getDbConnection()->beginTransaction();
 		{
-		$map_section_ids = MapSection::model()->getByWorldId($world_id);
-		$archipelago_ids = Archipelago::model()->getByMapSectionsAndMagnitude($map_section_ids, 1);
+			$map_section_ids = MapSection::model()->getByWorldId($world_id);
+			$archipelago_ids = Archipelago::model()->getByMapSectionsAndMagnitude($map_section_ids, 1);
 
-		$island = $this->findByAttributes(array('archipelagoId' => $archipelago_ids, 'ownerId' => null));
-		if (empty($island)) {
-			throw new CException('There are no start islands for this world');
-		}
+			$island = $this->findByAttributes(array('archipelagoId' => $archipelago_ids, 'ownerId' => null));
+			if (empty($island)) {
+				throw new CException('There are no start islands for this world');
+			}
 
-		$island->ownerId = $user_id;
-		$island->save();
+			$island->ownerId = $user_id;
+			$island->save();
 		}
 		$transaction->commit();
 
@@ -169,4 +169,5 @@ class Island extends MetaInfo
 			$production->save();
 		}
 	}
+
 }
