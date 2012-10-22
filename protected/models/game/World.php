@@ -82,6 +82,27 @@ class World extends MetaInfo
 	}
 
 	/**
+	 * check if player already plays on that world
+	 *
+	 * @param integer $user_id
+	 * @return boolean
+	 */
+	public function playerIsOnWorld($user_id) {
+		$list = Island::model()
+				->with('archipelago')
+				->with('archipelago.mapSection')
+				->with(
+					array(
+						'archipelago.mapSection.world' => array(
+							'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($this->id)
+						)
+					)
+				)
+			->findAllByAttributes(array('ownerId' => $user_id));
+		return count($list) > 0;
+	}
+
+	/**
 	 * Add player to world by giving him his first island
 	 *
 	 * @param integer $user_id
@@ -90,6 +111,10 @@ class World extends MetaInfo
 	 */
 	public function enterWorld($user_id)
 	{
+		if ($this->playerIsOnWorld($user_id)) {
+			throw new CException('Player already plays on that world');
+		}
+
 		// check for map sections
 		$map_sections = MapSection::model()->findAllByAttributes(array('worldId' => $this->id));
 		if (empty($map_sections)) {
