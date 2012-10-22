@@ -13,6 +13,8 @@
  *
  * The followings are the available model relations:
  * @property MapSection[] $mapSections
+ *
+ * @method World model
  */
 class World extends MetaInfo
 {

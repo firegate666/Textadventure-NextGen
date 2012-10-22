@@ -2,9 +2,12 @@
 $this->breadcrumbs=array(
 	'Game',
 );?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
+<h1>Select your world</h1>
 
-<p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
-</p>
+<p>Choose the world you would like to play on from the list below</p>
+
+<ul>
+	<?php foreach ($world_list as $world):
+		$this->renderPartial('_world', array('model' => $world));
+	endforeach; ?>
+</ul>

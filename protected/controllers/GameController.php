@@ -4,7 +4,19 @@ class GameController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$worlds = World::model()->findAll();
+		$this->render('index',
+			array(
+				'world_list' => $worlds
+			)
+		);
+	}
+
+	public function actionEnterWorld($world_id) {
+		$world = World::model()->findByPk(intval($world_id));
+		if ($world instanceof World) {
+			$world->enterWorld(Yii::app()->user->id);
+		}
 	}
 
 	public function actionWorldMap()
@@ -50,7 +62,7 @@ class GameController extends Controller
 	{
 		return array(
 			array('allow',
-				'actions' => array('index', 'worldMap', 'islands', 'research', 'highscore'),
+				'actions' => array('index', 'worldMap', 'islands', 'research', 'highscore', 'enterWorld'),
 				'users' => array('@'),
 			),
 			array('deny',
