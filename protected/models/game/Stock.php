@@ -11,6 +11,7 @@
  * @property integer $changedBy
  * @property integer $storageId
  * @property integer $resourceId
+ * @property double $amount
  *
  * The followings are the available model relations:
  * @property Resource $resource
@@ -68,6 +69,7 @@ class Stock extends MetaInfo
 			'changedBy' => 'Changed By',
 			'storageId' => 'Storage',
 			'resourceId' => 'Resource',
+			'amount' => 'Amount'
 		);
 	}
 
@@ -81,6 +83,7 @@ class Stock extends MetaInfo
 		$criteria = parent::getSearchCriteria();
 		$criteria->compare('storageId',$this->storageId);
 		$criteria->compare('resourceId',$this->resourceId);
+		$criteria->compare('amount',$this->amount);
 		return $criteria;
 	}
 

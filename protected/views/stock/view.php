@@ -25,5 +25,6 @@ $this->menu=array(
 		'changedBy',
 		'storageId',
 		'resourceId',
+		'amount',
 	),
 )); ?>
