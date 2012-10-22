@@ -17,6 +17,8 @@
  * @property Mapsection $leftSection
  * @property Mapsection $rightSection
  * @property World $world
+ *
+ * @method MapSection model
  */
 class MapSection extends MetaInfo
 {

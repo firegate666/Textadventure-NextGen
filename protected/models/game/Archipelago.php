@@ -18,6 +18,8 @@
  * The followings are the available model relations:
  * @property Mapsection $mapSection
  * @property Island[] $islands
+ *
+ * @method Archipelago model
  */
 class Archipelago extends MetaInfo
 {

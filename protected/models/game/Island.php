@@ -22,6 +22,8 @@
  * @property User $owner
  * @property Storage $storage
  * @property ResourceProduction[] $resourceProductions
+ *
+ * @method Island model
  */
 class Island extends MetaInfo
 {
