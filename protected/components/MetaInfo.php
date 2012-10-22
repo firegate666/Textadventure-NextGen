@@ -206,4 +206,31 @@ abstract class MetaInfo extends CActiveRecord {
 			'criteria'=>$criteria,
 		));
 	}
+	
+	protected $_changedAttributes = array();
+
+	/**
+	 * clear changeAttributes set
+	 *
+	 * @return void
+	 */
+	protected function afterSave() {
+		parent::afterSave();
+		$this->_changedAttributes = array();
+	}
+
+	/**
+	 * override __set to capture attribiute old values if they are being saved
+	 *
+	 * @param string $name
+	 * @param mixed $value
+	 */
+	public function __set($name, $value) {
+		// copy old value of attribute
+		if ($this->hasAttribute($name) && !array_key_exists($name, $this->_changedAttributes)) {
+			$this->_changedAttributes[$name] = $this->getAttribute($name);
+		}
+
+		parent::__set($name, $value);
+	}
 }
