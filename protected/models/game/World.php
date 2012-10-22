@@ -115,35 +115,6 @@ class World extends MetaInfo
 			throw new CException('Player already plays on that world');
 		}
 
-		// check for map sections
-		$map_sections = MapSection::model()->findAllByAttributes(array('worldId' => $this->id));
-		if (empty($map_sections)) {
-			throw new CException('There are no map sections for this world');
-		}
-		$map_section_ids = array();
-		foreach ($map_sections as $map_section) {
-			$map_section_ids[] = $map_section->id;
-		}
-
-		// check for archipelagos
-		$archipelagos = Archipelago::model()->findAllByAttributes(array('mapSectionId' => $map_section_ids, 'magnitude' => 1));
-		if (empty($archipelagos)) {
-			throw new CException('There are no archipelagos with start islands for this world');
-		}
-		$archipelago_ids = array();
-		foreach ($archipelagos as $archipelago) {
-			$archipelago_ids[] = $archipelago->id;
-		}
-
-		// get start island
-		$island = Island::model()->findByAttributes(array('archipelagoId' => $archipelago_ids, 'ownerId' => null));
-		if (empty($island)) {
-			throw new CException('There are no start islands for this world');
-		}
-
-		$island->ownerId = $user_id;
-		$island->save();
-
-		return $island;
+		return Island::model()->getPlayerStartIsland($this->id, $user_id);
 	}
 }

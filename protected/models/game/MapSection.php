@@ -91,4 +91,23 @@ class MapSection extends MetaInfo
 		return $criteria;
 	}
 
+	/**
+	 * get all map sections for given world
+	 * 
+	 * @param integer $world_id
+	 * @throws CException
+	 * @return integer[] map section ids
+	 */
+	public function getByWorldId($world_id) {
+		$map_sections = $this->findAllByAttributes(array('worldId' => $world_id));
+		if (empty($map_sections)) {
+			throw new CException('There are no map sections for this world');
+		}
+		$map_section_ids = array();
+		foreach ($map_sections as $map_section) {
+			$map_section_ids[] = $map_section->id;
+		}
+		return $map_section_ids;
+	}
+
 }

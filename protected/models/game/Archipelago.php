@@ -96,4 +96,23 @@ class Archipelago extends MetaInfo
 		return $criteria;
 	}
 
+	/**
+	 * get all archipelagos for given map sections
+	 * 
+	 * @param integer[] $map_section_ids
+	 * @param integer $magnitude
+	 * @return integer[]
+	 */
+	public function getByMapSectionsAndMagnitude(array $map_section_ids, $magnitude = 1) {
+		$archipelagos = $this->findAllByAttributes(array('mapSectionId' => $map_section_ids, 'magnitude' => $magnitude));
+		if (empty($archipelagos)) {
+			throw new CException('There are no archipelagos with islands for this world matching the given magnitude');
+		}
+		$archipelago_ids = array();
+		foreach ($archipelagos as $archipelago) {
+			$archipelago_ids[] = $archipelago->id;
+		}
+		return $archipelago_ids;
+	}
+
 }

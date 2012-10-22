@@ -106,4 +106,26 @@ class Island extends MetaInfo
 		return $criteria;
 	}
 
+	/**
+	 * give player start island
+	 *
+	 * @param integer $world_id
+	 * @param integer $user_id
+	 * @return Island
+	 */
+	public function getPlayerStartIsland($world_id, $user_id) {
+		$map_section_ids = MapSection::model()->getByWorldId($world_id);
+		$archipelago_ids = Archipelago::model()->getByMapSectionsAndMagnitude($map_section_ids, 1);
+
+		$island = $this->findByAttributes(array('archipelagoId' => $archipelago_ids, 'ownerId' => null));
+		if (empty($island)) {
+			throw new CException('There are no start islands for this world');
+		}
+
+		$island->ownerId = $user_id;
+		$island->save();
+
+		return $island;
+	}
+
 }
