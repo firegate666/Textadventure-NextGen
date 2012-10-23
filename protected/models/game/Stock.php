@@ -11,6 +11,7 @@
  * @property integer $changedBy
  * @property integer $storageId
  * @property integer $resourceId
+ * @property integer $lastResourceUpdate
  * @property double $amount
  *
  * The followings are the available model relations:
@@ -19,7 +20,7 @@
  */
 class Stock extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -69,7 +70,8 @@ class Stock extends MetaInfo
 			'changedBy' => 'Changed By',
 			'storageId' => 'Storage',
 			'resourceId' => 'Resource',
-			'amount' => 'Amount'
+			'amount' => 'Amount',
+			'lastResourceUpdate' => 'Last Resource Update'
 		);
 	}
 
@@ -84,6 +86,7 @@ class Stock extends MetaInfo
 		$criteria->compare('storageId',$this->storageId);
 		$criteria->compare('resourceId',$this->resourceId);
 		$criteria->compare('amount',$this->amount);
+		$criteria->compare('lastResourceUpdate',$this->lastResourceUpdate);
 		return $criteria;
 	}
 
