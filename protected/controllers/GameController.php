@@ -98,10 +98,38 @@ class GameController extends Controller
 			array(
 				'accessControl', // perform access control for CRUD operations
 				'hasWorld + worldMap, islands, research, highscore', // check that player has entered world
+				'gameTasks',
 			)
 		);
 	}
 
+	/**
+	 * execute game tasks
+	 * depends on app parameter update_every_hit
+	 * should only be enabled if no cron task is running to do the job
+	 *
+	 * @param CFilterChain $filterchain
+	 * @return void
+	 */
+	public function filterGameTasks(CFilterChain $filterchain)
+	{
+		if (Yii::app()->params['update_every_hit'])
+		{
+			$world_id = $this->getSessionValue('player_world', false);
+			if ($world_id) {
+				World::model()->findByPk($world_id)->updateIslands();
+			}
+		}
+		$filterchain->run();
+	}
+
+	/**
+	 * check if logged in player is continuing a world
+	 * otherwise redirect to index
+	 *
+	 * @param CFilterChain $filterchain
+	 * @return void
+	 */
 	public function filterHasWorld(CFilterChain $filterchain)
 	{
 		if ($this->getSessionValue('player_world', false) === false) {
