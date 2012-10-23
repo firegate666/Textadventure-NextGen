@@ -11,6 +11,7 @@ $this->breadcrumbs=array(
 		<th>Name</th>
 		<th>Größe</th>
 		<th>Archipel</th>
+		<th>Produktion</th>
 	</tr>
 
 </table>
@@ -26,6 +27,14 @@ $this->breadcrumbs=array(
 			tr.append('<td>' + v.name + '</td>');
 			tr.append('<td>' + v.size + '</td>');
 			tr.append('<td>' + v.archipelago.name + '</td>');
+
+			var production = '';
+			$.each(v.storage.stocks, function (k, v) {
+				production += '<li>' + v.resourceId + ': ' + v.amount + '</li>';
+			});
+			production = '<ul>' + production + '</ul>';
+
+			tr.append('<td>'+production+'</td>');
 		})
 	});
 
