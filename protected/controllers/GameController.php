@@ -2,6 +2,18 @@
 
 class GameController extends Controller
 {
+	/**
+	 * register basic script files
+	 *
+	 * @return void
+	 */
+	public function init()
+	{
+		parent::init();
+
+		Yii::app()->clientScript->registerCoreScript('jquery');
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . 'themes/drachendaemmerung/js/game.js');
+	}
 	public function actionIndex()
 	{
 		$worlds = World::model()->findAll();
