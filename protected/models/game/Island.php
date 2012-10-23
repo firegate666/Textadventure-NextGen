@@ -142,6 +142,7 @@ class Island extends MetaInfo
 		$beforeSave = parent::beforeSave();
 		if ($beforeSave
 			&& !$this->isNewRecord
+			&& array_key_exists('ownerId', $this->_changedAttributes)
 			&& $this->_changedAttributes['ownerId'] === null
 			&& $this->ownerId !== null
 		) {
