@@ -29,6 +29,7 @@ class GameController extends Controller
 		if ($world instanceof World) {
 			$world->enterWorld(Yii::app()->user->id);
 		}
+		$this->redirect(array('game/index'));
 	}
 
 	public function actionWorldMap()
