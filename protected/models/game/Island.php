@@ -146,7 +146,7 @@ class Island extends MetaInfo
 			&& $this->ownerId !== null
 		) {
 			// for the first time, this island is assigned to a player
-			$storage = $this->storage->createStocksForStorage(Resource::model()->findAll());
+			$this->storage->createStocksForStorage(Resource::model()->findAll());
 			$this->initializeResourceProduction(Resource::model()->findAll());
 
 		}
