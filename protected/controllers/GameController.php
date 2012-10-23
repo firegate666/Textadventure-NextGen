@@ -49,9 +49,14 @@ class GameController extends Controller
 		$this->render('worldMap');
 	}
 
-	public function actionislands()
+	/**
+	 * show own islands
+	 *
+	 * @return void
+	 */
+	public function actionOwnIslands()
 	{
-		$this->render('index');
+		$this->render('ownIslands', array('user_id' => Yii::app()->user->id, 'world_id' => $this->getSessionValue('player_world', false)));
 	}
 
 	public function actionResearch()

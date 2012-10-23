@@ -50,7 +50,7 @@
 						'submenuOptions' => array('class' => 'submenu'),
 						'items' => array(
 							array('label' => 'Inselreiche', 'url' => array('/Game/worldmap')),
-							array('label' => 'Meine Inseln', 'url' => array('/Game/islands')),
+							array('label' => 'Meine Inseln', 'url' => array('/Game/ownIslands')),
 							array('label' => 'Forschung', 'url' => array('/Game/research')),
 							array('label' => 'Highscore', 'url' => array('/Game/highscore')),
 						)
