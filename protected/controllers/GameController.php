@@ -78,8 +78,17 @@ class GameController extends Controller
 			parent::filters(),
 			array(
 				'accessControl', // perform access control for CRUD operations
+				'hasWorld + worldMap, islands, research, highscore', // check that player has entered world
 			)
 		);
+	}
+
+	public function filterHasWorld(CFilterChain $filterchain)
+	{
+		if ($this->getSessionValue('player_world', false) === false) {
+			$this->redirect(array('game/index'));
+		}
+		$filterchain->run();
 	}
 
 	/**
