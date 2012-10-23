@@ -32,13 +32,17 @@ class GameTasksCommand extends AbstractCommand
 	 */
 	public function actionUpdateIslands($world_id)
 	{
+		$this->printf('[UpdateIslands] %s Start update islands for world %s', date('Y-m-d H:i:s'), $world_id);
+		$updated = 0;
 		foreach (Island::model()->getWorldIslands($world_id) as $island) {
 			if ($island instanceof Island && $island->ownerId !== null)
 			{
-				$this->verbose('Update island %d:%s with resources', $island->id, $island->name);
+				$this->verbose("\t[UpdateIslands] Update island %d:%s with resources", $island->id, $island->name);
 				$ts = $island->updateResources();
+				$updated++;
 			}
 		}
+		$this->printf('[UpdateIslands] %s End update islands for world %s, updated %d', date('Y-m-d H:i:s'), $world_id, $updated);
 	}
 
 }
