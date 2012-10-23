@@ -39,7 +39,7 @@ class IslandController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'ownIslands'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -158,6 +158,56 @@ class IslandController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * transform island collection to array
+	 *
+	 * @todo move to island or meta info
+	 * @param array $islands
+	 * @return array
+	 */
+	protected function transformIslands(array $islands) {
+		$simple_list = array();
+		foreach ($islands as $island) {
+			if ($island instanceof Island) {
+				$temp = $island->getAttributes();
+
+				$temp['storage'] = $island->storage->getAttributes();
+				$temp['archipelago'] = $island->archipelago->getAttributes();
+				$temp['mapSection'] = $island->archipelago->mapSection->getAttributes();
+				$temp['world'] = $island->archipelago->mapSection->world->getAttributes();
+				$temp['owner'] = array(
+					'id' => $island->owner->id,
+					'name' => $island->owner->username,
+				);
+
+				$temp['storage']['stocks'] = array();
+				foreach ($island->storage->stocks as $stock) {
+					$temp['storage']['stocks'][] = $stock->getAttributes();
+				}
+
+				$temp['productions'] = array();
+				foreach ($island->resourceProductions as $production) {
+					$temp['productions'][] = $production->getAttributes();
+				}
+
+				$simple_list[$island->id] = $temp;
+			}
+		}
+		return $simple_list;
+	}
+
+	/**
+	 * render json list of own islands
+	 *
+	 * @param integer $world_id
+	 * @param integer $user_id
+	 * @return void
+	 */
+	public function actionOwnIslands($world_id, $user_id) {
+		$islands = Island::model()->getPlayerIslands($world_id, $user_id);
+		print json_encode($this->transformIslands($islands), JSON_FORCE_OBJECT);
 	}
 
 	/**
