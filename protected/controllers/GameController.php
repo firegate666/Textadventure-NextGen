@@ -2,6 +2,7 @@
 
 class GameController extends Controller
 {
+
 	/**
 	 * register basic script files
 	 *
@@ -14,6 +15,12 @@ class GameController extends Controller
 		Yii::app()->clientScript->registerCoreScript('jquery');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . 'themes/drachendaemmerung/js/game.js');
 	}
+
+	/**
+	 * show the world list and select game to play
+	 *
+	 * @return void
+	 */
 	public function actionIndex()
 	{
 		$worlds = World::model()->findAll();
@@ -24,6 +31,12 @@ class GameController extends Controller
 		);
 	}
 
+	/**
+	 * enter new world and redirect to index
+	 *
+	 * @param integer $world_id
+	 * @return void
+	 */
 	public function actionEnterWorld($world_id) {
 		$world = World::model()->findByPk(intval($world_id));
 		if ($world instanceof World) {
@@ -44,6 +57,12 @@ class GameController extends Controller
 			$this->redirect(array('game/worldMap'));
 		}
 	}
+
+	/**
+	 * show world map
+	 *
+	 * @return void
+	 */
 	public function actionWorldMap()
 	{
 		$this->render('worldMap');
