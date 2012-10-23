@@ -172,6 +172,27 @@ class Island extends MetaInfo
 	}
 
 	/**
+	 * get all islands for world
+	 *
+	 * @param integer $world_id
+	 * @return Island
+	 */
+	public function getWorldIslands($world_id)
+	{
+		return Island::model()
+				->with('archipelago')
+				->with('archipelago.mapSection')
+				->with(
+					array(
+						'archipelago.mapSection.world' => array(
+							'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($world_id),
+						)
+					)
+				)
+			->findAll();
+	}
+
+	/**
 	 * get islands for player and world
 	 *
 	 * @param integer $world_id
