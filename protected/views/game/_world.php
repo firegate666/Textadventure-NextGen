@@ -4,7 +4,7 @@ $action_name = 'enterWorld';
 
 if ($model->playerIsOnWorld(Yii::app()->user->id)) {
 	$action_text = 'Continue world';
-	$action_name = 'continueWorld';
+	$action_name = 'playWorld';
 }
 ?>
 

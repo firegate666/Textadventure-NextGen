@@ -32,6 +32,18 @@ class GameController extends Controller
 		$this->redirect(array('game/index'));
 	}
 
+	/**
+	 * login player to world and redirect to world map
+	 *
+	 * @param integer $world_id
+	 * @return void
+	 */
+	public function actionPlayWorld($world_id) {
+		if (World::model()->findByPk(intval($world_id))->playerIsOnWorld(Yii::app()->user->id)) {
+			$this->addSessionValue('player_world', $world_id, true);
+			$this->redirect(array('game/worldMap'));
+		}
+	}
 	public function actionWorldMap()
 	{
 		$this->render('worldMap');
@@ -75,7 +87,7 @@ class GameController extends Controller
 	{
 		return array(
 			array('allow',
-				'actions' => array('index', 'worldMap', 'islands', 'research', 'highscore', 'enterWorld'),
+				'actions' => array('index', 'worldMap', 'ownIslands', 'research', 'highscore', 'enterWorld', 'playWorld'),
 				'users' => array('@'),
 			),
 			array('deny',
