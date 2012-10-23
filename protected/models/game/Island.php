@@ -192,4 +192,47 @@ class Island extends MetaInfo
 			->findAllByAttributes(array('ownerId' => $user_id));
 	}
 
+	/**
+	 * get island dependend resource production bonus depending on existing buildings, researches or other effects
+	 *
+	 * @todo implmenent
+	 * @param integer $resource_id
+	 * @return integer
+	 */
+	protected function resourceProductionValueBonus($resource_id) {
+		return 0;
+	}
+
+	/**
+	 * update resource productions for this island
+	 *
+	 * @return integer last update timestamp for this updates
+	 */
+	public function updateResources() {
+		// read ressource production and index by resource id
+		$production_values = array();
+		foreach ($this->resourceProductions as $res_prod) {
+			$production_values[$res_prod->resourceId] = $res_prod;
+		}
+
+		// save the now timestamp, so every values have the same update
+		$now = time();
+
+		// go through all stock values and add generated resources
+		foreach ($this->storage->stocks as $stock) {
+			if ($stock instanceof Stock) {
+				if (!empty($stock->lastResourceUpdate)) {
+					$production_value = $production_values[$stock->resourceId]->productionValue + $this->resourceProductionValueBonus($stock->resourceId);
+					$ress_increment = ($production_value / 3600)
+						* $production_values[$stock->resourceId]->growthFactor
+						* ($now - $stock->lastResourceUpdate);
+					$stock->amount += $ress_increment;
+				}
+				$stock->lastResourceUpdate = $now;
+				$stock->save();
+			}
+		}
+
+		return $now;
+	}
 }
