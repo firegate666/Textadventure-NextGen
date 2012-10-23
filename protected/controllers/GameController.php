@@ -33,7 +33,7 @@ class GameController extends Controller
 
 	public function actionWorldMap()
 	{
-		$this->render('index');
+		$this->render('worldMap');
 	}
 
 	public function actionislands()
