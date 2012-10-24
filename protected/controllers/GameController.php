@@ -97,7 +97,7 @@ class GameController extends Controller
 			parent::filters(),
 			array(
 				'accessControl', // perform access control for CRUD operations
-				'hasWorld + worldMap, islands, research, highscore', // check that player has entered world
+				'hasWorld + worldMap, ownIslands, research, highscore', // check that player has entered world
 			)
 		);
 	}
