@@ -117,4 +117,22 @@ class World extends MetaInfo
 
 		return Island::model()->getPlayerStartIsland($this->id, $user_id);
 	}
+
+	/**
+	 * update all islands of this world
+	 *
+	 * @return int number of updated islands
+	 */
+	public function updateIslands()
+	{
+		$updated = 0;
+		foreach (Island::model()->getWorldIslands($this->id) as $island) {
+			if ($island instanceof Island && $island->ownerId !== null)
+			{
+				$island->updateResources();
+				$updated++;
+			}
+		}
+		return $updated;
+	}
 }
