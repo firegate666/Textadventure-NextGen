@@ -94,13 +94,13 @@ class InstallCommand extends AbstractCommand
 
 	/**
 	 * test database connection
-	 * 
+	 *
 	 * @param string $system
 	 * @param string $host
 	 * @param string $name
 	 * @param string $user
 	 * @param string $pass
-	 * @return boolean 
+	 * @return boolean
 	 */
 	protected function validateDbConnection($db_system, $db_host, $db_name, $db_user, $db_pass)
 	{
@@ -265,7 +265,7 @@ class InstallCommand extends AbstractCommand
 		}
 		else
 		{
-			if ((!file_exists($path_to_seawars)) || (!is_executable($path_to_seawars)))
+			if (!file_exists($path_to_seawars))
 			{
 				$this->printf('Given path to sea wars server "%s" is invalid', $path_to_seawars);
 				exit(-1);
