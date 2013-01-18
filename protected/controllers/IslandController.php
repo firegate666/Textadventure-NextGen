@@ -39,7 +39,7 @@ class IslandController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'ownIslands'),
+				'actions'=>array('index','view', 'ownIslands', 'all'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -167,31 +167,34 @@ class IslandController extends Controller
 	 * @param array $islands
 	 * @return array
 	 */
-	protected function transformIslands(array $islands) {
+	protected function transformIslands(array $islands, $details = true) {
 		$simple_list = array();
 		foreach ($islands as $island) {
 			if ($island instanceof Island) {
 				$temp = $island->getAttributes();
 
-				$temp['storage'] = $island->storage->getAttributes();
 				$temp['archipelago'] = $island->archipelago->getAttributes();
 				$temp['mapSection'] = $island->archipelago->mapSection->getAttributes();
 				$temp['world'] = $island->archipelago->mapSection->world->getAttributes();
-				$temp['owner'] = array(
-					'id' => $island->owner->id,
-					'name' => $island->owner->username,
-				);
 
-				$temp['storage']['stocks'] = array();
-				foreach ($island->storage->stocks as $stock) {
-					$temp['storage']['stocks'][] = $stock->getAttributes();
+				if ($details) {
+					$temp['owner'] = array(
+						'id' => $island->owner->id,
+						'name' => $island->owner->username,
+					);
+
+					$temp['storage'] = $island->storage->getAttributes();
+
+					$temp['storage']['stocks'] = array();
+					foreach ($island->storage->stocks as $stock) {
+						$temp['storage']['stocks'][] = $stock->getAttributes();
+					}
+
+					$temp['productions'] = array();
+					foreach ($island->resourceProductions as $production) {
+						$temp['productions'][] = $production->getAttributes();
+					}
 				}
-
-				$temp['productions'] = array();
-				foreach ($island->resourceProductions as $production) {
-					$temp['productions'][] = $production->getAttributes();
-				}
-
 				$simple_list[$island->id] = $temp;
 			}
 		}
@@ -208,6 +211,16 @@ class IslandController extends Controller
 	public function actionOwnIslands($world_id, $user_id) {
 		$islands = Island::model()->getPlayerIslands($world_id, $user_id);
 		print json_encode($this->transformIslands($islands), JSON_FORCE_OBJECT);
+	}
+
+	public function actionAll($world_id, $limit = 10, $offset = 0) {
+		$islands = Island::model()->getWorldIslands($world_id, $limit, $offset);
+		print json_encode(
+			array(
+				'list' => $this->transformIslands($islands->result, false),
+				'count' => $islands->count
+			)
+			, JSON_FORCE_OBJECT);
 	}
 
 	/**

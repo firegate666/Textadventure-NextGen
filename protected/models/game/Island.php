@@ -177,10 +177,13 @@ class Island extends MetaInfo
 	 * @param integer $world_id
 	 * @return Island
 	 */
-	public function getWorldIslands($world_id)
+	public function getWorldIslands($world_id, $limit, $offset)
 	{
-		return Island::model()
-				->with('archipelago')
+		$paging = new CDbCriteria();
+		$paging->limit = $limit;
+		$paging->offset = $offset;
+
+		$query = $this->with('archipelago')
 				->with('archipelago.mapSection')
 				->with(
 					array(
@@ -189,7 +192,15 @@ class Island extends MetaInfo
 						)
 					)
 				)
-			->findAll();
+				->together();
+
+		$island_list = new stdClass();
+		$island_list->count = $query->count();
+
+		$query->setDbCriteria($paging);
+		$island_list->result = $query->findAll();
+
+		return $island_list;
 	}
 
 	/**
@@ -201,8 +212,7 @@ class Island extends MetaInfo
 	 */
 	public function getPlayerIslands($world_id, $user_id)
 	{
-		return Island::model()
-				->with('archipelago')
+		return $this->with('archipelago')
 				->with('archipelago.mapSection')
 				->with(
 					array(

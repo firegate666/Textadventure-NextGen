@@ -65,7 +65,13 @@ class GameController extends Controller
 	 */
 	public function actionWorldMap()
 	{
-		$this->render('worldMap');
+		$this->render('worldMap',
+			array(
+				'world_id' => $this->getSessionValue('player_world', false),
+				'limit' => 10,
+				'offset' => 0
+			)
+		);
 	}
 
 	/**

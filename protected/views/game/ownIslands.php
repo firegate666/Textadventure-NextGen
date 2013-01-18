@@ -19,9 +19,9 @@ $this->breadcrumbs=array(
 <script type="text/javascript">
 
 	game.ownIslands('<?=$this->createUrl('island/ownIslands', array('world_id' => $world_id, 'user_id' => $user_id))?>', {}, function (ret_data) {
-		var tr = $('#own-islands').append('<tr></tr>');
 		$.each(ret_data, function (k, v) {
-			var island_link = '<?=$this->createUrl('game/island', array('island_id' => 'ID'))?>';
+			var island_link = '<?=$this->createUrl('game/island', array('island_id' => 'ID'))?>',
+				tr = $('<tr></tr>').appendTo('#own-islands');
 
 			tr.append('<td><a href="' + island_link.replace(/ID/, v.id) + '">' + v.id + '</a></td>');
 			tr.append('<td>' + v.name + '</td>');
