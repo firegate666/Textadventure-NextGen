@@ -199,18 +199,21 @@ class Island extends MetaInfo
 	 * @param integer $world_id
 	 * @return Island
 	 */
-	public function getWorldIslands($world_id, $limit, $offset)
+	public function getWorldIslands($world_id, $limit = null, $offset = null)
 	{
-		$paging = new CDbCriteria();
-		$paging->limit = $limit;
-		$paging->offset = $offset;
-
 		$query = $this->getWorldQuery($world_id);
 
 		$island_list = new stdClass();
 		$island_list->count = $query->count();
 
+		$paging = new CDbCriteria();
+		if ($limit !== null || $offset !== null) {
+			$paging->limit = $limit;
+			$paging->offset = $offset;
+		}
+
 		$query->setDbCriteria($paging);
+
 		$island_list->result = $query->findAll();
 
 		return $island_list;
