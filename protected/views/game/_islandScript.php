@@ -25,45 +25,8 @@
 		tr.append('<td>' + owner + '</td>');
 	}
 
-	game.ownIslands(baseurl.replace(/LIMIT/, <?=$limit?>).replace(/OFFSET/, <?=$offset?>), {}, function (ret_data) {
+	game.islands(baseurl.replace(/LIMIT/, <?=$limit?>).replace(/OFFSET/, <?=$offset?>), {}, function (ret_data) {
 		$.each(ret_data.list, renderResults);
-
-		var pager = $('<div class="pager" data-limit="<?=$limit?>" data-offset="<?=$offset?>"></div>').insertAfter('#islands');
-		var prev = $('<a href="" class="prev">&lt;&lt;</a>');
-		var count = $('<span class="counter">' + ret_data.count + '</span>');
-		var next = $('<a href="" class="next">&gt;&gt;</a>');
-
-		pager.append(prev)
-			.append('&nbsp;')
-			.append(count)
-			.append('&nbsp;')
-			.append(next);
-
-		$(pager).on('click', 'a', {count: ret_data.count, baseurl: baseurl}, function(e) {
-			var limit = parseInt($(this).parents('.pager').first().attr('data-limit'), 10);
-			var offset = parseInt($(this).parents('.pager').first().attr('data-offset'), 10);
-
-			var query_result = true;
-
-			if ($(this).hasClass('prev')) {
-				query_result = offset !== 0;
-				offset = Math.max(0, offset - limit);
-			} else {
-				offset = Math.min(e.data.count - limit, offset + limit);
-			}
-
-			if (query_result) {
-				$('#islands tr.island-row').css('visibility', 'hidden');
-				$(this).parents('.pager').first().attr('data-offset', offset).attr('data-limit', limit);
-				game.ownIslands(e.data.baseurl.replace(/LIMIT/, limit).replace(/OFFSET/, offset), {}, function (ret_data) {
-					$('#islands tr.island-row').remove();
-					$.each(ret_data.list, renderResults);
-				});
-			}
-
-			e.preventDefault();
-			e.stopPropagation();
-		});
-
+		game.pager('#islands', <?=$limit?>, <?=$offset?>, ret_data.count, baseurl, renderResults);
 	});
 </script>
