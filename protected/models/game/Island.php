@@ -171,6 +171,18 @@ class Island extends MetaInfo
 		}
 	}
 
+	protected function getWorldQuery($world_id) {
+		return $this->with('archipelago')
+				->with('archipelago.mapSection')
+				->with(
+					array(
+						'archipelago.mapSection.world' => array(
+							'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($world_id),
+						)
+					)
+				);
+	}
+
 	/**
 	 * get all islands for world
 	 *
@@ -212,15 +224,7 @@ class Island extends MetaInfo
 	 */
 	public function getPlayerIslands($world_id, $user_id)
 	{
-		return $this->with('archipelago')
-				->with('archipelago.mapSection')
-				->with(
-					array(
-						'archipelago.mapSection.world' => array(
-							'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($world_id),
-						)
-					)
-				)
+		return $this->getWorldQuery($world_id)
 			->findAllByAttributes(array('ownerId' => $user_id));
 	}
 
