@@ -205,16 +205,7 @@ class Island extends MetaInfo
 		$paging->limit = $limit;
 		$paging->offset = $offset;
 
-		$query = $this->with('archipelago')
-				->with('archipelago.mapSection')
-				->with(
-					array(
-						'archipelago.mapSection.world' => array(
-							'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($world_id),
-						)
-					)
-				)
-				->together();
+		$query = $this->getWorldQuery($world_id);
 
 		$island_list = new stdClass();
 		$island_list->count = $query->count();
