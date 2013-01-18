@@ -88,17 +88,7 @@ class World extends MetaInfo
 	 * @return boolean
 	 */
 	public function playerIsOnWorld($user_id) {
-		$list = Island::model()
-				->with('archipelago')
-				->with('archipelago.mapSection')
-				->with(
-					array(
-						'archipelago.mapSection.world' => array(
-							'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($this->id)
-						)
-					)
-				)
-			->findAllByAttributes(array('ownerId' => $user_id));
+		$list = Island::model()->getPlayerIslands($this->id, $user_id);
 		return count($list) > 0;
 	}
 
