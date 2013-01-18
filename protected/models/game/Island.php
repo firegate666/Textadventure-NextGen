@@ -226,10 +226,27 @@ class Island extends MetaInfo
 	 * @param integer $user_id
 	 * @return array
 	 */
-	public function getPlayerIslands($world_id, $user_id)
+	public function getPlayerIslands($world_id, $user_id, $limit, $offset)
 	{
-		return $this->getWorldQuery($world_id)
-			->findAllByAttributes(array('ownerId' => $user_id));
+		$query = $this->getWorldQuery($world_id);
+
+		$paging = new CDbCriteria();
+		$paging->compare('ownerId', $user_id);
+		$query->setDbCriteria($paging);
+
+		$island_list = new stdClass();
+		$island_list->count = $query->count();
+
+		if ($limit !== null || $offset !== null) {
+			$paging->limit = $limit;
+			$paging->offset = $offset;
+		}
+
+		$query->setDbCriteria($paging);
+
+		$island_list->result = $query->findAll();
+
+		return $island_list;
 	}
 
 	/**

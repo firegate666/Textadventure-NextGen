@@ -81,7 +81,13 @@ class GameController extends Controller
 	 */
 	public function actionOwnIslands()
 	{
-		$this->render('ownIslands', array('user_id' => Yii::app()->user->id, 'world_id' => $this->getSessionValue('player_world', false)));
+		$this->render('ownIslands',
+			array(
+				'world_id' => $this->getSessionValue('player_world', false),
+				'limit' => 10,
+				'offset' => 0
+			)
+		);
 	}
 
 	public function actionResearch()

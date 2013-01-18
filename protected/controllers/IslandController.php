@@ -207,14 +207,28 @@ class IslandController extends Controller
 	 * render json list of own islands
 	 *
 	 * @param integer $world_id
-	 * @param integer $user_id
+	 * @param integer $limit
+	 * @param integer $offset
 	 * @return void
 	 */
-	public function actionOwnIslands($world_id, $user_id) {
-		$islands = Island::model()->getPlayerIslands($world_id, $user_id);
-		print json_encode($this->transformIslands($islands), JSON_FORCE_OBJECT);
+	public function actionOwnIslands($world_id, $limit = 10, $offset = 0) {
+		$islands = Island::model()->getPlayerIslands($world_id, Yii::app()->user->id, $limit, $offset);
+		print json_encode(
+			array(
+				'list' => $this->transformIslands($islands->result, true),
+				'count' => $islands->count
+			)
+			, JSON_FORCE_OBJECT);
 	}
 
+	/**
+	 * render json list of all islands
+	 *
+	 * @param integer $world_id
+	 * @param integer $limit
+	 * @param integer $offset
+	 * @return void
+	 */
 	public function actionAll($world_id, $limit = 10, $offset = 0) {
 		$islands = Island::model()->getWorldIslands($world_id, $limit, $offset);
 		print json_encode(
