@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 );?>
 <h1>World Map</h1>
 
-<table id="world-islands">
+<table id="islands">
 
 	<tr>
 		<th>Id</th>

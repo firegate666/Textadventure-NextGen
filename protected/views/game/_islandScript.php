@@ -2,7 +2,7 @@
 
 	function renderResults(k, v) {
 		var island_link = '<?=$this->createUrl('game/island', array('island_id' => 'ID'))?>',
-			tr = $('<tr class="island-row"></tr>').appendTo('#world-islands');
+			tr = $('<tr class="island-row"></tr>').appendTo('#islands');
 
 		tr.append('<td><a href="' + island_link.replace(/ID/, v.id) + '">' + v.id + '</a></td>');
 		tr.append('<td>' + v.name + '</td>');
@@ -28,7 +28,7 @@
 	game.ownIslands(baseurl.replace(/LIMIT/, <?=$limit?>).replace(/OFFSET/, <?=$offset?>), {}, function (ret_data) {
 		$.each(ret_data.list, renderResults);
 
-		var pager = $('<div class="pager" data-limit="<?=$limit?>" data-offset="<?=$offset?>"></div>').insertAfter('#world-islands');
+		var pager = $('<div class="pager" data-limit="<?=$limit?>" data-offset="<?=$offset?>"></div>').insertAfter('#islands');
 		var prev = $('<a href="" class="prev">&lt;&lt;</a>');
 		var count = $('<span class="counter">' + ret_data.count + '</span>');
 		var next = $('<a href="" class="next">&gt;&gt;</a>');
@@ -53,10 +53,10 @@
 			}
 
 			if (query_result) {
-				$('#world-islands tr.island-row').css('visibility', 'hidden');
+				$('#islands tr.island-row').css('visibility', 'hidden');
 				$(this).parents('.pager').first().attr('data-offset', offset).attr('data-limit', limit);
 				game.ownIslands(e.data.baseurl.replace(/LIMIT/, limit).replace(/OFFSET/, offset), {}, function (ret_data) {
-					$('#world-islands tr.island-row').remove();
+					$('#islands tr.island-row').remove();
 					$.each(ret_data.list, renderResults);
 				});
 			}
