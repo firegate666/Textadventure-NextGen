@@ -183,6 +183,16 @@ class Island extends MetaInfo
 				);
 	}
 
+	public function getInhabitedIslands($world_id) {
+		$query = $this->getWorldQuery($world_id);
+
+		$criteria = new CDbCriteria();
+		$criteria->addNotInCondition('ownerId', array(null));
+		$query->setDbCriteria($criteria);
+
+		return $query->findAll();
+	}
+
 	/**
 	 * get all islands for world
 	 *

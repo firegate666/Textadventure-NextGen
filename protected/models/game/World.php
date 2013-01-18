@@ -116,12 +116,9 @@ class World extends MetaInfo
 	public function updateIslands()
 	{
 		$updated = 0;
-		foreach (Island::model()->getWorldIslands($this->id) as $island) {
-			if ($island instanceof Island && $island->ownerId !== null)
-			{
-				$island->updateResources();
-				$updated++;
-			}
+		foreach (Island::model()->getInhabitedIslands($this->id) as $island) {
+			$island->updateResources();
+			$updated++;
 		}
 		return $updated;
 	}
