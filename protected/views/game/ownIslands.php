@@ -1,7 +1,8 @@
 <?php
-$this->breadcrumbs=array(
+$this->breadcrumbs = array(
 	'Game', 'Own Islands'
 );?>
+
 <h1>Own Islands</h1>
 
 <table id="islands">
