@@ -177,11 +177,13 @@ class IslandController extends Controller
 				$temp['mapSection'] = $island->archipelago->mapSection->getAttributes();
 				$temp['world'] = $island->archipelago->mapSection->world->getAttributes();
 
+				$temp['owner'] = $island->owner ? array(
+					'id' => $island->owner->id,
+					'name' => $island->owner->username,
+				) : null;
+
 				if ($details) {
-					$temp['owner'] = array(
-						'id' => $island->owner->id,
-						'name' => $island->owner->username,
-					);
+
 
 					$temp['storage'] = $island->storage->getAttributes();
 
