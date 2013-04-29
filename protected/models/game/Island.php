@@ -224,9 +224,11 @@ class Island extends MetaInfo
 	 *
 	 * @param integer $world_id
 	 * @param integer $user_id
+	 * @param integer $limit
+	 * @param integer $offset
 	 * @return array
 	 */
-	public function getPlayerIslands($world_id, $user_id, $limit, $offset)
+	public function getPlayerIslands($world_id, $user_id, $limit = null, $offset = null)
 	{
 		$query = $this->getWorldQuery($world_id);
 
