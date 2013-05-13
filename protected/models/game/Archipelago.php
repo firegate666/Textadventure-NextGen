@@ -20,6 +20,7 @@
  * @property Island[] $islands
  *
  * @method Archipelago model
+ *
  */
 class Archipelago extends MetaInfo
 {
@@ -98,7 +99,7 @@ class Archipelago extends MetaInfo
 
 	/**
 	 * get all archipelagos for given map sections
-	 * 
+	 *
 	 * @param integer[] $map_section_ids
 	 * @param integer $magnitude
 	 * @return integer[]

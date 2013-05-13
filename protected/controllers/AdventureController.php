@@ -1,6 +1,9 @@
 <?php
 /**
  * control list and playing of adventures
+ *
+ * @package controller
+ * @subpackage game
  */
 class AdventureController extends Controller
 {

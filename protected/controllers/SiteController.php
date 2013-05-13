@@ -1,6 +1,8 @@
 <?php
 /**
  * display static pages
+ *
+ * @package controller
  */
 class SiteController extends Controller
 {

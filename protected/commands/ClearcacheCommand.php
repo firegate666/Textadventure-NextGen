@@ -3,6 +3,8 @@ Yii::import('application.commands.AbstractCommand');
 
 /**
  * Yiic command to delete assets and cache
+ *
+ * @package console
  */
 class ClearcacheCommand extends AbstractCommand
 {

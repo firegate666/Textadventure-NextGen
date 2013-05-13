@@ -3,6 +3,9 @@ Yii::import('application.commands.AbstractCommand');
 
 /**
  * Yiic command to delete assets and cache
+ *
+ * @package console
+ * @subpackage seawars
  */
 class InstallCommand extends AbstractCommand
 {

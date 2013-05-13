@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @package controller
+ */
 class UserGroupController extends Controller
 {
 	/**

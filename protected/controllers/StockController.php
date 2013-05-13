@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @package controller
+ * @subpackage seawars
+ */
 class StockController extends Controller
 {
 	/**

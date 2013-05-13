@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @package controller
+ * @subpackage game
+ */
 class AdventureStepController extends Controller
 {
 	/**

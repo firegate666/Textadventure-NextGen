@@ -2,6 +2,8 @@
 
 /**
  * Yiic abstract command with common methods to use
+ *
+ * @package console
  */
 class AbstractCommand extends CConsoleCommand
 {

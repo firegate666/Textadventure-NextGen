@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @package controller
+ * @subpackage game
+ */
 class AdventureParticipationController extends Controller
 {
 	public $layout='//layouts/column1_admin';

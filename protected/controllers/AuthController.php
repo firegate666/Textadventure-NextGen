@@ -1,6 +1,8 @@
 <?php
 /**
  * responsible for everything concerning authorization
+ *
+ * @package controller
  */
 class AuthController extends Controller
 {
