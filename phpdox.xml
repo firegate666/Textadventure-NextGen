@@ -18,6 +18,11 @@
 				<file name="todolist.txt" encoding="utf-8" />
 			</build>
 
+			<build engine="graph" enabled="true" output="graph">
+                <dot executable="/usr/bin/dot" options="" />
+                <file name="graph.png" options="" format="png" />
+            </build>
+
 		</generator>
 
 	</project>
