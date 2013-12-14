@@ -229,22 +229,58 @@ class AdventureController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		$save_and_return = Yii::app()->request->getParam('save_and_return', '') != '';
+		/** @var Adventure $model */
 		$model = $this->loadModel($id);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$adventureSteps = array();
+
 
 		if (isset($_POST['Adventure']))
 		{
+			$ta = Yii::app()->db->beginTransaction();
 			$model->attributes = $_POST['Adventure'];
-			if ($model->save())
+			if ($model->validate())
 			{
-				$this->redirect(array('admin'));
+				$stepsValidated = true;
+				if (isset($_POST['AdventureStep'])) {
+					foreach ($_POST['AdventureStep'] as $stepData) {
+						if (empty($stepData['name'])) {
+							continue;
+						}
+
+						$step_model = new AdventureStep();
+						if (!empty($stepData['id'])) {
+							$step_model = $step_model->findByPk($stepData['id']);
+						}
+
+						$step_model->attributes = $stepData;
+						$stepsValidated = $stepsValidated && $step_model->validate();
+						$adventureSteps[] = $step_model;
+					}
+				}
+
+				if ($stepsValidated) {
+					foreach ($adventureSteps as $step) {
+						$step->save();
+					}
+					$model->save();
+					$ta->commit();
+					if (!$save_and_return) {
+						$this->redirect(array('admin'));
+					}
+				} else {
+					$ta->rollback();
+				}
 			}
+		} else {
+			$adventureSteps = $model->adventureSteps;
 		}
 
+		$adventureSteps[] = new AdventureStep();
 		$this->render('update', array(
 			'model' => $model,
+			'adventureSteps' => $adventureSteps
 		));
 	}
 

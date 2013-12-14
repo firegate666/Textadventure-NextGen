@@ -61,11 +61,13 @@ $form = $this->beginWidget('CActiveForm', array(
 	<?php
 		$panels = array();
 
-		foreach($model->adventureSteps as $step) {
+		foreach($adventureSteps as $index => $step) {
+			$step->adventure = $model->id;
 			$panels[$step->name] = $this->renderPartial('/adventureStep/_formrow', array(
 				'model' => $step,
 				'parent' => $model,
-				'form' => $form
+				'form' => $form,
+				'index' => $index
 			), true);
 		}
 
@@ -80,6 +82,7 @@ $form = $this->beginWidget('CActiveForm', array(
 
 	<div class="row buttons">
 		<?=CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?=CHtml::submitButton($model->isNewRecord ? 'Create and return' : 'Save and return', array('name' => 'save_and_return')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
