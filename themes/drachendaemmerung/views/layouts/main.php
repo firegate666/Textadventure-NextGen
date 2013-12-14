@@ -9,6 +9,8 @@
 	<meta name="google-site-verification" content="aG7-NEHDoXRFeIiDCHFIxhBmn6Uhp0IhEGvStsCLWzI" />
 	<meta name="language" content="de" />
 
+	<link rel="shortcut icon" href="/themes/drachendaemmerung/images/favicon.ico">
+
 	<!-- special fonts -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/fontfaces.css" />
 
