@@ -18,3 +18,5 @@ protected/tests/build/
 cache.properties
 
 .externalToolBuilders
+vendor/*
+

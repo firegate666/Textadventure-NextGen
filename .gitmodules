@@ -1,6 +1,3 @@
-[submodule "protected/vendors/yii"]
-	path = protected/vendors/yii
-	url = https://github.com/yiisoft/yii.git
 [submodule "protected/vendors/csslint"]
 	path = protected/vendors/csslint
 	url = https://github.com/stubbornella/csslint.git

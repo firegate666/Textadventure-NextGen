@@ -1,0 +1,12 @@
+{
+	"name": "TextadventureNextGEN",
+	"require": {
+		"yiisoft/yii": ">=1.1.14"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/yiisoft/yii.git"
+		}
+	]
+}

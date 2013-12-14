@@ -5,7 +5,7 @@
  */
 
 // change the following paths if necessary
-$yii = dirname(__FILE__) . '/protected/vendors/yii/framework/yii.php';
+$yii = dirname(__FILE__) . '/vendor/yiisoft/yii/framework/yii.php';
 $config = include dirname(__FILE__) . '/protected/config/test.php';
 require_once ($yii);
 

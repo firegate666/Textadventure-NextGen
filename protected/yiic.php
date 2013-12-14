@@ -1,7 +1,7 @@
 <?php
 
 // change the following paths if necessary
-$yiic = dirname(__FILE__) . '/vendors/yii/framework/yiic.php';
+$yiic = dirname(__FILE__) . '/../vendor/yiisoft/yii/framework/yiic.php';
 $config = include dirname(__FILE__) . '/config/console.php';
 
 if (file_exists(dirname(__FILE__) . '/config/console_local.php'))
