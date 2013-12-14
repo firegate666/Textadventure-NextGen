@@ -6,6 +6,8 @@
  * It represents the adventure as is, its name and description, and
  * holds relations to the single adventure steps
  *
+ * @property AdventureStep[] adventureSteps
+ *
  */
 class Adventure extends MetaInfo
 {
@@ -59,14 +61,6 @@ class Adventure extends MetaInfo
 	 * @var Date
 	 */
 	public $state;
-
-	// The following are the available model relations:
-
-	/**
-	 *
-	 * @var AdventureStep[]
-	 */
-	public $adventureSteps;
 
 	/**
 	 * this adventure has steps?

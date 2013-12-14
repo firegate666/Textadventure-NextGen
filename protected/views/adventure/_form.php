@@ -1,3 +1,6 @@
+<?php
+/** @var Adventure $model */
+?>
 <div class="form">
 
 <?php
@@ -54,6 +57,26 @@ $form = $this->beginWidget('CActiveForm', array(
 		(z.B. <?=date('Y-m-d', time() + 60*60*24)?>)
 		<?=$form->error($model, 'stopDate'); ?>
 	</div>
+
+	<?php
+		$panels = array();
+
+		foreach($model->adventureSteps as $step) {
+			$panels[$step->name] = $this->renderPartial('/adventureStep/_formrow', array(
+				'model' => $step,
+				'parent' => $model,
+				'form' => $form
+			), true);
+		}
+
+		$this->widget('zii.widgets.jui.CJuiAccordion', array(
+			'panels'=>$panels,
+			// additional javascript options for the accordion plugin
+			'options'=>array(
+				'animated'=>'bounceslide',
+			),
+		));
+	?>
 
 	<div class="row buttons">
 		<?=CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
