@@ -68,6 +68,10 @@ return array(
 	'params' => array(
 		// this is used in contact page
 		'adminEmail' => 'webmaster@example.com',
-		'update_every_hit' => false
+		'update_every_hit' => false,
+		'features' => array(
+			'textadventure' => true,
+			'seawars' => false
+		)
 	),
 );
