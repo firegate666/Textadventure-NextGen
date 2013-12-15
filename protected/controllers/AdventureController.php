@@ -234,53 +234,94 @@ class AdventureController extends Controller
 		$model = $this->loadModel($id);
 
 		$adventureSteps = array();
+		$stepOptions = array();
 
 
 		if (isset($_POST['Adventure']))
 		{
 			$ta = Yii::app()->db->beginTransaction();
 			$model->attributes = $_POST['Adventure'];
-			if ($model->validate())
-			{
-				$stepsValidated = true;
-				if (isset($_POST['AdventureStep'])) {
-					foreach ($_POST['AdventureStep'] as $stepData) {
-						if (empty($stepData['name'])) {
-							continue;
-						}
 
-						$step_model = new AdventureStep();
-						if (!empty($stepData['id'])) {
-							$step_model = $step_model->findByPk($stepData['id']);
-						}
+			$stepsValidated = true;
+			if (isset($_POST['AdventureStep'])) {
+				foreach ($_POST['AdventureStep'] as $stepData) {
+					if (empty($stepData['name'])) {
+						continue;
+					}
 
-						$step_model->attributes = $stepData;
-						$stepsValidated = $stepsValidated && $step_model->validate();
-						$adventureSteps[] = $step_model;
+					$step_model = new AdventureStep();
+					$key = 'NEW_' . mt_rand(0, 9999999);
+					if (!empty($stepData['id'])) {
+						$step_model = $step_model->findByPk($stepData['id']);
+						$key = $step_model->id;
+					}
+
+					$step_model->attributes = $stepData;
+					$stepsValidated = $stepsValidated && $step_model->validate();
+					$adventureSteps[$key] = $step_model;
+				}
+			}
+
+			$optionsValidated = true;
+			if (isset($_POST['AdventureStepOption'])) {
+				$stepOptions = array();
+
+				foreach ($_POST['AdventureStepOption'] as $optionsData) {
+					if (empty($optionsData['name'])) {
+						continue;
+					}
+
+					$options_model = new AdventureStepOption();
+					if (!empty($optionsData['id'])) {
+						$options_model = $options_model->findByPk($optionsData['id']);
+					}
+
+					$options_model->attributes = $optionsData;
+					$optionsValidated = $optionsValidated && $options_model->validate();
+					$stepOptions[$optionsData['parent']][] = $options_model;
+				}
+
+				foreach ($stepOptions as $step_id => $stepOption) {
+					if (empty($adventureSteps[$step_id]->stepOptions)) {
+						$adventureSteps[$step_id]->stepOptions = array();
+					}
+					$adventureSteps[$step_id]->stepOptions = array_merge($stepOption, array(new AdventureStepOption()));
+				}
+			}
+
+			if ($model->validate() && $stepsValidated && $optionsValidated) {
+				foreach ($adventureSteps as $step) {
+					$step->save();
+				}
+
+				foreach ($stepOptions as $parents) {
+					foreach ($parents as $option) {
+						$option->save();
 					}
 				}
 
-				if ($stepsValidated) {
-					foreach ($adventureSteps as $step) {
-						$step->save();
-					}
-					$model->save();
-					$ta->commit();
-					if (!$save_and_return) {
-						$this->redirect(array('admin'));
-					}
-				} else {
-					$ta->rollback();
+				$model->save();
+				$ta->commit();
+				if (!$save_and_return) {
+					$this->redirect(array('admin'));
 				}
+			} else {
+				$ta->rollback();
 			}
 		} else {
 			$adventureSteps = $model->adventureSteps;
+			foreach ($adventureSteps as $step) {
+				if (empty($step->stepOptions)) {
+					$step->stepOptions = array();
+				}
+				$step->stepOptions = array_merge($step->stepOptions, array(new AdventureStepOption()));
+			}
 		}
 
 		$adventureSteps[] = new AdventureStep();
 		$this->render('update', array(
 			'model' => $model,
-			'adventureSteps' => $adventureSteps
+			'adventureSteps' => array_values($adventureSteps)
 		));
 	}
 

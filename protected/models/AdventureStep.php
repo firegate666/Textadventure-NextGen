@@ -5,6 +5,7 @@
  * It holds the name and description of the single steps
  * and relations to the step options
  *
+ * @property AdventureStepOption[] $stepOptions
  */
 class AdventureStep extends MetaInfo
 {
@@ -59,12 +60,6 @@ class AdventureStep extends MetaInfo
 	 * @var Adventure
 	 */
 	public $adventureParent;
-
-	/**
-	 *
-	 * @var AdventureStepOption[]
-	 */
-	public $stepOptions;
 
 	/**
 	 * @return string the associated database table name

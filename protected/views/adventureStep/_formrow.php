@@ -2,6 +2,7 @@
 /** @var CActiveForm $form */
 /** @var Adventure $parent */
 /** @var integer $index */
+/** @var AdventureStep $model */
 $inputElementPrefix = '[' . $index . ']';
 ?>
 <div class="form">
@@ -46,5 +47,28 @@ $inputElementPrefix = '[' . $index . ']';
 		<?=$form->checkBox($model,$inputElementPrefix . 'endingPoint'); ?>
 		<?=$form->error($model,'endingPoint'); ?>
 	</div>
+
+	<?php
+		$panels = array();
+
+		foreach($model->stepOptions as $next_index => $option) {
+			$option->parent = $model->id;
+			$panels[$option->name] = $this->renderPartial('/adventureStepOption/_formrow', array(
+				'model' => $option,
+				'parent' => $model,
+				'form' => $form,
+				'index' => $index * 10000 + $next_index,
+				'adventureStepList' => AdventureStep::items($parent)
+			), true);
+		}
+
+		$this->widget('zii.widgets.jui.CJuiAccordion', array(
+			'panels'=>$panels,
+			// additional javascript options for the accordion plugin
+			'options'=>array(
+				'animated'=>'bounceslide',
+			),
+		));
+	?>
 
 </div><!-- form -->
