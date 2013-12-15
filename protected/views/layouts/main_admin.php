@@ -31,7 +31,6 @@
 				array('label' => 'Home', 'url' => array('/site/index')),
 
 				array('label' => 'Adventure', 'url' => array('/Adventure/admin'), 'visible' => !Yii::app()->user->isGuest && (Yii::app()->user->getState("isAdmin") || Yii::app()->user->getState('canCreateAdventure'))),
-				array('label' => 'Adventure Step Connections', 'url' => array('/AdventureStepOption/admin'), 'visible' => !Yii::app()->user->isGuest && (Yii::app()->user->getState("isAdmin") || Yii::app()->user->getState('canCreateAdventure'))),
 				array('label' => 'Adventure Log', 'url' => array('/AdventureLog/index'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'Adventure Participation', 'url' => array('/AdventureParticipation/index'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
 				array('label' => 'User', 'url' => array('/User'), 'visible' => !Yii::app()->user->isGuest && Yii::app()->user->getState("isAdmin")),
