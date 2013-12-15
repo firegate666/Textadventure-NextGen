@@ -15,7 +15,7 @@ $this->menu = array(
 
 <h1>Update Adventure <?php echo $model->id; ?></h1>
 
-<?=$this->renderPartial('_form', array(
+<?php $this->renderPartial('_form', array(
 	'model' => $model,
 	'adventureSteps' => $adventureSteps
 )); ?>

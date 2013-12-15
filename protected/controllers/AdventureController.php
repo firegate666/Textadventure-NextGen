@@ -201,6 +201,7 @@ class AdventureController extends Controller
 	 */
 	public function actionCreate()
 	{
+		$save_and_return = Yii::app()->request->getParam('save_and_return', '') != '';
 		$model = new Adventure();
 
 		// Uncomment the following line if AJAX validation is needed
@@ -211,12 +212,16 @@ class AdventureController extends Controller
 			$model->attributes = $_POST['Adventure'];
 			if ($model->save())
 			{
+				if ($save_and_return) {
+					$this->redirect($this->createUrl('update', array('id' => $model->id)), true);
+				}
 				$this->redirect(array('admin'));
 			}
 		}
 
 		$this->render('create', array(
 			'model' => $model,
+			'adventureSteps' => array()
 		));
 	}
 
@@ -258,6 +263,12 @@ class AdventureController extends Controller
 
 					$step_model->attributes = $stepData;
 					$stepsValidated = $stepsValidated && $step_model->validate();
+
+					if ($step_model->isNewRecord) {
+						// this is a new model, give him empty options
+						$step_model->stepOptions = array(new AdventureStepOption());
+					}
+
 					$adventureSteps[$key] = $step_model;
 				}
 			}

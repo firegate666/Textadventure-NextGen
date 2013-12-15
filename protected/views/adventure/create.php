@@ -12,4 +12,7 @@ $this->menu = array(
 
 <h1>Create Adventure</h1>
 
-<?=$this->renderPartial('_form', array('model' => $model)); ?>
+<?php $this->renderPartial('_form', array(
+	'model' => $model,
+	'adventureSteps' => $adventureSteps
+)); ?>
