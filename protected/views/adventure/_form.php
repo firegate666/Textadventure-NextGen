@@ -1,5 +1,8 @@
 <?php
 /** @var Adventure $model */
+/** @var AdventureStep[] $adventureSteps */
+
+$panels = array();
 ?>
 <div class="form">
 
@@ -58,27 +61,31 @@ $form = $this->beginWidget('CActiveForm', array(
 		<?=$form->error($model, 'stopDate'); ?>
 	</div>
 
-	<?php
-		$panels = array();
+	<?php if (!empty($adventureSteps)) : ?>
 
-		foreach($adventureSteps as $index => $step) {
-			$step->adventure = $model->id;
-			$panels[$step->name] = $this->renderPartial('/adventureStep/_formrow', array(
-				'model' => $step,
-				'parent' => $model,
-				'form' => $form,
-				'index' => $index
-			), true);
-		}
+		<?php
+			foreach($adventureSteps as $index => $step) {
+				$step->adventure = $model->id;
+				$panels[$step->name] = $this->renderPartial('/adventureStep/_formrow', array(
+					'model' => $step,
+					'parent' => $model,
+					'form' => $form,
+					'index' => $index
+				), true);
+			}
+		?>
 
-		$this->widget('zii.widgets.jui.CJuiAccordion', array(
-			'panels'=>$panels,
+		<h2>Adventure Steps</h2>
+
+		<?php $this->widget('zii.widgets.jui.CJuiAccordion', array(
+			'panels' => $panels,
 			// additional javascript options for the accordion plugin
-			'options'=>array(
-				'animated'=>'bounceslide',
+			'options' => array(
+				'animated' => 'bounceslide',
 			),
-		));
-	?>
+		)); ?>
+
+	<?php endif ?>
 
 	<div class="row buttons">
 		<?=CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
