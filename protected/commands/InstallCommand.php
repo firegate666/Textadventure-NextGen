@@ -221,10 +221,11 @@ class InstallCommand extends AbstractCommand
 	 * @param string $path_to_seawars
 	 * @return void
 	 */
-	public function actionCreateWorld($world_name, $db_host, $db_name,
-		$imagePath = 'protected/vendors/seawars-server/resources/example.bmp',
-		$path_to_java = null, $path_to_seawars = null)
-	{
+	public function actionCreateWorld($world_name, $db_host, $db_name, $imagePath = 'DEFAULT', $path_to_java = null, $path_to_seawars = null) {
+		if ($imagePath === 'DEFAULT') {
+			$imagePath = Yii::app()->getBasePath() . '/../vendor/firegate666/SeaWars2---Java-Server---Tools/resources/example.bmp';
+		}
+
 		$world = new World();
 		$world->name = $world_name;
 		$world->save();
@@ -255,7 +256,7 @@ class InstallCommand extends AbstractCommand
 
 		if (empty($path_to_seawars))
 		{
-			$path_to_seawars = realpath(__DIR__ . '/../vendors/seawars-server/dist/SeaWars-Server.jar');
+			$path_to_seawars = realpath(Yii::app()->getBasePath() . '/../vendor/firegate666/SeaWars2---Java-Server---Tools/dist/SeaWars-Server.jar');
 			if (empty($path_to_seawars) || !file_exists($path_to_seawars))
 			{
 				$this->printf('No path to sea wars server found, supply as parameter');
