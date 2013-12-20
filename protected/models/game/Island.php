@@ -234,7 +234,6 @@ class Island extends MetaInfo
 		$query->mergeWith($paging);
 		$this->setDbCriteria($query);
 
-		Yii::log(print_r($this->getDbCriteria(), true), CLogger::LEVEL_TRACE);
 
 		$island_list->result = $this->findAll();
 
