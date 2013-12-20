@@ -1,12 +1,25 @@
 {
 	"name": "TextadventureNextGEN",
 	"require": {
-		"yiisoft/yii": ">=1.1.14"
+		"yiisoft/yii": ">=1.1.14",
+		"firegate666/SeaWars2---Java-Server---Tools": "1.0.0"
 	},
 	"repositories": [
 		{
 			"type": "vcs",
 			"url": "https://github.com/yiisoft/yii.git"
+		},
+		{
+			"type": "package",
+			"package": {
+				"name": "firegate666/SeaWars2---Java-Server---Tools",
+				"version": "1.0.0",
+				"source": {
+					"url": "https://github.com/firegate666/SeaWars2---Java-Server---Tools",
+					"type": "git",
+					"reference": "master"
+				}
+			}
 		}
 	]
 }
