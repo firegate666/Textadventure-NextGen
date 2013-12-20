@@ -223,7 +223,7 @@ class Island extends MetaInfo
 		$this->setDbCriteria($query);
 
 		$island_list = new stdClass();
-		$island_list->count = count($this->findAll());
+		$island_list->count = $this->count();
 
 		$paging = new CDbCriteria();
 		if ($limit !== null || $offset !== null) {
@@ -258,7 +258,7 @@ class Island extends MetaInfo
 		$this->setDbCriteria($query);
 
 		$island_list = new stdClass();
-		$island_list->count = count($this->findAll());
+		$island_list->count = $this->count();
 
 		if ($limit !== null || $offset !== null) {
 			$paging = new CDbCriteria();
