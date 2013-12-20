@@ -89,7 +89,7 @@ class World extends MetaInfo
 	 */
 	public function playerIsOnWorld($user_id) {
 		$list = Island::model()->getPlayerIslands($this->id, $user_id);
-		return count($list) > 0;
+		return $list->count;
 	}
 
 	/**

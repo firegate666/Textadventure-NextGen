@@ -171,16 +171,31 @@ class Island extends MetaInfo
 		}
 	}
 
+	/**
+	 * @param integer $world_id
+	 * @return CDbCriteria
+	 */
 	protected function getWorldQuery($world_id) {
-		return $this->with('archipelago')
-				->with('archipelago.mapSection')
-				->with(
+		$this->with(array(
+			'archipelago' => array(
+				'joinType'=>'INNER JOIN',
+			)
+		));
+		$this->with(array(
+			'archipelago.mapSection' => array(
+				'joinType'=>'INNER JOIN',
+			)
+		));
+		$this->with(
 					array(
 						'archipelago.mapSection.world' => array(
 							'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($world_id),
+							'joinType'=>'INNER JOIN',
 						)
 					)
 				);
+
+		return $this->getDbCriteria();
 	}
 
 	public function getInhabitedIslands($world_id) {
@@ -188,9 +203,11 @@ class Island extends MetaInfo
 
 		$criteria = new CDbCriteria();
 		$criteria->addNotInCondition('ownerId', array(null));
-		$query->setDbCriteria($criteria);
+		$query->mergeWith($criteria);
 
-		return $query->findAll();
+		$this->setDbCriteria($query);
+
+		return $this->findAll();
 	}
 
 	/**
@@ -203,8 +220,10 @@ class Island extends MetaInfo
 	{
 		$query = $this->getWorldQuery($world_id);
 
+		$this->setDbCriteria($query);
+
 		$island_list = new stdClass();
-		$island_list->count = $query->count();
+		$island_list->count = count($this->findAll());
 
 		$paging = new CDbCriteria();
 		if ($limit !== null || $offset !== null) {
@@ -212,9 +231,12 @@ class Island extends MetaInfo
 			$paging->offset = $offset;
 		}
 
-		$query->setDbCriteria($paging);
+		$query->mergeWith($paging);
+		$this->setDbCriteria($query);
 
-		$island_list->result = $query->findAll();
+		Yii::log(print_r($this->getDbCriteria(), true), CLogger::LEVEL_TRACE);
+
+		$island_list->result = $this->findAll();
 
 		return $island_list;
 	}
@@ -231,22 +253,23 @@ class Island extends MetaInfo
 	public function getPlayerIslands($world_id, $user_id, $limit = null, $offset = null)
 	{
 		$query = $this->getWorldQuery($world_id);
+		$query->addCondition('t.ownerId = ' . $user_id);
 
-		$paging = new CDbCriteria();
-		$paging->compare('ownerId', $user_id);
-		$query->setDbCriteria($paging);
+		$this->setDbCriteria($query);
 
 		$island_list = new stdClass();
-		$island_list->count = $query->count();
+		$island_list->count = count($this->findAll());
 
 		if ($limit !== null || $offset !== null) {
+			$paging = new CDbCriteria();
 			$paging->limit = $limit;
 			$paging->offset = $offset;
+			$query->mergeWith($paging);
 		}
 
-		$query->setDbCriteria($paging);
+		$this->setDbCriteria($query);
 
-		$island_list->result = $query->findAll();
+		$island_list->result = $this->findAll();
 
 		return $island_list;
 	}
