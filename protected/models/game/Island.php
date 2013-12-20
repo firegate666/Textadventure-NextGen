@@ -225,15 +225,13 @@ class Island extends MetaInfo
 		$island_list = new stdClass();
 		$island_list->count = $this->count();
 
-		$paging = new CDbCriteria();
 		if ($limit !== null || $offset !== null) {
+			$paging = new CDbCriteria();
 			$paging->limit = $limit;
 			$paging->offset = $offset;
+			$query->mergeWith($paging);
+			$this->setDbCriteria($query);
 		}
-
-		$query->mergeWith($paging);
-		$this->setDbCriteria($query);
-
 
 		$island_list->result = $this->findAll();
 
