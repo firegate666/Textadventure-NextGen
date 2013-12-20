@@ -1,5 +1,28 @@
 {
-	"name": "TextadventureNextGEN",
+	"name": "firegate666/TextadventureNextGEN",
+	"description": "Create a next generation browser game textadventure manager where you can build and player adventures",
+	"type": "project",
+	"keywords": ["game"],
+
+	"license": "Apache-2.0",
+
+	"authors": [
+		{
+			"name": "Marco Behnke",
+			"email": "nmarco@behnke.biz",
+			"homepage": "http://www.behnke.biz",
+			"role": "Developer"
+		}
+	],
+
+	"homepage": "https://github.com/firegate666/Textadventure-NextGen",
+	"support": {
+		"email": "marco@behnke.biz",
+		"issues": "https://github.com/firegate666/Textadventure-NextGen/issues",
+		"wiki": "https://github.com/firegate666/Textadventure-NextGen/wiki",
+		"source": "https://github.com/firegate666/Textadventure-NextGen/releases"
+	},
+
 	"require": {
 		"yiisoft/yii": ">=1.1.14",
 		"firegate666/SeaWars2---Java-Server---Tools": "1.0.0"
