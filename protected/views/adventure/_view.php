@@ -3,7 +3,7 @@
 	<div class="description">
 		<h2><?=CHtml::encode($data->name);?></h2>
 		<blockquote>
-			<?=$this->widget('CMarkdown')->transform($data->description)?>
+			<?= $data->description ?>
 		</blockquote>
 	</div>
 

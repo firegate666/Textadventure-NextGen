@@ -24,12 +24,29 @@ $panels = array();
 
 	<div class="row">
 		<?=$form->labelEx($model,'description'); ?>
-		<?=$form->textArea($model,$inputElementPrefix . 'description',array('rows'=>6, 'cols'=>50)); ?>
+		<?php
+		$this->widget('KRichTextEditor', array(
+			'model' => $model,
+			'value' => $model->description,
+			'htmlOptions' => array(
+				'rows' => 10,
+				'style' => 'width: 100%'
+			),
+			'attribute' => $inputElementPrefix . 'description',
+			'options' => array(
+				'theme' => 'advanced',
+				'theme_advanced_toolbar_location' => 'top',
+				'theme_advanced_toolbar_align' => 'left',
+				'theme_advanced_buttons1' => "formatselect,bold,italic,underline,strikethrough",
+				'theme_advanced_buttons2' => "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,cleanup,code,|,forecolor,backcolor",
+				'theme_advanced_buttons3' => '',
+			),
+		));
+		?>
 		<?=$form->error($model,'description'); ?>
 		<div class="small">
 			<i>(use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>-Syntax)</i>
 		</div>
-
 	</div>
 
 	<div class="row">

@@ -26,7 +26,11 @@ blockquote {
 	font: 18px/22px 'KingthingsPetrockLightRegular', Arial, sans-serif;
 }
 
-blockquote b,blockquote strong {
+b, strong {
+	font-weight: bold;
+}
+
+blockquote b, blockquote strong {
 	font: 18px/22px 'KingthingsPetrockRegular', Arial, sans-serif;
 }
 

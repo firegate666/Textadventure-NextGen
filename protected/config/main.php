@@ -17,6 +17,7 @@ return array(
 		'application.models.*',
 		'application.models.game.*',
 		'application.components.*',
+		'application.extensions.*',
 	),
 
 	'modules' => array(

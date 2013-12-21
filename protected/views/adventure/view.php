@@ -16,13 +16,13 @@ $this->menu = array(
 <h1><?=$model->name?></h1>
 
 <div class="adventure-description">
-	<?=$this->widget('CMarkdown')->transform($model->description)?>
+	<?= $model->description ?>
 </div>
 
 <h2><?=$stepModel->name?></h2>
 
 <div class="adventure-step-description">
-	<?=$this->widget('CMarkdown')->transform($stepModel->description)?>
+	<?= $stepModel->description ?>
 </div>
 
 <?php if ($stepModel->endingPoint): ?>
