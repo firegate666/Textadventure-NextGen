@@ -20,7 +20,7 @@ Install:
 	composer.phar install
 	composer.phar update
 
-2. Setup the config files
+2. Setup the config files and adjust to your needs
 
 	./protected/yiic install setupConfig
 
@@ -28,15 +28,24 @@ Install:
 
 	sudo ./protected/yiic install filePermissions
 
-4. Create your first world
+4. Create folders
+
+	mkdir -m=777 ./assets
+	mkdir -m=777 ./protected/runtime
+
+5. Install database
+
+	./protected/yiic migrate
+
+6. Create your first world
 
 	./protected/yiic install createWorld
 
-5. Setup cronjob
+7. Setup cronjob
 
 	* * * * * /path/to/php /path/to/protected/yiic.php gametasks updateIslands --world_id=1
 
-5. There are two default users set up which you can use for login
+8. There are two default users set up which you can use for login
 
 	admin:admin
 	demo:demo
