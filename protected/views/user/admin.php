@@ -44,6 +44,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'filter' => $model,
 	'columns' => array(
 		'id',
+		'lastLogin',
 		array(            // display 'author.username' using an expression
 			'name' => 'createdBy',
 			'value' => '$data->getCreateUserName()',

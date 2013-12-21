@@ -41,6 +41,8 @@ class UserIdentity extends CUserIdentity
 		}
 		else
 		{
+			$user->updateLastLogin();
+
 			$this->_id = $user->id;
 			$this->username = $user->username;
 			$this->errorCode = self::ERROR_NONE;

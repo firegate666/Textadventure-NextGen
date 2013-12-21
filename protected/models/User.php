@@ -7,6 +7,7 @@
  * @property string $password
  * @property string $email
  * @property integer $groupId
+ * @property integer $lastLogin
  *
  * @property UserGroup $group
  *
@@ -78,7 +79,7 @@ class User extends MetaInfo
 			array('verifyCode', 'captcha', 'allowEmpty' => !CCaptcha::checkRequirements(), 'on' => 'register'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, username, password, email, groupId', 'safe', 'on' => 'search'),
+			array('id, username, password, email, groupId, lastLogin', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -107,6 +108,7 @@ class User extends MetaInfo
 			'salt' => 'Salt',
 			'email' => 'Email',
 			'groupId' => 'Group',
+			'lastLogin' => 'Last login'
 		);
 	}
 
@@ -121,6 +123,7 @@ class User extends MetaInfo
 		$criteria->compare('password', $this->password, true);
 		$criteria->compare('email', $this->email, true);
 		$criteria->compare('groupId', $this->groupId);
+		$criteria->compare('lastLogin', $this->lastLogin, true);
 		return $criteria;
 	}
 
@@ -173,6 +176,15 @@ class User extends MetaInfo
 		return uniqid('', true);
 	}
 
+	/**
+	 * update last login timestamp and save model
+	 *
+	 * @return void
+	 */
+	public function updateLastLogin() {
+		$this->lastLogin = date('Y-m-d H:i:s');
+		$this->save();
+	}
 
 	/**
 	 * (non-PHPdoc)
