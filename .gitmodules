@@ -1,6 +1,0 @@
-[submodule "protected/vendors/csslint"]
-	path = protected/vendors/csslint
-	url = https://github.com/stubbornella/csslint.git
-[submodule "public/vendors/dracula"]
-	path = public/vendors/dracula
-	url = https://github.com/strathausen/dracula.git

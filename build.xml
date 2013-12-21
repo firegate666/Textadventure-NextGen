@@ -4,7 +4,7 @@
 
 	<taskdef name="jslint"
            classname="com.googlecode.jslint4java.ant.JSLintTask"
-           classpath="protected/vendors/jslint/jslint4java-2.0.2.jar" />
+           classpath="vendor/jslint/jslint4java-2.0.2.jar" />
 
 	<!-- full build -->
 	<target name="build" depends="prepare,yiimigrate,lint,jslint,csslint-ci,phploc,pdepend,phpcpd,phpunit,phpdox" />
@@ -84,15 +84,15 @@
 			<formatter type="junit" destfile="build/jslint" />
 			<formatter type="xml" destfile="build/jslint.xml" />
 			<formatter type="checkstyle" destfile="build/jslint-checkstyle.xml" />
-			<fileset dir="${basedir}" includes="**/*.js" excludes="assets/**,protected/vendors/**,public/vendors/**" />
+			<fileset dir="${basedir}" includes="**/*.js" excludes="assets/**,public/vendors/**" />
 		</jslint>
 	</target>
 
 	<target name="csslint">
 		<apply executable="java" failonerror="true">
 			<arg value="-jar" />
-			<arg path="protected/vendors/rhino/js.jar" />
-			<arg path="protected/vendors/csslint/release/csslint-rhino.js" />
+			<arg path="vendor/rhino/js.jar" />
+			<arg path="vendor/stubbornella/csslint/release/csslint-rhino.js" />
 			<arg value="--format=compact" />
 			<arg value="--warnings=empty-rules,import,important,known-properties" />
 
@@ -109,8 +109,8 @@
 	<target name="csslint-ci">
 		<apply executable="java" failonerror="true" output="build/logs/csslint-checkstyle.xml">
 			<arg value="-jar" />
-			<arg path="protected/vendors/rhino/js.jar" />
-			<arg path="protected/vendors/csslint/release/csslint-rhino.js" />
+			<arg path="vendor/rhino/js.jar" />
+			<arg path="vendor/stubbornella/csslint/release/csslint-rhino.js" />
 			<arg value="--format=checkstyle-xml" />
 			<arg value="--warnings=empty-rules,import,important,known-properties" />
 
@@ -126,8 +126,6 @@
 
 	<target name="phploc" description="Measure project size using PHPLOC">
 		<exec executable="phploc">
-			<arg value="--exclude" />
-			<arg value="${basedir}/protected/vendors" />
 			<arg value="--log-csv" />
 			<arg value="${basedir}/build/logs/phploc.csv" />
 			<arg path="${basedir}/protected" />
@@ -136,7 +134,6 @@
 
 	<target name="pdepend" description="Calculate software metrics using PHP_Depend">
 		<exec executable="pdepend">
-			<arg value="--ignore=${basedir}/protected/vendors" />
 			<arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
 			<arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
 			<arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
@@ -154,7 +151,6 @@
 
 	<target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
 		<exec executable="phpmd">
-			<arg value="--exclude=${basedir}/protected/vendors" />
 			<arg path="${basedir}/protected" />
 			<arg value="xml" />
 			<arg value="${basedir}/build/phpmd.xml" />
@@ -181,8 +177,6 @@
 
 	<target name="phpcpd" description="Find duplicate code using PHPCPD">
 		<exec executable="phpcpd">
-			<arg value="--exclude" />
-			<arg value="${basedir}/protected/vendors" />
 			<arg value="--log-pmd" />
 			<arg value="${basedir}/build/logs/pmd-cpd.xml" />
 			<arg path="${basedir}" />
@@ -214,7 +208,6 @@
 
 	<target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
 		<exec executable="phpcb">
-			<arg value="--exclude=protected/vendors" />
 			<arg value="--log" />
 			<arg path="${basedir}/build/logs" />
 			<arg value="--source" />
