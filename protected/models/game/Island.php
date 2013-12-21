@@ -172,6 +172,8 @@ class Island extends MetaInfo
 	}
 
 	/**
+	 * build up criteria to get all islands from one world
+	 *
 	 * @param integer $world_id
 	 * @return CDbCriteria
 	 */
@@ -179,21 +181,22 @@ class Island extends MetaInfo
 		$this->with(array(
 			'archipelago' => array(
 				'joinType'=>'INNER JOIN',
+				'together' => true
 			)
-		));
-		$this->with(array(
-			'archipelago.mapSection' => array(
-				'joinType'=>'INNER JOIN',
-			)
-		));
-		$this->with(
-					array(
-						'archipelago.mapSection.world' => array(
-							'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($world_id),
-							'joinType'=>'INNER JOIN',
+			))->with(array(
+				'archipelago.mapSection' => array(
+					'joinType'=>'INNER JOIN',
+					'together' => true
+				)
+			))->with(
+						array(
+							'archipelago.mapSection.world' => array(
+								'condition' => MapSection::model()->quotedCol('worldId') . '=' . intval($world_id),
+								'joinType'=>'INNER JOIN',
+								'together' => true
+							)
 						)
-					)
-				);
+					);
 
 		return $this->getDbCriteria();
 	}
