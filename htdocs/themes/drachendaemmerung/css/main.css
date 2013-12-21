@@ -75,6 +75,12 @@ h5 {
 	letter-spacing: 0;
 }
 
+input[type="text"], textarea {
+	border: 1px solid #aaa;
+	padding: 5px;
+	border-radius: 5px;
+}
+
 div#page {
 	width: 95%;
 	margin: 10px auto 0;
@@ -84,8 +90,7 @@ div#page {
 
 div#logostrip {
 	background-color: #DBCEBB;
-	background-image:
-		url("/themes/drachendaemmerung/images/headbanner_1400x140_dd2.jpg");
+	background-image: url("/themes/drachendaemmerung/images/headbanner_1400x140_dd2.jpg");
 	height: 110px;
 	border: 1px solid #333;
 	padding: 12px;
@@ -378,4 +383,15 @@ div.errorSummary p,div.errorSummary h4,div.errorSummary ul {
 
 input[type="radio"],input[type="checkbox"] {
 	width: auto !important;
+}
+
+.stepoption {
+	padding: 5px;
+}
+
+.infoblock {
+	border: 1px solid #666;
+	padding: 5px;
+	background-color: #ccc;
+	border-radius: 5px;
 }
