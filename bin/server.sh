@@ -1,3 +1,3 @@
 #!/bin/bash
 
-php -S localhost:$1
+php -S localhost:$1 -t ./htdocs
