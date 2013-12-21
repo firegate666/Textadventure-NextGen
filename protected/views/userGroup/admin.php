@@ -5,7 +5,6 @@ $this->breadcrumbs = array(
 );
 
 $this->menu=array(
-	array('label' => 'List UserGroup', 'url' => array('index')),
 	array('label' => 'Create UserGroup', 'url' => array('create')),
 );
 

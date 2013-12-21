@@ -5,7 +5,6 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label' => 'List Adventure', 'url' => array('index')),
 	array('label' => 'Create Adventure', 'url' => array('create')),
 );
 
