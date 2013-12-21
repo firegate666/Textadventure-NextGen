@@ -11,3 +11,32 @@ Bug Reports:
 Authors:
 ========
 	Marco Behnke <marco@behnke.biz>
+
+Install:
+========
+
+1. Checkout the project from github and execute composer the update the external dependencies
+
+	composer.phar install
+	composer.phar update
+
+2. Setup the config files
+
+	./protected/yiic install setupConfig
+
+3. Fix file permissions
+
+	sudo ./protected/yiic install filePermissions
+
+4. Create your first world
+
+	./protected/yiic install createWorld
+
+5. Setup cronjob
+
+	* * * * * /path/to/php /path/to/protected/yiic.php gametasks updateIslands --world_id=1
+
+5. There are two default users set up which you can use for login
+
+	admin:admin
+	demo:demo
