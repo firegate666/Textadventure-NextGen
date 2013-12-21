@@ -12,13 +12,13 @@
 	<link rel="shortcut icon" href="/themes/drachendaemmerung/images/favicon.ico">
 
 	<!-- special fonts -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/fontfaces.css" />
+	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/fontfaces.css" />
 
 	<!-- styles -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/main.css" />
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?> | game.drachendaemmerung.de</title>
+	<title><?= CHtml::encode($this->pageTitle); ?> | game.drachendaemmerung.de</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 
 	<div id="header">
 		<div id="logostrip">
-			<img class="logo" src="/themes/drachendaemmerung/images/dragon_75x.png" alt="<?php echo CHtml::encode(Yii::app()->name); ?>"/>
+			<img class="logo" src="/themes/drachendaemmerung/images/dragon_75x.png" alt="<?= CHtml::encode(Yii::app()->name); ?>"/>
 			<span class="sticky"><strong>A fantastic and high-fantasy role-playing game world.</strong></span>
 			<div class="langchooser" style="float: right">
 				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'de')))?>"><img src="/themes/drachendaemmerung/images/de-flag.jpg" alt="DE" /></a>
@@ -83,14 +83,14 @@
 			)); ?><!-- breadcrumbs -->
 		<?php endif?>
 
-		<?php echo $content; ?>
+		<?= $content; ?>
 
 		<div class="clear"></div>
 	</div>
 	<div id="footer">
-		Copyright 2010 - <?php echo date('Y'); ?> by <a href="http://www.drachendaemmerung.de/">drachendaemmerung.de</a><br/>
+		Copyright 2010 - <?= date('Y'); ?> by <a href="http://www.drachendaemmerung.de/">drachendaemmerung.de</a><br/>
 		All Rights Reserved. Report problems at <a href="https://github.com/firegate666/Textadventure-NextGen/issues?state=open" target="_blank">github</a>.<br/>
-		Game engine version: <?php $this->renderDynamic('getVersionInfo');?> | <?php echo Yii::powered(); ?><br />
+		Game engine version: <?php $this->renderDynamic('getVersionInfo');?> | <?= Yii::powered(); ?><br />
 
 	</div><!-- footer -->
 

@@ -7,40 +7,40 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?= $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'userId'); ?>
-		<?php echo $form->textField($model,'userId'); ?>
-		<?php echo $form->error($model,'userId'); ?>
+		<?= $form->labelEx($model,'userId'); ?>
+		<?= $form->textField($model,'userId'); ?>
+		<?= $form->error($model,'userId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'techId'); ?>
-		<?php echo $form->textField($model,'techId'); ?>
-		<?php echo $form->error($model,'techId'); ?>
+		<?= $form->labelEx($model,'techId'); ?>
+		<?= $form->textField($model,'techId'); ?>
+		<?= $form->error($model,'techId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'start'); ?>
-		<?php echo $form->textField($model,'start'); ?>
-		<?php echo $form->error($model,'start'); ?>
+		<?= $form->labelEx($model,'start'); ?>
+		<?= $form->textField($model,'start'); ?>
+		<?= $form->error($model,'start'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'end'); ?>
-		<?php echo $form->textField($model,'end'); ?>
-		<?php echo $form->error($model,'end'); ?>
+		<?= $form->labelEx($model,'end'); ?>
+		<?= $form->textField($model,'end'); ?>
+		<?= $form->error($model,'end'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'finished'); ?>
-		<?php echo $form->textField($model,'finished'); ?>
-		<?php echo $form->error($model,'finished'); ?>
+		<?= $form->labelEx($model,'finished'); ?>
+		<?= $form->textField($model,'finished'); ?>
+		<?= $form->error($model,'finished'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?= CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

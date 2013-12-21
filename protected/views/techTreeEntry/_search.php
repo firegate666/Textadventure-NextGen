@@ -6,57 +6,57 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
+		<?= $form->label($model,'id'); ?>
+		<?= $form->textField($model,'id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'createdAt'); ?>
-		<?php echo $form->textField($model,'createdAt'); ?>
+		<?= $form->label($model,'createdAt'); ?>
+		<?= $form->textField($model,'createdAt'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'changedAt'); ?>
-		<?php echo $form->textField($model,'changedAt'); ?>
+		<?= $form->label($model,'changedAt'); ?>
+		<?= $form->textField($model,'changedAt'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'createdBy'); ?>
-		<?php echo $form->textField($model,'createdBy'); ?>
+		<?= $form->label($model,'createdBy'); ?>
+		<?= $form->textField($model,'createdBy'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'changedBy'); ?>
-		<?php echo $form->textField($model,'changedBy'); ?>
+		<?= $form->label($model,'changedBy'); ?>
+		<?= $form->textField($model,'changedBy'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
+		<?= $form->label($model,'name'); ?>
+		<?= $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'description'); ?>
-		<?php echo $form->textField($model,'description',array('size'=>60,'maxlength'=>255)); ?>
+		<?= $form->label($model,'description'); ?>
+		<?= $form->textField($model,'description',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'costs'); ?>
-		<?php echo $form->textField($model,'costs'); ?>
+		<?= $form->label($model,'costs'); ?>
+		<?= $form->textField($model,'costs'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'categoryId'); ?>
-		<?php echo $form->textField($model,'categoryId'); ?>
+		<?= $form->label($model,'categoryId'); ?>
+		<?= $form->textField($model,'categoryId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'typeId'); ?>
-		<?php echo $form->textField($model,'typeId'); ?>
+		<?= $form->label($model,'typeId'); ?>
+		<?= $form->textField($model,'typeId'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?= CHtml::submitButton('Search'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

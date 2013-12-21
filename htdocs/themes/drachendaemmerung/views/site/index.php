@@ -1,6 +1,6 @@
 <?php $this->pageTitle = Yii::app()->name; ?>
 
-<h1>Willkommen bei <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<h1>Willkommen bei <i><?= CHtml::encode(Yii::app()->name); ?></i></h1>
 
 <blockquote><strong>Heute ist</strong> <?php $this->renderDynamic('nowDate');?></blockquote>
 

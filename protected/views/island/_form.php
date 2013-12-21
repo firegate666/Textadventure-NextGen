@@ -7,52 +7,52 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?= $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<?= $form->labelEx($model,'name'); ?>
+		<?= $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
+		<?= $form->error($model,'name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'size'); ?>
-		<?php echo $form->textField($model,'size'); ?>
-		<?php echo $form->error($model,'size'); ?>
+		<?= $form->labelEx($model,'size'); ?>
+		<?= $form->textField($model,'size'); ?>
+		<?= $form->error($model,'size'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'xPos'); ?>
-		<?php echo $form->textField($model,'xPos'); ?>
-		<?php echo $form->error($model,'xPos'); ?>
+		<?= $form->labelEx($model,'xPos'); ?>
+		<?= $form->textField($model,'xPos'); ?>
+		<?= $form->error($model,'xPos'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'yPos'); ?>
-		<?php echo $form->textField($model,'yPos'); ?>
-		<?php echo $form->error($model,'yPos'); ?>
+		<?= $form->labelEx($model,'yPos'); ?>
+		<?= $form->textField($model,'yPos'); ?>
+		<?= $form->error($model,'yPos'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'archipelagoId'); ?>
-		<?php echo $form->textField($model,'archipelagoId'); ?>
-		<?php echo $form->error($model,'archipelagoId'); ?>
+		<?= $form->labelEx($model,'archipelagoId'); ?>
+		<?= $form->textField($model,'archipelagoId'); ?>
+		<?= $form->error($model,'archipelagoId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'ownerId'); ?>
-		<?php echo $form->textField($model,'ownerId'); ?>
-		<?php echo $form->error($model,'ownerId'); ?>
+		<?= $form->labelEx($model,'ownerId'); ?>
+		<?= $form->textField($model,'ownerId'); ?>
+		<?= $form->error($model,'ownerId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'storageId'); ?>
-		<?php echo $form->textField($model,'storageId'); ?>
-		<?php echo $form->error($model,'storageId'); ?>
+		<?= $form->labelEx($model,'storageId'); ?>
+		<?= $form->textField($model,'storageId'); ?>
+		<?= $form->error($model,'storageId'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?= CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -7,34 +7,34 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?= $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'islandId'); ?>
-		<?php echo $form->textField($model,'islandId'); ?>
-		<?php echo $form->error($model,'islandId'); ?>
+		<?= $form->labelEx($model,'islandId'); ?>
+		<?= $form->textField($model,'islandId'); ?>
+		<?= $form->error($model,'islandId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'resourceId'); ?>
-		<?php echo $form->textField($model,'resourceId'); ?>
-		<?php echo $form->error($model,'resourceId'); ?>
+		<?= $form->labelEx($model,'resourceId'); ?>
+		<?= $form->textField($model,'resourceId'); ?>
+		<?= $form->error($model,'resourceId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'growthFactor'); ?>
-		<?php echo $form->textField($model,'growthFactor'); ?>
-		<?php echo $form->error($model,'growthFactor'); ?>
+		<?= $form->labelEx($model,'growthFactor'); ?>
+		<?= $form->textField($model,'growthFactor'); ?>
+		<?= $form->error($model,'growthFactor'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'productionValue'); ?>
-		<?php echo $form->textField($model,'productionValue'); ?>
-		<?php echo $form->error($model,'productionValue'); ?>
+		<?= $form->labelEx($model,'productionValue'); ?>
+		<?= $form->textField($model,'productionValue'); ?>
+		<?= $form->error($model,'productionValue'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?= CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

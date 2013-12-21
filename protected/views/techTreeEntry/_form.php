@@ -7,40 +7,40 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?= $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<?= $form->labelEx($model,'name'); ?>
+		<?= $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
+		<?= $form->error($model,'name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textField($model,'description',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'description'); ?>
+		<?= $form->labelEx($model,'description'); ?>
+		<?= $form->textField($model,'description',array('size'=>60,'maxlength'=>255)); ?>
+		<?= $form->error($model,'description'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'costs'); ?>
-		<?php echo $form->textField($model,'costs'); ?>
-		<?php echo $form->error($model,'costs'); ?>
+		<?= $form->labelEx($model,'costs'); ?>
+		<?= $form->textField($model,'costs'); ?>
+		<?= $form->error($model,'costs'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'categoryId'); ?>
-		<?php echo $form->textField($model,'categoryId'); ?>
-		<?php echo $form->error($model,'categoryId'); ?>
+		<?= $form->labelEx($model,'categoryId'); ?>
+		<?= $form->textField($model,'categoryId'); ?>
+		<?= $form->error($model,'categoryId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'typeId'); ?>
-		<?php echo $form->textField($model,'typeId'); ?>
-		<?php echo $form->error($model,'typeId'); ?>
+		<?= $form->labelEx($model,'typeId'); ?>
+		<?= $form->textField($model,'typeId'); ?>
+		<?= $form->error($model,'typeId'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?= CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

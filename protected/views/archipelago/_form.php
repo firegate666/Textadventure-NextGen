@@ -7,40 +7,40 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?= $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<?= $form->labelEx($model,'name'); ?>
+		<?= $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
+		<?= $form->error($model,'name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'xPos'); ?>
-		<?php echo $form->textField($model,'xPos'); ?>
-		<?php echo $form->error($model,'xPos'); ?>
+		<?= $form->labelEx($model,'xPos'); ?>
+		<?= $form->textField($model,'xPos'); ?>
+		<?= $form->error($model,'xPos'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'yPos'); ?>
-		<?php echo $form->textField($model,'yPos'); ?>
-		<?php echo $form->error($model,'yPos'); ?>
+		<?= $form->labelEx($model,'yPos'); ?>
+		<?= $form->textField($model,'yPos'); ?>
+		<?= $form->error($model,'yPos'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'magnitude'); ?>
-		<?php echo $form->textField($model,'magnitude'); ?>
-		<?php echo $form->error($model,'magnitude'); ?>
+		<?= $form->labelEx($model,'magnitude'); ?>
+		<?= $form->textField($model,'magnitude'); ?>
+		<?= $form->error($model,'magnitude'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'mapSectionId'); ?>
-		<?php echo $form->textField($model,'mapSectionId'); ?>
-		<?php echo $form->error($model,'mapSectionId'); ?>
+		<?= $form->labelEx($model,'mapSectionId'); ?>
+		<?= $form->textField($model,'mapSectionId'); ?>
+		<?= $form->error($model,'mapSectionId'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?= CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

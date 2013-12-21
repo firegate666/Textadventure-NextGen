@@ -1,44 +1,44 @@
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?= CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('createdAt')); ?>:</b>
-	<?php echo CHtml::encode($data->createdAt); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('createdAt')); ?>:</b>
+	<?= CHtml::encode($data->createdAt); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('changedAt')); ?>:</b>
-	<?php echo CHtml::encode($data->changedAt); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('changedAt')); ?>:</b>
+	<?= CHtml::encode($data->changedAt); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('createdBy')); ?>:</b>
-	<?php echo CHtml::encode($data->createdBy); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('createdBy')); ?>:</b>
+	<?= CHtml::encode($data->createdBy); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('changedBy')); ?>:</b>
-	<?php echo CHtml::encode($data->changedBy); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('changedBy')); ?>:</b>
+	<?= CHtml::encode($data->changedBy); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
+	<?= CHtml::encode($data->name); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
-	<?php echo CHtml::encode($data->description); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
+	<?= CHtml::encode($data->description); ?>
 	<br />
 
 	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('costs')); ?>:</b>
-	<?php echo CHtml::encode($data->costs); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('costs')); ?>:</b>
+	<?= CHtml::encode($data->costs); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('categoryId')); ?>:</b>
-	<?php echo CHtml::encode($data->categoryId); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('categoryId')); ?>:</b>
+	<?= CHtml::encode($data->categoryId); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('typeId')); ?>:</b>
-	<?php echo CHtml::encode($data->typeId); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('typeId')); ?>:</b>
+	<?= CHtml::encode($data->typeId); ?>
 	<br />
 
 	*/ ?>

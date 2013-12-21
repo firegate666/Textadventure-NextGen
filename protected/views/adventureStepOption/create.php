@@ -12,4 +12,4 @@ $this->menu=array(
 
 <h1>Create AdventureStepOption</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model,'adventureStepList'=>$adventureStepList)); ?>
+<?= $this->renderPartial('_form', array('model'=>$model,'adventureStepList'=>$adventureStepList)); ?>

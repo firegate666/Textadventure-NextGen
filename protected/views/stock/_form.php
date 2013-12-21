@@ -7,22 +7,22 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?= $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'storageId'); ?>
-		<?php echo $form->textField($model,'storageId'); ?>
-		<?php echo $form->error($model,'storageId'); ?>
+		<?= $form->labelEx($model,'storageId'); ?>
+		<?= $form->textField($model,'storageId'); ?>
+		<?= $form->error($model,'storageId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'resourceId'); ?>
-		<?php echo $form->textField($model,'resourceId'); ?>
-		<?php echo $form->error($model,'resourceId'); ?>
+		<?= $form->labelEx($model,'resourceId'); ?>
+		<?= $form->textField($model,'resourceId'); ?>
+		<?= $form->error($model,'resourceId'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?= CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

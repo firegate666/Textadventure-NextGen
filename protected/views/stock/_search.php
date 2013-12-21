@@ -6,42 +6,42 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
+		<?= $form->label($model,'id'); ?>
+		<?= $form->textField($model,'id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'createdAt'); ?>
-		<?php echo $form->textField($model,'createdAt'); ?>
+		<?= $form->label($model,'createdAt'); ?>
+		<?= $form->textField($model,'createdAt'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'changedAt'); ?>
-		<?php echo $form->textField($model,'changedAt'); ?>
+		<?= $form->label($model,'changedAt'); ?>
+		<?= $form->textField($model,'changedAt'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'createdBy'); ?>
-		<?php echo $form->textField($model,'createdBy'); ?>
+		<?= $form->label($model,'createdBy'); ?>
+		<?= $form->textField($model,'createdBy'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'changedBy'); ?>
-		<?php echo $form->textField($model,'changedBy'); ?>
+		<?= $form->label($model,'changedBy'); ?>
+		<?= $form->textField($model,'changedBy'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'storageId'); ?>
-		<?php echo $form->textField($model,'storageId'); ?>
+		<?= $form->label($model,'storageId'); ?>
+		<?= $form->textField($model,'storageId'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'resourceId'); ?>
-		<?php echo $form->textField($model,'resourceId'); ?>
+		<?= $form->label($model,'resourceId'); ?>
+		<?= $form->textField($model,'resourceId'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?= CHtml::submitButton('Search'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

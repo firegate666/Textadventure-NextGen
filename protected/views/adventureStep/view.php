@@ -13,7 +13,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View AdventureStep #<?php echo $model->id; ?></h1>
+<h1>View AdventureStep #<?= $model->id; ?></h1>
 
 <?php
 $this->widget('zii.widgets.CDetailView', array(

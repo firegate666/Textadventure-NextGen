@@ -1,35 +1,35 @@
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?= CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('createdAt')); ?>:</b>
-	<?php echo CHtml::encode($data->createdAt); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('createdAt')); ?>:</b>
+	<?= CHtml::encode($data->createdAt); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('changedAt')); ?>:</b>
-	<?php echo CHtml::encode($data->changedAt); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('changedAt')); ?>:</b>
+	<?= CHtml::encode($data->changedAt); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('createdBy')); ?>:</b>
-	<?php echo CHtml::encode($data->createdBy); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('createdBy')); ?>:</b>
+	<?= CHtml::encode($data->createdBy); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('changedBy')); ?>:</b>
-	<?php echo CHtml::encode($data->changedBy); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('changedBy')); ?>:</b>
+	<?= CHtml::encode($data->changedBy); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('storageId')); ?>:</b>
-	<?php echo CHtml::encode($data->storageId); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('storageId')); ?>:</b>
+	<?= CHtml::encode($data->storageId); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('resourceId')); ?>:</b>
-	<?php echo CHtml::encode($data->resourceId); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('resourceId')); ?>:</b>
+	<?= CHtml::encode($data->resourceId); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('amount')); ?>:</b>
-	<?php echo CHtml::encode($data->amount); ?>
+	<b><?= CHtml::encode($data->getAttributeLabel('amount')); ?>:</b>
+	<?= CHtml::encode($data->amount); ?>
 	<br />
 
 

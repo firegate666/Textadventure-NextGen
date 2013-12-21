@@ -6,57 +6,57 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
+		<?= $form->label($model,'id'); ?>
+		<?= $form->textField($model,'id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'createdAt'); ?>
-		<?php echo $form->textField($model,'createdAt'); ?>
+		<?= $form->label($model,'createdAt'); ?>
+		<?= $form->textField($model,'createdAt'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'changedAt'); ?>
-		<?php echo $form->textField($model,'changedAt'); ?>
+		<?= $form->label($model,'changedAt'); ?>
+		<?= $form->textField($model,'changedAt'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'createdBy'); ?>
-		<?php echo $form->textField($model,'createdBy'); ?>
+		<?= $form->label($model,'createdBy'); ?>
+		<?= $form->textField($model,'createdBy'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'changedBy'); ?>
-		<?php echo $form->textField($model,'changedBy'); ?>
+		<?= $form->label($model,'changedBy'); ?>
+		<?= $form->textField($model,'changedBy'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
+		<?= $form->label($model,'name'); ?>
+		<?= $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'xPos'); ?>
-		<?php echo $form->textField($model,'xPos'); ?>
+		<?= $form->label($model,'xPos'); ?>
+		<?= $form->textField($model,'xPos'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'yPos'); ?>
-		<?php echo $form->textField($model,'yPos'); ?>
+		<?= $form->label($model,'yPos'); ?>
+		<?= $form->textField($model,'yPos'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'magnitude'); ?>
-		<?php echo $form->textField($model,'magnitude'); ?>
+		<?= $form->label($model,'magnitude'); ?>
+		<?= $form->textField($model,'magnitude'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'mapSectionId'); ?>
-		<?php echo $form->textField($model,'mapSectionId'); ?>
+		<?= $form->label($model,'mapSectionId'); ?>
+		<?= $form->textField($model,'mapSectionId'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?= CHtml::submitButton('Search'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

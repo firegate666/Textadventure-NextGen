@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update AdventureStep <?php echo $model->id; ?></h1>
+<h1>Update AdventureStep <?= $model->id; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model, 'adventureList'=>$adventureList)); ?>
+<?= $this->renderPartial('_form', array('model'=>$model, 'adventureList'=>$adventureList)); ?>

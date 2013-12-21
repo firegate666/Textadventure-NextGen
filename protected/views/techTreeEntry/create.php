@@ -12,4 +12,4 @@ $this->menu=array(
 
 <h1>Create TechTreeEntry</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?= $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -6,4 +6,4 @@ $this->breadcrumbs = array(
 
 <h1>Register User</h1>
 
-<?php echo $this->renderPartial('_form', array('model' => $model, 'register' => true)); ?>
+<?= $this->renderPartial('_form', array('model' => $model, 'register' => true)); ?>
