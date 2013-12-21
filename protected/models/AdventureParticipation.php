@@ -2,46 +2,19 @@
 
 /**
  * This is the model class for table "AdventureParticipation".
+ *
+ * @property integer $userId
+ * @property integer $adventureId
+ * @property DateTime $started
+ * @property DateTime $ended
+ *
+ * @property User $player
+ * @property Adventure $adventure
+ *
+ * @static AdventureParticipation model
  */
 class AdventureParticipation extends MetaInfo
 {
-	/**
-	 *
-	 * @var integer
-	 */
-	public $userId;
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $adventureId;
-
-	/**
-	 *
-	 * @var datetime
-	 */
-	public $started;
-
-	/**
-	 *
-	 * @var datetime
-	 */
-	public $ended;
-
-	// RELATIONS
-
-	/**
-	 *
-	 * @var User
-	 */
-	public $player;
-
-	/**
-	 *
-	 * @var Adventure
-	 */
-	public $adventure;
 
 	/**
 	 * @return string the associated database table name

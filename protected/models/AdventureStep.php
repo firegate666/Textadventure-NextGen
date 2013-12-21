@@ -5,61 +5,19 @@
  * It holds the name and description of the single steps
  * and relations to the step options
  *
+ * @property integer $adventure
+ * @property string $name
+ * @property string $stepId
+ * @property boolean $startingPoint
+ * @property boolean $endingPoint
+ *
+ * @property Adventure $adventureParent
  * @property AdventureStepOption[] $stepOptions
+ *
+ * @static AdventureStep model
  */
 class AdventureStep extends MetaInfo
 {
-	// The following are the available columns in table 'AdventureStep':
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $id;
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $adventure;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $name;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $description;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $stepId;
-
-	/**
-	 *
-	 * @var boolean
-	 */
-	public $startingPoint;
-
-	/**
-	 *
-	 * @var boolean
-	 */
-	public $endingPoint;
-
-	// The following are the available model relations:
-
-	/**
-	 *
-	 * @var Adventure
-	 */
-	public $adventureParent;
 
 	/**
 	 * @return string the associated database table name

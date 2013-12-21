@@ -3,46 +3,17 @@
 /**
  * This is the model class for table "UserGroup".
  *
+ * @property string $name
+ * @property boolean $isAdmin
+ * @property boolean $canCreateAdventure
+ * @property boolean $defaultRegisterGroup
+ *
+ * @property User[] $users
+ *
+ * @static UserGroup model
  */
 class UserGroup extends MetaInfo
 {
-	// The following are the available columns in table 'UserGroup':
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $id;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $name;
-
-	/**
-	 *
-	 * @var boolean
-	 */
-	public $isAdmin;
-
-	/**
-	 *
-	 * @var boolean
-	 */
-	public $canCreateAdventure;
-
-	/**
-	 *
-	 * @var boolean
-	 */
-	public $defaultRegisterGroup;
-
-	/**
-	 *
-	 * @var User[]
-	 */
-	public $users;
 
 	/**
 	 * get a list of usergroups

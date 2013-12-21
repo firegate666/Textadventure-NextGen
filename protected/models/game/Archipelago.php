@@ -4,11 +4,6 @@
  * This is the model class for table "Archipelago".
  *
  * The followings are the available columns in table 'Archipelago':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property string $name
  * @property integer $xPos
  * @property integer $yPos
@@ -19,8 +14,7 @@
  * @property Mapsection $mapSection
  * @property Island[] $islands
  *
- * @method Archipelago model
- *
+ * @static Archipelago model
  */
 class Archipelago extends MetaInfo
 {

@@ -5,48 +5,17 @@
  * It holds the name for the single step options
  * and the target step of this option
  *
+ * @property integer $parent
+ * @property integer $target
+ * @property string $name
+ *
+ * @property AdventureStep $sourceStep
+ * @property AdventureStep $targetStep
+ *
+ * @static AdventureStepOption model
  */
 class AdventureStepOption extends MetaInfo
 {
-	// The following are the available columns in table 'AdventureStepOption':
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $id;
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $parent;
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $target;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $name;
-
-	// The following are the available model relations:
-
-	/**
-	 *
-	 * @var AdventureStep
-	 */
-	public $targetStep;
-
-	/**
-	 *
-	 * @var AdventureStep
-	 */
-	public $sourceStep;
 
 	/**
 	 * @return string the associated database table name

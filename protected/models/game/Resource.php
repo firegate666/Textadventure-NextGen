@@ -4,21 +4,18 @@
  * This is the model class for table "Resource".
  *
  * The followings are the available columns in table 'Resource':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property string $name
  * @property string $description
  *
  * The followings are the available model relations:
  * @property ResourceProduction[] $resourceProductions
  * @property Stock[] $stocks
+ *
+ * @static Resource model
  */
 class Resource extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */

@@ -4,11 +4,6 @@
  * This is the model class for table "ResourceProduction".
  *
  * The followings are the available columns in table 'ResourceProduction':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property integer $islandId
  * @property integer $resourceId
  * @property double $growthFactor
@@ -17,10 +12,12 @@
  * The followings are the available model relations:
  * @property Island $island
  * @property Resource $resource
+ *
+ * @static ResourceProduction model
  */
 class ResourceProduction extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */

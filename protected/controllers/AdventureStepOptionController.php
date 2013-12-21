@@ -191,8 +191,9 @@ class AdventureStepOptionController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 *
-	 * @param integer the ID of the model to be loaded
-	 * @return void
+	 * @param integer $id
+	 * @throws CHttpException
+	 * @return AdventureStepOption
 	 */
 	public function loadModel($id)
 	{
@@ -211,7 +212,7 @@ class AdventureStepOptionController extends Controller
 	/**
 	 * Performs the AJAX validation.
 	 *
-	 * @param CModel the model to be validated
+	 * @param CModel $model the model to be validated
 	 * @return void
 	 */
 	protected function performAjaxValidation($model)

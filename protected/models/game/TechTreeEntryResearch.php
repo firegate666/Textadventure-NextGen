@@ -4,11 +4,6 @@
  * This is the model class for table "TechTreeEntryResearch".
  *
  * The followings are the available columns in table 'TechTreeEntryResearch':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property integer $userId
  * @property integer $techId
  * @property string $start
@@ -21,7 +16,7 @@
  */
 class TechTreeEntryResearch extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */

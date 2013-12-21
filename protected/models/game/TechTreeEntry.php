@@ -4,11 +4,6 @@
  * This is the model class for table "TechTreeEntry".
  *
  * The followings are the available columns in table 'TechTreeEntry':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property string $name
  * @property string $description
  * @property integer $costs
@@ -21,7 +16,7 @@
  */
 class TechTreeEntry extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */

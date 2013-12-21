@@ -6,8 +6,16 @@
  * It represents the adventure as is, its name and description, and
  * holds relations to the single adventure steps
  *
+ * @property string $name
+ * @property string $description
+ * @property string $adventureId
+ * @property Date $startDate
+ * @property Date $stopDate
+ * @property integer $state
+ *
  * @property AdventureStep[] adventureSteps
  *
+ * @static Adventure model
  */
 class Adventure extends MetaInfo
 {
@@ -19,48 +27,6 @@ class Adventure extends MetaInfo
 	const STATE_PUBLISHED = 2;
 
 	// The followings are the available columns in table 'Adventure':
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $id;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $name;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $description;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $adventureId;
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $startDate;
-
-	/**
-	 *
-	 * @var Date
-	 */
-	public $stopDate;
-
-	/**
-	 *
-	 * @var Date
-	 */
-	public $state;
 
 	/**
 	 * this adventure has steps?
@@ -119,6 +85,7 @@ class Adventure extends MetaInfo
 	 * get the human readable state name
 	 *
 	 * @param integer $state_id
+	 * @throws CException
 	 * @return string
 	 */
 	public static function getStateName($state_id)
@@ -341,6 +308,7 @@ class Adventure extends MetaInfo
 	 * get a list of adventures as associative array (id => name)
 	 *
 	 * @static
+	 * @param integer $user_id
 	 * @return array
 	 */
 	public static function items($user_id = null)

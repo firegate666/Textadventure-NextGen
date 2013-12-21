@@ -129,7 +129,8 @@ class AdventureController extends Controller
 	 * Displays a particular model.
 	 *
 	 * @param integer $id the ID of the model to be displayed
-	 * @throws CHttpException if $id is invalid
+	 * @param integer $step
+	 * @throws CHttpException
 	 * @return void
 	 */
 	public function actionView($id, $step = null)
@@ -241,7 +242,6 @@ class AdventureController extends Controller
 		$adventureSteps = array();
 		$stepOptions = array();
 
-
 		if (isset($_POST['Adventure']))
 		{
 			$ta = Yii::app()->db->beginTransaction();
@@ -250,13 +250,15 @@ class AdventureController extends Controller
 			$stepsValidated = true;
 			if (isset($_POST['AdventureStep'])) {
 				foreach ($_POST['AdventureStep'] as $stepData) {
-					if (empty($stepData['name'])) {
+					if (empty($stepData['name']))
+					{
 						continue;
 					}
 
 					$step_model = new AdventureStep();
 					$key = 'NEW_' . mt_rand(0, 9999999);
-					if (!empty($stepData['id'])) {
+					if (!empty($stepData['id']))
+					{
 						$step_model = $step_model->findByPk($stepData['id']);
 						$key = $step_model->id;
 					}
@@ -264,7 +266,8 @@ class AdventureController extends Controller
 					$step_model->attributes = $stepData;
 					$stepsValidated = $stepsValidated && $step_model->validate();
 
-					if ($step_model->isNewRecord) {
+					if ($step_model->isNewRecord)
+					{
 						// this is a new model, give him empty options
 						$step_model->stepOptions = array(new AdventureStepOption());
 					}
@@ -274,16 +277,19 @@ class AdventureController extends Controller
 			}
 
 			$optionsValidated = true;
-			if (isset($_POST['AdventureStepOption'])) {
+			if (isset($_POST['AdventureStepOption']))
+			{
 				$stepOptions = array();
 
 				foreach ($_POST['AdventureStepOption'] as $optionsData) {
-					if (empty($optionsData['name'])) {
+					if (empty($optionsData['name']))
+					{
 						continue;
 					}
 
 					$options_model = new AdventureStepOption();
-					if (!empty($optionsData['id'])) {
+					if (!empty($optionsData['id']))
+					{
 						$options_model = $options_model->findByPk($optionsData['id']);
 					}
 
@@ -292,8 +298,10 @@ class AdventureController extends Controller
 					$stepOptions[$optionsData['parent']][] = $options_model;
 				}
 
-				foreach ($stepOptions as $step_id => $stepOption) {
-					if (empty($adventureSteps[$step_id]->stepOptions)) {
+				foreach ($stepOptions as $step_id => $stepOption)
+				{
+					if (empty($adventureSteps[$step_id]->stepOptions))
+					{
 						$adventureSteps[$step_id]->stepOptions = array();
 					}
 					$adventureSteps[$step_id]->stepOptions = array_merge($stepOption, array(new AdventureStepOption()));
@@ -301,28 +309,38 @@ class AdventureController extends Controller
 			}
 
 			if ($model->validate() && $stepsValidated && $optionsValidated) {
-				foreach ($adventureSteps as $step) {
+				foreach ($adventureSteps as $step)
+				{
 					$step->save();
 				}
 
-				foreach ($stepOptions as $parents) {
-					foreach ($parents as $option) {
+				foreach ($stepOptions as $parents)
+				{
+					foreach ($parents as $option)
+					{
 						$option->save();
 					}
 				}
 
 				$model->save();
 				$ta->commit();
-				if (!$save_and_return) {
+				if (!$save_and_return)
+				{
 					$this->redirect(array('admin'));
 				}
-			} else {
+			}
+			else
+			{
 				$ta->rollback();
 			}
-		} else {
+		}
+		else
+		{
 			$adventureSteps = $model->adventureSteps;
-			foreach ($adventureSteps as $step) {
-				if (empty($step->stepOptions)) {
+			foreach ($adventureSteps as $step)
+			{
+				if (empty($step->stepOptions))
+				{
 					$step->stepOptions = array();
 				}
 				$step->stepOptions = array_merge($step->stepOptions, array(new AdventureStepOption()));
@@ -341,6 +359,7 @@ class AdventureController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 *
 	 * @param integer $id the ID of the model to be deleted
+	 * @throws CHttpException if request is not post
 	 * @return void
 	 */
 	public function actionDelete($id)
@@ -430,6 +449,7 @@ class AdventureController extends Controller
 	 *
 	 * @param integer $id the ID of the model to be loaded
 	 * @param boolean $with_acl check acl upon model load
+	 * @throws CHttpException
 	 * @return void
 	 */
 	public function loadModel($id, $with_acl = true)
@@ -449,7 +469,7 @@ class AdventureController extends Controller
 	/**
 	 * Performs the AJAX validation.
 	 *
-	 * @param CModel the model to be validated
+	 * @param CModel $model the model to be validated
 	 * @return void
 	 */
 	protected function performAjaxValidation($model)

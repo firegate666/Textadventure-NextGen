@@ -4,11 +4,6 @@
  * This is the model class for table "MapSection".
  *
  * The followings are the available columns in table 'MapSection':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property integer $leftSectionId
  * @property integer $rightSectionId
  * @property integer $worldId
@@ -18,11 +13,11 @@
  * @property Mapsection $rightSection
  * @property World $world
  *
- * @method MapSection model
+ * @static MapSection model
  */
 class MapSection extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -93,7 +88,7 @@ class MapSection extends MetaInfo
 
 	/**
 	 * get all map sections for given world
-	 * 
+	 *
 	 * @param integer $world_id
 	 * @throws CException
 	 * @return integer[] map section ids

@@ -2,50 +2,18 @@
 
 /**
  * This is the model class for table "User"
+ *
+ * @property string $username
+ * @property string $password
+ * @property string $email
+ * @property integer $groupId
+ *
+ * @property UserGroup $group
+ *
+ * @static User model
  */
 class User extends MetaInfo
 {
-	// The followings are the available columns in table 'User':
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $id;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $username;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $password;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $email;
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $groupId;
-
-	// The followings are the available model relations:
-
-	/**
-	 *
-	 * @var User
-	 */
-	public $group;
-
-	// The following are non-persisted properties
 
 	/**
 	 * new password to be set; is copied to User::password property before save if validates

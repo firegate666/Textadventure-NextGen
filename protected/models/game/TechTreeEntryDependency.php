@@ -4,11 +4,6 @@
  * This is the model class for table "TechTreeEntryDependency".
  *
  * The followings are the available columns in table 'TechTreeEntryDependency':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property integer $techId
  * @property integer $dependencyId
  *
@@ -18,7 +13,7 @@
  */
 class TechTreeEntryDependency extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */

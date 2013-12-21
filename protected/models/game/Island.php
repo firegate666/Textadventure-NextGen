@@ -4,11 +4,6 @@
  * This is the model class for table "Island".
  *
  * The followings are the available columns in table 'Island':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property string $name
  * @property integer $size
  * @property integer $xPos
@@ -23,7 +18,7 @@
  * @property Storage $storage
  * @property ResourceProduction[] $resourceProductions
  *
- * @method Island model
+ * @static Island model
  */
 class Island extends MetaInfo
 {

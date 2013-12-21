@@ -4,11 +4,6 @@
  * This is the model class for table "Stock".
  *
  * The followings are the available columns in table 'Stock':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property integer $storageId
  * @property integer $resourceId
  * @property integer $lastResourceUpdate
@@ -17,6 +12,8 @@
  * The followings are the available model relations:
  * @property Resource $resource
  * @property Storage $storage
+ *
+ * @static Stock model
  */
 class Stock extends MetaInfo
 {

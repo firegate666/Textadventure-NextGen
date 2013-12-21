@@ -90,7 +90,7 @@ class UserGroupController extends Controller
 			$model->attributes = $_POST['UserGroup'];
 			if ($model->save())
 			{
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('admin'));
 			}
 		}
 
@@ -118,7 +118,7 @@ class UserGroupController extends Controller
 			$model->attributes = $_POST['UserGroup'];
 			if ($model->save())
 			{
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('admin'));
 			}
 		}
 

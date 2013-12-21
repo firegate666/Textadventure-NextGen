@@ -38,6 +38,7 @@ class Controller extends CController
 	/**
 	 * get actual date, used as dynamic callback for site page view
 	 *
+	 * @param string $format
 	 * @return string
 	 */
 	public function nowDate($format = 'd.m.Y, H:i:s')
@@ -50,8 +51,7 @@ class Controller extends CController
 	 *
 	 * @return string
 	 */
-	public function getVersionInfo()
-	{
+	public function getVersionInfo() {
 		$version_info_file = Yii::app()->getRuntimePath().'/VERSION';
 		$version_string = 'no version found';
 		if (file_exists($version_info_file))
@@ -78,7 +78,8 @@ class Controller extends CController
 	}
 
 	/**
-	 * (non-PHPdoc)
+	 * Define default filter for theming and lang switch
+	 *
 	 * @see CController::filters()
 	 * @return array
 	 */
@@ -99,10 +100,12 @@ class Controller extends CController
 	function filterTheming(CFilterChain $filterchain)
 	{
 		$theme = Yii::app()->request->getParam('theme', false);
+
 		if ($theme !== false && !empty($theme))
 		{
 			Yii::app()->theme = $theme;
 		}
+
 		$filterchain->run();
 	}
 
@@ -116,12 +119,14 @@ class Controller extends CController
 	{
 		$session_lang = $this->getSessionValue('session_lang', false, true, '');
 		$lang_from_get = Yii::app()->request->getParam('lang', false);
+
 		$lang = $lang_from_get ? $lang_from_get : $session_lang;
 		if ($lang)
 		{
 			Yii::app()->setLanguage($lang);
 			$this->addSessionValue('session_lang', $lang, true, '');
 		}
+
 		$filterchain->run();
 	}
 
@@ -147,6 +152,7 @@ class Controller extends CController
 		{
 			throw new SessionKeyNotExistsException();
 		}
+
 		return Yii::app()->session->get($prefix.'_'.$key, $defaultValue);
 	}
 
@@ -172,6 +178,7 @@ class Controller extends CController
 		{
 			throw new SessionKeyExistsException();
 		}
+
 		Yii::app()->session->add($prefix.'_'.$key, $value);
 	}
 

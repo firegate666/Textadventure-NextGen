@@ -4,20 +4,17 @@
  * This is the model class for table "Storage".
  *
  * The followings are the available columns in table 'Storage':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property integer $capacity
  *
  * The followings are the available model relations:
  * @property Island[] $islands
  * @property Stock[] $stocks
+ *
+ * @static Storage model
  */
 class Storage extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */

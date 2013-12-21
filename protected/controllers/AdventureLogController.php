@@ -24,6 +24,7 @@ class AdventureLogController extends Controller
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
+	 *
 	 * @return array access control rules
 	 */
 	public function accessRules()
@@ -41,7 +42,9 @@ class AdventureLogController extends Controller
 
 	/**
 	 * Displays a particular model.
+	 *
 	 * @param integer $id the ID of the model to be displayed
+	 * @return void
 	 */
 	public function actionView($id)
 	{
@@ -52,6 +55,8 @@ class AdventureLogController extends Controller
 
 	/**
 	 * Lists all models.
+	 *
+	 * @return void
 	 */
 	public function actionIndex()
 	{
@@ -64,19 +69,25 @@ class AdventureLogController extends Controller
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer the ID of the model to be loaded
+	 *
+	 * @param integer $id the ID of the model to be loaded
+	 * @throws CHttpException
+	 * @return AdventureLog
 	 */
 	public function loadModel($id)
 	{
 		$model=AdventureLog::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
+
 		return $model;
 	}
 
 	/**
 	 * Performs the AJAX validation.
+	 *
 	 * @param CModel the model to be validated
+	 * @return void
 	 */
 	protected function performAjaxValidation($model)
 	{

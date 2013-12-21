@@ -4,16 +4,11 @@
  * This is the model class for table "TechTreeCategory".
  *
  * The followings are the available columns in table 'TechTreeCategory':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property string $name
  */
 class TechTreeCategory extends MetaInfo
 {
-	
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -45,7 +40,7 @@ class TechTreeCategory extends MetaInfo
 	{
 		$relations = parent::relations();
 		return $relations + array(
-			
+
 		);
 	}
 

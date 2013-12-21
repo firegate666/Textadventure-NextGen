@@ -2,53 +2,20 @@
 
 /**
  * This is the model class for table "AdventureLog".
+ *
+ * @property integer $userId
+ * @property integer $adventureId
+ * @property integer $adventureStepId
+ * @property boolean $finalized
+ *
+ * @property User $player
+ * @property Adventure $adventure
+ * @property AdventureStep $adventureStep
+ *
+ * @static AdventureLog model
  */
 class AdventureLog extends MetaInfo
 {
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $userId;
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $adventureId;
-
-	/**
-	 *
-	 * @var integer
-	 */
-	public $adventureStepId;
-
-	/**
-	 *
-	 * @var boolean
-	 */
-	public $finalized;
-
-	// RELATIONS
-
-	/**
-	 *
-	 * @var User
-	 */
-	public $player;
-
-	/**
-	 *
-	 * @var Adventure
-	 */
-	public $adventure;
-
-	/**
-	 *
-	 * @var AdventureStep
-	 */
-	public $adventureStep;
 
 	/**
 	 * @return string the associated database table name

@@ -4,17 +4,12 @@
  * This is the model class for table "World".
  *
  * The followings are the available columns in table 'World':
- * @property integer $id
- * @property string $createdAt
- * @property string $changedAt
- * @property integer $createdBy
- * @property integer $changedBy
  * @property string $name
  *
  * The followings are the available model relations:
  * @property MapSection[] $mapSections
  *
- * @method World model
+ * @static World model
  */
 class World extends MetaInfo
 {

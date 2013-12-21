@@ -2,48 +2,17 @@
 
 /**
  * model parent class that adds create and change data informations
+ *
+ * @property datetime $createdAt
+ * @property datetime $changedAt
+ * @property integer $createdBy
+ * @property integer $changedBy
+ *
+ * @property User $createUser
+ * @property User $changeUser
  */
-abstract class MetaInfo extends CActiveRecord {
-
-	/**
-	 * creation date
-	 *
-	 * @var datetime
-	 */
-	public $createdAt;
-
-	/**
-	 * date of last change
-	 *
-	 * @var datetime
-	 */
-	public $changedAt;
-
-	/**
-	 * who created
-	 *
-	 * @var integer
-	 */
-	public $createdBy;
-
-	/**
-	 * who changed
-	 *
-	 * @var integer
-	 */
-	public $changedBy;
-
-	/**
-	 *
-	 * @var User
-	 */
-	public $createUser;
-
-	/**
-	 *
-	 * @var User
-	 */
-	public $changeUser;
+abstract class MetaInfo extends CActiveRecord
+{
 
 	/**
 	 * write dates and user ids to model
@@ -53,6 +22,7 @@ abstract class MetaInfo extends CActiveRecord {
 	protected function beforeSave()
 	{
 		$before_safe = parent::beforeSave();
+
 		if ($before_safe)
 		{
 			if ($this->isNewRecord)
@@ -72,6 +42,7 @@ abstract class MetaInfo extends CActiveRecord {
 				}
 			}
 		}
+
 		return $before_safe;
 	}
 
@@ -206,7 +177,7 @@ abstract class MetaInfo extends CActiveRecord {
 			'criteria'=>$criteria,
 		));
 	}
-	
+
 	protected $_changedAttributes = array();
 
 	/**
@@ -220,10 +191,11 @@ abstract class MetaInfo extends CActiveRecord {
 	}
 
 	/**
-	 * override __set to capture attribiute old values if they are being saved
+	 * override __set to capture attribute old values if they are being saved
 	 *
 	 * @param string $name
 	 * @param mixed $value
+	 * @return void
 	 */
 	public function __set($name, $value) {
 		// copy old value of attribute
