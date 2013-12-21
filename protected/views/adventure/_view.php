@@ -9,11 +9,11 @@
 
 	<?php if ($data->hasStartingPoint() && $data->hasEndingPoint()): ?>
 		<div class="button button-play">
-			<?=CHtml::link($data->userInAdventure(Yii::app()->user->id)?'CONTINUE':'PLAY', array('view', 'id' => $data->id))?>
+			<?=CHtml::link($data->userInAdventure(Yii::app()->user->id)?'Fortsetzen':'Starten', array('view', 'id' => $data->id))?>
 		</div>
 	<?php else: ?>
 		<div class="button button-noplay">
-			<?=CHtml::link('Not open yet', null)?>
+			<?=CHtml::link('Noch geschlossen', null)?>
 		</div>
 	<?php endif;?>
 

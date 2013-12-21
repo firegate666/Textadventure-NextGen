@@ -1,15 +1,10 @@
 <?php
 $this->breadcrumbs = array(
-	'Start adventuring',
-);
-
-$this->menu = array(
-	array('label' => 'Create Adventure', 'url' => array('create')),
-	array('label' => 'Manage Adventure', 'url' => array('admin')),
+	'Starte das Abenteuer',
 );
 ?>
 
-<h1>Start adventuring</h1>
+<h1>Starte das Abenteuer</h1>
 
 <div id="adventure-index">
 	<?php

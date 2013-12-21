@@ -1,15 +1,7 @@
 <?php
 $this->breadcrumbs = array(
-	'Adventures' => array('index'),
+	'Abenteuer' => array('index'),
 	$model->name,
-);
-
-$this->menu = array(
-	array('label' => 'List Adventure', 'url' => array('index')),
-	array('label' => 'Create Adventure', 'url' => array('create')),
-	array('label' => 'Update Adventure', 'url' => array('update', 'id' => $model->id)),
-	array('label' => 'Delete Adventure', 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label' => 'Manage Adventure', 'url' => array('admin')),
 );
 ?>
 
@@ -26,13 +18,13 @@ $this->menu = array(
 </div>
 
 <?php if ($stepModel->endingPoint): ?>
-
-	<p>You have reached the end of this adventure. There are no more options to chose.</p>
-	<p>You can reset this adventure and start it over? <?=CHtml::link('Yes, please restart.', array('reset', 'id' => $model->id))?></p>
-
+<div class="infoblock">
+	<p>Du hast das Ende des Abenteuer erreicht, hier gibt es keine weiteren Optionen.</p>
+	<p>Du kannst das Abenteuer noch einmal spielen? <?= CHtml::link('Ja, bitte neu starten.', array('reset', 'id' => $model->id)) ?></p>
+</div>
 <?php elseif ($stepModel->hasOptions()): ?>
 
-	<p>What do you want to do now?</p>
+	<p>Was möchtest Du jetzt machen?</p>
 
 	<ul>
 		<?php foreach ($stepModel->getRelated('stepOptions') as $stepOption): ?>
@@ -42,6 +34,6 @@ $this->menu = array(
 
 <?php else: ?>
 
-	<p>There are no options for you.</p>
+	<p>Hier gibt es keine Optionen.</p>
 
 <?php endif;?>
