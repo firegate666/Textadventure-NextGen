@@ -18,6 +18,7 @@ class AdventureStepTest extends AbstractUnitTest
 
 		// step id is required
 		$this->assertTrue($model->hasErrors('stepId'), var_export($model->getErrors('stepId'), true));
+
 		// bit gets an auto created value
 		$this->assertFalse(empty($model->stepId));
 		$this->assertFalse(stripos($model->stepId, ' '));
