@@ -12,7 +12,7 @@ class UserIdentity extends CUserIdentity
 	/**
 	 * logged in user is admin
 	 *
-	 * @var type
+	 * @var boolean
 	 */
 	public $isAdmin = false;
 
@@ -23,6 +23,10 @@ class UserIdentity extends CUserIdentity
 	 */
 	public $canCreateAdventure = false;
 
+	protected function findUserByUsername($username) {
+		return User::model()->find('LOWER(username)=?', array(mb_strtolower($username)));
+	}
+
 	/**
 	 * Authenticates a user.
 	 *
@@ -30,7 +34,8 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$user = User::model()->find('LOWER(username)=?', array(strtolower($this->username)));
+		$user = $this->findUserByUsername($this->username);
+
 		if ($user === null)
 		{
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
