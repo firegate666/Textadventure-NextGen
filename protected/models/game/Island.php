@@ -272,7 +272,7 @@ class Island extends MetaInfo
 	/**
 	 * get island dependend resource production bonus depending on existing buildings, researches or other effects
 	 *
-	 * @todo implmenent
+	 * @todo implement
 	 * @param integer $resource_id
 	 * @return integer
 	 */

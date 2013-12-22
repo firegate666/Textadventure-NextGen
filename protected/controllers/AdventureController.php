@@ -56,7 +56,7 @@ class AdventureController extends Controller
 	/**
 	 * remove played info about this adventure and restart it
 	 *
-	 * @param type $id
+	 * @param integer $id
 	 * @throws CHttpException if $id is invalid
 	 * @return void
 	 */
@@ -453,7 +453,7 @@ class AdventureController extends Controller
 	 * @param integer $id the ID of the model to be loaded
 	 * @param boolean $with_acl check acl upon model load
 	 * @throws CHttpException
-	 * @return void
+	 * @return Adventure
 	 */
 	public function loadModel($id, $with_acl = true)
 	{

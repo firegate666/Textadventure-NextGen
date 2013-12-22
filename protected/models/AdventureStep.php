@@ -205,7 +205,7 @@ class AdventureStep extends MetaInfo
 	public static function items(Adventure $adventure = null, $user_id = null)
 	{
 		$result = array();
-		$list = array();
+		$list = null;
 		if ($adventure !== null) // get steps from one adventure
 		{
 			$list = self::model()->findAllByAttributes(array('adventure' => $adventure->id));

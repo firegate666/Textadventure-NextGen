@@ -64,7 +64,7 @@ class Controller extends CController
 	/**
 	 * Declares class-based actions.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function actions()
 	{
@@ -139,7 +139,7 @@ class Controller extends CController
 	 * @param boolean $allowGetEmpty
 	 * @param string $prefix prefix for session stored values, defaults to calling class
 	 * @throws SessionKeyNotExistsException
-	 * @return void
+	 * @return mixed
 	 */
 	public static function getSessionValue($key, $defaultValue, $allowGetEmpty = true, $prefix = null)
 	{

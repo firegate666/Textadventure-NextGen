@@ -164,7 +164,7 @@
                 }
                 return false;
             }
-			
+
             // If we are at the end of a paragraph in a list item, pressing enter should create a new list item instead of a new paragraph.
             function isEndOfParagraph() {
 				var node = ed.selection.getNode();
@@ -241,7 +241,7 @@
 					Event.cancel(e);
 				}
 			}
-			
+
             // Creates a new list item after the current selection's list item parent
             function createNewLi(ed, e) {
                 if (state == LIST_PARAGRAPH) {
@@ -469,7 +469,7 @@
 						ed.dom.remove(li, true);
 						var textNodes = tinymce.grep(prevLi.childNodes, function(n){ return n.nodeType === 3 });
 						if (textNodes.length === 1) {
-							var textNode = textNodes[0]
+							var textNode = textNodes[0];
 							ed.selection.setCursorLocation(textNode, textNode.length);
 						}
 						ed.undoManager.add();
@@ -927,7 +927,7 @@
 		},
 
 		selectedBlocks: function() {
-			var ed = this.ed
+			var ed = this.ed;
 			var selectedBlocks = ed.selection.getSelectedBlocks();
 			return selectedBlocks.length == 0 ? [ ed.dom.getRoot() ] : selectedBlocks;
 		},

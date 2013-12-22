@@ -9,7 +9,7 @@ class SiteController extends Controller
 	/**
 	 * Declares class-based actions.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function actions()
 	{
