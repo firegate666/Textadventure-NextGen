@@ -426,6 +426,8 @@ class AdventureController extends Controller
 	 */
 	public function actionAdmin()
 	{
+		$limit = Yii::app()->request->getParam('limit', 5);
+
 		$model = new Adventure('search');
 		$model->unsetAttributes();  // clear any default values
 		if (isset($_GET['Adventure']))
@@ -440,6 +442,7 @@ class AdventureController extends Controller
 
 		$this->render('admin', array(
 			'model' => $model,
+			'limit' => $limit
 		));
 	}
 

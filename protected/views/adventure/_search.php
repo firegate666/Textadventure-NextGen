@@ -3,9 +3,14 @@
 <?php
 $form = $this->beginWidget('CActiveForm', array(
 	'action' => Yii::app()->createUrl($this->route),
-	'method' => 'get',
+	'method' => 'post',
+	'htmlOptions' => array(
+		'name' => 'adventureSearch'
+	)
 ));
 ?>
+
+	<?= CHtml::hiddenField('limit', $limit) ?>
 
 	<div class="row">
 		<?=$form->label($model, 'id'); ?>

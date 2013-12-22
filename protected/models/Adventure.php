@@ -293,14 +293,18 @@ class Adventure extends MetaInfo
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
+	 * @param integer $limit
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($limit = 5)
 	{
 		$criteria = $this->getSearchCriteria();
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
+			'pagination'=>array(
+				'pageSize' => $limit,
+            ),
 		));
 	}
 

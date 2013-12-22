@@ -206,8 +206,11 @@ class UserController extends Controller
 	 */
 	public function actionAdmin()
 	{
+		$limit = Yii::app()->request->getParam('limit', 5);
+
 		$model = new User('search');
 		$model->unsetAttributes();  // clear any default values
+
 		if (isset($_GET['User']))
 		{
 			$model->attributes=$_GET['User'];
@@ -215,6 +218,7 @@ class UserController extends Controller
 
 		$this->render('admin', array(
 			'model' => $model,
+			'limit' => $limit
 		));
 	}
 

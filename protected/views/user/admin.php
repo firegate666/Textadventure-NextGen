@@ -13,13 +13,21 @@ Yii::app()->clientScript->registerScript('search', "
 		$('.search-form').toggle();
 		return false;
 	});
+
 	$('.search-form form').submit(function(){
 		$.fn.yiiGridView.update('user-grid', {
 			data: $(this).serialize()
 		});
 		return false;
 	});
+
+	window.setLimit = function(limit) {
+		$('input[name=limit]').val(limit);
+		$('.search-form form input[type=submit]').click();
+	}
 ");
+
+$pager_limits = array(5 => 5, 10 => 10, 20 => 20, 50 => 50, 100 => 100);
 ?>
 
 <h1>Manage Users</h1>
@@ -33,14 +41,18 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search', array(
 	'model' => $model,
+	'limit' => $limit
 )); ?>
 </div><!-- search-form -->
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id' => 'user-grid',
-	'dataProvider' => $model->search(),
+	'dataProvider' => $model->search($limit),
 	'filter' => $model,
+	'pager' => array(
+		'footer' => CHtml::dropDownList('limit', $limit, $pager_limits, array('class' => 'limit', 'onchange' => 'setLimit($(this).val())'))
+	),
 	'columns' => array(
 		'id',
 		'lastLogin',

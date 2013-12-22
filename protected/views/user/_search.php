@@ -2,10 +2,14 @@
 
 <?php
 $form=$this->beginWidget('CActiveForm', array(
-	'action'=>Yii::app()->createUrl($this->route),
-	'method'=>'get',
+	'action' => Yii::app()->createUrl($this->route),
+	'method'=>'post',
+	'htmlOptions' => array(
+		'name' => 'userSearch'
+	)
 ));
 ?>
+	<?= CHtml::hiddenField('limit', $limit) ?>
 
 	<div class="row">
 		<?=$form->label($model, 'id'); ?>

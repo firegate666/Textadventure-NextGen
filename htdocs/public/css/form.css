@@ -34,7 +34,7 @@
  * @license http://www.yiiframework.com/license/
  */
 div.form {
-	
+
 }
 
 div.form input,div.form textarea,div.form select {
@@ -127,4 +127,10 @@ div.wide.form .row {
 div.wide.form .buttons,div.wide.form .hint,div.wide.form .errorMessage {
 	clear: left;
 	padding-left: 110px;
+}
+
+.pager select.limit {
+	border: 1px solid #0e509e;
+	color: #0e509e;
+	background-color: white;
 }

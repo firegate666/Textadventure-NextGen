@@ -1,4 +1,6 @@
 <?php
+/** @var Adventure $model */
+
 $this->breadcrumbs = array(
 	'Adventures' => array('index'),
 	'Manage',
@@ -19,7 +21,14 @@ Yii::app()->clientScript->registerScript('search', "
 		});
 		return false;
 	});
+
+	window.setLimit = function(limit) {
+		$('input[name=limit]').val(limit);
+		$('.search-form form input[type=submit]').click();
+	}
 ");
+
+$pager_limits = array(5 => 5, 10 => 10, 20 => 20, 50 => 50, 100 => 100);
 ?>
 
 <h1>Manage Adventures</h1>
@@ -36,6 +45,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php
 $this->renderPartial('_search', array(
 	'model' => $model,
+	'limit' => $limit
 ));
 ?>
 
@@ -44,8 +54,11 @@ $this->renderPartial('_search', array(
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id' => 'adventure-grid',
-	'dataProvider' => $model->search(),
+	'dataProvider' => $model->search($limit),
 	'filter' => $model,
+	'pager' => array(
+		'footer' => CHtml::dropDownList('limit', $limit, $pager_limits, array('class' => 'limit', 'onchange' => 'setLimit($(this).val())'))
+	),
 	'columns' => array(
 		'id',
 		array(            // display 'author.username' using an expression
@@ -60,7 +73,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'changedAt',
 		'name',
 		'description',
-		'adventureId',
+		//'adventureId',
 		array(
 			'name' => 'state',
 			'value' => '$data->getStateName($data->state)',
