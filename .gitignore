@@ -8,7 +8,7 @@ nbproject
 atlassian-ide-plugin.xml
 
 build/*
-assets/*
+htdocs/assets/*
 protected/runtime/*
 
 protected/config/*_local.php
