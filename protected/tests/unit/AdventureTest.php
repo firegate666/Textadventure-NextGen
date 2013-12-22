@@ -22,8 +22,8 @@ class AdventureTest extends AbstractUnitTest
 
 		// adventure id is required
 		$this->assertTrue($model->hasErrors('adventureId'), var_export($model->getErrors('adventureId'), true));
-		// state is required
-		$this->assertTrue($model->hasErrors('state'), var_export($model->getErrors('state'), true));
+		// no state submitted, default is draft
+		$this->assertEquals(Adventure::STATE_DRAFT, $model->state);
 		// bit gets an auto created value
 		$this->assertFalse(empty($model->adventureId));
 		$this->assertFalse(stripos($model->adventureId, ' '));
@@ -31,7 +31,6 @@ class AdventureTest extends AbstractUnitTest
 		// a second validation should auto accept the auto created value
 		$model->validate();
 		$this->assertFalse($model->hasErrors('adventureId'), var_export($model->getErrors('adventureId'), true));
-		$this->assertTrue($model->hasErrors('state'), var_export($model->getErrors('state'), true));
 	}
 
 	/**
@@ -96,6 +95,18 @@ class AdventureTest extends AbstractUnitTest
 		);
 		$model->validate();
 		$this->assertTrue($model->hasErrors('state'), var_export($model->getErrors('state'), true));
+	}
+
+	/**
+	 * test that model gets default state
+	 *
+	 * @return void
+	 */
+	public function testDefaultState() {
+		$model = new Adventure();
+		$model->attributes = array();
+
+		$this->assertEquals(Adventure::STATE_DRAFT, $model->state);
 	}
 
 	/**
