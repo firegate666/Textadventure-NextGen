@@ -2,7 +2,7 @@
 	"name": "firegate666/TextadventureNextGEN",
 	"description": "Create a next generation browser game textadventure manager where you can build and player adventures",
 	"type": "project",
-	"keywords": ["game"],
+	"keywords": ["game", "textadventure"],
 
 	"license": "Apache-2.0",
 
