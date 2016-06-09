@@ -90,7 +90,7 @@ div#page {
 
 div#logostrip {
 	background-color: #DBCEBB;
-	background-image: url("/themes/drachendaemmerung/images/headbanner_1400x140_dd2.jpg");
+	background-image: url("../images/headbanner_1400x140_dd2.jpg");
 	height: 110px;
 	border: 1px solid #333;
 	padding: 12px;
@@ -136,7 +136,7 @@ div#logostrip span.sticky {
 
 div#mainwrap {
 	background:
-		url("/themes/drachendaemmerung/images/hintergrund_1400x1200.jpg")
+		url("../images/hintergrund_1400x1200.jpg")
 		no-repeat #DBCEBB;
 }
 

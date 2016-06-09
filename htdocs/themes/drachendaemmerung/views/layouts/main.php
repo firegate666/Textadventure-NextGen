@@ -9,7 +9,7 @@
 	<meta name="google-site-verification" content="aG7-NEHDoXRFeIiDCHFIxhBmn6Uhp0IhEGvStsCLWzI" />
 	<meta name="language" content="de" />
 
-	<link rel="shortcut icon" href="/themes/drachendaemmerung/images/favicon.ico">
+	<link rel="shortcut icon" href="themes/drachendaemmerung/images/favicon.ico">
 
 	<!-- special fonts -->
 	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/themes/drachendaemmerung/css/fontfaces.css" />
@@ -27,11 +27,11 @@
 
 	<div id="header">
 		<div id="logostrip">
-			<img class="logo" src="/themes/drachendaemmerung/images/dragon_75x.png" alt="<?= CHtml::encode(Yii::app()->name); ?>"/>
+			<img class="logo" src="themes/drachendaemmerung/images/dragon_75x.png" alt="<?= CHtml::encode(Yii::app()->name); ?>"/>
 			<span class="sticky"><strong>A fantastic and high-fantasy role-playing game world.</strong></span>
 			<div class="langchooser" style="float: right">
-				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'de')))?>"><img src="/themes/drachendaemmerung/images/de-flag.jpg" alt="DE" /></a>
-				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'en')))?>"><img src="/themes/drachendaemmerung/images/en-flag.jpg" alt="EN" /></a>
+				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'de')))?>"><img src="themes/drachendaemmerung/images/de-flag.jpg" alt="DE" /></a>
+				<a href="<?=$this->createUrl($langchooser_controller_action, array_merge($langchooser_action_params, array('lang' => 'en')))?>"><img src="themes/drachendaemmerung/images/en-flag.jpg" alt="EN" /></a>
 			</div>
 			<div class="clear"></div>
 		</div>
