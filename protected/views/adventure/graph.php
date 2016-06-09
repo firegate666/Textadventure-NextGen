@@ -7,10 +7,10 @@ $this->breadcrumbs = array(
 
 $baseurl = Yii::app()->request->baseUrl;
 Yii::app()->clientScript->registerCoreScript('jquery');
-Yii::app()->clientScript->registerScriptFile($baseurl . 'public/vendors/dracula/vendor/raphael.js');
-Yii::app()->clientScript->registerScriptFile($baseurl . 'public/vendors/dracula/lib/dracula_graffle.js');
-Yii::app()->clientScript->registerScriptFile($baseurl . 'public/vendors/dracula/lib/dracula_graph.js');
-Yii::app()->clientScript->registerScriptFile($baseurl . 'public/js/main.js');
+Yii::app()->clientScript->registerScriptFile($baseurl . '/public/vendors/dracula/vendor/raphael.js');
+Yii::app()->clientScript->registerScriptFile($baseurl . '/public/vendors/dracula/lib/dracula_graffle.js');
+Yii::app()->clientScript->registerScriptFile($baseurl . '/public/vendors/dracula/lib/dracula_graph.js');
+Yii::app()->clientScript->registerScriptFile($baseurl . '/public/js/main.js');
 ?>
 
 <div id="canvas"></div>

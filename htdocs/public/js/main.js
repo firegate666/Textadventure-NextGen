@@ -90,9 +90,9 @@ var Adventure = {
 			 */
 			initEvents: function() {
 				"use strict";
-				$('#canvas svg .adventure-step').live('mouseenter', function(e) {
+				$('body').on('mouseenter', '#canvas svg .adventure-step', function(e) {
 					Adventure.tooltip.show(e, Adventure.graph.i_nodes[this.id].name, Adventure.graph.i_nodes[this.id].description);
-				}).live('mouseleave', function() {
+				}).on('mouseleave', '#canvas svg .adventure-step',function() {
 					Adventure.tooltip.hide();
 				});
 			},
