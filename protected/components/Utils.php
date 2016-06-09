@@ -15,7 +15,7 @@ class Utils {
 	public static function bool2icon($boolean, $tooltip = '', $true_icon = 'success', $false_icon = 'error')
 	{
 		$baseurl = Yii::app()->request->baseUrl;
-		$iconpath = 'public/images/icons/';
+		$iconpath = '/public/images/icons/';
 		$icon = $boolean ? $true_icon : $false_icon;
 		$ext = '.png';
 		return CHtml::image($baseurl . $iconpath . $icon . $ext, $tooltip, array('title' => $tooltip));		
