@@ -22,3 +22,5 @@ cache.properties
 .externalToolBuilders
 vendor/*
 
+/.user.ini
+
