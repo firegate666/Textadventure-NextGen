@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "28c5d54b7258797c543748ae4e2cabba",
-    "content-hash": "671dce57b49f5c22d00a9e1b214e4d95",
+    "hash": "615bccca0f0492b19b3cc04c7ff79deb",
+    "content-hash": "412e9744e04290fa5f93186ffe09f47d",
     "packages": [
         {
             "name": "firegate666/SeaWars2---Java-Server---Tools",
@@ -13,16 +13,6 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/firegate666/SeaWars2---Java-Server---Tools",
-                "reference": "master"
-            },
-            "type": "library"
-        },
-        {
-            "name": "strathausen/dracula",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/strathausen/dracula.git",
                 "reference": "master"
             },
             "type": "library"

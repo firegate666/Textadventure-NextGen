@@ -8,13 +8,13 @@ $this->breadcrumbs = array(
 $baseurl = Yii::app()->request->baseUrl;
 Yii::app()->clientScript->registerCoreScript('jquery');
 
-$raphael_js = Yii::app()->assetManager->publish(__DIR__ . '/../../../htdocs/public/vendors/dracula/vendor/raphael.js');
+$raphael_js = Yii::app()->assetManager->publish(__DIR__ . '/../../../htdocs/public/js/libs/dracula/vendor/raphael.js');
 Yii::app()->clientScript->registerScriptFile($raphael_js);
 
-$dracula_graffle_js = Yii::app()->assetManager->publish(__DIR__ . '/../../../htdocs/public/vendors/dracula/lib/dracula_graffle.js');
+$dracula_graffle_js = Yii::app()->assetManager->publish(__DIR__ . '/../../../htdocs/public/js/libs/dracula/lib/dracula_graffle.js');
 Yii::app()->clientScript->registerScriptFile($dracula_graffle_js);
 
-$dracula_graph_js = Yii::app()->assetManager->publish(__DIR__ . '/../../../htdocs/public/vendors/dracula/lib/dracula_graph.js');
+$dracula_graph_js = Yii::app()->assetManager->publish(__DIR__ . '/../../../htdocs/public/js/libs/dracula/lib/dracula_graph.js');
 Yii::app()->clientScript->registerScriptFile($dracula_graph_js);
 
 $main_js = Yii::app()->assetManager->publish(__DIR__ . '/../../../htdocs/public/js/main.js');

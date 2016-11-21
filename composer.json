@@ -26,8 +26,7 @@
 	"require": {
 		"yiisoft/yii": ">=1.1.14",
 		"firegate666/SeaWars2---Java-Server---Tools": "*",
-		"stubbornella/csslint": "1.0.0",
-		"strathausen/dracula": "1.0.0"
+		"stubbornella/csslint": "1.0.0"
 	},
 	"repositories": [
 		{
@@ -53,18 +52,6 @@
 				"version": "1.0.0",
 				"source": {
 					"url": "https://github.com/stubbornella/csslint.git",
-					"type": "git",
-					"reference": "master"
-				}
-			}
-		},
-		{
-			"type": "package",
-			"package": {
-				"name": "strathausen/dracula",
-				"version": "1.0.0",
-				"source": {
-					"url": "https://github.com/strathausen/dracula.git",
 					"type": "git",
 					"reference": "master"
 				}
