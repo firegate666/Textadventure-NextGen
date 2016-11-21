@@ -148,7 +148,8 @@ class AdventureStepOption extends MetaInfo implements JsonSerializable
 	{
 		return [
 			'key' => $this->key,
-			'stage' => $this->targetStep->stepId
+			'stage' => $this->targetStep->stepId,
+			'name' => $this->name
 		];
 	}
 }
