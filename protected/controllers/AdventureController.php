@@ -40,7 +40,7 @@ class AdventureController extends Controller
 				'users' => array('*'),
 			),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions' => array('index', 'view', 'start', 'reset', 'json'),
+				'actions' => array('index', 'view', 'start', 'reset'),
 				'users' => array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
