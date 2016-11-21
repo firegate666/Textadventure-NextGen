@@ -25,4 +25,9 @@ $inputElementPrefix = '[' . $index . ']';
 		<?=$form->error($model,'name'); ?>
 	</div>
 
+	<div class="row">
+		<?=$form->labelEx($model,'key'); ?>
+		<?=$form->textField($model, $inputElementPrefix . 'key',array('size'=>3,'maxlength'=>1)); ?>
+		<?=$form->error($model,'key'); ?>
+	</div>
 </div><!-- form -->

@@ -82,7 +82,7 @@ $form = $this->beginWidget('CActiveForm', array(
 		<?php
 			foreach($adventureSteps as $index => $step) {
 				$step->adventure = $model->id;
-				$panels[$step->name] = $this->renderPartial('/adventureStep/_formrow', array(
+				print $panels[$step->name] = $this->renderPartial('/adventureStep/_formrow', array(
 					'model' => $step,
 					'parent' => $model,
 					'form' => $form,
@@ -93,13 +93,13 @@ $form = $this->beginWidget('CActiveForm', array(
 
 		<h2>Adventure Steps</h2>
 
-		<?php $this->widget('zii.widgets.jui.CJuiAccordion', array(
+		<?php /*$this->widget('zii.widgets.jui.CJuiAccordion', array(
 			'panels' => $panels,
 			// additional javascript options for the accordion plugin
 			'options' => array(
 				'animated' => 'bounceslide',
 			),
-		)); ?>
+		));*/ ?>
 
 	<?php endif ?>
 

@@ -82,15 +82,15 @@ $panels = array();
 			}
 		?>
 
-		<h3>Adventure Step Options</h2>
+		<h3>Adventure Step Options</h3>
 
-		<?php $this->widget('zii.widgets.jui.CJuiAccordion', array(
+		<?php /*$this->widget('zii.widgets.jui.CJuiAccordion', array(
 			'panels'=>$panels,
 			// additional javascript options for the accordion plugin
 			'options'=>array(
 				'animated'=>'bounceslide',
 			),
-		)) ?>
+		))*/ ?>
 
 	<?php endif ?>
 

@@ -36,7 +36,7 @@ class AdventureController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions' => array('index', 'view', 'start', 'reset'),
+				'actions' => array('index', 'view', 'start', 'reset', 'json'),
 				'users' => array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -51,6 +51,24 @@ class AdventureController extends Controller
 				'users' => array('*'),
 			),
 		);
+	}
+
+	public function actionJson($id) {
+		if (empty($id))
+		{
+			throw new CHttpException(404, 'Adventure not found');
+		}
+
+		$model = $this->loadModel($id);
+
+		if ($model === null)
+		{
+			throw new CHttpException(404, 'Adventure not found');
+		}
+
+		header('Content-type: text/javascript');
+		print json_encode($model, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+		exit(0);
 	}
 
 	/**

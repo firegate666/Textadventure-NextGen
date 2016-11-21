@@ -14,7 +14,7 @@
  *
  * @static AdventureStepOption model
  */
-class AdventureStepOption extends MetaInfo
+class AdventureStepOption extends MetaInfo implements JsonSerializable
 {
 
 	/**
@@ -36,6 +36,7 @@ class AdventureStepOption extends MetaInfo
 			array('parent, target, name', 'required'),
 			array('parent, target', 'numerical', 'integerOnly' => true),
 			array('name', 'length', 'max' => 256),
+			array('key', 'length', 'max' => 1),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, parent, target, name', 'safe', 'on' => 'search'),
@@ -136,4 +137,18 @@ class AdventureStepOption extends MetaInfo
 		return false;
 	}
 
+	/**
+	 * Specify data which should be serialized to JSON
+	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+	 * @return mixed data which can be serialized by <b>json_encode</b>,
+	 * which is a value of any type other than a resource.
+	 * @since 5.4.0
+	 */
+	function jsonSerialize()
+	{
+		return [
+			'key' => $this->key,
+			'stage' => $this->targetStep->stepId
+		];
+	}
 }

@@ -16,7 +16,7 @@
  *
  * @static AdventureStep model
  */
-class AdventureStep extends MetaInfo
+class AdventureStep extends MetaInfo implements JsonSerializable
 {
 
 	/**
@@ -264,4 +264,19 @@ class AdventureStep extends MetaInfo
 		return false;
 	}
 
+	/**
+	 * Specify data which should be serialized to JSON
+	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+	 * @return mixed data which can be serialized by <b>json_encode</b>,
+	 * which is a value of any type other than a resource.
+	 * @since 5.4.0
+	 */
+	function jsonSerialize()
+	{
+		return [
+			'id' => $this->stepId,
+			'description' => strip_tags($this->description),
+			'choices' => $this->stepOptions
+		];
+	}
 }

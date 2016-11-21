@@ -29,6 +29,12 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?=$form->error($model,'name'); ?>
 	</div>
 
+	<div class="row">
+		<?=$form->labelEx($model,'key'); ?>
+		<?=$form->textField($model,'key',array('size'=>3,'maxlength'=>1)); ?>
+		<?=$form->error($model,'key'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?=CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
