@@ -72,7 +72,7 @@ $panels = array();
 		<?php
 			foreach($model->stepOptions as $next_index => $option) {
 				$option->parent = $model->id;
-				$panels[$option->name] = $this->renderPartial('/adventureStepOption/_formrow', array(
+				print $panels[$option->name] = $this->renderPartial('/adventureStepOption/_formrow', array(
 					'model' => $option,
 					'parent' => $model,
 					'form' => $form,
