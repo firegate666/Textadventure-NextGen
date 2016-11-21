@@ -36,6 +36,10 @@ class AdventureController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions' => array('json'),
+				'users' => array('*'),
+			),
+			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions' => array('index', 'view', 'start', 'reset', 'json'),
 				'users' => array('@'),
 			),
