@@ -63,7 +63,7 @@ class AdventureController extends Controller
 			throw new CHttpException(404, 'Adventure not found');
 		}
 
-		$model = $this->loadModel($id);
+		$model = $this->loadModel($id, false);
 
 		if ($model === null)
 		{
