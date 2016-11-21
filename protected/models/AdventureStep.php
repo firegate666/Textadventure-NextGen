@@ -276,6 +276,7 @@ class AdventureStep extends MetaInfo implements JsonSerializable
 		return [
 			'id' => $this->stepId,
 			'description' => strip_tags($this->description),
+			'name' => $this->name,
 			'choices' => $this->stepOptions
 		];
 	}
