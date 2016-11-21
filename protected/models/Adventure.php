@@ -474,6 +474,8 @@ class Adventure extends MetaInfo implements JsonSerializable
 
 		$data = [
 			'start' => $startingPoint->stepId,
+			'name' => $this->name,
+			'description' => $this->description,
 			'stages' => $this->adventureSteps
 		];
 
