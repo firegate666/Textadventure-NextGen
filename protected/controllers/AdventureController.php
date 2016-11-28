@@ -57,21 +57,34 @@ class AdventureController extends Controller
 		);
 	}
 
-	public function actionJson($id) {
-		if (empty($id))
-		{
-			throw new CHttpException(404, 'Adventure not found');
-		}
+	/**
+	 * returns adventure model by id or list of adventures if id is null
+	 */
+	public function actionJson($id = null) {
+		$result = null;
+		
+		if (empty($id)) {
+			$list = Adventure::model()->findAll();
+			$result = [];
+			
+			foreach ($list as $entry) {
+				$result[] = [
+					'id' => $entry->id,
+					'name' => $entry->name,
+					'description' => $entry->description
+				];
+			}
+		} else {
+			$result = $this->loadModel($id, false);
 
-		$model = $this->loadModel($id, false);
-
-		if ($model === null)
-		{
-			throw new CHttpException(404, 'Adventure not found');
+			if ($result === null)
+			{
+				throw new CHttpException(404, 'Adventure not found');
+			}
 		}
 
 		header('Content-type: text/javascript');
-		print json_encode($model, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+		print json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 		exit(0);
 	}
 
@@ -402,7 +415,7 @@ class AdventureController extends Controller
 			throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
 		}
 	}
-
+	
 	/**
 	 * Show all adventures to select one to start with
 	 *
@@ -436,9 +449,12 @@ class AdventureController extends Controller
 		$criteria_is_running->addInCondition($adventure_model->quotedCol('state'), array_keys(Adventure::runningStates()), 'AND');
 		$dataProvider->setCriteria($criteria_is_running);
 
-		$this->render('index', array(
-			'dataProvider' => $dataProvider,
-		));
+		$this->render(
+			'index', 
+			array(
+				'dataProvider' => $dataProvider,
+			)
+		);
 	}
 
 	/**
