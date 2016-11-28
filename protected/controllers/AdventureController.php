@@ -65,10 +65,10 @@ class AdventureController extends Controller
 		
 		if (empty($id)) {
 			$list = Adventure::model()->findAll();
-			$result = [];
+			$result = ['adventures' => []];
 			
 			foreach ($list as $entry) {
-				array_push($result, [
+				array_push($result['adventures'], [
 					'id' => $entry->id,
 					'name' => $entry->name,
 					'description' => $entry->description
