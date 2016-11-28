@@ -68,11 +68,11 @@ class AdventureController extends Controller
 			$result = [];
 			
 			foreach ($list as $entry) {
-				$result[] = [
+				array_push($result, [
 					'id' => $entry->id,
 					'name' => $entry->name,
 					'description' => $entry->description
-				];
+				]);
 			}
 		} else {
 			$result = $this->loadModel($id, false);
