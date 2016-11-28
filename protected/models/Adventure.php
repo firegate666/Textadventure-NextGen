@@ -473,6 +473,7 @@ class Adventure extends MetaInfo implements JsonSerializable
 		$startingPoint = AdventureStep::model()->findByAttributes(['startingPoint' => true, 'adventure' => $this->id]);
 
 		$data = [
+			'id' => $this->id,
 			'start' => $startingPoint->stepId,
 			'name' => $this->name,
 			'description' => $this->description,
